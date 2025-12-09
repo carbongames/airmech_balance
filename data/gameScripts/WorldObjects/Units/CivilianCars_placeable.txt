@@ -1,0 +1,83 @@
+
+add WorldObject initFrom TemplateMedium
+	set Name CivilianCarC
+ 	set Model Units/Civilian/CarC.amf
+ 	set Material "mat_CivilianCarC<"
+	set RangeArc 0
+	set DestroySounds DestroyArmoredCar.wav
+	set VisionRange 20
+	set RadarRange 23
+	set Range 0
+	set HitPoints 200	// original value 160
+	set CarryWeight 650
+	set MoveSpeed 5.0
+	set TerrainNormalAdjustmentRate 0.08
+	set Mass 100.0
+	set LinearDamp 0.2
+	set AngularDamp 3.0
+	set UnitTurnRate 90.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 5
+	set Deceleration 5
+	set MoveWhileTurningMaxAngle 360 // 360 needed to do the 3-point turn
+	set SalvageValue 208
+	set SalvageTime 3.5
+	set SteerWheelAngConv 0.8
+	set UnitSpawnOnDestroy "Civilian"
+	set UnitSpawnOnDestroyChance 100
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/ArmoredCar/ArmoredCarDxBody.amf /mtl:mat_ArmoredCarDx< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.6 0.4 0.9] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxGun.amf /mtl:mat_ArmoredCarDx< /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxCap.amf /mtl:mat_ArmoredCarDx< /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxBumper.amf /mtl:mat_ArmoredCarDx< /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx< /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx< /bne:bone_xwheel2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxGuard.amf /mtl:mat_ArmoredCarDx< /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxEngine.amf /mtl:mat_ArmoredCarDx< /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom CivilianCarC
+	set Name CivilianCarC_CleanBlue
+ 	set Material "mat_CivilianCarC_CleanBlue<"
+
+add WorldObject initFrom CivilianCarC
+	set Name CivilianCarC_CleanGreen
+ 	set Material "mat_CivilianCarC_CleanGreen<"
+
+add WorldObject initFrom CivilianCarC
+	set Name CivilianCarC_CleanWhite
+ 	set Material "mat_CivilianCarC_CleanWhite<"
+
+add WorldObject initFrom CivilianCarC
+	set Name CivilianCarC_CleanRed
+ 	set Material "mat_CivilianCarC_CleanRed<"
+
+add WorldObject initFrom CivilianCarC
+ 	set Name CivilianCarA
+ 	set Model Units/Civilian/CarA.amf
+ 	set Material "mat_CivilianCarA<"
+
+add WorldObject initFrom CivilianCarA
+ 	set Name CivilianCarA_CleanGreen
+ 	set Material "mat_CivilianCarA_CleanGreen<"
+
+add WorldObject initFrom CivilianCarA
+ 	set Name CivilianCarA_CleanBlue
+ 	set Material "mat_CivilianCarA_CleanBlue<"
+
+add WorldObject initFrom CivilianCarA
+ 	set Name CivilianCarA_CleanRed
+ 	set Material "mat_CivilianCarA_CleanRed<"
+
+add WorldObject initFrom CivilianCarA
+ 	set Name CivilianCarA_CleanWhite
+ 	set Material "mat_CivilianCarA_CleanWhite<"
+
+add WorldObject initFrom CivilianCarA
+ 	set Name CivilianCarRand
+ 	set StateController CivilianCarRand
+
+add WorldObject initFrom CivilianCarA_CleanBlue
+ 	set Name CivilianCarAFast
+	set MoveSpeed 5.0
+

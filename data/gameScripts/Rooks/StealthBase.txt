@@ -1,0 +1,283 @@
+// ===========================
+// Rook "Stealth" Settings
+// ===========================
+#include Common.txt
+BaseName = Stealth
+RookStateController = RookTitanStealth
+// ===============
+// General
+// ===============
+HullMaxStrength = 1700
+//RespawnCreditsCost = 5000
+
+//FuelCapacity = 10
+//Fuel_OnStart = 10
+//FuelConsumption = 0.5					// - units of fuel used per second of full thrust
+//FuelConsumptionRobotScalar = 0.15			// - scalar to fuel consumption for robot mode
+//FuelRegenOnGroundNoMoveOrFire = 2.0						// - fuel regeneration rate when on the ground - per second
+
+TransportHPCapacity = 2500
+
+RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by pilot bonus)
+//RespawnTimer = 1.5				// - number of second to respawn at base after we've been destroyed (was 1 second)
+
+WeaponType = 55
+SpecialWeaponType = 80.0	// mantis strike 'weapontype' (piercing value)
+MeleeWeaponType = 50
+ArmorType = 75
+GndProjDPS = 246				// - how much damage our weapon does per second (in robot mode)
+AirProjDPS = 350				// - how much damage our weapon does per second (in air mode)
+
+DefaultUberPowerup = "UberBombs 200"
+
+// Translation
+ShipLinearDamping = 6.4
+AirThrustMultWhenFiring = 0.72
+TransportLinearDamping = 9.5 // Transport is the flying mode while carrying a unit. This makes you fly slower and use more fuel.
+AirMoveForceMultWhenNoFuel = 0.65
+RobotLinearDamping = 12.0
+//TransportLinearDampCalcNominalHP = 730
+TransportLinearDampBase = 6.9
+
+ImpactRollScalar = 0.5 // reduce impact roll, since the bomber is so wide
+
+// ===============
+// Visual Elements
+// ===============
+//
+AirMesh = rooks/Stealth/StealthAir.amf
+GndMesh = rooks/Stealth/StealthRobot.amf
+AirMechMaterials = "" //mat_AirMechStealth
+AirMechModelMats = AirMechStealth
+RespawnMesh = rooks/Stealth/StealthRespawn.amf
+RespawnAnimation = rooks/Stealth/StealthRespawn.aaf
+
+AirToGroundAnim = rooks/Stealth/StealthAirToGround.aaf
+GroundToAirAnim = rooks/Stealth/StealthGroundToAir.aaf
+
+GroundIdleAnim = rooks/Stealth/GroundIdle.aaf
+GroundMoveCycleAnim_Fwd = rooks/Stealth/GroundMoveForward.aaf
+GroundMoveCycleAnim_Back = rooks/Stealth/GroundMoveBackward.aaf
+GroundMoveCycleAnim_Left = rooks/Stealth/GroundMoveLeft.aaf
+GroundMoveCycleAnim_Right = rooks/Stealth/GroundMoveRight.aaf
+
+GroundMoveCycleAnimSpeedMult = 0.20
+GroundMoveBackCycleAnimSpeedMult = 0.20
+
+TransportMesh = rooks/FighterA/AirMechFighterTransport.amf		// mesh of attachment to normal mesh for carrying units
+TransportMaterial = mat_AirMechTransport
+
+HoverAnimation = AirMechFighterHover.aaf
+
+//GndMeleeAnimation = rooks/Stealth/AttackA.aaf
+//GndMelee2Animation = rooks/Stealth/AttackB.aaf
+//GndMelee3Animation = rooks/Stealth/AttackC.aaf
+GndMeleeNextTimes = "0.2 0.2 0.6"
+GndMeleeResetTimes = "0.3 0.4 0.9"	// window for next transition given input
+GndMeleePfx = ShotSliceOrange
+GndMeleeDmg = "161.0 2.4 2.4"	// dmg, maxdmgdist, mindmgdist (blast settings)
+
+AbilityChargeUpStart = rooks/Stealth/SpecialStart.aaf
+AbilityChargeUpLoop = rooks/Stealth/SpecialLoop.aaf
+AbilityChargeUpRelease = rooks/Stealth/SpecialRelease.aaf
+AbilityChargeUpCancel = rooks/Stealth/SpecialCancel.aaf
+
+// ========================
+// Movement (Vehicle - Air)
+// ========================
+//
+// Rotation
+ShipMaxRotThrust = 290			// - max degrees per second the ship can turn (not physics based)
+ShipMaxRotTorque  = 666000		// - max rotational torque for the fine control thrusters (physics based)
+RobotMaxRotTorque = 0			// - max rotational torque when in robot mode (controls robot mode rotation speed)
+RobotMaxRotTorqueTurnOnlyMode = 400000
+ShipAngularDamping = 30.0
+
+ShipBankingAngleSlewDown = 0.2		// - banking angle slew rate to use when target angle is decreasing
+ShipBankingAngleSlewUp = 0.35		// - banking angle slew rate to use when target angle is increasing
+ShipBankingAngleClipAbsMax = 70.0	// - max banking angle (negative and positive) the engine will clip to
+
+
+// ============
+// HAT STUFF
+// ============
+//
+//
+HatOffset = "0 -0.135 -0.1"
+
+BoneRefPairs = AuraRoot, bone_root, AuraRootGnd, bone_spine_1, AuraShoulderL, bone_cover_L_2, AuraShoulderR, bone_cover_R_2, AuraHandL bone_blade_L_3, AuraHandR bone_blade_R_3
+
+
+// ============
+// Weapon Stuff
+// ============
+
+AirProjFireRate = 20			// - fire rate - in air mode - rounds per second
+AirProjFirePoint1 = "0.7 0.35 -0.2"		// - weapon fire point 1 (cycles between 1 and 2)
+AirProjFirePoint2 = "-0.7 0.35 -0.2"		//
+GndProjFireBone1 = "bone_upperbody" //"bone_forearm_r"
+GndProjFireOffset1 = "0.0 0.25 0.3"
+GndProjFireBone2 = "bone_forearm_l"
+GndProjFireOffset2 = "0.0 0.25 0.3"
+LaserImpactSounds_Air = ""
+GndProjParticlesFAF = ShotSpinBladeOrange, ShotSpinBladeOrangeSmall			// - particle system to use for the shot projectile - air mode (fire and forget style)
+AirProjParticlesFAF = "TracerAirMechChopper"		// - particle system to use for the shot projectile - air mode (fire and forget style)
+
+// ===========================
+// Destruction Spawners
+// ===========================
+// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+// : valid Tags: dcl, dch
+//
+DestructionEffects = "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxBody_r.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxBody_l.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxWing.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.4 0.25]" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxCockpit.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /vcb:100" "2 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxEngine.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.25 0.25 0.15]" "2 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthDxTail.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "4 0.2 0    1 1   0 0.2   BlackSmoke" "1 0.2 0    0.5 0  0 0 	ExplosionSeq ExplosionSeq3" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare" "12 1 0.5  2.4 2  2 10  /mdl:units/ArmoredCar/ArmoredCarDxGlass.amf /reqVis /nocol /mtl:mat_ArmoredCar /trq:-10 /wgl:1000 /col [Sphere 0.1]"
+GndDestructionEffects = "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxShoulder.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxGun.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.2 0.25] /mas:10" "1 1.2 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxHead.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Sphere 0.3] /mas:10 /vcb:100 /reqVis" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxLeg.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxArm.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Stealth/StealthRobotDxFoot.amf /mtl:mat_AirMechStealthDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "5 1 1  0.5 3   0 0  AirMechPieces  /vcb:100 /reqVis" "1 0.2 0  0.5 0    0 0 ExplosionSeq3  /vcb:100 /reqVis" "1 0.2 0    0.5 0  0 0 ExpBlastRingSmall UnitPickupFromRook /reqVis" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare"
+
+
+// =======================
+// Wingtip Particle System
+// =======================
+//
+//
+WingtipPoint1				"-1.45 -0.68 0.05"			// - maybe this should take a bone instead? or a bone as an optional property?
+WingtipPointBone1			"bone_r_wing_end"
+WingtipPoint2				"1.45 -0.68 0.05"
+WingtipPointBone2			"bone_l_wing_end"
+//WingtipPoint3				"-0.65 -0.98 0.65"
+//WingtipPoint4				"0.65 -0.98  0.65 "
+WingtipParticles1 =			Contrails
+WingtipParticles2 =			Contrails
+
+//RequiredSpeedForGroundContrails = 2.0
+GroundContrailsBone1 = "bone_pauldron_R"
+GroundContrailsOffset1 = "0.93 -0.14 0"
+GroundContrailsBone2 = "bone_pauldron_L"
+GroundContrailsOffset2 = "0.93 -0.14 0"
+GroundContrailsBone3 = ""
+GroundContrailsOffset3 = "0 0 0"
+GroundContrailsBone4 = ""
+GroundContrailsOffset4 = "0 0 0"
+GroundContrailsPfx1 = ""
+GroundContrailsPfx2 = ""
+GroundContrailsPfx3 = ""
+GroundContrailsPfx4 = ""
+
+// =======================
+// Wing Fold System
+// =======================
+//
+//
+WingBone1 = "bone_r_cover"
+WingBone2 = "bone_l_cover"
+WingBone3 = ""
+WingBoneRotationMax1 = 13.0
+WingBoneRotationMax2 = -13.0
+WingBoneRotationMax3 = 0.0
+WingFoldSpeedMin = 4
+WingFoldSpeedMax = 10
+WingFoldSlewRate = 0.75
+WingFoldSlewRateReduce = 0.75		// - the slew rate on reduce (slowing down)
+
+// ==============================================
+// Rotating stuff
+// - somewhat generalized, but initially created
+// - for the chopper "bone deg/sec"
+// ==============================================
+ZSpinDef_1 = "mesh_l_fan  		-500.0	/noAccel"
+ZSpinDef_2 = "mesh_r_fan 		500.0	/noAccel"
+
+
+// =============================================
+// connection points for recharge lines of POWER
+// =============================================
+//
+//
+RechargeBones = bone_r_wing_end, bone_l_wing_end, bone_root, bone_r_engine, bone_l_engine
+
+// ==================
+// Particle Effects
+// ==================
+//
+EngineThrustParticles = ShipThrustersMin
+Engine1ThrustPosByBone = "bone_l_engine"
+Engine2ThrustPosByBone = "bone_r_engine"
+Engine1ThrustPosOffset = "0.21 -0.95 0.05"			// - local point location of first engine - engine locations are used for particle effects
+Engine2ThrustPosOffset = "-0.21 -0.95 0.05"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustPosOffsetPhysics = "1.25 -0.67 0"			// - local point location of first engine - engine locations are used for physics effects
+Engine2ThrustPosOffsetPhysics = "-1.25 -0.67 0"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+Engine2ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+
+
+GndProjFireRate = 13			// - fire rate - in robot mode - rounds per second - determined/driven by sound resource
+AirProjFireRate = 13			// - fire rate - in air mode - rounds per second
+
+// ===================
+// StealthBomber Audio
+// ===================
+//
+
+AirAudioLoop1 = BomberHover.wav		// - this is the middle pitch loop
+AirAudioLoop1_MinVol = 100
+AirAudioLoop1_MaxVol = 0
+AirAudioLoop1_MinFreq = 1.0
+AirAudioLoop1_MaxFreq = 1.0
+AirAudioLoop1_Input = 1				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop1_SlewRate =  0.12			// - slew rate of input value
+
+AirAudioLoop2 = BomberFly.wav		// - this is the low pitch loop
+AirAudioLoop2_MinVol = -1 // cross fade hack
+AirAudioLoop2_MaxVol = -1
+AirAudioLoop2_MinFreq = 1.0
+AirAudioLoop2_MaxFreq = 1.12246			// +2 semitones
+AirAudioLoop2_Input = 22				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop2_SlewRate = 0.08			// - slew rate of input value
+
+
+// =====================================================
+// Stealth ability / special mode, on the Stealth Bomber
+// =====================================================
+
+
+AirSpecialMode = Bombs
+GndSpecialMode = ChargeShot
+ActivatedHeldAbility = Whirlwind
+
+EnterSpecialModeWaitStateTimer = 0.25					// - wait state timer when entering special mode (no fire or move)
+LeaveSpecialModeWaitStateTimer = 0.25					// - wait state timer when exiting special mode (no fire or move)
+DoSpecialActionWaitStateTimer = 0.0						// - not used for missiles
+
+// ========================================================
+// Shield special settings.
+// ========================================================
+ShieldFuelToMaintain = 0.1
+ShieldSphere = "1.8 1.25 0"		// scale, zoffset, unused
+ShieldDamageSoak = 0.5
+ShieldEnergySoak = 0.1
+
+// ========================================================
+// Bombs special settings.
+// ========================================================
+BombWiggle = 150
+BombLifespan = 2.0
+BombVelocity = 3.0
+BombDamage = "50 40 5.0"		// direct, blast, blast radius
+BombVelPass = 0.25
+BombFuelToLoad = 5.0
+BombingRunVelocityControl = "0.75 1.0 0.35 29.0" // time block mult at min speed, min speed, time block mult at max speed, max speed
+BombingCharges = 0, 1, 3, 6, 9
+BombNapalmLevel = 1
+
+// ==============================
+// AirMech Abilities (Leveled Up)
+// ==============================
+//
+Abilities=Bombs, ChargeShot, GndSpeed, Whirlwind //, EnergyDrain, Infantry, Guardian, LevelUp
+AbilityAIUpgradeOrder=0, 7, 5, 1, 2, 6, 4, 3  // individual points order, afterwhich, original logic takes over
+AbilityPassiveSlot=2
+AbilityPassive2Slot=4	// optional, second passive slot
+AbilityHeldActiveSecondarySlot=3 // optional, held activated secondary ability slot (like Glide/Whirlwind)
+
+// ==============================
+// Attachments
+// ==============================
+// BannerFlagAttachment = "factions/Banner02.amf FactionEmblem< bone_spine_1 /ragdoll factions/banner01.txt /offset 0 0 0 /rotate 15 90 0"

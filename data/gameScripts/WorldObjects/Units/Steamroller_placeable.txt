@@ -1,0 +1,66 @@
+add WorldObject initFrom TemplateTank
+	set Name Steamroller
+	set StateController Steamroller
+	set Model units/Steamroller/Steamroller.amf
+	set Material "mat_Steamroller"
+	set MoveAnimation units/Steamroller/Idle.aaf
+	set IdleAnimation units/Steamroller/Idle.aaf
+	set IdleAnimationSpeed 0.7
+	set RangeArc 360
+	set TgtD_Infantry 8.0
+	set TgtD_Turrets 0.8
+	set TgtD_Outposts 4.0
+	set SalvageValue 940
+	set SalvageTime 4
+	set BoneFirePoint ""
+	set ShotProjEffects TankShell
+	set DestroySounds DestroyTank
+	set FireAnimation ""
+	set PowerGen -3
+	set ShotSpeed 50
+	set ShotSize "0.05 1.2	0.0"
+	set ShotLifespan 0.8
+	set ShotDamageVelocityInfluence 0.0
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotAimLeadingEffectiveness 0.5
+	set RotationResetDelay 2.0
+	set RotationResetDelayRandom 5.0
+	set AimWanderSpeed 0.2
+	set AimTurnRate 150
+	set FireDelay 1.3
+	set CarryWeight 4000
+	set HitPoints 4200
+	set WeaponType 10.0
+	set ArmorType 40.0
+	set MeleeDPS 120
+	set VisionRange 18
+	set RadarRange 12
+	set Range 12
+	set MoveSpeed 3.0
+	set AtTargetDistance 1.2
+	set TreadMarkDecalDef1 "tankTreads -0.53 -0.3 0.35"
+	set TreadMarkDecalDef2 "tankTreads 0.53 -0.3 0.35"
+	set ZSpinDefs "bone_roller 250.0" // this needs to be the first zspin def, since we will control it with code in the drill tank's sim tick handler
+	set Mass 50000.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set UnitTurnRate 60.0
+	set MoveWhileTurningMaxAngle 25
+	set Acceleration 1.0
+	set Deceleration 2.0
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 10
+	set AimWanderSpeed 0.2
+	set ProtectedHitZone Front
+	set CanHitAir 0
+	set CanHitGround 0
+	set NavmeshAvoid 0
+	set ZSpinDefs "mesh_tires 200.0 /wheel"
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Steamroller/SteamrollerDxBody.amf /mtl:mat_SteamrollerDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.45 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/Steamroller/SteamrollerDxFront.amf /mtl:mat_SteamrollerDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.5 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/Steamroller/SteamrollerDxTop.amf /mtl:mat_SteamrollerDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.3 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/Steamroller/SteamrollerDxTire.amf /mtl:mat_SteamrollerDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.8 0.3] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/Steamroller/SteamrollerDxTire.amf /mtl:mat_SteamrollerDx /bne:bone_xtread_r /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.8 0.3] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/Steamroller/SteamrollerDxBack.amf /mtl:mat_SteamrollerDx /bne:bone_xbody /emt:H /grp:Debris /col [Group Debris Box 0.4 0.15 0.15] /skt:5 /lte:50 /vcb:20 /pval:1"

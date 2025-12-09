@@ -1,0 +1,68 @@
+// Civilian
+//
+add WorldObject initFrom TemplateInfantry
+	set Name Civilian
+	set Model units/Civilian/Civilian.amf
+	set Material "mat_Civilian<"
+	set RenderScale "0.8"
+	set RangeArc 360
+	set BoneFirePoint mesh_head
+	set BoneAimHorizontal bone_waist
+	set ShotFireSounds FiringRifle.wav
+	set WeaponType 15.0
+	set ArmorType 20.0
+	set OutpostMultDmg 0.67
+	set AimTurnRate 150
+	set FireDelay 0.20
+	set ShotDodge 0.8	// ability to 'dodge' certain shot types
+	set ShotMuzzleFlash "MuzzleFlash"
+	set ShotFFParticles WhiteTrail
+	set ShotProjEffects Default
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set NavmeshIndex 1
+	set ShotDamageVelocityInfluence 0.75
+	set CanHitAir 0
+	set ShotDamage 14	// original value 2.5
+	set HitPoints 150
+	set CarryWeight 250
+	set ShotFFParticles MiniTrail
+	set PowerGen -1
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 3.5
+	set MoveAnimationSpeed 1.2
+	set MoveAnimation units/Civilian/Walk.aaf
+	set IdleAnimation units/Civilian/Idle.aaf
+	set PanicAnimation units/Civilian/Run.aaf
+	set FireAnimation units/Infantry/Idle.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set CanBePaniced 1
+	set MovePanicSpeed 5.0
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set ArmorType 25.0
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set SalvageValue 0
+	set SalvageTime 3
+
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	set DestroyDecal "OilSplat1"
+
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""

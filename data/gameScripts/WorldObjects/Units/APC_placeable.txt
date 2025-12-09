@@ -1,0 +1,83 @@
+add WorldObject initFrom TemplateMedium
+	set Name APC
+	set StateController Tank
+	set RenderScale 1.1
+	set Model units/APC/APC.amf
+	set Material "mat_APC"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel"
+	set BoneAimHorizontal "bone_pivot"
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds FiringAPC
+	set ShotProjEffects TankShell
+	set DestroySounds DestroyArmoredCar.wav
+	set PowerGen -1
+	set UnitLevelBase 13
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+	set ShotDamage 15	// - half damage because of increased rate of fire
+	set AimTurnRate 220
+	set FireDelay 0.2
+	set ShotSpeed 40
+	set ShotLifespan 1.0
+	set ShotAimLeadingEffectiveness 0.5
+	set WeaponType 30
+	set ArmorType 60
+	set VisionRange 20
+	set RadarRange 14
+	set Range 15
+	set HitPoints 800
+	set CarryWeight 1600
+	set MoveSpeed 3.0
+	set TerrainNormalAdjustmentRate 0.08
+	set AtTargetDistance 1.5
+	set Mass 200.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy Infantry
+	set UnitSpawnOnDestroyChance 25
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 60.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 10.0
+	set Deceleration 10.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set ZSpinDefs "mesh_wheel_l 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_r 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel2 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel3 200.0 /wheel"
+	set SteerWheelAngConv 0.8
+	set CanHitAir 0
+	set ShotDamageOnAirMult 0.4
+	set SalvageValue 478
+	set SalvageTime 5.5
+	set FireAnimation "units/APC/FireForward.aaf	units/APC/FireLeft.aaf units/APC/FireRight.aaf	units/APC/FireBack.aaf"
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/APC/APCDxBody.amf /mtl:mat_APCDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.9 0.4] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/APC/APCDxGun.amf /mtl:mat_APCDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.2 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  7 5   5 2  /mdl:units/APC/APCDxTire.amf /mtl:mat_APCDx /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/APC/APCDxTire.amf /mtl:mat_APCDx /bne:bone_xwheel2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	
+add WorldObject initFrom APC
+	set Name APCU
+	set Model units/APCU/APCU.amf
+	set BoneFirePoint "mesh_barrel_l"
+	set BoneFirePointAlt "mesh_barrel_r"
+	set DeployAnim units/APCU/Deploy.aaf
+	set UnitLevelBase 14
+	set MoveSpeed 4.0
+	set FireDelay 0.15
+	set ReloadTime 1.0
+	set HitPoints 1200
+	set CarryWeight 1600
+	set WeaponType 30
+	set ArmorType 70
+	set ShotDamage 15
+
+	set FireAnimation "units/APCU/FireForward0.aaf		units/APCU/FireLeft0.aaf		units/APCU/FireRight0.aaf		units/APCU/FireBack0.aaf"
+	set FireAnimationAlt "units/APCU/FireForward1.aaf		units/APCU/FireLeft1.aaf		units/APCU/FireRight1.aaf		units/APCU/FireBack1.aaf"

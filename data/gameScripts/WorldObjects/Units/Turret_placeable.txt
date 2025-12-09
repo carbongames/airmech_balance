@@ -1,0 +1,665 @@
+add WorldObject initFrom TemplateTurret
+	set Name TurretStarter
+	set StateController TurretDual
+	set Model units/TurretStarter/TurretStarter.amf
+	//set Material "mat_TurretStand mat_TurretDual"
+	set ModelMat "UnitTurretStand UnitTurretDual"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel_r02"
+	set BoneFirePointAlt "mesh_barrel_l02"
+	set BoneAimHorizontal "bone_pivot"
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	//set MissileFireSounds FiringRocket.wav
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set UnitLevelBase 5
+	set SalvageValue 640
+	set SalvageTime 5
+	set ShotDamage 40
+	set MissileDamage 50
+	set MissileSpeed 19
+	set MissileLifespan 1.9
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.5
+	set ShotDamageVelocityInfluence 0.5
+	set ShotDamageOnAirMult 1
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set AimTurnRate 125
+	set RotationResetDelay 8
+	set FireDelay 0.4
+	set FireAltDelay 0.20
+	set MissileFireDelay 0.6
+	set HitPoints 1000
+	set CarryWeight 1500
+	set WeaponType 70
+	set ArmorType 60
+	set VisionRange 22
+	set RadarRange 18
+	set Range 20
+	set FireAnimation units/TurretStarter/TurretFire.aaf
+	//set AttackPrepareAnim units/TurretDual/DoorOpen.aaf
+	//set AttackRelaxAnim units/TurretDual/DoorClose.aaf
+	set DeployAnim units/TurretStarter/LegsDown.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0 //1
+	set NeedToAimToFireMissiles 0
+	//set MissileLobFire 0.2		// time to lob up
+	//set MissileLobHeight 1.5	// height to lob to
+	set MissileCanDmgFort 0
+	set CanHitAir 0 //1
+	set CanHitGround 1
+	set MoveSpeed 0
+	set AimWanderSpeed 0.1
+	set SustainFireTime 1.2
+	set ReloadTime 1.0
+	set PowerGen -1
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   0 0  /mdl:units/TurretDual/TurretDualDxBody.amf /mmt:TurretDualDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.35 0.6 0.4] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxDoor.amf /mmt:TurretDualDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "2 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxAmmo.amf /mmt:TurretDualDx /bne:bone_xback /emt:H /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretDual
+	set StateController TurretDual
+	set Model units/TurretDual/TurretDual.amf
+	set Material "mat_TurretStand mat_TurretDual"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel_r02"
+	set BoneFirePointAlt "mesh_barrel_l02"
+	set BoneAimHorizontal "bone_pivot"
+	set BoneAimVertical "bone_pivot2"  // 0 0 90 forward - x, left - y, up - z
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	set MissileFireSounds FiringRocket.wav
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set UnitLevelBase 20
+	set SalvageValue 1220
+	set SalvageTime 5.5
+	set ShotDamage 65
+	set MissileDamage 72
+	set MissileSpeed 19
+	set MissileLifespan 1.5
+	set DBlastDmg 400			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.5
+	set ShotDamageVelocityInfluence 0.5
+	set ShotDamageOnAirMult 1
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set AimTurnRate 100
+	set RotationResetDelay 8
+	set FireDelay 0.75
+	set FireAltDelay 0.33
+	set HitPoints 1800
+	//set CarryWeight 2300
+	set WeaponType 85
+	set ArmorType 70
+	set VisionRange 21
+	set RadarRange 18
+	set Range 19
+	set FireAnimation units/TurretDual/TurretFire.aaf
+	set AttackPrepareAnim units/TurretDual/DoorOpen.aaf
+	set AttackRelaxAnim units/TurretDual/DoorClose.aaf
+	set DeployAnim units/TurretDual/LegsDown.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 1
+	set NeedToAimToFireMissiles 0
+	set MissileLobFire 0.2		// time to lob up
+	set MissileLobHeight 1.5	// height to lob to
+	set MissileCanDmgFort 0
+	set CanHitAir 1
+	set CanHitGround 1
+	set AimWanderSpeed 0.1
+	set SustainFireTime 3
+	set ReloadTime 2
+	set PowerGen -2
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 10
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   0 0  /mdl:units/TurretDual/TurretDualDxBody.amf /mmt:TurretDualDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.35 0.6 0.4] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  10 5  6 3  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_l /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  10 5  6 3  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_r /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "3 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretDualDx /bne:bone_xleg_l /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  10 6  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretDualDx /bne:bone_xleg_r /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "2 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxAmmo.amf /mmt:TurretDualDx /bne:bone_xback /emt:H /col [Sphere 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretMissile
+	set StateController TurretDual
+	set Model units/TurretMissile/TurretMissile.amf
+	set Material "mat_TurretStand mat_MissileTank"
+	set RangeArc 360
+	set BoneFirePoint "mesh_rocketbay_l"
+	set BoneFirePointAlt "mesh_rocketbay_r"
+	set BoneAimHorizontal "bone_horz"
+	set BoneAimVertical "bone_vert"
+	set MissileFireSounds FiringMissile.wav
+	set ShotMuzzleFlash LaunchPuff
+	set DestroySounds DestroyMissileTank.wav
+	set UnitLevelBase 15
+	set PowerGen -1
+	set MissileDamage 57
+	set ShotDamage 57
+	set ShotDamageOnAirMult 1
+	set ShotDamageOnGndMult 1
+	set MissileCanDmgFort 0
+	set SalvageValue 604
+	set SalvageTime 5.5
+	set DBlastDmg 400			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	//set RotationWanderMaxArc 90
+	set AimUpDefault -20
+	set AimWanderSpeed 0.03
+	set MissileModel effects/RocketMini.amf
+	set AimTurnRate 220
+	set FireDelay 0.600
+	set FireDelayNoPower 1
+	set SustainFireTime 1.2
+	set ReloadTime 0.0
+	set ShotSpeed 15
+	set MissileSpeed 22
+	set MissileLifespan 1.9
+	set CanHitAir 1
+	set CanHitGround 0
+	set HitPoints 1000
+	//set CarryWeight 1650
+	set ArmorType 70
+	set WeaponType 80
+	set VisionRange 22
+	set RadarRange 18
+	set Range 22
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set HasRegularShot 0
+	set HasMissiles 1
+	set UnitTurnRate 90
+	set MoveWhileTurningMaxAngle 30
+	set MustMoveInFacingDirection 1
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set ZSpinDefs "mesh_antenna 120"
+	set AttackPrepareAnim units/TurretMissile/DoorsOpen.aaf
+	set AttackRelaxAnim units/TurretMissile/DoorsClose.aaf
+	set DeployAnim units/TurretStarter/LegsDown.aaf
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   0 0  /mdl:units/TurretDual/TurretDualDxBody.amf /mmt:TurretDualDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.35 0.6 0.4] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  10 5  6 3  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_l /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  10 5  6 3  /mdl:units/TurretDual/TurretDualDxGun.amf /mmt:TurretDualDx /bne:bone_xleg_r /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "3 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  10 6  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_r /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "2 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxAmmo.amf /mmt:TurretDualDx /bne:bone_xback /emt:H /col [Sphere 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretChaingun
+	set StateController TurretChaingun
+	set Model units/TurretChaingun/TurretChaingun.amf
+	set Material "mat_TurretStand mat_TurretChaingun"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel"
+	set BoneAimHorizontal "bone_pivot"
+	set ShotFireSounds units/turretchain/TurretChainFire.wav
+	set ShotProjEffects ChainGunTurretShell
+	set MissileFireSounds FiringRocket.wav
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set UnitLevelBase 10
+	set SalvageValue 940
+	set SalvageTime 5.5
+	set WeaponType 5
+	set ShotDamage 26
+	set SustainFireTime 3
+	set ReloadTime 1
+	set ShotSpeed 100
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set ShotAimWiggle 150
+	set UnitSpecial LineTraceHit
+	set AimTurnRate 500
+	set RotationResetDelay 8
+	set FireDelay 0.060
+	set HitPoints 1500
+	set CarryWeight 1500
+	set VisionRange 20
+	set RadarRange 18
+	set Range 18
+	set OutpostMultDmg 0.45
+	set FireAnimation units/TurretChaingun/TurretFire.aaf
+	set DeployAnim units/TurretChaingun/LegsDown.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set NeedToAimToFireMissiles 0
+	set CanHitAir 0
+	set CanHitGround 1
+	set RotationWanderMaxArc 10
+	set AimWanderSpeed 0.1
+	set PowerGen -2
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  10 5  0 0  /mdl:units/TurretChaingun/TurretChaingunDxBody.amf /mtl:mat_TurretChaingunDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.5 0.3] /mas:3 /skt:5 /vcb:40 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretChaingun/TurretChaingunDxGun.amf /mtl:mat_TurretChaingunDx /bne:bone_xgun /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretChaingun/TurretChaingunDxAmmo.amf /mtl:mat_TurretChaingunDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretChaingun/TurretChaingunDxLid.amf /mtl:mat_TurretChaingunDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.2 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/TurretChaingun/TurretChaingunDxBody2.amf /mtl:mat_TurretChaingunDx /bne:bone_xgun /emt:Y /trq:-20 /wgl:200 /col [Box 0.3 0.3 0.6] /mas:3 /skt:6 /lte:50 /vcb:50 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   5 2  /mdl:units/TurretChaingun/TurretChaingunDxShield.amf /mtl:mat_TurretChaingunDx /bne:bone_xgun /emt:Y /trq:-20 /wgl:200 /col [Box 0.7 0.3 0.3] /mas:3 /skt:6 /lte:50 /vcb:50 /pval:1"
+
+add WorldObject initFrom TurretChaingun
+	set Name Gatty_01
+	set VariantOf TurretChaingun	// for pulling CFG data
+
+add WorldObject initFrom TurretChaingun
+	set Name TurretChaingunU
+	set Model units/TurretChaingunU/TurretChaingunU.amf
+	set RenderScale 1.025
+	set BoneFirePoint "mesh_barrel_l"
+	set BoneFirePointAlt "mesh_barrel_r"
+	set UnitLevelBase 17
+	set SustainFireTime 3.0
+	set ReloadTime 3.0
+	set FireDelay 0.045
+	set HitPoints 2000
+	set CarryWeight 1500
+	set ShotAimWiggle 85
+	set ShotDamage 26
+	set WeaponType 5
+	set FireAnimation units/TurretChaingunU/TurretFire.aaf
+	set DeployAnim units/TurretChaingunU/LegsDown.aaf
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretFlak
+	set StateController TurretFlak
+	set Model units/TurretFlak/TurretFlak.amf
+	set Material "mat_TurretStand mat_TurretFlak"
+	set RangeArc 360
+	set BoneFirePoint mesh_barrel_r01
+	set BoneFirePointAlt mesh_barrel_l01
+	set BoneFirePoint2 mesh_barrel_r02
+	set BoneFirePointAlt2 mesh_barrel_l02
+	set BoneAimHorizontal bone_horz
+	set BoneAimVertical bone_vert
+	set ShotFireSounds FiringTurret.wav
+	set ShotProjEffects FlakTurretShell
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set UnitLevelBase 15
+	set SalvageValue 1010
+	set SalvageTime 5.5
+	set DBlastDmg 100			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 5.0			// "Death Blast" Range
+	set WeaponType 60
+	set ArmorType 70
+	set ShotDamage 35
+	set ShotSpeed 120
+	set ShotSize "0.05 1.5 0"
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 1
+	set ShotLinearDamp 1.5
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set AimTurnRate 900
+	set RotationResetDelay 8
+	set FireDelay 0.3
+	set FireAltDelay 0.15
+	set FireAnimSpeed 3.333
+	set SustainFireTime 2
+	set ReloadTime 1
+	set HitPoints 1400
+	//set CarryWeight 1900
+	set VisionRange 26
+	set RadarRange 18
+	set Range 19
+	set ZSpinDefs "mesh_antenna 100"
+	set FireAnimation units/TurretFlak/TurretFire.aaf
+	set DeployAnim units/TurretFlak/LegsDown.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set CanHitAir 1
+	set CanHitGround 0
+	set CanHitAirMechAnyForm 1
+	set RotationWanderMaxArc 10
+	set AimWanderSpeed 0.1
+	set ShotDamageOnAirMult 1
+	set ShotDamageOnGndMult 1.0
+	set ShotIsAAOnly 1	// will disable collision to ground stuff (like chopper air missiles)
+	set AimUpDefault -30
+	set PowerGen -2
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  10 5  0 0  /mdl:units/TurretFlak/TurretFlakDxBody.amf /mtl:mat_TurretFlakDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.5 0.5] /skt:5 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/MissileTank/MissileTankDxAntenna.amf /mtl:mat_MissileTankDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretFlak/TurretFlakDxGun.amf /mtl:mat_TurretFlakDx /bne:bone_xleg_l /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.4 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretFlak/TurretFlakDxGun.amf /mtl:mat_TurretFlakDx /bne:bone_xleg_r /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.4 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_r /emt:H /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   5 2  /mdl:units/TurretFlak/TurretFlakDxBody2.amf /mtl:mat_TurretFlakDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TurretFlak
+	set Name HAAT_01
+	set VariantOf TurretFlak	// for pulling CFG data
+
+add WorldObject initFrom TurretFlak
+	set Name TurretFlakU
+	set Model units/TurretFlakU/TurretFlakU.amf
+	set UnitLevelBase 18
+	set FireDelay 0.3
+	set FireAltDelay 0.15
+	set FireAnimSpeed 5
+	set SustainFireTime 3
+	set ReloadTime 1
+	set HitPoints 1600
+	set CarryWeight 1400
+	set WeaponType 60
+	set ArmorType 80
+	set ShotDamage 40
+	set FireAnimation units/TurretFlakU/TurretFire.aaf
+	set DeployAnim units/TurretFlakU/LegsDown.aaf
+	set ZSpinDefs "mesh_antenna 250"
+
+
+add WorldObject initFrom TurretFlak
+	set Name TurretFlak_Story01
+	set UnitLevelBase 4
+	set HitPoints 4000
+	set ArmorType 70
+	set ShotDamage 30
+	set VisionRange 26
+	set RadarRange 18
+	set Range 19
+	set HasMissiles 0
+	set CanHitGround 0
+	set CanHitAir 1
+	set CanHitAirMechAnyForm 0
+
+
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretAegis
+	set StateController TurretAegis
+	set Model units/TurretAegis/TurretAegis.amf
+	set Material "mat_TurretStand mat_TurretAegis"
+	set UnitSpecial Aegis
+	set ShotChanceRoll 0.4 // per shot, missile shoot down chance (normalized, 0->1.  0.2 is 20%)
+	set RangeArc 360
+	set BoneFirePoint "bone_firepoint"
+	set BoneAimHorizontal bone_horz
+	set BoneAimVertical bone_vert
+	set ShotFireSounds units/turretchain/TurretChainFire.wav
+	set ShotProjEffects ChainGunTurretShell
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set UnitLevelBase 11
+	set SalvageValue 370
+	set SalvageTime 4.25
+	set WeaponType 1
+	set ArmorType 45
+	set ShotDamage 9
+	set SustainFireTime 3
+	set ReloadTime 1
+	set DBlastDmg 300			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 2.0			// "Death Blast" Range
+	set ShotSpeed 100
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotMuzzleFlash MuzzleFlash
+	set AimTurnRate 1000
+	set RotationResetDelay 8
+	set FireDelay 0.150
+	set FireDelayNoPower 1
+	set HitPoints 750
+	//set CarryWeight 750
+	set VisionRange 22
+	set RadarRange 18
+	set Range 18
+	set FireAnimation units/TurretAegis/TurretFire.aaf
+	set DeployAnim units/TurretAegis/LegsDown.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set NeedToAimToFireMissiles 0
+	set CanHitAir 1
+	set CanHitGround 0
+	set RotationWanderMaxArc 90
+	set AimUpDefault -40
+	set AimWanderSpeed 0.01
+	set PowerGen -2
+	set Attachments "units/TurretAegis/AegisLaser.amf mat_LaserGlow< bone_firepoint /fx"
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  10 5  0 0  /mdl:units/TurretAegis/TurretAegisDxBody.amf /mtl:mat_TurretAegisDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.5 0.3] /skt:5 /vcb:40 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretAegis/TurretAegisDxGun.amf /mtl:mat_TurretAegisDx /bne:bone_xgun /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretAegis/TurretAegisDxSide.amf /mtl:mat_TurretAegisDx /bne:bone_xback /emt:Y /col [Box 0.7 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretAegis/TurretAegisDxBars.amf /mtl:mat_TurretAegisDx /bne:bone_xback /emt:Y /col [Box 0.7 0.2 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretJammer
+	set StateController ""
+	set Model units/TurretJammer/TurretJammer.amf
+	set Material "mat_TurretStand mat_TurretJammer"
+	set UnitLevelBase 12
+	set SalvageValue 955
+	set SalvageTime 4.25
+	set HitPoints 1100
+	//set CarryWeight 1100
+	set WeaponType 1
+	set ArmorType 45
+	set FireDelay 0.200
+	set FireDelayNoPower 1
+	set SustainFireTime 3.0
+	set ReloadTime 1.0
+	set VisionRange 22
+	set RadarRange 26
+	set Range 18
+	set DeployAnim units/TurretJammer/LegsDown.aaf
+	set HasRegularShot 0
+ 	set HasMissiles 0
+	set NeedToAimToFireMissiles 0
+	set CanHitAir 0
+	set CanHitGround 0
+	set RotationWanderMaxArc 90
+	set RadarJamRange 30
+	set PowerGen -3
+	set ZSpinDefs "mesh_antenna 100"
+	set ZSpinDefs "mesh_radar_l 160"
+	set ZSpinDefs "mesh_radar_r -160"
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  10 5  0 0  /mdl:units/TurretJammer/TurretJammerDxBody.amf /mtl:mat_TurretJammerDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.7 0.3] /skt:5 /vcb:40 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretJammer/TurretJammerDxRadar.amf /mtl:mat_TurretJammerDx /bne:bone_xgun /emt:H /grp:DebrisM /col [Group DebrisM Sphere 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretJammer/TurretJammerDxTop.amf /mtl:mat_TurretJammerDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretJammer/TurretJammerDxBar.amf /mtl:mat_TurretJammerDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.2 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2   5 2  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TemplateTurretTall
+	set Name TurretTesla
+	set StateController TurretTesla
+	set Model units/TurretTesla/TurretTesla.amf
+	set Material mat_TurretTesla
+	set RangeArc 360
+	set BoneFirePoint bone_fp
+	set BoneFirePointAlt bone_fp
+	set BoneAimHorizontal bone_fp
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+	set PowerGen -2
+	set UnitLevelBase 14
+	set SalvageValue 1060
+	set SalvageTime 5
+	set ShotDamage 54
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set AimTurnRate 2000
+	set RotationResetDelay 8
+	set FireDelay 0.5
+	set FireDelayNoPower 1
+	set SustainFireTime 1.5
+	set ReloadTime 3.0
+	set DBlastDmg 500			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 5.0			// "Death Blast" Range
+	set HitPoints 1800
+	set CarryWeight 1800
+	set WeaponType 40
+	set ArmorType 60
+	set VisionRange 13
+	set RadarRange 13
+	set Range 15
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set CanHitAir 0 // no air targeting, and no air chaining in code - kjk update
+	set CanHitGround 1
+	set AimWanderSpeed 0.1
+	set UnitSpecial LineTraceHitStasis
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ""
+	set ShotProjEffects TeslaTower
+	set DeployAnim units/TurretTesla/Deploy.aaf
+	set IdleAnimation units/TurretTesla/Idle.aaf
+	set ZSpinDefs "geo_coil 80"
+	set ZSpinDefs "geo_coil 80"
+	set ZSpinDefs "geo_coil 80"
+	set ZSpinDefs "geo_tube -80"
+	set ZSpinDefs "bone_ring -100"
+	set ShotFireSounds ElectricZap
+	set PickupSpawnOnDestroy2 AnyPartChance
+	set PickupSpawnOnDestroyChance2 10
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretTesla/TurretTeslaDxBase.amf /mtl:mat_TurretTeslaDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxRing2.amf /mtl:mat_TurretTeslaDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxClaw.amf /mtl:mat_TurretTeslaDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "3 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxClaw.amf /mtl:mat_TurretTeslaDx /bne:bone_xside3 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "2 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxRing2.amf /mtl:mat_TurretTeslaDx /bne:bone_xside4 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxBall.amf /mtl:mat_TurretTeslaDx /bne:bone_xtop /emt:H /grp:Debris /col [Group Debris Sphere 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TurretTesla
+	set Name TurretTeslaGoth
+	set StateController TurretTeslaGoth
+	set Model units/TurretTeslaGoth/TurretTeslaGoth.amf
+	set Material mat_TurretTeslaGoth
+	set ZSpinDefs "geo_stand -160"
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretTesla/TurretTeslaDxBase.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxRing2.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxClaw.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "3 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxClaw.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xside3 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "2 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxRing2.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xside4 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TurretTesla/TurretTeslaDxBall.amf /mtl:mat_TurretTeslaGothDx /bne:bone_xtop /emt:H /grp:Debris /col [Group Debris Sphere 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+
+
+add WorldObject initFrom TurretChaingun
+	set Name TurretChaingunSneak
+	set Attachments "effects/ScanVisionGeo.amf mat_LaserGlow< bone_pivot /fx" // still not working?
+	set RotationWanderMaxArc 10 // aim cycle degree overrides this now.... not used
+	set VisionRange 15
+	set Range 14
+	set AimTurnRate 50 //was 500
+	set RangeArc 360
+	set HitPoints 500
+	set ShotDamage 40 //was 300
+	set AimCycleDegree 89.9 //Cycle doubled (frome center +-) full 90 can cause to flip
+	set PilotScanArc 45 //Detects pilot in this range doubled (frome center +-)
+	set AimWanderSpeed .5 //Speed used by Aim cycle degr
+	set RotationWanderPeriod 1 // pause time at each end of cycle
+	set FireDelayStasisMult 0.0
+
+add WorldObject initFrom TurretChaingunSneak
+	set Name TurretChaingunSneak90
+	set AimCycleDegree 44.9 //Cycle doubled (frome center +-) full 90 can cause to flip
+
+add WorldObject initFrom TurretChaingunSneak
+	set Name TurretChaingunSneak180
+	set AimCycleDegree 89.9 //Cycle doubled (frome center +-) full 90 can cause to flip
+
+add WorldObject initFrom TurretChaingunSneak
+	set Name TurretChaingunSneak360
+	set AimCycleDegree 179.9 //Cycle doubled (frome center +-) full 90 can cause to flip
+
+
+add WorldObject initFrom TemplateTurret
+	set Name TurretRocket
+	set StateController TurretDual
+	set Model units/TurretRocket/TurretRocket.amf
+	set Material "mat_TurretStand mat_RocketTruck"
+	set RangeArc 75
+	set BoneFirePoint "bone_fp_l"
+	set BoneFirePointAlt "bone_fp_r"
+	set BoneAimHorizontal "bone_horz"
+	set BoneAimVertical "bone_vert"
+	set MissileFireSounds FiringMissile.wav
+	//set ShotMuzzleFlash LaunchPuff
+	set DestroySounds DestroyMissileTank.wav
+	set UnitLevelBase 15
+	set PowerGen -2
+	set MissileDamage 55
+	set MissileCanDmgFort 1
+	set FortDamageScalar 0.5
+	set SalvageValue 604
+	set SalvageTime 5.5
+	set DBlastDmg 1000			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set AimUpDefault -20
+	set AimWanderSpeed 0.03
+	set MissileModel effects/RocketMini.amf
+	set AimTurnRate 220
+	set FireDelay 0.02
+	set FireDelayNoPower 1
+	set SustainFireTime 0.2
+	set ReloadTime 1.6
+	set MissileSpeed 25
+	set MissileLifespan 1.52
+	set MissileWiggle 250
+	set ShotAimHorizontalCylOffset 1
+	set ShotAimHorizontalCylOffsetBase 40
+	set MissileIsHoming 0
+	set CanHitAir 0
+	set CanHitGround 1
+	set HitPoints 1500
+	set ArmorType 70
+	set WeaponType 80
+	set VisionRange 22
+	set RadarRange 18
+	set Range 22
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set HasRegularShot 0
+	set HasMissiles 1
+	set UnitTurnRate 90
+	set MoveWhileTurningMaxAngle 30
+	set MustMoveInFacingDirection 1
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set AttackPrepareAnim units/TurretRocket/DoorsOpen.aaf
+	set AttackRelaxAnim units/TurretRocket/DoorsClose.aaf
+	set DeployAnim units/TurretStarter/LegsDown.aaf
+	set FireAnimation units/TurretRocket/TurretFire.aaf
+	set SocketTurretSpeedBuff 1.5 // buf when on a socket
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretDual/TurretDualDxBase.amf /mmt:TurretStandDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   0 0  /mdl:units/RocketTruck/RocketTruckDxRocket.amf /mmt:RocketTruckDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.35 0.6 0.4] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  10 5  6 3  /mdl:units/RocketTruck/RocketTruckDxContainer.amf /mmt:RocketTruckDx /bne:bone_xleg_l /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  10 5  6 3  /mdl:units/RocketTruck/RocketTruckDxHood.amf /mmt:RocketTruckDx /bne:bone_xleg_r /emt:Y /col [Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "3 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_l /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "3 1 0  10 6  3 6  /mdl:units/TurretDual/TurretDualDxLeg.amf /mmt:TurretStandDx /bne:bone_xleg_r /emt:H /col [Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "2 1 0  10 5  3 6  /mdl:units/TurretDual/TurretDualDxAmmo.amf /mmt:TurretDualDx /bne:bone_xback /emt:H /col [Sphere 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"

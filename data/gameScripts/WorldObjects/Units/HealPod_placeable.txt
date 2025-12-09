@@ -1,0 +1,35 @@
+add WorldObject initFrom TemplateTurret
+	set Name HealPod
+	set StateController HealPod
+	set Model units/HealPod/HealPod.amf
+	set Material mat_HealPod
+	set RangeArc 360
+	set PowerGen -3
+	set CarryWeight 2100
+	set ArmorType 75
+	set RadarRange 10
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set HitPoints 1200
+	set SupplyRepairRate 60
+	set MineDisarmRate 4
+	set SalvageValue 850
+	set SalvageTime 5.75
+
+	set SupplyDetectRadius 13.0
+	set SupplyWorkingRadius 13.5
+	set SupplyWorkingRadiusNP 9.0	// no power range
+
+	set DestructionEffects_2  ""
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/HealPod/HealPodDxBase.amf /mtl:mat_HealPodDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.3 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxDoorFront.amf /mtl:mat_HealPodDx /bne:bone_xfront /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxDoorFront.amf /mtl:mat_HealPodDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxDoorSide.amf /mtl:mat_HealPodDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxDoorSide.amf /mtl:mat_HealPodDx /bne:bone_xleg_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxDoorTop.amf /mtl:mat_HealPodDx /bne:bone_xbase /emt:Y  /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/HealPod/HealPodDxClaw.amf /mtl:mat_HealPodDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom HealPod
+	set Name Honeypot_01
+	set VariantOf HealPod	// for pulling CFG data

@@ -1,0 +1,113 @@
+// ===========================
+// Rook "Chopper" Settings
+// ===========================
+#include ChopperBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+GndMesh = rooks/Chopper/Chopper_Ref.amf
+AirMechModelMats = AirMechChopper
+GndMaterialAlt = "" //mat_AirMechChopper
+GndModelMatAlt = ""
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/Chopper/Chopper_ToBot.aaf
+GroundToAirAnim = rooks/Chopper/Chopper_ToAir.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.8
+AnimSpeedToRobot = 1.06		// was 1.25 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.89		// was 1.5 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+GroundMoveCycleAnimSpeedMult = 0.14
+GroundMoveBackCycleAnimSpeedMult = 0.17
+HeadLookBone = bone_head_aim
+UpperBodyAimBone = bone_spine_aim
+
+HatBoneScaled = ""
+HatBone = bone_hat
+HatOffset = "0 -0.05 -0.05"
+
+HatHeadOffset = "0 -0.1 0.1"
+
+ZSpinDef_1 = "bone_rotor_main  	-600.0	/noAccel /zfixed"
+
+FiringAnimation = rooks/Chopper/Chopper_Shoot.aaf
+//FiringAnimation_MoveFwd = rooks/Chopper/Chopper_Shoot_Run_Fwd.aaf
+//FiringAnimation_MoveBack = rooks/Chopper/Chopper_Shoot_Run_Bwd.aaf
+
+AirSpecialOnAnim=rooks/chopper/DoorOpen.aaf
+AirSpecialOffAnim=rooks/chopper/DoorClose.aaf
+
+
+// Grenade & Rocket Animation States
+//
+GndSpecialOnAnim         =	rooks/Chopper/Chopper_Special_Start.aaf
+GndSpecialCycAnim        =	rooks/Chopper/Chopper_Special.aaf
+GndSpecialFireAnim       =	rooks/Chopper/Chopper_Missile_Fire.aaf
+GndSpecialFireAnim_Left  =	rooks/Chopper/Chopper_Missile_Fire_L.aaf
+GndSpecialFireAnim_Right =	rooks/Chopper/Chopper_Missile_Fire_R.aaf
+GndSpecialOffAnim        =	rooks/Chopper/Chopper_Special_End.aaf
+
+GndSpecialOnAltAnim      =	rooks/Chopper/Chopper_Grenade_Start.aaf
+GndSpecialCycAltAnim     =	rooks/Chopper/Chopper_Grenade_Idle.aaf
+GndSpecialFireAltAnim    =	rooks/Chopper/Chopper_Grenade_Fire.aaf
+GndSpecialOffAltAnim     = ""
+// GndGrenadeOnAnim         =  rooks/Chopper/Chopper_Grenade_Start.aaf			// rooks/Chopper/Chopper_Missile_Start.aaf
+// GndGrenadeCycAnim        =  rooks/Chopper/Chopper_Grenade_Idle.aaf			// rooks/Chopper/Chopper_Missile_Idle.aaf
+// GndGrenadeFireAnim       =  rooks/Chopper/Chopper_Grenade_Fire.aaf			// rooks/Chopper/Chopper_Missile_Fire.aaf
+// GndGrenadeFireAnim_Left  =  rooks/Chopper/Chopper_Grenade_Fire.aaf			// rooks/Chopper/Chopper_Missile_Fire_L.aaf
+// GndGrenadeFireAnim_Right =  rooks/Chopper/Chopper_Grenade_Fire.aaf			// rooks/Chopper/Chopper_Missile_Fire_R.aaf
+// GndGrenadeOffAnim        =  rooks/Chopper/Chopper_Grenade_Fire.aaf			// rooks/Chopper/Chopper_Missile_End.aaf
+
+
+GroundIdleAnim = rooks/Chopper/Chopper_Idle.aaf
+
+
+GroundMoveCycleAnim_Fwd = rooks/Chopper/Chopper_Run_Fwd.aaf
+GroundMoveCycleAnim_Back = rooks/Chopper/Chopper_Run_Bwd.aaf
+
+
+GroundMoveCycleAnim_Left = rooks/Chopper/Chopper_Turn_L.aaf
+GroundMoveCycleAnim_Right = rooks/Chopper/Chopper_Turn_R.aaf
+
+
+GndProjFireBone1 = "bone_flash_L"
+GndProjFireOffset1 = "0.0 0.0 0.0"
+GndProjFireBone2 = "bone_flash_R"
+GndProjFireOffset2 = "0.0 0.0 0.0"
+
+MissileProjFireBone1 = "bone_missile_L"
+MissileProjFireBone2 = "bone_missile_R"
+
+
+Taunts = rooks/Chopper/Chopper_Taunt_1.aaf, rooks/Chopper/Chopper_Taunt_2.aaf, rooks/Chopper/Chopper_Taunt_3.aaf, rooks/Chopper/Chopper_Taunt_4.aaf
+
+RecoveryAnim = rooks/Chopper/Chopper_Recover.aaf
+
+GroundIdleAnimGlide = rooks/Chopper/Chopper_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/Chopper/Chopper_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/Chopper/Chopper_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/Chopper/Chopper_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/Chopper/Chopper_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_arm_upper_R"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_arm_upper_L"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_heel_R"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_heel_L"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"

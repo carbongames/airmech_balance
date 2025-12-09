@@ -1,0 +1,34 @@
+add WorldObject
+	set Name BearTrap
+	set StateController BearTrap
+	set Model units/BearTrap/BearTrap.amf
+	//set Material "mat_BearTrap"
+	set ModelMat BearTrapStealth
+	set Collision "Trigger Group TriggersMine CapsuleZ 1.25 1.0"
+	set SpecialType Unit
+	set PowerGen -1
+	set WeaponType 20
+	set ArmorType 45
+	set RadarRange 0
+	set ShotDamage 30	//dps to held infantry
+	set Range 3.5 // 'grab' range
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 400
+	set CarryWeight 200
+	set IdleAnimation ""
+	set CanHitGround 0
+	set CanHitAir 0
+	set MoveSpeed 0.0
+	set Mass 0.0
+	set NavmeshObstacle 0
+	set SalvageValue 0
+	set SalvageTime 4.25
+
+	set DestructionEffects_1  "1 0.2 0  0.5 0    0 0 ExpBlastRing ExpDestroy BrightFlare /vcb:75 /reqVis"
+	set DestructionEffects_2  "1 2 0  0.5 3   0 0  GlassSpin@TC@ /vcb:40 /reqVis"
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/BearTrap/BearTrapDxBar.amf /mtl:mat_BearTrapDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.8] /mas:2000 /skt:5 /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/BearTrap/BearTrapDxMiddle.amf /mtl:mat_BearTrapDx /bne:bone_xbase /emt:H /grp:Debris /col [Group Debris Sphere 0.1] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/BearTrap/BearTrapDxClaw.amf /mtl:mat_BearTrapDx /bne:bone_xclaw_ /emt:H /grp:Debris /col [Group Debris Box 0.4 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/BearTrap/BearTrapDxClaw.amf /mtl:mat_BearTrapDx /bne:bone_xclaw_l /emt:H /grp:Debris /col [Group Debris Box 0.4 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"

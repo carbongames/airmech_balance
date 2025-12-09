@@ -1,0 +1,62 @@
+add WorldObject
+	set Name Booster
+	set Model units/Booster/BoosterStatic.amf
+	set Material "mat_Booster"
+	set Collision "Trigger CapsuleZ 1.25 1.0"
+	set SpecialType Unit
+	set PowerGen -1
+	set WeaponType 1
+	set ArmorType 1
+	set HitPoints 500
+	set CarryWeight 0
+	set Mass 5000.0
+	set SalvageTime 2.05
+	set UnitSpecial Booster
+	set PresetBoneOffset "0 0 0.1"
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+
+add WorldObject
+	set Name BoosterJuly4th
+	set Model units/BoosterJuly4th/BoosterJuly4thStatic.amf
+	set Material "mat_BoosterJuly4th<"
+	set Collision "Trigger CapsuleZ 1.25 1.0"
+	set SpecialType Unit
+	set PowerGen -1
+	set WeaponType 1
+	set ArmorType 1
+	set HitPoints 500
+	set CarryWeight 0
+	set Mass 5000.0
+	set SalvageTime 2.05
+	set UnitSpecial Booster
+	set PresetBoneOffset "0 0 0.1"
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+
+// Uber power-up that is build-able rather than just an item from earlier versions
+// Might want to switch this over to Uber_placable.txt?
+//
+add WorldObject initFrom TemplateSmall
+	set Name Uber
+	set Model Units/Uber/Uber.amf
+	set ModelMat Uber<
+	set Collision "Trigger CapsuleZ 1.25 1.0"
+	set PowerGen -1
+	set WeaponType 1
+	set ArmorType 1
+	set HitPoints 500
+	set CarryWeight 0
+	set Mass 5000.0
+	set SalvageTime 2.05
+	set PresetBoneOffset "0 0 0.1"
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1  "1 0.2 0.0  0.5 0.0  0 0 	ExplosionSequence6bSmall ExplosionSequence6Small ExplosionHitSmall ExplosionGlowbitsSmall ExplosionStreaksSmall ExplosionShockwaveSmall /vcb:75 /reqVis"
+	set DestructionEffects_2 ""
+	set IdleAnimation units/Uber/UberIdle.aaf
+	set StateController UberUnit

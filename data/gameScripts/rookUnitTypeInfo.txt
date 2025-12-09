@@ -1,0 +1,4000 @@
+// rook unit type info
+//
+
+unitType EnvObj {
+	category			Environmental
+	notBuildable
+}
+
+unitType Infantry {
+	// SOLDIER
+	commonName			Soldier
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				600
+	stack				50 		// default is 20
+	buildtime 			2.5
+	dispSymbol			DispUnitInfantry
+	descSymbol			MF_CustomTip_Infantry
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		2 2	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Infantry/Infantry.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Infantry/InfantryWalk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+unitType InfantryVoid initFrom Infantry {
+	variantCfg "Void Infantry"
+	noAutoTag
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/Infantry/Infantry.amf mat_AirMechUBlack< /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Infantry/InfantryWalk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+unitType InfantryCreep {
+	category 			Creep
+	cost 				0
+	stack				50 		// default is 20
+	buildtime 			1.0
+	dispSymbol			DispUnitInfantryCreep
+	descSymbol			MF_CustomTip_InfantryCreep
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	0
+	expValues			15 10		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+unitType InfantryCreepL1 {
+	category 			Creep
+	cost 				0
+	stack				50 		// default is 20
+	buildtime 			1.0
+	dispSymbol			DispUnitInfantryCreepL1
+	descSymbol			MF_CustomTip_InfantryCreepL1
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	0
+	expValues			25 17		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+unitType InfantryCreepL2 {
+	category 			Creep
+	cost 				0
+	stack				50 		// default is 20
+	buildtime 			1.0
+	dispSymbol			DispUnitInfantryCreepL2
+	descSymbol			MF_CustomTip_InfantryCreepL2
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	0
+	expValues			35 23		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+unitType InfantryCreepL3 {
+	category 			Creep
+	cost 				0
+	stack				50 		// default is 20
+	buildtime 			1.0
+	dispSymbol			DispUnitInfantryCreepL3
+	descSymbol			MF_CustomTip_InfantryCreepL3
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	0
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+unitType InfantryCreepLight {
+	category 			Creep
+	cost 				0
+	stack				50 		// default is 20
+	buildtime 			1.0
+	dispSymbol			DispUnitInfantryLight
+	descSymbol			MF_CustomTip_InfantryLight
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0
+	commandPointValue	0
+	expValues			15 10		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType InfantryLight {
+	// RUNNER
+	commonName			Runner
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				600
+	stack				50 		// default is 20
+	stack				50 		// default is 20
+	buildtime 			2.2
+	dispSymbol			DispUnitInfantryLight
+	descSymbol			MF_CustomTip_InfantryLight
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		4
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryLight/InfantryLight_Ref.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryLight/InfantryLight_Run.aaf 0 looping 1.0 /scaleMult 0.915
+}
+unitType InfantryFLA initFrom InfantryLight {
+	// WarMech soundtrack bonus
+	commonName			"Artificial Soldier"
+	alternateOfEx		InfantryLight		// alternate like behavior without technically being an alternate/variant
+	dispSymbol			DispUnitInfantryFLA
+	descSymbol			MF_CustomTip_InfantryFLA
+	defaultOrder		CaptureOutpost
+	rarity				5
+	aiDirectEngage		0
+	aiCaptureWeight		0
+}
+
+unitType InfantryLightSkel {
+	// SKELETON RUNNER
+	commonName			"Skeleton Runner"
+	alternateOfEx		InfantryLight		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				600
+	stack				50 		// default is 20
+	buildtime 			2.2
+	dispSymbol			DispUnitInfantryLightSkel
+	descSymbol			MF_CustomTip_InfantryLightSkel
+	defaultOrder		CaptureOutpost
+	rarity				3
+	aiFortify			0.0
+	aiDirectEngage		0 //0.9
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0 //2
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryLightSkel/InfantryLightSkel_Ref.amf mat_InfantryLightSkel /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+
+unitType InfantrySargent {
+	// SERGEANT
+	commonName			Sergeant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1200
+	stack				50 		// default is 20
+	buildtime 			3.2
+	//ability				AttractInfantryLinks
+	//abilityParamCount	3	// max attracted infantry
+	ability				InfantryAura
+	abilityRange		10.0
+	abilityParamCount   1 // aura level
+	abilityParamRate    5
+	dispSymbol			DispUnitInfantrySargent
+	descSymbol			MF_CustomTip_InfantrySargent
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		2	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			69 46		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantrySargent/InfantrySargent.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantrySargent/Walk.aaf 0 looping 1.0 /scaleMult 0.915
+	//areaDisplay			apc 		// APC Circle2 + attractor    // attract ability currently disabled
+}
+
+unitType InfantrySargent_ initFrom InfantrySargent {
+	commonName			"Trial Sergeant"
+	trialStackCfg
+}
+
+unitType InfantrySoldier {
+	// JUMPER
+	commonName			Jumper
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1100
+	stack				50 		// default is 20
+	buildtime 			3.1
+	dispSymbol			DispUnitInfantrySoldier
+	descSymbol			MF_CustomTip_InfantrySoldier
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			60 40		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantrySoldier/InfantrySoldier_Ref.amf mat_Infantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantrySoldier/InfantrySoldier_Walk.aaf 0 looping 1.2 /scaleMult 0.915
+}
+
+unitType InfantrySniper {
+	// Shooter
+	commonName			Shooter
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1000
+	stack				20 		// default is 20
+	buildtime 			3.4
+	dispSymbol			DispUnitInfantrySniper
+	descSymbol			MF_CustomTip_InfantrySniper
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.9
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		4 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			58 38		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantrySniper/InfantrySniper_Ref.amf mat_Infantry /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/InfantrySniper/InfantrySniper_Fire_Full.aaf 0 looping 1.0 /scaleMult 1.20
+}
+
+unitType InfantrySniperU initFrom InfantrySniper {
+	// Ultimate Shooter
+	commonName			"Ultimate Shooter"
+	alternateOfEx		InfantrySniper		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1000
+	stack				20 		// default is 20
+	buildtime 			3.4
+	dispSymbol			DispUnitInfantrySniperU
+	descSymbol			MF_CustomTip_InfantrySniperU
+	expValues			63 42		// RookDestroyed, UnitDestroyed, Lost, Built
+
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.9
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantrySniperU/InfantrySniperU_Ref.amf mat_Infantry /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/InfantrySniper/InfantrySniper_Fire_Full.aaf 0 looping 1.0 /scaleMult 1.20
+
+	property			UltimateLvl				10
+	property		KudosBonus						1			// percentage Kudos bonus
+	property		ExperienceBonus					1			// persistent xp bonus (percentage)
+
+}
+
+unitType Shooter_01 initFrom InfantrySniper {
+	variantCfg "Fine Shooter"
+	rarity 2
+}
+
+
+unitType InfantryDemo {
+	// INFANTRY DEMO
+	commonName			"Morty"
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				950
+	stack				50 		// default is 20
+	buildtime 			2.8
+	dispSymbol			DispUnitInfantryDemo
+	descSymbol			MF_CustomTip_InfantryDemo
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		4 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			56 37		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryDemo/InfantryDemo_Ref.amf mat_Infantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryDemo/InfantryDemo_Walk.aaf 0 looping 1.2 /scaleMult 0.915
+}
+
+unitType InfantryPyro {
+	// INFANTRY PYRO
+	commonName			Flamer
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				990
+	stack				50 		// default is 20
+	buildtime 			2.6
+	dispSymbol			DispUnitInfantryPyro
+	descSymbol			MF_CustomTip_InfantryPyro
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		4 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			57 38		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryPyro/InfantryPyro_Ref.amf mat_Infantry /rotSpeed 4.0 /pos 2.0 -0.25 0 /animation units/InfantryPyro/InfantryPyro_Berserk_Run.aaf 0 looping 1.0 /scaleMult 0.85
+}
+
+unitType InfantryHeavy {
+	// BRUTE
+	commonName			Brute
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	canAPC				false
+	cost 				3100
+	stack				10 		// default is 20
+	buildtime 			7.5
+	dispSymbol			DispUnitInfantryHeavy
+	descSymbol			MF_CustomTip_InfantryHeavy
+	defaultOrder		CaptureOutpost
+	//techReq				1
+	nplevelreq			4
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		5 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	2
+	expValues			118 78		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryHeavy/InfantryHeavy_Ref.amf mat_Infantry /rotSpeed 8 /pos 2.0 -0.25 0 /animation units/InfantryHeavy/InfantryHeavy_Walk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+unitType Brute_01 initFrom InfantryHeavy {
+	variantCfg "Hellstorm Brute"
+	stack				30 		// default is 20
+	rarity				2
+}
+
+
+unitType InfantryHeavyVoid initFrom InfantryHeavy {
+	variantCfg "Void Brute"
+	noAutoTag
+	stack				30 		// default is 20
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryHeavy/InfantryHeavy_Ref.amf mat_AirMechUBlack< /rotSpeed 8 /pos 2.0 -0.25 0 /animation units/InfantryHeavy/InfantryHeavy_Walk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+unitType InfantryHeavyU initFrom InfantryHeavy {
+	// ULTIMATE BRUTE
+	commonName			"Ultimate Brute"
+	alternateOfEx		InfantryHeavy		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	searchTerm			"infantry"
+	category 			Infantry
+	canAPC				false
+	cost 				3100
+	stack				30 		// default is 20
+	//buildtime 			5.2
+	dispSymbol			DispUnitInfantryHeavyU
+
+	descSymbol		MF_CustomTip_InfantryHeavyU
+	expValues			130 86		// RookDestroyed, UnitDestroyed, Lost, Built
+	defaultOrder		CaptureOutpost
+	nplevelreq			4
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryHeavyU/InfantryHeavyU_Ref.amf mat_Infantry /rotSpeed 8 /pos 2.0 -0.25 0 /animation units/InfantryHeavy/InfantryHeavy_Walk.aaf 0 looping 1.0 /scaleMult 0.95
+
+	property			UltimateLvl				10
+}
+
+
+unitType InfantrySpy {
+	// INFANTRY SPY
+	commonName			Assassin
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				600
+	stack				50 		// default is 20
+	buildtime 			2.8
+	dispSymbol			DispUnitInfantrySpy
+	descSymbol			MF_CustomTip_InfantrySpy
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantrySpy/InfantrySpy_Ref.amf mat_Infantry /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/InfantrySpy/InfantrySpy_Walk.aaf 0 looping 1.0 /scaleMult 1.20
+	ability				Spy
+}
+
+unitType FF2000 {
+	// Fruit Fucker 2000
+	commonName			"FF2000"
+	platformContent		pc_only !arc !vr
+	autoTag				cased
+	category 			Infantry
+	cost 				600
+	stack				5 		// default is 20
+	buildtime 			2.7
+	okOnOutpostPad		false
+	rarity				3
+	dispSymbol			DispUnitFF2000
+	descSymbol			MF_CustomTip_FF2000
+	defaultOrder		CaptureOutpost
+	//acceptsOrders		false
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	1	// 1 is default
+	ability				FF2000
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/FF2000/FF2000.amf mat_FF2000 /scale 1.3 /pos 2.0 -0.25 0 /animation units/FF2000/FF2000Idle.aaf 0 looping 0.7 /rotSpeed 0
+	platformUnlock		award pc_only
+	ability				SpyNoCloak
+}
+
+unitType Reindeer {
+	// REINDEER OF MURDEROUS DEATH
+	commonName			Reindeer
+	autoTag				cased
+	searchTerm			"holiday"
+	category 			Infantry
+	cost 				800
+	stack				20 		// default is 20
+	buildtime 			2.5
+	dispSymbol			DispUnitReindeer
+	descSymbol			MF_CustomTip_Reindeer
+	//defaultOrder		CaptureOutpost
+	//nplevelreq			3
+	rarity				5
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	2
+	expValues			81 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Reindeer/Reindeer.amf Reindeer< /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/Reindeer/Reindeer_Idle.aaf 0 looping 1.0 /scaleMult 1.40
+	ability				SpyNoCloak
+}
+unitType InfantryButcher {
+	// INFANTRY BUTCHER
+	commonName			Butcher
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				2400
+	stack				20 		// default is 20
+	buildtime 			4.5
+	dispSymbol			DispUnitInfantryButcher
+	descSymbol			MF_CustomTip_InfantryButcher
+	defaultOrder		CaptureOutpost
+	nplevelreq			3
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	2
+	expValues			81 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryButcher/InfantryButcher.amf mat_Infantry /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/InfantrySpy/InfantrySpy_Walk.aaf 0 looping 1.0 /scaleMult 1.40
+	ability				SpyNoCloak
+}
+
+unitType Butcher_01 initFrom InfantryButcher {
+	variantCfg "Swift Butcher"
+	stack				30 		// default is 20
+	rarity				2
+}
+
+unitType TownSkeleton {
+	// based on SKELETON RUNNER
+	commonName			"Town Skeleton"
+	alternateOfEx		InfantryButcher		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				600
+	stack				50 		// default is 20
+	buildtime 			2.2
+	dispSymbol			DispUnitInfantryLightSkel
+	descSymbol			MF_CustomTip_InfantryLightSkel
+	defaultOrder		CaptureOutpost
+	rarity				3
+	aiFortify			0.0
+	aiDirectEngage		0 //0.9
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0 //2
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryLightSkel/InfantryLightSkel_Ref.amf mat_InfantryLightSkel /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf 0 looping 1.0 /scaleMult 0.915
+	ability				SpyNoCloak
+}
+
+unitType InfantryEngineer {
+	// INFANTRY ENGINEER
+	commonName			Necro
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1200
+	stack				50 		// default is 20
+	buildtime 			6.0
+	dispSymbol			DispUnitInfantryEngineer
+	descSymbol			MF_CustomTip_InfantryEngineer
+	defaultOrder		CaptureOutpost
+	ability				UnitRez
+	abilityRange		10.0
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0 //4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			52 34		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryEngineer/InfantryEngineer_Ref.amf mat_Infantry /addlMaterial mat_TreadPanXHunter< /rotSpeed 4.0 /pos 2.0 -0.25 0 /animation units/InfantryEngineer/InfantryEngineer_Rez_Preview.aaf 0 looping 0.80 /scaleMult 1.10
+}
+
+unitType InfantryJetpack {
+	// JETPACK INFANTRY
+	commonName			Rocketeer
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1100
+	stack				50 		// default is 20
+	buildtime 			3.8
+	dispSymbol			DispUnitInfantryJetpack
+	descSymbol			MF_CustomTip_InfantryJetpack
+	defaultOrder		CaptureOutpost
+	//aiFortify			0.0
+	//aiDirectEngage		0.4
+	//aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	//aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	//aiCaptureWeight		4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			52 34		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryJetpack/InfantryJetpack_Ref.amf mat_InfantryJetpack /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryJetpack/Fly.aaf 0 looping 1.0 /scaleMult 1.0
+}
+
+unitType GruntUzi {
+	// GRUNT UZI
+	commonName			"Grunt Runner"
+	//autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				900
+	stack				50 		// default is 20
+	buildtime 			3.5
+	rarity				2
+	dispSymbol			DispUnitGruntUzi
+	descSymbol			MF_CustomTip_GruntUzi
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0 //0.9
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0 //2
+	expValues			15 10		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/GruntUzi/GruntUzi_Ref.amf mat_Grunt /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryLight/InfantryLight_Run.aaf 0 looping 1.0 /scaleMult 1.1
+}
+
+unitType GruntShield {
+	// GRUNT SHIELD
+	commonName			"Grunt Shield"
+	//autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				900
+	stack				30 		// default is 20
+	buildtime 			3.5
+	dispSymbol			DispUnitGruntShield
+	descSymbol			MF_CustomTip_GruntShield
+	defaultOrder		CaptureOutpost
+	rarity				2
+	aiFortify			0.0
+	aiDirectEngage		0	//0.9
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	//2
+	expValues			15 10		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/GruntShield/GruntShield_Ref.amf mat_Grunt /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryLight/InfantryLight_Run.aaf 0 looping 1.0 /scaleMult 1.1
+}
+
+unitType GruntSwords {
+	// GRUNT SPY
+	commonName			"Grunt Assassin"
+	//autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				500
+	stack				30 		// default is 20
+	buildtime 			3.5
+	rarity				2
+	dispSymbol			DispUnitGruntSwords
+	descSymbol			MF_CustomTip_GruntSwords
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0	//0.9
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0	//4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			15 10		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/GruntSwords/GruntSwords_Ref.amf mat_Grunt /rotSpeed 4 /pos 2.0 -0.25 0 /animation units/InfantrySpy/InfantrySpy_Walk.aaf 0 looping 1.0 /scaleMult 1.1
+	ability				Spy
+}
+
+unitType Probe {
+	commonName			"Probe"
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				200
+	stack				50 		// default is 20
+	buildtime 			0.5
+	okOnOutpostPad		false
+	dispSymbol			DispUnitProbe
+	descSymbol			MF_CustomTip_Probe
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.2
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	hasWeaponLvl		0
+	//OnInspectOrUnlock	rookMenus previewInit units/Probe/Probe.amf mat_Probe /pos 2.0 -0.25 0 /animation units/Probe/Bounce.aaf 0 looping 1.0 /zSpinDef bone_spinner 220.0 /zSpinDef spinner1 120.0
+}
+
+unitType ProbeTraining initFrom Probe {
+	notSelectable
+}
+
+unitType ProbeU initFrom Probe {
+	commonName			"Ultimate Probe"
+	rarity				4
+	alternateOfEx		Probe		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				200
+	stack				50 		// default is 20
+	buildtime 			0.5
+	okOnOutpostPad		false
+	dispSymbol			DispUnitProbeU
+	descSymbol			MF_CustomTip_ProbeU
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	defaultOrder		CaptureOutpost
+//	aiFortify			0.0
+//	aiDirectEngage		0.2
+//	aiAssaultWeight		0	// 0 is default
+//	aiSecureWeight		0	// 0 is default
+//	aiCaptureWeight		0
+	hasWeaponLvl		0
+	//OnInspectOrUnlock	rookMenus previewInit units/ProbeU/ProbeU.amf mat_Probe /pos 2.0 -0.25 0 /animation units/ProbeU/Bounce.aaf 0 looping 1.0 /zSpinDef bone_spinner 220.0 /zSpinDef spinner1 120.0
+	property			UltimateLvl				5
+}
+
+unitType ProbeAlien {
+	commonName			"Alien Probe"
+	alternateOfEx		Probe		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		pc_only !arc !vr
+	cost 				200
+	stack				50 		// default is 20
+	buildtime 			0.5
+	okOnOutpostPad		false
+	dispSymbol			DispUnitProbeAlien
+	descSymbol			MF_CustomTip_ProbeAlien
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.2
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0 //2
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	hasWeaponLvl		0
+	rarity				5
+	//OnInspectOrUnlock	rookMenus previewInit units/ProbeAlien/ProbeAlien.amf mat_ProbeAlien /pos 2.0 -0.25 0 /animation units/ProbeAlien/Bounce.aaf 0 looping 1.0
+}
+
+unitType ProbeXmas {
+	commonName			"North Pole Explorer"
+	alternateOfEx		Probe		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"probe"
+	category 			Infantry
+	cost 				200
+	stack				50 		// default is 20
+	buildtime 			0.5
+	okOnOutpostPad		false
+	dispSymbol			DispUnitProbeXmas
+	descSymbol			MF_CustomTip_ProbeXmas
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.2
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0 //2
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	hasWeaponLvl		0
+	rarity				3
+	//OnInspectOrUnlock	rookMenus previewInit units/ProbeXmas/ProbeXmas.amf ProbeXmas /addlMaterial ProbeXmasProps< /addlMaterial WinterLightsRigid< /pos 2.0 -0.25 0 /animation units/Probe/Bounce.aaf 0 looping 1.0
+}
+
+unitType ProbeBeppo {
+	commonName			"Beppo Probe"
+	alternateOfEx		Probe		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	platformContent		!vr
+	cost 				200
+	stack				50 		// default is 20
+	buildtime 			0.5
+	okOnOutpostPad		false
+	dispSymbol			DispUnitProbeBeppo
+	descSymbol			MF_CustomTip_ProbeBeppo
+	defaultOrder		CaptureOutpost
+	//aiFortify			0.0
+	//aiDirectEngage		0.2
+	//aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		1 1
+	aiCaptureWeight		1 1
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	hasWeaponLvl		0
+	rarity				3
+	//OnInspectOrUnlock	rookMenus previewInit units/ProbeBeppo/ProbeBeppo.amf mat_ProbeBeppo /pos 2.5 -0.25 0 /animation units/ProbeBeppo/Bounce.aaf 0 looping 1.0
+}
+
+unitType Probe_ initFrom Probe {
+	commonName			"Probe Trial"
+	stack				50 		// default is 20
+	trialStackCfg
+	rarity			3
+}
+
+
+unitType VacScrapper {
+	commonName			"Vacuum Scrapper"
+	autoTag
+	category 			Guardian
+	cost 				4000
+	stack				5 		// default is 20
+	buildtime 			2.5
+	okOnOutpostPad		false
+	ability				CollectScrap
+	dispSymbol			DispUnitVacScrapper
+	descSymbol			MF_CustomTip_VacScrapper
+	acceptsOrders		false
+	expValues			34 22		// RookDestroyed, UnitDestroyed, Lost, Built
+	hasWeaponLvl		0
+	commandPointValue	0
+	//OnInspectOrUnlock	rookMenus previewInit units/VacScrapper/Scrapper.amf Scrapper /addlMaterial ScrapperInternal< /pos 2.0 -0.25 0 /animation units/VacScrapper/ScrapperMove.aaf 0 looping 1.0 /zSpinDef bone_mesh_propeller 900.0 /zSpinDef bone_mesh_propeller01 900.0
+}
+
+unitType Creeper {
+	// BOOMER
+	commonName			Boomer
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				850
+	stack				50 		// default is 20
+	buildtime 			3.2
+	okOnOutpostPad		false
+	dispSymbol			DispUnitCreeper
+	descSymbol			MF_CustomTip_Creeper
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.7
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	1	// 1 is default
+	ability				Kamikazee
+	expValues			53 35		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Creeper/Creeper.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Creeper/Walk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+unitType CreeperU initFrom Creeper {
+	commonName			"Ultimate Boomer"
+	alternateOfEx		Creeper		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				850
+	stack				50 		// default is 20
+	buildtime 			3.2
+	okOnOutpostPad		false
+	dispSymbol			DispUnitCreeperU
+	descSymbol			MF_CustomTip_CreeperU
+	expValues			59 39		// RookDestroyed, UnitDestroyed, Lost, Built
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.8
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	1	// 1 is default
+	ability				Kamikazee
+	//OnInspectOrUnlock	rookMenus previewInit units/CreeperU/CreeperU.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/CreeperU/Walk.aaf 0 looping 1.0 /scaleMult 0.915
+	property			UltimateLvl				8
+}
+
+unitType CreeperMC {
+	// Minecraft Creeper
+	commonName			"Creeper"
+	alternateOfEx		Creeper		// alternate like behavior without technically being an alternate/variant
+	platformContent		pc_only !arc !vr
+	autoTag				cased
+	rarity				2
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				850
+	stack				50 		// default is 20
+	buildtime 			3.2
+	okOnOutpostPad		false
+	dispSymbol			DispUnitCreeperMC
+	descSymbol			MF_CustomTip_CreeperMC
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	1	// 1 is default
+	ability				Kamikazee
+	expValues			53 35		// RookDestroyed, UnitDestroyed, Lost, Built
+	////OnInspectOrUnlock	rookMenus previewInit units/Creeper/Creeper.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Creeper/Walk.aaf 0 looping 1.0 /scaleMult 0.915
+}
+
+
+
+unitType InfantryRocket {
+	// SAM
+	commonName			SAM
+	autoTag				cased
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1250
+	stack				30 		// default is 20
+	buildtime 			2.9
+	dispSymbol			DispUnitInfantryRocket
+	descSymbol			MF_CustomTip_InfantryRocket
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		4
+	expValues			60 40		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/InfantryRocket/InfantryRocket.amf mat_UnitInfantry /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/InfantryRocket/InfantryRocketWalk.aaf 0 looping 1.0 /scaleMult 0.825
+}
+
+unitType InfantryRocket_ initFrom InfantryRocket {
+	commonName			"Trial SAM"
+	stack				30 		// default is 20
+	aiCaptureWeight		0
+	trialStackCfg
+}
+
+unitType SAM_01 initFrom InfantryRocket {
+	variantCfg "Hyper SAM"
+	stack				20 		// default is 20
+	rarity			2
+}
+
+unitType Engineer {
+	// FIXER
+	commonName			Fixer
+	autoTag
+	searchTerm			"infantry"
+	category 			Infantry
+	cost 				1000
+	stack				20 		// default is 20
+	buildtime 			2.2
+	dispSymbol			DispUnitEngineer
+	descSymbol			MF_CustomTip_Engineer
+	defaultOrder		CaptureOutpost
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		2
+	ability				Supply
+	expValues			57 38		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Engineer/Engineer.amf mat_Engineer /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Engineer/EngineerWalk.aaf 0 looping 1.0 /scaleMult 0.85
+}
+
+unitType Fixer_01 initFrom Engineer {
+	variantCfg "Hyper Fixer"
+	stack				30 		// default is 20
+	rarity			2
+}
+
+unitType Engineer_ initFrom Engineer {
+	commonName			"Trial Fixer"
+	stack				30 		// default is 20
+	aiCaptureWeight		0
+	trialStackCfg
+}
+
+unitType EngineerOutpost initFrom Engineer {
+	commonName 			"EngineerOutpost"
+}
+
+unitType Bike {
+	// ZIPPER
+	commonName			Zipper
+	autoTag
+	category 			Combat
+	cost 				1000 //750
+	group_tunc			1		// put in 'team unit no collision' group (infantry automatically all have this)
+	buildtime 			1.5
+	dispSymbol			DispUnitBike
+	descSymbol			MF_CustomTip_Bike
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0 0	// second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		3 0	// second number, if specified, is 'Online' weight to be used
+	expValues			60 40		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/bike/UnitBike.amf mat_UnitBike /pos 2.0 -0.25 0 /animation units/Bike/Idle.aaf 0 looping 0.25
+}
+
+unitType BikeSidecar {
+	// TANGO
+	commonName			Tango
+	autoTag
+	category 			Combat
+	cost 				1700 //900
+	buildtime 			2.0
+	dispSymbol			DispUnitBikeSidecar
+	descSymbol			MF_CustomTip_BikeSidecar
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0 0	// second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		4
+	expValues			78 51		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BikeSidecar/UnitBikeCar.amf mat_UnitBike /pos 2.0 -0.25 0 /animation units/BikeSidecar/Idle.aaf 0 looping 0.25
+}
+
+unitType CarStarter {
+	// Joker
+	commonName			Joker
+	autoTag
+	category 			Combat
+	cost 				1500
+	buildtime 			2.0
+	dispSymbol			DispUnitCarStarter
+	descSymbol			MF_CustomTip_CarStarter
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0
+	aiSecureWeight		3
+	expValues			81 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/CarStarter/CarStarter.amf mat_ArmoredCar /addlMaterial mat_UnitBike /pos 2.0 -0.25 0 /animation units/CarStarter/CarWait.aaf 0 looping 0.25
+}
+
+unitType ArmoredCar {
+	// JACKAL
+	commonName			Jackal
+	autoTag
+	category 			Combat
+	cost 				3000
+	buildtime 			3.0
+	dispSymbol			DispUnitArmoredCar
+	descSymbol			MF_CustomTip_ArmoredCar
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		3
+	aiSecureWeight		3
+	expValues			115 76		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/ArmoredCar/ArmoredCar.amf mat_ArmoredCar /pos 2.0 -0.25 0 /animation units/ArmoredCar/CarWait.aaf 0 looping 0.25
+}
+
+unitType ArmoredCarU initFrom ArmoredCar {
+	// ULTIMATE JACKAL
+	commonName			"Ultimate Jackal"
+	alternateOfEx		ArmoredCar		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	category 			Combat
+	cost 				3000
+	buildtime 			3.0
+	dispSymbol			DispUnitArmoredCarU
+	descSymbol			MF_CustomTip_ArmoredCarU
+	expValues			126 83		// RookDestroyed, UnitDestroyed, Lost, Built
+	//aiFortify			0.0
+	//aiDirectEngage		0.5
+	//aiAssaultWeight		0
+	//aiSecureWeight		3
+	//OnInspectOrUnlock	rookMenus previewInit units/ArmoredCarU/ArmoredCarU_Ref.amf mat_ArmoredCar /addlMaterial mat_Infantry /pos 2.0 -0.25 0 /animation units/ArmoredCarU/CarDeploy.aaf 0 stopandhold 1.0
+	property			UltimateLvl				10
+}
+
+unitType TruckChaingun {
+	// GANGSTER
+	commonName			Gangster
+	autoTag
+	category 			Combat
+	cost 				5400
+	buildtime 			7.5
+	dispSymbol			DispUnitTruckChaingun
+	descSymbol			MF_CustomTip_TruckChaingun
+	nplevelreq			6
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		3
+	aiSecureWeight		3
+	expValues			165 106		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TruckChaingun/TruckChaingun.amf mat_TruckChaingun /addlMaterial mat_TurretChaingun /pos 2.0 -0.25 0 /animation units/TruckChaingun/TruckChaingunWait.aaf 0 looping 0.25
+}
+
+unitType Tank {
+	// LONGHORN
+	commonName			Longhorn
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				7000
+	buildtime 			9.0
+	dispSymbol			DispUnitTank
+	descSymbol			MF_CustomTip_Tank
+	aiFortify			0.9
+	aiDirectEngage		0.5
+	aiAssaultWeight		12
+	aiSecureWeight		12
+	expValues			201 133		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Tank/Tank.amf mat_Tank /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType Tank_ initFrom Tank {
+	commonName			"Trial Longhorn"
+	aiFortify			0.0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	trialStackCfg
+}
+
+unitType Tank_01 initFrom Tank {
+	variantCfg "Fine Longhorn"
+	rarity			2
+}
+
+unitType TankVoid initFrom Tank {
+	variantCfg "Void Longhorn"
+	noAutoTag
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/Tank/Tank.amf mat_AirMechUBlack< /pos 2.0 -0.25 0
+}
+
+unitType ScorpionTank {
+	// GEMINI
+	commonName			Gemini
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				7000
+	buildtime 			9.0
+	dispSymbol			DispUnitScorpionTank
+	descSymbol			MF_CustomTip_ScorpionTank
+	aiFortify			0.9
+	aiDirectEngage		0.5
+	aiAssaultWeight		8
+	aiSecureWeight		10
+	expValues			201 133		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/ScorpionTank/ScorpionTank.amf mat_ScorpionTank /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+
+unitType Gemini_01 initFrom ScorpionTank {
+	variantCfg "Fine Gemini"
+	rarity 2
+}
+
+unitType ScorpionTank_ initFrom ScorpionTank {
+	commonName			"Trial Gemini"
+	aiFortify			0.0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	trialStackCfg
+}
+
+unitType TankMonster {
+	// Devastator
+	commonName			Devastator
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				38000
+	stack				5 		// default is 20
+	buildtime 			38.0
+	dispSymbol			DispUnitTankMonster
+	descSymbol			MF_CustomTip_TankMonster
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//techReq				1
+	nplevelreq			9
+	expValues			1120 739		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankMonster/TankMonster.amf mat_TankHeavy /addlMaterial mat_Tank /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType Devastator_01 initFrom TankMonster {
+	variantCfg "Hellstorm Devastator"
+	stack				10 		// default is 20
+	rarity 2
+}
+
+
+unitType TankLight {
+	// ARMADILLO
+	commonName			Armadillo
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				4400
+	buildtime 			5.0
+	dispSymbol			DispUnitTankLight
+	descSymbol			MF_CustomTip_TankLight
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		8
+	aiSecureWeight		8
+	expValues			115 102		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankLight/TankLight.amf mat_TankLight /addlMaterial mat_TreadPanXLight< /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TankLight_ initFrom TankLight {
+	commonName			"Armadillo Trial"
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	trialStackCfg
+}
+
+unitType Armadillo_01 initFrom TankLight {
+	variantCfg "Hyper Armadillo"
+	rarity			2
+}
+
+unitType TankHeavy {
+	// GOLIATH
+	commonName			Goliath
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				14500
+	stack				5 		// default is 20
+	buildtime 			17.5
+	dispSymbol			DispUnitTankHeavy
+	descSymbol			MF_CustomTip_TankHeavy
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	aiAssaultWeight		8
+	aiSecureWeight		8
+	aiSurvivalWeight	8
+	expValues			445 294		// RookDestroyed, UnitDestroyed, Lost, Built
+	nplevelreq			7
+	//techReq				7
+	//OnInspectOrUnlock	rookMenus previewInit units/TankHeavy/TankHeavy.amf mat_TankHeavy /scale 1.2 /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType Goliath_01 initFrom TankHeavy {
+	variantCfg "Goliath Aggressor"
+	stack				5 		// default is 20
+	rarity 2
+}
+
+unitType TankHeavyGoth initFrom TankHeavy {
+	// GOLIATH
+	commonName			"Gothic Goliath"
+	alternateOfEx		TankHeavy		// alternate like behavior without technically being an alternate/variant
+	stack				5 		// default is 20
+	platformContent		!vr
+	autoTag
+	rarity				3
+	dispSymbol			DispUnitTankHeavyGoth
+	descSymbol			MF_CustomTip_TankHeavyGoth
+	//OnInspectOrUnlock	rookMenus previewInit units/TankHeavyGoth/TankHeavyGoth.amf mat_TankHeavyGoth /scale 1.2 /pos 2.0 -0.25 0
+}
+
+unitType TankHeavyVoid initFrom TankHeavy {
+	variantCfg "Void Goliath"
+	noAutoTag
+	alternateOfEx		TankHeavy		// alternate like behavior without technically being an alternate/variant
+	stack				5 		// default is 20
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/TankHeavy/TankHeavy.amf mat_AirMechUBlack< /scale 1.2 /pos 2.0 -0.25 0
+}
+
+unitType TankHeavyU initFrom TankHeavy {
+	// ULTIMATE GOLIATH
+	commonName			"Ultimate Goliath"
+	alternateOfEx		TankHeavy		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	rarity				4
+	cost 				14500
+	stack				10 		// default is 20
+	buildtime 			17.5
+	dispSymbol			DispUnitTankHeavyU
+	descSymbol		MF_CustomTip_TankHeavyU
+	expValues		490 323		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0
+	aiDirectEngage		0.5
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	nplevelreq			7
+	//OnInspectOrUnlock	rookMenus previewInit units/TankHeavyU/TankHeavyU.amf mat_TankHeavy /scale 1.25 /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+	property			UltimateLvl				10
+	property		KudosBonus						1			// percentage Kudos bonus
+	property		ExperienceBonus					1			// persistent xp bonus (percentage)
+
+}
+
+unitType TankHeavy_ initFrom TankHeavy {
+	commonName			"Trial Goliath"
+	stack				5 		// default is 20
+	aiFortify			0.0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	trialStackCfg
+}
+
+unitType TankFlak {
+	// GORGON
+	commonName			Gorgon
+	autoTag
+	category 			Combat
+	okOnOutpostPad		false
+	isHeavy				1
+	//isTank				1
+	isAA				1
+	cost 				12000
+	stack				10
+	//ability				Driller
+	buildtime 			18.0
+	dispSymbol			DispUnitTankFlak
+	descSymbol			MF_CustomTip_TankFlak
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	expValues			158 104		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankFlak/TankFlak.amf mat_MissileTank /addlMaterial mat_TurretFlak /addlMaterial mat_TruckJammer /pos 2.0 -0.25 0 /zSpinDef mesh_antenna 220.0
+	nplevelreq			7
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TankDrill {
+	// GRINDER
+	commonName			Grinder
+	autoTag
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	okOnOutpostPad		false		// these don't really work on outpost pads
+	cost 				10500
+	stack				10 		// default is 20
+	buildtime 			17.0
+	dispSymbol			DispUnitTankDrill
+	descSymbol			MF_CustomTip_TankDrill
+	ability				Driller
+	aiFortify			0.9
+	aiDirectEngage		0.4
+	aiAssaultWeight		2
+	aiSecureWeight		0
+	nplevelreq			5
+	//techReq				1
+	expValues			417 275		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankDrill/TankDrill.amf mat_TankDrill /animation units/TankDrill/Idle.aaf 0 looping 0.5 /addlMaterial mat_TreadPanX< /pos 2.0 -0.25 0 /zSpinDef mesh_drill 220.0 /zSpinDef bone_gear1 -52 /zSpinDef bone_gear2 87
+	//areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TankDrill_ initFrom TankDrill {
+	commonName			"Trial Grinder"
+	stack				10		// default is 20
+	aiFortify			0.0
+	aiAssaultWeight		0
+	trialStackCfg
+}
+
+
+unitType TankDrillCinematic initFrom TankDrill {
+	commonName			Grinder
+}
+
+
+unitType TankRebel {
+	// Rebel Tank
+	commonName			Rebel
+	autoTag				cased
+	category 			Combat
+	//isHeavy				1
+	//isTank				1
+	cost 				2700
+	buildtime 			3.2
+	dispSymbol			DispUnitTankRebel
+	descSymbol			MF_CustomTip_TankRebel
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0 //15
+	aiSecureWeight		0 //8
+	expValues			106 70		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankRebel/TankRebel.amf mat_TankRebel /pos 2.0 -0.25 0 /animation units/TankRebel/Drive.aaf 0 looping 0.5
+}
+
+unitType TankRebel_ initFrom TankRebel {
+	commonName			"Trial Rebel"
+	trialStackCfg
+}
+
+unitType Rebel_01 initFrom TankRebel {
+	variantCfg "Cheap Rebel"
+	stack				30 		// default is 20
+	//OnInspectOrUnlock	rookMenus previewInit units/Rebel_01/TankRebelCheap.amf mat_TankRebelCheap /pos 2.0 -0.25 0 /animation units/TankRebel/Drive.aaf 0 looping 0.5
+	rarity			1
+}
+
+unitType Rebel_02 initFrom TankRebel {
+	variantCfg "Swift Rebel"
+	stack				30 		// default is 20
+	//OnInspectOrUnlock	rookMenus previewInit units/Rebel_02/TankRebelSwift.amf mat_TankRebelSwift /pos 2.0 -0.25 0 /animation units/TankRebel/Drive.aaf 0 looping 0.5
+	rarity			2
+}
+
+unitType TankHunter {
+	// BUSTER
+	commonName			"Buster"
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				8000
+	buildtime 			13.0
+	nplevelreq			5
+	dispSymbol			DispUnitTankHunter
+	descSymbol			MF_CustomTip_TankHunter
+	aiFortify			0.9
+	aiDirectEngage		0.4
+	aiAssaultWeight		5 //15
+	aiSecureWeight		5 //8
+	expValues			221 146		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankHunter/TankHunter.amf mat_TankHunter /addlMaterial mat_TreadPanXHunter< /pos 2.0 -0.25 0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TankJammer {
+	// JAMMER
+	commonName			"Sonya"
+	autoTag
+	searchTerm			"tank"
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				6200
+	buildtime 			9.6
+	dispSymbol			DispUnitTankJammer
+	descSymbol			MF_CustomTip_TankJammer
+	aiFortify			0.3
+	aiDirectEngage		0 //0.4
+	aiAssaultWeight		0 //15
+	aiSecureWeight		0 //8
+	//techReq				1
+	hasWeaponLvl		0
+	nplevelreq			4
+	expValues			207 137		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TankJammer/TankJammer_Ref.amf mat_TankJammer /addlMaterial mat_TreadPanXJammer< /animation units/TankJammer/TankJammer_Idle.aaf 0 looping 1.0 /zSpinDef mesh_center 100.0 /zSpinDef mesh_prong_l -160.0 /zSpinDef mesh_prong_r -160.0 /pos 2.0 -0.25 0
+	areaDisplay			jam 		// jammer Circle2
+}
+
+unitType Steamroller {
+	// STEAMROLLER
+	commonName			Roller
+	autoTag
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	okOnOutpostPad		false		// these don't really work on outpost pads
+	cost 				10500
+	buildtime 			17.6
+	dispSymbol			DispUnitSteamroller
+	descSymbol			MF_CustomTip_Steamroller
+	ability				Driller
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//techReq				1
+	nplevelreq			3
+	expValues			331 218		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Steamroller/Steamroller.amf mat_Steamroller /animation units/Steamroller/Idle.aaf 0 looping 0.5 /pos 2.0 -0.25 0 /zSpinDef mesh_roller -220.0
+	//areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TruckJammer {
+	// JAMMER
+	commonName			Jammer
+	autoTag
+	category 			Combat
+	cost 				2900
+	buildtime 			6.4
+	dispSymbol			DispUnitTruckJammer
+	descSymbol			MF_CustomTip_TruckJammer
+	aiFortify			0.0
+	aiDirectEngage		0.8
+	aiDirectEngage		0.6
+	aiAssaultWeight		0 0 //  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0
+	hasWeaponLvl		0
+	expValues			112 74		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TruckJammer/TruckJammer.amf mat_TruckJammer /animation units/TruckJammer/Open.aaf 0 stopandhold 1.0 /zSpinDef bone_spin 75.0 /pos 2.0 -0.25 0
+	areaDisplay			jam 		// jammer Circle2
+}
+
+unitType TruckJammer_ initFrom TruckJammer {
+	commonName			"Trial Jammer"
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType TruckRatters {
+	// RATTERS
+	commonName			Ratters
+	autoTag
+	category 			Combat
+	platformContent		!vr
+	cost 				2200
+	buildtime 			5.0
+	dispSymbol			DispUnitTruckRatters
+	descSymbol			MF_CustomTip_TruckRatters
+	aiFortify			0.0
+	aiDirectEngage		0.8
+	aiAssaultWeight		0 0 //  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		2
+	expValues			88 58		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TruckRatters/TruckRatters.amf mat_TruckRatters /animation units/ArmoredCar/CarWait.aaf 0 looping 0.25 /pos 2.0 -0.25 0
+}
+
+unitType TruckGunZ {
+	// GUNNER Z
+	commonName			"Gunner Z"
+	autoTag
+	category 			Combat
+	platformContent		pc_only !arc !vr
+	cost 				3000
+	buildtime 			3.0
+	rarity				5
+	dispSymbol			DispUnitTruckGunZ
+	descSymbol			MF_CustomTip_TruckGunZ
+	aiFortify			0
+	aiDirectEngage		0.5
+	aiDirectEngage		0 //0.6
+	aiAssaultWeight		0 0 //  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0
+	expValues			115 76		// RookDestroyed, UnitDestroyed, Lost, Built
+	////OnInspectOrUnlock	rookMenus previewInit units/TruckGunZ/TruckGunZ.amf mat_TruckGunZ /animation units/TruckGunZ/Idle.aaf 0 looping 0.5 /zSpinDef mesh_wheel_l 350.0 /zSpinDef mesh_wheel_r 350.0 /zSpinDef mesh_wheel_back 350.0 /pos 2.0 -0.25 0
+}
+
+unitType SupplyTruck {
+	// PATCHER
+	commonName			Patcher
+	autoTag
+	category 			Support
+	cost 				2200
+	buildtime 			3.0
+	dispSymbol			DispUnitSupplyTruck
+	descSymbol			MF_CustomTip_SupplyTruck
+	aiFortify			0.6
+	aiDirectEngage		0.9
+	aiSecureWeight		3
+	ability				Supply
+	expValues			92 61		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/SupplyTruck/SupplyTruck.amf mat_SupplyTruck /pos 2.0 -0.25 0
+}
+
+unitType SupplyTank {
+	// RATCHET
+	commonName			Ratchet
+	autoTag
+	category 			Support
+	cost 				3900
+	buildtime 			6.0
+	dispSymbol			DispUnitSupplyTank
+	descSymbol			MF_CustomTip_SupplyTank
+	aiFortify			0.3	// Split with Heavy ratchet
+	aiSurvivalWeight    4
+	aiDirectEngage		1.0
+	aiSecureWeight		5
+	ability				Supply
+	expValues			141 93		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/SupplyTank/SupplyTank.amf mat_SupplyTank /pos 2.0 -0.25 0
+}
+
+unitType SupplyTank_ initFrom SupplyTank {
+	commonName			"Trial Ratchet"
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType Ratchet_01 initFrom SupplyTank {
+	variantCfg "Heavy Ratchet"
+	//OnInspectOrUnlock	rookMenus previewInit units/Ratchet_01/SupplyTankHeavy.amf mat_SupplyTank /pos 2.0 -0.25 0
+	rarity 2
+}
+
+unitType MissileTank {
+	// SEEKER
+	commonName			Seeker
+	autoTag
+	category 			Support
+	isAA				1
+	cost 				7000
+	buildtime 			9.0
+	dispSymbol			DispUnitMissileTank
+	descSymbol			MF_CustomTip_MissileTank
+	aiFortify			0.6		// Split with hunter seeker
+	aiDirectEngage		0.6
+	aiAssaultWeight		2 10 // Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		5
+	expValues			184 121		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/MissileTank/MissileTank.amf mat_MissileTank /pos 2.0 -0.25 0 /animation units/MissileTank/DoorsOpen.aaf 0 stopandhold 0.5 /zSpinDef mesh_antenna 220.0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType Seeker_01 initFrom MissileTank {
+	variantCfg "Hunter Seeker"
+	//OnInspectOrUnlock	rookMenus previewInit units/Seeker_01/MissileTankHunter.amf mat_MissileTank /pos 2.0 -0.25 0 /animation units/MissileTank/DoorsOpen.aaf 0 stopandhold 0.5 /zSpinDef mesh_antenna 220.0
+	rarity 2
+}
+
+unitType APC {
+	// BOXER
+	commonName			Boxer
+	autoTag
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	cost 				3200
+	buildtime 			3.2
+	ability				AttractInfantryCarry
+	abilityRange		13.0
+	abilityParamCount	4
+	dispSymbol			DispUnitAPC
+	descSymbol			MF_CustomTip_APC
+	aiFortify			0.5
+	aiDirectEngage		0.4
+	aiAssaultWeight		0		// fix when this unit is done
+	aiSecureWeight		0		// fix when this unit is done
+	expValues			107 71		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/APC/APC.amf mat_APC /pos 2.0 -0.25 0
+	areaDisplay			apc 		// APC Circle2 + attractor
+}
+
+unitType APC_ initFrom APC {
+	commonName			"Trial Boxer"
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType APCU initFrom APC {
+	// ULTIMATE BOXER
+	commonName			"Ultimate Boxer"
+	alternateOfEx		APC		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	stack				30 		// default is 20
+	ability				AttractInfantryCarry
+	abilityRange		13.0
+	dispSymbol			DispUnitAPCU
+	descSymbol			MF_CustomTip_APCU
+	expValues			70 60		// RookDestroyed, UnitDestroyed, Lost, Built
+	cost 				2700
+	buildtime 			3.0
+	abilityParamCount	6
+
+	//aiFortify			0.5
+	//aiDirectEngage		0.4
+	//aiAssaultWeight		0		// fix when this unit is done
+	//aiSecureWeight		0		// fix when this unit is done
+	//OnInspectOrUnlock	rookMenus previewInit units/APCU/APCU.amf mat_APC /pos 2.0 -0.25 0
+	areaDisplay			apc 		// APC Circle2 + attractor
+
+	property			UltimateLvl				10
+}
+
+
+
+unitType RocketTruck {
+	// BUCKY
+	commonName			Bucky
+	autoTag
+	category 			Combat
+	cost 				2600
+	buildtime 			4.0
+	dispSymbol			DispUnitRocketTruck
+	descSymbol			MF_CustomTip_RocketTruck
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	aiSecureWeight		3
+	aiAssaultWeight		3 3 //  Second number, if specified, is 'Online' weight to be used
+	expValues			103 68		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/RocketTruck/RocketTruck.amf mat_RocketTruck /pos 2.0 -0.25 0 /animation units/RocketTruck/DoorsOpen.aaf 0 stopandhold 0.5
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType RocketTruckWeaker initFrom RocketTruck {
+	notSelectable
+}
+unitType RocketPod initFrom RocketTruck {
+	notSelectable
+}
+unitType RocketPod2 initFrom RocketTruck {
+	notSelectable
+}
+
+
+unitType Bucky_01 initFrom RocketTruck {
+	//OnInspectOrUnlock	rookMenus previewInit units/Bucky_01/RocketTruckA.amf mat_RocketTruck /pos 2.0 -0.25 0 /animation units/RocketTruck/DoorsOpen.aaf 0 stopandhold 0.5
+	variantCfg "Bucky Aggressor"
+	stack				30 		// default is 20
+	rarity 2
+}
+unitType Bucky_02 initFrom RocketTruck {
+	//OnInspectOrUnlock	rookMenus previewInit units/Bucky_02/RocketTruckC.amf mat_RocketTruck /pos 2.0 -0.25 0 /animation units/RocketTruck/DoorsOpen.aaf 0 stopandhold 0.5
+	variantCfg "Cheap Bucky"
+	stack				30 		// default is 20
+	rarity 1
+}
+
+unitType RocketTruckVoid initFrom RocketTruck {
+	variantCfg "Void Bucky"
+	noAutoTag
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/RocketTruck/RocketTruck.amf mat_AirMechUBlack< /pos 2.0 -0.25 0 /animation units/RocketTruck/DoorsOpen.aaf 0 stopandhold 0.5
+}
+
+unitType RocketTruckIC {
+	// ICE CREAM TRUCK
+	commonName			"Ice Cream Buck"
+	alternateOfEx		RocketTruck		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	category 			Combat
+	platformContent		!vr
+	rarity				3
+	cost 				2600
+	buildtime 			4.0
+	rarity				3
+	dispSymbol			DispUnitRocketTruckIC
+	descSymbol			MF_CustomTip_RocketTruckIC
+	aiFortify			0.0
+	aiDirectEngage		0 //0.6
+	aiAssaultWeight		0 0 //3 0 //  Second number, if specified, is 'Online' weight to be used
+	expValues			103 68		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/RocketTruckIC/RocketTruckIC_Ref.amf RocketTruckIC /pos 2.0 -0.25 0 /animation units/RocketTruckIC/RocketTruckIC_Move.aaf 0 looping 1.0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType RocketTruckU initFrom RocketTruck {
+	// ULTIMATE BUCKY
+	commonName			"Ultimate Bucky"
+	alternateOfEx		RocketTruck		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	category 			Combat
+	cost 				2600
+	stack				40 		// default is 20
+	buildtime 			4.0
+	dispSymbol			DispUnitRocketTruckU
+	descSymbol		MF_CustomTip_RocketTruckU
+	expValues			114 75		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0.0
+	aiDirectEngage		0.6
+	//OnInspectOrUnlock	rookMenus previewInit units/RocketTruckU/RocketTruckU.amf mat_RocketTruck /pos 2.0 -0.25 0 /animation units/RocketTruck/DoorsOpen.aaf 0 stopandhold 0.5
+	areaDisplay			oRC 		// offensive range circle
+	rarity				4
+	property			UltimateLvl				10
+}
+
+unitType TruckFlak {
+	// Flakker
+	commonName			Flakker
+	autoTag
+	category 			Combat
+	isAA				1
+	cost 				3500
+	buildtime 			4.8
+	dispSymbol			DispUnitTruckFlak
+	descSymbol			MF_CustomTip_TruckFlak
+	aiFortify			0.4
+	aiDirectEngage		0.4
+	expValues			129 85		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TruckFlak/TruckFlak.amf mat_RocketTruck /addlMaterial mat_TurretFlak /pos 2.0 -0.25 0 /animation units/TruckFlak/Menu.aaf 0 looping 0.3 /rotSpeed 0
+}
+
+unitType Flakker_01 initFrom TruckFlak {
+	variantCfg "Heavy Flakker"
+	rarity 				2
+}
+
+unitType TurretStarter {
+	// T45
+	commonName			T45
+	autoTag				cased
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				3500
+	stack				15 		// default is 20
+	buildtime 			3.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretStarter
+	descSymbol			MF_CustomTip_TurretStarter
+	aiFortify			0.1
+	aiDirectEngage		0.4
+	//pregameSale
+	expValues			158 104		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretStarter/TurretStarter.amf mat_TurretStand /addlMaterial mat_TurretDual /pos 2.0 -0.25 0 /animation units/TurretStarter/LegsDown.aaf 0 StopAndHold 0.75
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TurretDual {
+	// T99
+	commonName			T99
+	autoTag				cased
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				8000
+	stack				15 		// default is 20
+	buildtime 			10.0
+
+	acceptsOrders		false
+
+	okOnPad				true
+	dispSymbol			DispUnitTurretDual
+	descSymbol			MF_CustomTip_TurretDual
+	aiFortify			3.0
+	aiSurvivalWeight    8
+	aiDirectEngage		0.4
+	//pregameSale
+	expValues			259 171		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretDual/TurretDual.amf mat_TurretStand /addlMaterial mat_TurretDual /pos 2.0 -0.25 0 /animation units/TurretDual/LegsDown.aaf 0 playonce 0.75 /switchAnims units/TurretDual/DoorOpen.aaf units/TurretDual/DoorClose.aaf 1 5.2 4.9
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TurretDual_ initFrom TurretDual {
+	commonName			"Trial T99"
+	stack				15 		// default is 20
+	aiFortify			0.0		// Ignore trial variant
+	trialStackCfg
+}
+
+unitType TurretMissile {
+	// STINGER
+	commonName			Stinger
+	autoTag				cased
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				3200
+	stack				15 		// default is 20
+	buildtime 			3.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretMissile
+	descSymbol			MF_CustomTip_TurretMissile
+	//aiFortify			3.0
+	//aiSurvivalWeight    8
+	//aiDirectEngage		0.4
+	//pregameSale
+	expValues			132 87		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretMissile/TurretMissile.amf mat_TurretStand /addlMaterial mat_MissileTank /pos 2.0 -0.25 0 /animation units/TurretMissile/LegsDown.aaf 0 playonce 0.75 /switchAnims units/TurretMissile/DoorsOpen.aaf units/TurretMissile/DoorsClose.aaf 1 5.2 4.9 /zSpinDef mesh_antenna 150.0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TurretChaingun {
+	// GATTY
+	commonName			Gatty
+	autoTag
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	isGrinder			1
+	cost 				6000
+	stack				20 		// default is 20
+	buildtime 			8.0
+	acceptsOrders		false
+	plevelreq			0	//Ws 15
+	okOnPad				true
+	dispSymbol			DispUnitTurretChaingun
+	descSymbol			MF_CustomTip_TurretChaingun
+	aiFortify			1.0
+	aiDirectEngage		0.4
+	//pregameSale
+	expValues			201 133		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretChaingun/TurretChaingun.amf mat_TurretStand /addlMaterial mat_TurretChaingun /pos 2.0 -0.25 0 /animation units/TurretChaingun/LegsDown.aaf 0 stopandhold 0.75
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType Gatty_01 initFrom TurretChaingun {
+	variantCfg "Hellstorm Gatty"
+	stack				20 		// default is 20
+	rarity				2
+	aiFortify			0.0
+}
+
+
+unitType TurretChaingun_ initFrom TurretChaingun {
+	commonName			"Trial Gatty"
+	stack				15 		// default is 20
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType TurretChaingunU initFrom TurretChaingun {
+	// ULTIMATE GATTY
+	commonName			"Ultimate Gatty"
+	alternateOfEx		TurretChaingun		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	isGrinder			1
+	cost 				6000
+	stack				20 		// default is 20
+	buildtime 			8.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretChaingunU
+	descSymbol		MF_CustomTip_TurretChaingunU
+	expValues			221 146		// RookDestroyed, UnitDestroyed, Lost, Built
+	//aiFortify			0.5		// Split odds with Hellstorm version
+	//aiDirectEngage		0.4
+	//pregameSale
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretChaingunU/TurretChaingunU.amf mat_TurretStand /addlMaterial mat_TurretChaingun /pos 2.0 -0.25 0 /animation units/TurretChaingunU/LegsDown.aaf 0 stopandhold 0.75
+	areaDisplay			oRC 		// offensive range circle
+
+	property			UltimateLvl				10
+}
+
+
+unitType TurretFlak {
+	// HAAT
+	commonName			HAAT
+	autoTag
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	isAA				1
+	cost 				6500
+	stack				15 		// default is 20
+	buildtime 			10.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretFlak
+	descSymbol			MF_CustomTip_TurretFlak
+	aiFortify			0.35		// split odds with Hellstorm version
+	aiDirectEngage		0.4
+	nplevelreq			4
+	//pregameSale
+	expValues			216 143		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretFlak/TurretFlak.amf mat_TurretStand /addlMaterial mat_TurretFlak /pos 2.0 -0.25 0 /animation units/TurretFlak/LegsDown.aaf 0 stopandhold 0.75 /zSpinDef mesh_antenna 220.0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType HAAT_01 initFrom TurretFlak {
+	variantCfg "Hellstorm HAAT"
+	stack				20 		// default is 20
+	rarity				2
+}
+
+unitType TurretFlak_ initFrom TurretFlak {
+	commonName			"Trial HAAT"
+	stack				15 		// default is 20
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType TurretFlakU initFrom TurretFlak {
+	// ULTIMATE HAAT
+	commonName			"Ultimate HAAT"
+	alternateOfEx		TurretFlak		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	isAA				1
+	cost 				6500
+	stack				20 		// default is 20
+	buildtime 			10.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretFlakU
+	descSymbol		MF_CustomTip_TurretFlakU
+	expValues			237 156		// RookDestroyed, UnitDestroyed, Lost, Built
+	//aiFortify			0.35		// split odds with Hellstorm version
+	//aiDirectEngage		0.4
+	//plevelreq			8
+	//nplevelreq			3
+	//pregameSale
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretFlakU/TurretFlakU.amf mat_TurretStand /addlMaterial mat_TurretFlak /pos 2.0 -0.25 0 /animation units/TurretFlakU/LegsDown.aaf 0 stopandhold 0.75 /zSpinDef mesh_antenna 220.0
+	areaDisplay			oRC 		// offensive range circle
+
+	property			UltimateLvl				10
+}
+
+
+unitType TurretAegis {
+	// AEGIS
+	commonName			Aegis
+	autoTag
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	isAA				1
+	cost 				3000
+	stack				15 		// default is 20
+	buildtime 			8.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretAegis
+	descSymbol			MF_CustomTip_TurretAegis
+	aiFortify			0.3
+	aiDirectEngage		0.4
+	ability				Aegis
+	//nplevelreq			3
+	//pregameSale
+	expValues			115 76		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretAegis/TurretAegis.amf mat_TurretStand /addlMaterial mat_TurretAegis /pos 2.0 -0.25 0 /animation units/TurretAegis/LegsDown.aaf 0 stopandhold 1.5
+	areaDisplay			sC2 		// special Circle2
+}
+
+unitType TurretAegis_ initFrom TurretAegis {
+	commonName			"Trial Aegis"
+	stack				15 		// default is 20
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType TurretJammer {
+	// JAMMER
+	commonName			Dinger
+	autoTag
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				9500
+	stack				15 		// default is 20
+	buildtime 			12.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretJammer
+	descSymbol			MF_CustomTip_TurretJammer
+	aiFortify			0
+	aiDirectEngage		0.5
+	//techReq				1
+	nplevelreq			5
+	expValues			302 199		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretJammer/TurretJammer.amf mat_TurretStand /addlMaterial mat_TurretJammer /pos 2.0 -0.25 0 /animation units/TurretJammer/LegsDown.aaf 0 stopandhold 0.75 /zSpinDef mesh_antenna 100.0 /zSpinDef mesh_radar_l 150.0 /zSpinDef mesh_radar_r -150.0
+	areaDisplay			jam 		// jammer Circle2
+}
+
+unitType TurretTesla {
+	// TESLA TOWER
+	commonName			"Tesla Tower"
+	autoTag				cased
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				8000
+	stack				5 		// default is 20
+	buildtime 			11.0
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitTurretTesla
+	descSymbol			MF_CustomTip_TurretTesla
+	aiFortify			2.0
+	aiDirectEngage		1
+	expValues			258 170		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretTesla/TurretTesla.amf mat_TurretTesla /pos 2.0 -0.25 0 /animation units/TurretTesla/Idle.aaf 0 looping 0.75 /zSpinDef geo_coil 80.0 /zSpinDef geo_tube -80.0 /zSpinDef bone_ring -100.0
+	areaDisplay			oRC 		// offensive range circle
+}
+
+unitType TurretTeslaGoth initFrom TurretTesla {
+	// GOTHIC TESLA TOWER
+	commonName			"Gothic Tesla Tower"
+	stack				5 		// default is 20
+	platformContent		!vr
+	alternateOfEx		TurretTesla		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				3
+	aiFortify			0
+	aiDirectEngage		1
+	dispSymbol			DispUnitTurretTeslaGoth
+	descSymbol			MF_CustomTip_TurretTeslaGoth
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretTeslaGoth/TurretTeslaGoth.amf mat_TurretTeslaGoth /pos 2.0 -0.25 0 /animation units/TurretTesla/Idle.aaf 0 looping 0.75 /zSpinDef geo_coil 80.0 /zSpinDef geo_tube -80.0 /zSpinDef bone_ring -100.0 /zSpinDef geo_stand -100.0
+}
+
+unitType TurretRocket {
+	// PEPPER
+	commonName			Pepper
+	autoTag				cased
+	searchTerm			"turret"
+	category 			Special
+	isTurret			1
+	cost 				5500
+	stack				15 		// default is 20
+	buildtime 			5.0
+	acceptsOrders		false
+	okOnPad				true
+	nplevelreq			4
+	dispSymbol			DispUnitTurretRocket
+	descSymbol			MF_CustomTip_TurretRocket
+	expValues			230 150		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretRocket/TurretRocket.amf mat_TurretStand /addlMaterial mat_RocketTruck /pos 2.0 -0.25 0 /animation units/TurretRocket/LegsDown.aaf 0 playonce 0.75 /switchAnims units/TurretRocket/DoorsOpen.aaf units/TurretRocket/DoorsClose.aaf 1 5.2 4.9
+	areaDisplay			oArc 		// offensive range arc
+}
+
+unitType Turtle {
+	// Turtle
+	commonName			Turtle
+	autoTag				cased
+	cost 				5000
+	stack				5 		// default is 20
+	buildtime 			10.0
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	dispSymbol			DispUnitTurtle
+	descSymbol			MF_CustomTip_Turtle
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	ability				Turtle
+	expValues			173 114		// RookDestroyed, UnitDestroyed, Lost, Built
+	buildXPMult			0.0
+	hasWeaponLvl		0
+	//techReq				1
+	nplevelreq			5
+	//OnInspectOrUnlock	rookMenus previewInit units/Turtle/Turtle.amf mat_Turtle /pos 2.0 -0.25 0 /animation units/Turtle/Open.aaf 0 stopandhold .75
+}
+
+unitType Turtle_ initFrom Turtle {
+	commonName			"Trial Turtle"
+	stack				5 		// default is 20
+	trialStackCfg
+}
+
+unitType TurretArtillery {
+	// ARTY
+	commonName			Arty
+	autoTag
+	searchTerm			"artillery"
+	category 			Special
+	isTurret			1
+	isArtillery			1
+	cost 				5400
+	stack				10 		// default is 20
+	buildtime 			5.6
+	acceptsOrders		false
+	okOnPad				true
+	autoBuildOk			0
+	dispSymbol			DispUnitTurretArtillery
+	descSymbol			MF_CustomTip_TurretArtillery
+	aiDirectEngage		1.0
+	aiSecureWeight		5
+	aiAssaultWeight		5
+	expValues			201 133		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretArtillery/TurretArtillery.amf mat_TurretArtillery /pos 2.0 -0.25 0 /animation units/TurretArtillery/LegsDown.aaf 0 stopandhold 0.75
+}
+
+unitType TurretArtillery_ initFrom TurretArtillery {
+	commonName			"Trial Arty"
+	stack				10 		// default is 20
+	trialStackCfg
+}
+
+unitType Arty_01 initFrom TurretArtillery {
+	variantCfg "Rapid Arty"
+	stack				15 		// default is 20
+	rarity				2
+}
+
+unitType TurretArtilleryV2 {
+	// ARCHY
+	commonName			Archy
+	autoTag
+	searchTerm			"artillery"
+	category 			Special
+	isTurret			1
+	isArtillery			1
+	cost 				5400
+	stack				10 		// default is 20
+	buildtime 			6.8
+	acceptsOrders		false
+	okOnPad				true
+	autoBuildOk			0
+	dispSymbol			DispUnitTurretArtilleryV2
+	descSymbol			MF_CustomTip_TurretArtilleryV2
+	aiDirectEngage		1.0
+	aiSecureWeight		5
+	aiAssaultWeight		5
+	expValues			201 133		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TurretArtilleryV2/TurretArtilleryV2.amf mat_TurretArtillery /pos 2.0 -0.25 0 /animation units/TurretArtillery/LegsDown.aaf 0 stopandhold 0.75
+}
+
+unitType TurretArtilleryV2_ initFrom TurretArtilleryV2 {
+	commonName			"Trial Archy"
+	stack				10		// default is 20
+	trialStackCfg
+}
+
+unitType Archy_01 initFrom TurretArtilleryV2 {
+	variantCfg "Archy Aggressor"
+	stack				15 		// default is 20
+	rarity				2
+}
+
+unitType Bertha {
+	// BERTHA
+	commonName			Bertha
+	autoTag
+	searchTerm			"artillery"
+	category 			Special
+	isTurret			1
+	isArtillery			1
+	cost 				14500
+	stack				5 		// default is 20
+	buildtime 			14.4
+	acceptsOrders		false
+	okOnPad				true
+	autoBuildOk			0
+	dispSymbol			DispUnitBertha
+	descSymbol			MF_CustomTip_Bertha
+	aiDirectEngage		1.0
+	aiAssaultWeight     4
+	nplevelreq			7
+	//techReq				1
+	expValues			445 294		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Bertha/Bertha.amf mat_Bertha /pos 2.0 -0.25 0 /animation units/Bertha/LegsDown.aaf 0 stopandhold 0.75
+}
+
+unitType Bertha_ initFrom Bertha {
+	commonName			"Trial Bertha"
+	stack				5 		// default is 20
+	trialStackCfg
+}
+
+unitType TurretPortal {
+	// Portal
+	commonName			"Sentry Turret"
+	autoTag
+	searchTerm			"turret"
+	category 			Special
+	platformUnlock		steam_only
+	platformContent		pc_only !arc
+	rarity				1
+	isTurret			1
+	isGrinder			1
+	cost 				750
+	stack				5 		// default is 20
+	buildtime 			1.8
+	acceptsOrders		false
+	okOnPad				true
+	autoBuildOk			0
+	dispSymbol			DispUnitTurretPortal
+	descSymbol			MF_CustomTip_TurretPortal
+	aiFortify			0.0
+	aiDirectEngage		0.4
+	//pregameSale
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	////OnInspectOrUnlock	rookMenus previewInit units/TurretPortal/TurretPortal.amf mat_TurretPortal< /pos 2.0 -0.25 0 /animation units/TurretPortal/LegsDown.aaf 0 stopandhold 0.75 /attachment "units/TurretPortal/PortalLaser.amf mat_LaserGlow< bone_body /fx" /switchAnims units/TurretPortal/DoorsOpen.aaf units/TurretPortal/DoorsClose.aaf 1 2.2 2.9 /rotSpeed 0 /rotX -60.0
+	areaDisplay			oRA 		// offensive range arc
+}
+
+unitType BaseRepair {
+	// LUNCHBOX
+	commonName			Lunchbox
+	autoTag
+	category 			Special
+	cost 				2800
+	stack				5 		// default is 20
+	buildtime 			4.8
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitBaseRepair
+	descSymbol			MF_CustomTip_BaseRepair
+	aiFortify			1.0
+	aiDirectEngage		1.0
+	ability				FortRepair
+	abilityRange		32.0	// also needs to be on an active pad.
+	abilityRange2		22.0	// secondary range - used for outpost lunchbox support
+	hasWeaponLvl		0
+	pregameSale
+	expValues			109 72		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/baserepair/BaseRepair.amf mat_BaseRepair /pos 2.0 -0.25 0 /animation units/baserepair/LidMove.aaf 0 looping 0.5
+}
+
+unitType BaseRepair_ initFrom BaseRepair {
+	commonName		"Trial Lunchbox"
+	stack				5 		// default is 20
+	trialStackCfg
+}
+
+unitType HealPod {
+	// HONEYPOT
+	commonName			Honeypot
+	autoTag
+	category 			Special
+	cost 				5000
+	stack				5 		// default is 20
+	buildtime 			6.4
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitHealPod
+	descSymbol			MF_CustomTip_HealPod
+	aiFortify			0.0
+	aiDirectEngage		1.0
+	ability				SupplyTurret
+	abilityRange		8.0	// also needs to be on an active pad.
+	expValues			172 114		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/HealPod/HealPod.amf mat_HealPod /pos 2.0 -0.25 0 /animation units/HealPod/ArmWorking.aaf 0 looping 0.5
+}
+
+unitType HealPod_ initFrom HealPod {
+	commonName			"Trial Honeypot"
+	stack				5 		// default is 20
+	trialStackCfg
+}
+
+unitType Honeypot_01 initFrom HealPod {
+	variantCfg "Fine Honeypot"
+	stack				5 		// default is 20
+	rarity				2
+}
+
+
+unitType MoneyMaker {
+	// MONEYMAKER
+	commonName			"MoneyMaker"
+	stack				5 		// default is 20
+	autoTag
+	category 			Special
+	cost 				1680
+	buildtime 			5.5
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitMoneyMaker
+	descSymbol		MF_CustomTip_MoneyMaker
+	expValues		78 51		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0.7
+	aiDirectEngage		1.0
+	ability				GenerateMoney
+	pregameSale
+	//OnInspectOrUnlock	rookMenus previewInit units/MoneyMaker/MoneyMaker.amf MoneyMaker /addlMaterial MoneyMakerTread< MoneyMakerGlow< /scale 0.9 /pos 2.0 -0.25 0 /animation units/MoneyMaker/Idle.aaf 0 looping 0.75
+}
+
+unitType MoneyMaker_ initFrom MoneyMaker {
+	commonName			"Trial MoneyMaker"
+	stack				5 		// default is 20
+	trialStackCfg
+}
+
+unitType MoneyMakerU initFrom MoneyMaker {
+	// ULTIMATE MONEYMAKER
+	commonName			"Ultimate MoneyMaker"
+	stack				10 		// default is 20
+	alternateOfEx		MoneyMaker		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	category 			Special
+	cost 				1680
+	buildtime 			5.5
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitMoneyMakerU
+	descSymbol		MF_CustomTip_MoneyMakerU
+	expValues			85 56		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0.0
+	aiDirectEngage		1.0
+	pregameSale
+	ability				GenerateMoney
+	//OnInspectOrUnlock	rookMenus previewInit units/MoneyMakerU/MoneyMakerU.amf MoneyMaker /addlMaterial MoneyMakerTread< MoneyMakerGlow< /pos 2.0 -0.25 0 /animation units/MoneyMakerU/Idle.aaf 0 looping 0.75
+
+	property			UltimateLvl				10
+}
+
+unitType GenXP {
+	// LEVELER - now the WOPR (Whopper)
+	commonName			Whopper
+	autoTag
+	category 			Special
+	cost 				7000
+	stack				5 		// default is 20
+	buildtime 			9.6
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitGenXP
+	descSymbol			MF_CustomTip_GenXP
+	aiFortify			0.3
+	aiDirectEngage		1.0
+	ability				GenerateUpkeep // paired with negative PowerGen
+	pregameSale
+	expValues			150 80		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/GenXP/GenXP.amf mat_GenXP /pos 2.0 -0.25 0 /scale 0.9 /animation units/GenXP/Idle.aaf 0 looping 0.75
+}
+
+unitType GenXP_ initFrom GenXP {
+	commonName			"Trial Whopper"
+	trialStackCfg
+}
+
+unitType TechPod1 {
+	//commonName			Generator
+	//autoTag
+	notSelectable
+	category 			Special
+	cost 				18000			Tech1Cost //(map to symbol)
+	stack				5 		// default is 20
+	buildtime 			20.0
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitTechPod1
+	descSymbol			MF_CustomTip_TechPod1
+	aiFortify			0.0
+	aiDirectEngage		1.0
+	powerToBuild		0.0
+	ability				TechPod
+	abilityParamCount	1
+	expValues			546 360		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TechPod1/TechPod1.amf mat_GenPower /pos 2.0 -0.25 0 /scale 0.9
+}
+
+unitType TechPod2 {
+	//commonName			Generator
+	//autoTag
+	notSelectable
+	category 			Special
+	cost 				18000 			Tech2Cost //(map to symbol)
+	stack				5 		// default is 20
+	buildtime 			20.0
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitTechPod2
+	descSymbol			MF_CustomTip_TechPod2
+	aiFortify			0.0
+	aiDirectEngage		1.0
+	powerToBuild		0.0
+	ability				TechPod
+	abilityParamCount	2
+	expValues			546 360		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/TechPod2/TechPod2.amf mat_GenPower /pos 2.0 -0.25 0 /scale 0.9
+}
+
+unitType UpgradePod {
+	notSelectable
+	category			Guardian  // - use guardian category, so AI will just pick them up
+	cost				0
+	stack				5 		// default is 20
+	buildTime			0
+	commandPointValue	0
+	acceptsOrders		false
+	ability				UpgradePod
+}
+
+unitType GenPower {
+	// GENERATOR
+	commonName			Generator
+	autoTag
+	category 			Special
+	cost 				3000
+	stack				5 		// default is 20
+	buildtime 			9.5
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitGenPower
+	descSymbol			MF_CustomTip_GenPower
+	aiFortify			0.5
+	aiDirectEngage		1.0
+	powerToBuild		0.0
+	pregameSale
+	ability				RestoreEnergy
+	abilityRange		10.0
+	expValues			146 96		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/GenPower/GenPower.amf mat_GenPower /pos 2.0 -0.25 0 /scale 0.9 /animation units/GenPower/Idle.aaf 0 looping 0.75
+}
+
+unitType GenPower_ initFrom GenPower {
+	commonName			"Trial Generator"
+	stack				5 		// default is 20
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType GenPowerU initFrom GenPower {
+	// ULTIMATE GENERATOR
+	commonName			"Ultimate Generator"
+	alternateOfEx		GenPower		// alternate like behavior without technically being an alternate/variant
+	autoTag
+	rarity				4
+	category 			Special
+	cost 				3000
+	stack				5 		// default is 20
+	buildtime 			9.5
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	dispSymbol			DispUnitGenPowerU
+	descSymbol		MF_CustomTip_GenPowerU
+	expValues			150 115		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0.0
+	aiDirectEngage		1.0
+	powerToBuild		0.0
+	pregameSale
+	ability				RestoreEnergy
+	abilityRange		14.0
+	//OnInspectOrUnlock	rookMenus previewInit units/GenPowerU/GenPowerU.amf mat_GenPower /pos 2.0 -0.25 0 /scale 0.9 /animation units/GenPowerU/Idle.aaf 0 looping 0.75
+
+	property			UltimateLvl				15
+}
+
+unitType MissileSilo {
+	// MISSILE SILO
+	commonName			"Missile Silo"
+	autoTag
+	category 			Special
+	platformContent		!vr
+	cost 				8000
+	stack				5 		// default is 20
+	buildtime 			30.0
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	autoBuildOk			0
+	nplevelreq			9
+	//plevelreq			6
+	dispSymbol			DispUnitMissileSilo
+	descSymbol			MF_CustomTip_MissileSilo
+	aiFortify			0 //0.3
+	aiDirectEngage		0 //1.0
+	ability				MissileSilo
+	expValues			150 115		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/MissileSilo/MissileSiloPreview.amf mat_MissileSilo /pos 2.0 -0.25 0 /scale 0.9
+}
+
+unitType MissileSiloMarker {
+	// MISSILE SILO MARKER
+	commonName			"Missile Silo Marker"
+	notSelectable		// you don't equip/build these directly - they get made after you build a silo
+	//autoTag
+	category 			Special
+	platformContent		!vr
+	cost 				10000
+	stack				5 		// default is 20
+	buildtime 			15.0
+	acceptsOrders		false
+	okOnPad				false
+	okOnOutpostPad		false
+	nplevelreq			9
+	//plevelreq			6
+	dispSymbol			DispUnitMissileSiloMarker
+	descSymbol			MF_CustomTip_MissileSiloMarker
+	aiFortify			0 //0.3
+	aiDirectEngage		0 //1.0
+	ability				MissileSiloMarker
+	expValues			150 115		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/MissileSiloMarker/MissileSiloMarker.amf mat_MissileSilo /pos 2.0 -0.25 0 /scale 0.9
+}
+
+
+unitType MissileSiloCampaign initFrom MissileSilo {
+	commonName			"Missile Silo - Campaign"
+	stack				15 		// default is 20
+	cost 				10000
+	buildtime 			30.0
+	dispSymbol			DispUnitMissileSiloCampaign
+	descSymbol			MF_CustomTip_MissileSiloCampaign
+	notSelectable
+	noAutoTag
+	heldNameOverride	MissileSilo			// useful for sharing icons path
+	nplevelreq			1
+}
+
+unitType MissileSiloCampaignMarker initFrom MissileSiloMarker {
+	commonName			"Missile Silo Marker - Campaign"
+	stack				15 		// default is 20
+	cost 				5000
+	buildtime 			3.0
+	dispSymbol			DispUnitMissileSiloCampaignMarker
+	descSymbol			MF_CustomTip_MissileSiloCampaignMarker
+	notSelectable
+	noAutoTag
+	heldNameOverride	MissileSiloMarker			// useful for sharing icons path
+	nplevelreq			1
+}
+
+
+unitType BankSmall {
+	// LOCKBOX
+	commonName			Lockbox
+	autoTag
+	category 			Special
+	cost 				5000
+	stack				5 		// default is 20
+	buildtime 			1.6
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitBankSmall
+	descSymbol			MF_CustomTip_BankSmall
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	ability				GenerateInterest
+	expValues			80 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	buildXPMult			0.0
+	//OnInspectOrUnlock	rookMenus previewInit units/BankSmall/BankSmall.amf mat_Bank /pos 2.0 -0.25 0
+}
+
+unitType BankMedium {
+	// SAFEBOX
+	commonName			Safebox
+	autoTag
+	category 			Special
+	cost 				10000
+	stack				5 		// default is 20
+	buildtime 			3.2
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitBankMedium
+	descSymbol			MF_CustomTip_BankMedium
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	ability				GenerateInterest
+	expValues			160 106		// RookDestroyed, UnitDestroyed, Lost, Built
+	buildXPMult			0.0
+	//OnInspectOrUnlock	rookMenus previewInit units/BankMedium/BankMedium.amf mat_Bank /pos 2.0 -0.25 0
+}
+
+unitType BankLarge {
+	// VAULTBOX
+	commonName			Vaultbox
+	autoTag
+	category 			Special
+	cost 				20000
+	stack				5 		// default is 20
+	buildtime 			4.8
+	acceptsOrders		false
+	okOnPad				true
+	dispSymbol			DispUnitBankLarge
+	descSymbol			MF_CustomTip_BankLarge
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	ability				GenerateInterest
+	expValues			320 212		// RookDestroyed, UnitDestroyed, Lost, Built
+	buildXPMult			0.0
+	//OnInspectOrUnlock	rookMenus previewInit units/BankLarge/BankLarge.amf mat_Bank /pos 2.0 -0.25 0
+}
+
+unitType BotSpawner {
+	// BOTSPAWNER
+	commonName			"Bot Spawner"
+	autoTag
+	category 			Special
+	cost 				4500
+	stack				5 		// default is 20
+	buildtime 			8.0
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	disallowOnFortPad
+	dispSymbol			DispUnitBotSpawner
+	descSymbol			MF_CustomTip_BotSpawner
+	aiFortify			0.3
+	aiDirectEngage		1.0
+	ability				CreepSpawn
+	expValues			130 86		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BotSpawner/BotSpawner.amf mat_BotSpawner /pos 2.0 -0.25 0 /animation units/botspawner/Build.aaf 0 looping 0.25
+}
+
+unitType BotSpawner_ initFrom BotSpawner {
+	commonName			"Trial Bot Spawner"
+	stack				5 		// default is 20
+	aiFortify			0.0
+	trialStackCfg
+}
+
+unitType BikeSurvival initFrom Bike {
+	heldNameOverride	Bike			// useful for sharing icons path
+	stack				5 		// default is 20
+	category 			Survival
+}
+
+unitType DroneBomber {
+	commonName			"Bomber Drone"
+	category			Flier
+	cost 				2000
+	buildtime 			1.6
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitDroneBomber
+	descSymbol			MF_CustomTip_DroneBomber
+	aiDirectEngage		1.0
+	ability				FlierCircleFort
+	expValues			75 50		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/DroneBomber/DroneBomber.amf mat_AirMechStealth /animation units/DroneBomber/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0 /zSpinDef bone_r_fan 420.0
+}
+
+unitType DroneBomberVR {
+	commonName			"Bomber Drone VR"
+	notSelectable
+	category			Flier
+	cost 				1000
+	buildtime 			2.0
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitDroneBomber
+	descSymbol			MF_CustomTip_DroneBomber
+	aiDirectEngage		1.0
+	ability				FlierCircleFort
+	//OnInspectOrUnlock	rookMenus previewInit units/DroneBomber/DroneBomber.amf mat_AirMechStealth /animation units/DroneBomber/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0 /zSpinDef bone_r_fan 420.0
+}
+
+unitType DroneAbduct {
+	commonName			"Abduction Drone"
+	// notSelectable
+	category			Flier
+	cost 				1000
+	buildtime 			2.0
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitDroneAbduct
+	descSymbol			MF_CustomTip_DroneAbduct
+	aiDirectEngage		1.0
+	ability				FlierAbduct
+	//OnInspectOrUnlock	rookMenus previewInit units/DroneAbduct/DroneAbduct.amf mat_Probe /animation units/DroneAbduct/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0
+}
+
+unitType Pelican {
+	// PELICAN
+	commonName			Pelican
+	noAutoTag
+	category 			Flier
+	cost 				2700
+	buildtime 			3.2
+	ability				AttractInfantryCarry
+	abilityRange		13.0
+	abilityParamCount	4
+	dispSymbol			DispUnitPelican
+	descSymbol			MF_CustomTip_Pelican
+	aiFortify			0.5
+	aiDirectEngage		0.4
+	aiAssaultWeight		0		// fix when this unit is done
+	aiSecureWeight		0		// fix when this unit is done
+	expValues			107 71		// RookDestroyed, UnitDestroyed, Lost, Built
+	areaDisplay			apc 		// APC Circle2 + attractor
+}
+
+unitType Baloom {
+	commonName			"Baloom"
+	autoTag
+	category			Flier
+	cost 				2000
+	buildtime 			5.0
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitBaloom
+	descSymbol			MF_CustomTip_Baloom
+	aiDirectEngage		1.0
+	aiFortify			1.0
+	ability				FlierAirMine
+	nplevelreq			4
+	expValues			80 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	acceptsOrders		false
+	//OnInspectOrUnlock	rookMenus previewInit units/Baloom/Baloom.amf mat_Baloom /animation units/Baloom/Shake.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0 /zSpinDef bone_root -100.0 /zSpinDef geo_canister1 100.0 /zSpinDef geo_canister2 100.0 /zSpinDef geo_canister3 100.0 /zSpinDef geo_canister4 100.0 /zSpinDef geo_canister5 100.0
+}
+
+unitType BaloomMini initFrom Baloom {
+	commonName			"Baloom Mini"
+	notSelectable
+	//OnInspectOrUnlock	rookMenus previewInit units/Baloom/Baloom.amf mat_Baloom /animation units/Baloom/Shake.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0 /zSpinDef bone_root -100.0 /zSpinDef geo_canister1 100.0 /zSpinDef geo_canister2 100.0 /zSpinDef geo_canister3 100.0 /zSpinDef geo_canister4 100.0 /zSpinDef geo_canister5 100.0
+}
+
+unitType Hero {
+	commonName			"Hero"
+	autoTag
+	category			Flier
+	cost 				3500
+	buildtime 			6.5
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitHero
+	descSymbol			MF_CustomTip_Hero
+	aiDirectEngage		1.0
+	ability				FlierRepair
+	hasWeaponLvl		0
+	expValues			75 50		// RookDestroyed, UnitDestroyed, Lost, Built
+	acceptsOrders		true
+	//OnInspectOrUnlock	rookMenus previewInit units/Hero/Hero.amf mat_Hero /animation units/Hero/Move.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0
+}
+
+unitType Skyeye {
+	commonName			"Skyeye"
+	autoTag
+	category			Flier
+	cost 				1500
+	buildtime 			4.0
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitSkyeye
+	descSymbol			MF_CustomTip_Skyeye
+	aiDirectEngage		1.0
+	ability				FlierLoiter
+	hasWeaponLvl		0
+	acceptsOrders		false
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Skyeye/Skyeye.amf mat_Skyeye /animation units/Skyeye/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0.5 /scale 1.0 /zSpinDef geo_propeller1 1500.0 /zSpinDef geo_propeller2 1500.0 /zSpinDef geo_propeller3 1500.0 /zSpinDef geo_propeller4 1500.0 /zSpinDef geo_bottom 200.0
+}
+
+unitType Vulcan {
+	commonName			"Vulcan"
+	autoTag
+	category			Flier
+	cost 				5000
+	buildtime 			3.8
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitVulcan
+	descSymbol			MF_CustomTip_Vulcan
+	aiDirectEngage		1.0
+	ability				FlierVulcan
+	expValues			80 53		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Vulcan/Vulcan.amf mat_TurretChaingun /addlMaterial mat_Booster /rotSpeed 0 /zSpinDef bone_turbine_r -500.0 /zSpinDef bone_turbine_l 500.0 /animation units/Vulcan/Hover.aaf 0 looping 0.6 /pos 2.0 -0.25 0 /scale 1.2
+}
+
+unitType VulcanCampaign initFrom Vulcan {
+	commonName			"Vulcan"
+	notSelectable
+	//OnInspectOrUnlock	rookMenus previewInit units/Vulcan/VulcanCampaign.amf mat_TurretChaingun /addlMaterial mat_Booster /rotSpeed 0 /zSpinDef bone_turbine_l 500.0 /animation units/Vulcan/Hover.aaf 0 looping 0.6 /pos 2.0 -0.25 0 /scale 1.2
+}
+
+unitType VulcanDrone {
+	commonName			"Vulcan Drone"
+	notSelectable
+	autoTag
+	category			Flier
+	cost 				3000
+	buildtime 			3.5
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitVulcanDrone
+	descSymbol			MF_CustomTip_VulcanDrone
+	aiDirectEngage		1.0
+	ability				FlierVulcan
+	hasWeaponLvl		0
+	expValues			150 80		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Vulcan/Vulcan.amf mat_TurretChaingun /addlMaterial mat_Booster /rotSpeed 0 /zSpinDef bone_turbine_r -500.0 /zSpinDef bone_turbine_l 500.0 /animation units/Vulcan/Hover.aaf 0 looping 0.6 /pos 2.0 -0.25 0 /scale 1.2
+}
+
+
+unitType IronHandAirShipLatch initFrom VulcanDrone {
+	commonName			"IronHandAirShipLatch"
+}
+
+
+unitType VulcanVoid initFrom Vulcan {
+	variantCfg "Void Vulcan"
+	noAutoTag
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	//OnInspectOrUnlock	rookMenus previewInit units/Vulcan/Vulcan.amf mat_AirMechUBlack< /addlMaterial mat_AirMechUBlack< /rotSpeed 0 /zSpinDef bone_turbine_r -500.0 /zSpinDef bone_turbine_l 500.0 /animation units/Vulcan/Hover.aaf 0 looping 0.6 /pos 2.0 -0.25 0 /scale 1.2
+}
+
+unitType IronAirShip {
+	commonName			"Iron Hand AirShip"
+	platformContent		!vr
+	//skuContent			wastelands_only
+	notSelectable
+	category 			Flier
+	cost 				1000
+	buildtime 			2.0
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitIronAirShip
+	descSymbol			MF_CustomTip_IronAirShip
+	ability				FlierCircleFort
+	aiFortify			0
+	aiDirectEngage		0
+	aiAssaultWeight		0
+	aiSecureWeight		0
+	group_tuamc			1
+	//OnInspectOrUnlock	rookMenus previewInit units/IronAirShip/IronAirShip.amf mat_TankHeavy /animation units/IronAirShip/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0
+}
+
+unitType ArmoredCarSurvival initFrom ArmoredCar {
+	heldNameOverride	ArmoredCar		// useful for sharing icons path
+	category 			Survival
+}
+
+unitType RocketTruckSurvival initFrom RocketTruck {
+	heldNameOverride	RocketTruck		// useful for sharing icons path
+	category 			Survival
+}
+
+unitType SAMSurvivalL1 initFrom InfantryRocket {
+	heldNameOverride	InfantryRocket	// useful for sharing icons path
+	category 			SurvivalInfantry
+}
+
+unitType SAMSurvivalL2 initFrom InfantryRocket {
+	heldNameOverride	InfantryRocket	// useful for sharing icons path
+	category 			SurvivalInfantry
+}
+
+unitType SAMSurvivalL3 initFrom InfantryRocket {
+	heldNameOverride	InfantryRocket	// useful for sharing icons path
+	category 			SurvivalInfantry
+}
+
+unitType CreeperSurvival initFrom Creeper {
+	heldNameOverride	Creeper			// useful for sharing icons path
+	category 			SurvivalInfantry
+	defaultOrder		CaptureOutpost
+	ability				Kamikazee
+	expValues			25 20		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType HeavySurvivalL1 initFrom InfantryHeavy {
+	heldNameOverride	InfantryHeavy
+	category			SurvivalInfantry
+}
+
+unitType HeavySurvivalL2 initFrom InfantryHeavy {
+	heldNameOverride	InfantryHeavy
+	category			SurvivalInfantry
+}
+
+unitType HeavySurvivalL3 initFrom InfantryHeavy {
+	heldNameOverride	InfantryHeavy
+	category			SurvivalInfantry
+}
+
+unitType InfantryHeavyColossus initFrom InfantryHeavy {
+	commonName			BruteColossus
+	dispSymbol			DispUnitInfantryHeavyU
+	descSymbol			MF_CustomTip_InfantryHeavyU
+	heldNameOverride	InfantryHeavy			// useful for sharing icons path
+	category 			SurvivalInfantry
+	noPickup
+	noAttractInfantryLink		// mark as disqualified from follow sergeants, even though we are an infantry
+	noHealing					// mark as shouldn't be healed by units and healers
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType InfantryHeavyColossusMissiles initFrom InfantryHeavy {
+	commonName			BruteColossus
+	dispSymbol			DispUnitInfantryHeavyU
+	descSymbol			MF_CustomTip_InfantryHeavyU
+	//skuContent			wastelands_only
+	heldNameOverride	InfantryHeavy			// useful for sharing icons path
+	category 			SurvivalInfantry
+	noPickup
+	noAttractInfantryLink		// mark as disqualified from follow sergeants, even though we are an infantry
+	noHealing					// mark as shouldn't be healed by units and healers
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType TankHeavyColossus initFrom TankHeavy {
+	commonName			TankColossus
+	dispSymbol			DispUnitTankHeavyColossus
+	descSymbol			MF_CustomTip_TankHeavyColossus
+	heldNameOverride	TankHeavy			// useful for sharing icons path
+	category 			Survival
+	noPickup
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType TankHeavyColossusTesla initFrom TankHeavyColossus {
+	commonName			TankColossusTesla
+	dispSymbol			DispUnitTankHeavyColossusTesla
+	descSymbol			MF_CustomTip_TankHeavyColossus
+	//skuContent			wastelands_only
+	heldNameOverride	TankHeavy			// useful for sharing icons path
+	category 			Survival
+	noPickup
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType TankHeavyColossusBertha initFrom TankHeavyColossus {
+	commonName			TankColossusBertha
+	dispSymbol			DispUnitTankHeavyColossusBertha
+	descSymbol			MF_CustomTip_TankHeavyColossus
+	//skuContent			wastelands_only
+	heldNameOverride	TankHeavy			// useful for sharing icons path
+	category 			Survival
+	noPickup
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType TankHeavyColossusMissiles initFrom TankHeavyColossus {
+	commonName			TankColossusMissiles
+	dispSymbol			DispUnitTankHeavyColossusMissiles
+	descSymbol			MF_CustomTip_TankHeavyColossus
+	//skuContent			wastelands_only
+	heldNameOverride	TankHeavy			// useful for sharing icons path
+	category 			Survival
+	noPickup
+	group_tuamc			1		// put in 'team unit air mech collision' group
+}
+
+unitType MonsterTankSurvival initFrom TankHeavy {
+	heldNameOverride	ScorpionTank		// useful for sharing icons path
+	category 			Survival
+	cost 				12000
+	buildtime 			16.0
+	scoreValues			500 300		// RookDestroyed, UnitDestroyed, Lost, Built
+	expValues			374 247		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType TankHeavySurvival initFrom TankHeavy {
+	heldNameOverride	TankHeavy		// useful for sharing icons path
+	category			Survival
+	cost 				12000
+	buildtime 			16.0
+	expValues			374 247		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType BerthaUSurvival initFrom Bertha {
+	heldNameOverride	Bertha			// useful for sharing icons path
+	category			Survival
+}
+
+unitType DevastatorSurvival initFrom TankMonster {
+	heldNameOverride	TankMonster
+	category			Survival
+}
+
+unitType TankFlakSurvival initFrom TankFlak {
+	heldNameOverride	TankFlak
+	category			Survival
+}
+
+unitType Booster {
+	commonName			"Booster"
+	category 			Munition
+	autoTag
+	isConsumableUnit	1
+	cost 				3000
+	stack				10 		// default is 20
+	buildtime 			4.8
+	dispSymbol			DispUnitBooster
+	descSymbol			MF_CustomTip_Booster
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	isBooster			1
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Booster/BoosterStatic.amf mat_Booster /pos 2.0 -0.25 0
+}
+
+unitType Booster_ initFrom Booster {
+	commonName			"Booster Trial"
+	stack				10 		// default is 20
+	trialStackCfg
+}
+
+unitType BoosterJuly4th {
+	commonName			"Liberty Booster"
+	alternateOfEx		Booster		// alternate like behavior without technically being an alternate/variant
+	stack				10 		// default is 20
+	autoTag
+	category 			Munition
+	platformContent		!vr
+	isConsumableUnit	1
+	cost 				3000
+	buildtime 			4.8
+	dispSymbol			DispUnitBoosterJuly4th
+	descSymbol			MF_CustomTip_BoosterJuly4th
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	isBooster			1
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BoosterJuly4th/BoosterJuly4thStatic.amf mat_BoosterJuly4th< /pos 2.0 -0.25 0
+	specialSkin			July4th
+	rarity				2
+	property			Freedom				10
+}
+
+unitType Bombs {
+	commonName			"Bombs"
+	stack				50 		// default is 20
+	autoTag
+	category 			Bomb
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombs
+	descSymbol			MF_CustomTip_Bombs
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Bombs/Bombs.amf mat_Booster /pos 1.0 -1.5 0
+}
+
+unitType Bombs_ initFrom Bombs {
+	commonName			"Bombs Trial"
+	stack				50 		// default is 20
+	trialStackCfg
+}
+
+unitType BombsU initFrom Bombs {
+	commonName			"Ultimate Bombs"
+	alternateOfEx		Bombs		// alternate like behavior without technically being an alternate/variant
+	stack				50 		// default is 20
+	autoTag
+	category 			Bomb
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombsU
+	descSymbol		MF_CustomTip_BombsU
+	expValues		50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsU/BombsU.amf mat_Booster /pos 1.0 -1.5 0
+	rarity				4
+	specialSkin			Ultimate
+	specialSkinTeamColored true
+	commandPointValue	0
+	property			UltimateLvl				10
+}
+
+unitType BombsAirstrike  {
+	commonName 			"Airstrike Bombs"
+	stack				50 		// default is 20
+	//autoTag
+	category 			Bomb
+	isConsumableUnit	1
+	notSelectable
+	cost 				2200
+	buildtime 			8.0
+	dispSymbol			DispUnitBombsU
+	descSymbol			MF_CustomTip_BombsU
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsU/BombsU.amf mat_Booster /pos 1.0 -1.5 0
+	rarity				4
+	specialSkin			Ultimate
+	specialSkinTeamColored true
+	commandPointValue	0
+	property			UltimateLvl				10
+}
+
+unitType BombsWaveCannon {
+	commonName			"Wave Cannon Bombs"
+	//autoTag
+	category 			Bomb
+	isConsumableUnit	1
+	notSelectable
+	cost 				2200
+	buildtime 			8.0
+	dispSymbol			DispUnitBombsU
+	descSymbol			MF_CustomTip_BombsU
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsU/BombsU.amf mat_Booster /pos 1.0 -1.5 0
+	rarity				4
+	// specialSkin			Ultimate
+	// specialSkinTeamColored true
+	commandPointValue	0
+	property			UltimateLvl				10
+}
+
+
+unitType BombsJuly4th {
+	commonName			"Liberty Bomb"
+	alternateOfEx		Bombs		// alternate like behavior without technically being an alternate/variant
+	stack				50 		// default is 20
+	autoTag
+	category 			Bomb
+	platformContent		!vr
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombsJuly4th
+	descSymbol			MF_CustomTip_BombsJuly4th
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	specialSkin			July4th
+	rarity				3
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsJuly4th/BombsJuly4th.amf mat_BoosterJuly4th< /pos 1.0 -1.5 0
+	property			Freedom				10
+}
+
+unitType BombsHalloween {
+	commonName			"Pumpkin Bomb"
+	alternateOfEx		Bombs		// alternate like behavior without technically being an alternate/variant
+	stack				50 		// default is 20
+	autoTag
+	category 			Bomb
+	platformContent		!vr
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombsHalloween
+	descSymbol			MF_CustomTip_BombsHalloween
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	specialSkin			Halloween
+	rarity				3
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsHalloween/BombsHalloween.amf mat_AirMechSaucerPumpkin< /pos 1.0 -1.5 0
+}
+
+unitType BombsXmas {
+	commonName			"Ornament Bomb"
+	alternateOfEx		Bombs		// alternate like behavior without technically being an alternate/variant
+	stack				50 		// default is 20
+	autoTag
+	category 			Bomb
+	platformContent		!vr
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombsXmas
+	descSymbol			MF_CustomTip_BombsXmas
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	specialSkin			Xmas
+	specialSkinTeamColored
+	rarity				3
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsXmas/BombsXmas.amf mat_BoosterXmas /pos 1.0 -1.5 0 /scale 1.3
+}
+
+unitType BombsEgg {
+	commonName			"Egg Bomb"
+	alternateOfEx		Bombs		// alternate like behavior without technically being an alternate/variant
+	stack				50		// default is 20
+	autoTag
+	category 			Bomb
+	platformContent		!vr
+	isConsumableUnit	1
+	cost 				1300
+	buildtime 			4.0
+	dispSymbol			DispUnitBombsEgg
+	descSymbol			MF_CustomTip_BombsEgg
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	specialSkin			Egg
+	rarity				3
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/BombsEgg/BombsEgg.amf mat_BombsEgg1< /pos 1.0 -1.5 0 /scale 1.3
+}
+
+unitType Mine {
+	// Heavy Mine
+	commonName			"Heavy Mine"
+	autoTag
+	category 			Mine
+	cost 				1000
+	buildtime 			1.6
+	dispSymbol			DispUnitMine
+	descSymbol			MF_CustomTip_Mine
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	expValues			43 28		// RookDestroyed, UnitDestroyed
+	//OnInspectOrUnlock	rookMenus previewInit units/Mine/Mine.amf mat_Mine /pos 2.0 -0.25 0 /animation units/Mine/Idle.aaf 0 looping 1.0
+}
+
+unitType Mine_ initFrom Mine {
+	commonName			"Heavy Mine Trial"
+	trialStackCfg
+}
+
+unitType MineLight {
+	// Light Mine
+	commonName			"Light Mine"
+	autoTag
+	category 			Mine
+	cost 				250
+	buildtime 			0.6
+	dispSymbol			DispUnitMineLight
+	descSymbol			MF_CustomTip_MineLight
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	expValues			36 24		// RookDestroyed, UnitDestroyed
+	//OnInspectOrUnlock	rookMenus previewInit units/MineLight/MineLight.amf mat_Mine /pos 2.0 -0.25 0 /animation units/MineLight/Idle.aaf 0 looping 1.0
+}
+
+
+
+unitType MineTimed {
+	// Timed bomb
+	commonName			"Timed Bomb"
+	autoTag
+	category 			Mine
+	cost 				250
+	buildtime 			0.6
+	dispSymbol			DispUnitMineLight
+	descSymbol			MF_CustomTip_MineLight
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	expValues			36 24		// RookDestroyed, UnitDestroyed
+	//OnInspectOrUnlock	rookMenus previewInit units/MineLight/MineLight.amf mat_Mine /pos 2.0 -0.25 0 /animation units/MineLight/Idle.aaf 0 looping 1.0
+}
+
+
+unitType MineSlow {
+	// Stasis Mine
+	commonName			"Stasis Mine"
+	autoTag
+	category 			Mine
+	cost 				1000
+	buildtime 			2.0
+	dispSymbol			DispUnitMineSlow
+	descSymbol			MF_CustomTip_MineSlow
+	ability				StasisMine
+	abilityRange		10.0
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	expValues			86 57		// RookDestroyed, UnitDestroyed
+	//OnInspectOrUnlock	rookMenus previewInit units/MineSlow/MineSlow.amf mat_MineSlow /pos 2.0 -0.25 0 /zSpinDef bone_spin 2220.0
+	areaDisplay			smC2 		// special - stasis mine - Circle2
+}
+
+unitType MineSlow_ initFrom MineSlow {
+	commonName			"Stasis Mine Trial"
+	trialStackCfg
+}
+
+unitType MineSlowFLA initFrom MineSlow {
+	// FLA Stasis Mine
+	commonName			"Improvised Electronic Device"
+	alternateOfEx		MineSlow		// alternate like behavior without technically being an alternate/variant
+	rarity				5
+	dispSymbol			DispUnitMineSlowFLA
+	descSymbol			MF_CustomTip_MineSlowFLA
+	ability				StasisMineSonic
+	abilityRange		10.0
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	stack				15 		// default is 20
+	// property			UltimateLvl				8
+}
+
+unitType MineSlowU initFrom MineSlow {
+	// Ultimate Stasis Mine
+	commonName			"Ultimate Stasis Mine"
+	alternateOfEx		MineSlow		// alternate like behavior without technically being an alternate/variant
+	rarity				4
+	autoTag
+	category 			Mine
+	cost 				1000
+	buildtime 			2.0
+	dispSymbol			DispUnitMineSlowU
+	descSymbol		MF_CustomTip_MineSlowU
+	expValues			86 57		// RookDestroyed, UnitDestroyed
+	ability				StasisMine
+	abilityRange		10.0
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	//OnInspectOrUnlock	rookMenus previewInit units/MineSlowU/MineSlowU.amf mat_MineSlow /pos 2.0 -0.25 0 /zSpinDef bone_spin 2220.0 /zSpinDef bone_spin2 -500.0
+	areaDisplay			smC2 		// special - stasis mine - Circle2
+
+	property			UltimateLvl				8
+}
+
+unitType BearTrap {
+	commonName			"Bear Trap"
+	autoTag
+	category 			Mine
+	cost 				300
+	buildtime 			0.8
+	dispSymbol			DispUnitBearTrap
+	descSymbol			MF_CustomTip_BearTrap
+	ability				HoldTrap
+	abilityRange		4.0
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	expValues			37 24		// RookDestroyed, UnitDestroyed
+	//OnInspectOrUnlock	rookMenus previewInit units/BearTrap/BearTrap.amf mat_BearTrap /pos 2.0 -0.25 0 /switchAnims units/BearTrap/BearTrapClose.aaf units/BearTrap/BearTrapOpen.aaf 1 2.2 2.9
+}
+
+
+
+
+unitType RocketTruckBroken {
+	category 			Combat
+	cost 				400
+	notSelectable
+	buildtime 			1.5
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	aiAssaultWeight		0	// 0 is default
+	aiSecureWeight		0	// 0 is default
+	aiCaptureWeight		0	// 0 is default
+	commandPointValue	1	// 1 is default
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType RocketTruckTutorial {
+	notSelectable
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType ArmoredCarTutorial {
+	notSelectable
+	expValues			50 50		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType TankTutorial {
+	notSelectable
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType RocketTruckWeak {
+	notSelectable
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType ArmoredCarWeak {
+	notSelectable
+	expValues			50 50		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType TankWeak {
+	notSelectable
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType TankHeavyWeak {
+	notSelectable
+	expValues			200 200		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType InfantryT {
+	notSelectable
+	category 			Infantry
+}
+
+
+unitType InfantrySlow {
+	notSelectable
+	heldNameOverride	Infantry			// useful for sharing icons path
+	category 			Infantry
+}
+
+unitType Core {
+	notSelectable
+	ability				CTFCore
+	acceptsOrders		false
+	okOnPad				true
+	okOnOutpostPad		false
+	expValues			100 100		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+unitType GuardRepair {
+	commonName			"Repair Guardian"
+	autoTag
+	category			Guardian
+	cost				1700
+	buildtime			2.8
+	dispSymbol			DispUnitGuardRepair
+	descSymbol			MF_CustomTip_GuardRepair
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			30
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardRepair/GuardRepair.amf mat_Engineer /pos 2.0 -0.25 0 /zSpinDef bone_spin 120.0
+}
+
+unitType GuardBlaster {
+	commonName			"Blaster Guardian"
+	autoTag
+	category			Guardian
+	cost				1900
+	buildtime			2.4
+	dispSymbol			DispUnitGuardBlaster
+	descSymbol			MF_CustomTip_GuardBlaster
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			20
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardBlaster/GuardBlaster.amf mat_Probe /pos 2.0 -0.25 0 /zSpinDef bone_spin 120.0
+}
+
+unitType GuardBlasterGoth {
+	commonName			"Gothic Blaster"
+	alternateOfEx		GuardBlaster		// alternate like behavior without technically being an alternate/variant
+	rarity				3
+	autoTag
+	category			Guardian
+	cost				1900
+	buildtime			2.4
+	dispSymbol			DispUnitGuardBlasterGoth
+	descSymbol			MF_CustomTip_GuardBlasterGoth
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			20
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardBlasterGoth/GuardBlasterGoth.amf GuardianGoth< /pos 2.0 -0.5 0 /animation units/GuardBlasterGoth/Idle.aaf 0 looping 0.7 /rotSpeed 10 /zSpinDef bone_spin 160.0 /zSpinDef bone_spin2 -100.0
+	SpecialCfg			/pfx GuardGothTrail NULL 0.0
+}
+
+unitType GuardRadar {
+	commonName			"Radar Guardian"
+	autoTag
+	category			Guardian
+	cost				1500
+	buildtime			3.2
+	dispSymbol			DispUnitGuardRadar
+	descSymbol			MF_CustomTip_GuardRadar
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			25
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardRadar/GuardRadar.amf mat_Probe /pos 2.0 -0.25 0 /zSpinDef bone_spinA 120.0 /zSpinDef bone_spinB 90.0 /zSpinDef bone_root 40.0
+}
+
+unitType GuardEnergy {
+	commonName			"Energy Guardian"
+	autoTag
+	category			Guardian
+	cost				1500
+	buildtime			3.2
+	dispSymbol			DispUnitGuardEnergy
+	descSymbol			MF_CustomTip_GuardEnergy
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			30
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardEnergy/GuardEnergy.amf GuardianEnergy /pos 2.0 -0.25 0 /zSpinDef bone_spinA 120.0 /zSpinDef bone_spinB 90.0 /zSpinDef bone_root 40.0
+}
+
+unitType GuardEnergy_ initFrom GuardEnergy {
+	commonName		"Energy Guardian Trial"
+	trialStackCfg
+}
+
+unitType GuardBlade {
+	commonName			"Blade Guardian"
+	autoTag
+	category			Guardian
+	cost				1700
+	buildtime			2.4
+	dispSymbol			DispUnitGuardBlade
+	descSymbol			MF_CustomTip_GuardBlade
+	acceptsOrders		false
+	commandPointValue	0
+	respawnTime			20
+	//OnInspectOrUnlock	rookMenus previewInit units/GuardBlade/GuardBlade.amf GuardianBlade /pos 2.0 -0.25 0 /zSpinDef bone_spinA 420.0
+	SpecialCfg			/pfx GuardBladeSpin bone_root 1.0
+	SpecialCfg			/pfx GuardBladeTrail NULL 0.0
+	SpecialCfg			/impactPfx GuardBladeSlice
+}
+
+unitType BankSmallSp1 initFrom BankSmall {
+	heldNameOverride	BankSmall			// useful for sharing icons path
+	expValues			1800 0		// RookDestroyed, UnitDestroyed
+	notSelectable
+}
+
+// Unit type AirMechs
+
+unitType AirMechFighterA {
+	// "AirMech" + rook name so easier to make text strings
+	//commonName			Rocketeer
+	//autoTag
+	searchTerm			"airmechs"
+	category 			Special
+	cost 				800
+	stack				50 		// default is 20
+	buildtime 			2.8
+	dispSymbol			DispAirMechFighterA
+	descSymbol			MF_AirMechFighterA
+	defaultOrder		CaptureOutpost
+	//aiFortify			0.0
+	//aiDirectEngage		0.4
+	//aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	//aiSecureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	//aiCaptureWeight		4 8	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	1	// 1 is default
+	expValues			52 34		// RookDestroyed, UnitDestroyed, Lost, Built
+}
+
+
+////////////////////////////////
+
+
+unitType InfantryWeak initFrom Infantry {
+	notSelectable
+}
+
+
+
+unitType Uber {
+	commonName			Uber
+	category 			Munition
+	autoTag
+	isConsumableUnit	1
+	isUber				1
+	cost 				75000
+	stack				1 		// default is 20
+	buildtime 			40.0
+	dispSymbol			DispUnitUber
+	descSymbol			MF_CustomTip_Uber
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	acceptsOrders		false
+	commandPointValue	0
+	expValues			50 33		// RookDestroyed, UnitDestroyed, Lost, Built
+	nplevelreq			10
+	//OnInspectOrUnlock	rookMenus previewInit Units/Uber/UberNew.amf Uber< /pos 2.0 -0.25 0 /animation Units/Uber/UberNewIdle.aaf 0 looping 1.0
+}
+
+
+unitType Boss01 {
+	commonName			Boss01
+	notSelectable
+	noAutoTag
+	cost 				50000
+	stack				5 		// default is 20
+	buildtime 			30.0
+	category 			Combat
+	isHeavy				1
+	isTank				1
+	isTall				1		// 'tall' unit - can be hit by air mode airmech fire as well as ground
+	noPickup
+	dispSymbol			DispUnitBoss01
+	descSymbol			MF_CustomTip_Boss01
+	aiFortify			0.0
+	aiDirectEngage		0.5
+	expValues			2500 1800		// RookDestroyed, UnitDestroyed, Lost, Built
+	buildXPMult			0.0
+	nplevelreq			4
+	//OnInspectOrUnlock	rookMenus previewInit units/Turtle/Turtle.amf mat_Turtle /pos 2.0 -0.25 0 /animation units/Turtle/Open.aaf 0 stopandhold .75
+}
+
+unitType Boss01_Turret initFrom Boss01 {
+	commonName			Boss01Turret
+	dispSymbol			DispUnitBoss01Turret
+	descSymbol			MF_CustomTip_Boss01Turret
+}
+
+unitType BossSmall initFrom Boss01 {
+	commonName			BossSmall
+	dispSymbol			DispUnitBossSmall
+	descSymbol			MF_CustomTip_BossSmall
+}
+
+unitType BossSmall_Turret initFrom Boss01 {
+	commonName			BossSmallTurret
+	dispSymbol			DispUnitBossSmallTurret
+	descSymbol			MF_CustomTip_BossSmallTurret
+}
+
+unitType MiniWalker initFrom Boss01 {
+	commonName			BossSmall
+	dispSymbol			DispUnitMiniWalker
+	descSymbol			MF_CustomTip_BossSmall
+}
+unitType MiniWalker_Turret initFrom Boss01 {
+	commonName			BossSmallTurret
+	dispSymbol			DispUnitMiniWalkerTurret
+	descSymbol			MF_CustomTip_BossSmallTurret
+}
+
+unitType MiniWalkerSiam initFrom Boss01 {
+	commonName			BossSmallSiam
+	dispSymbol			DispUnitMiniWalker
+	descSymbol			MF_CustomTip_BossSmall
+}
+unitType MiniWalkerSiam_Turret initFrom Boss01 {
+	commonName			BossSmallTurretSiam
+	dispSymbol			DispUnitMiniWalkerTurret
+	descSymbol			MF_CustomTip_BossSmallTurret
+}
+
+unitType Boss01_Intro initFrom Boss01 {
+	commonName			Boss01_Intro
+}
+
+unitType Boss01_Turret_Intro initFrom Boss01_Turret {
+	commonName			Boss01Turret_Intro
+	dispSymbol			DispUnitBoss01Turret
+	descSymbol			MF_CustomTip_Boss01Turret
+}
+
+ unitType CivilianCarA initFrom CarStarter {
+ 	commonName			"CivilianSedan"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA<
+	dispSymbol			CivSedan
+	descSymbol			MF_CustomTip_CivSedan
+	category			Civilian
+	acceptsOrders        false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarA_CleanRed initFrom CarStarter {
+ 	commonName			"CivilianSedanCleanRed"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanRed<
+	dispSymbol			CivSedanCleanRed
+	descSymbol			MF_CustomTip_CivSedanCleanRed
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarA_CleanWhite initFrom CarStarter {
+ 	commonName			"CivilianSedanCleanWhite"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanWhite<
+	dispSymbol			CivSedanCleanWhite
+	descSymbol			MF_CustomTip_CivSedanCleanWhite
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarA_CleanBlue initFrom CarStarter {
+ 	commonName			"CivilianSedanCleanBlue"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanBlue<
+	dispSymbol			CivSedanCleanBlue
+	descSymbol			MF_CustomTip_CivSedanCleanBlue
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarA_CleanGreen initFrom CarStarter {
+ 	commonName			"CivilianSedanCleanGreen"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanGreen<
+	dispSymbol			CivSedanCleanGreen
+	descSymbol			MF_CustomTip_CivSedanCleanGreen
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarC initFrom CarStarter {
+ 	commonName			"CivilianTruck"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarC.dae mat_CivilianCarC<
+	dispSymbol			CivTruck
+	descSymbol			MF_CustomTip_CivTruck
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarC_CleanRed initFrom CarStarter {
+ 	commonName			"CivilianTruckCleanRed"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarC.dae mat_CivilianCarC_CleanRed<
+	dispSymbol			CivTruckCleanRed
+	descSymbol			MF_CustomTip_CivTruckCleanRed
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarC_CleanWhite initFrom CarStarter {
+ 	commonName			"CivilianTruckCleanWhite"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarC.dae mat_CivilianCarC_CleanWhite<
+	dispSymbol			CivTruckCleanWhite
+	descSymbol			MF_CustomTip_CivTruckCleanWhite
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarC_CleanBlue initFrom CarStarter {
+ 	commonName			"CivilianTruckCleanBlue"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarC.dae mat_CivilianCarC_CleanBlue<
+	dispSymbol			CivTruckCleanBlue
+	descSymbol			MF_CustomTip_CivTruckCleanBlue
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarC_CleanGreen initFrom CarStarter {
+ 	commonName			"CivilianTruckCleanGreen"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarC.dae mat_CivilianCarC_CleanGreen<
+	dispSymbol			CivTruckCleanGreen
+	descSymbol			MF_CustomTip_CivTruckCleanGreen
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarAFast initFrom CarStarter {
+ 	commonName			"CivilianSedanFast"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanBlue<
+	dispSymbol			CivSedanFast
+	descSymbol			MF_CustomTip_CivSedanFast
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+ unitType CivilianCarRand initFrom CarStarter {
+ 	commonName			"CivilianCarRand"
+ 	//OnInspectOrUnlock	rookMenus previewInit Units/Civilian/CarA.dae mat_CivilianCarA_CleanBlue<
+	dispSymbol			CivCarRand
+	descSymbol			MF_CustomTip_CivCarRand
+	category			Civilian
+	acceptsOrders         false
+	acceptsInternalOrders true
+	noPickup
+	notSelectable
+	//skuContent			wastelands_only
+	ability				AttractInfantryCarry
+	//abilityRange		13.0
+	abilityRange		0.0
+	abilityParamCount	4
+}
+
+unitType Civilian {
+	// CIVILIAN
+	commonName			Civilian
+	autoTag
+	searchTerm			"infantry"
+	category 			Civilian
+	dispSymbol			DispUnitCivilian
+	descSymbol			MF_CustomTip_Civilian
+	noPickup
+	aiFortify			0.0
+	aiDirectEngage		0.0
+	aiAssaultWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiSecureWeight		0 0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	aiCaptureWeight		0	// 0 is default.  Second number, if specified, is 'Online' weight to be used
+	commandPointValue	0	// 1 is default
+	okOnOutpostPad		false
+	expValues			46 30		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/Civilian/Civilian.amf mat_PilotHawk< /rotSpeed 0 /pos 2.0 -0.25 0 /animation units/Civilian/Walk.aaf 0 looping 1.0 /scaleMult 0.915
+	acceptsOrders		false
+	notSelectable
+}
+
+unitType CarStarterSneak initFrom CarStarter {
+	commonName			JokerSneak
+	dispSymbol			DispUnitCarStarterSneak
+	descSymbol			MF_CustomTip_CarStarterSneak
+	notSelectable
+}
+
+unitType InfantrySneak initFrom Infantry {
+	commonName			SoldierSneak
+	dispSymbol			DispUnitInfantrySneak
+	descSymbol			MF_CustomTip_InfantrySneak
+	notSelectable
+}
+
+unitType InfantryBroken initFrom Infantry {
+	commonName			SoldierBroken
+	dispSymbol			DispUnitInfantryBroken
+	descSymbol			MF_CustomTip_InfantryBroken
+	notSelectable
+}
+
+unitType TurretChaingunSneak180 initFrom TurretChaingun {
+	commonName			GattySneak180
+	searchTerm			"turretSneak"
+	dispSymbol			DispUnitTurretChaingunSneak180
+	descSymbol			MF_CustomTip_TurretChaingunSneak180
+	notSelectable
+}
+
+unitType TurretChaingunSneak360 initFrom TurretChaingunSneak180 {
+	commonName			GattySneak360
+	dispSymbol			DispUnitTurretChaingunSneak360
+	descSymbol			MF_CustomTip_TurretChaingunSneak360
+}
+
+unitType TurretChaingunSneak90 initFrom TurretChaingunSneak180 {
+	commonName			GattySneak90
+	dispSymbol			DispUnitTurretChaingunSneak90
+	descSymbol			MF_CustomTip_TurretChaingunSneak90
+}
+
+unitType TurretFlak_Story01 initFrom TurretFlak {
+	commonName			TurretFlak_Story01
+	searchTerm			"TurretFlak"
+	dispSymbol			DispUnitTurretFlak_Story01
+	descSymbol			MF_CustomTip_TurretFlak_Story01
+	notSelectable
+	acceptsOrders         false
+	noPickup
+}
+
+unitType DroneBomber_StoryWeak01 {
+	commonName			"BomberDroneStoryWeak01"
+	category			Flier
+	cost 				2000
+	buildtime 			1.6
+	autoBuildOk			0
+	okOnPad				false
+	okOnOutpostPad		false
+	dispSymbol			DispUnitDroneBomberStoryWeak01
+	descSymbol			MF_CustomTip_DroneBomberStoryWeak01
+	aiDirectEngage		1.0
+	ability				FlierVulcan
+	expValues			75 50		// RookDestroyed, UnitDestroyed, Lost, Built
+	//OnInspectOrUnlock	rookMenus previewInit units/DroneBomber/DroneBomber.amf mat_AirMechStealth /animation units/DroneBomber/Idle.aaf 0 looping 1.0 /pos 2.0 -0.25 0 /scale 1.0 /zSpinDef bone_r_fan 420.0
+	notSelectable
+	//skuContent			wastelands_only
+}
+
+unitType BerthaStory_NoPcup initFrom Bertha {
+	commonName			"BerthaStory_NoPcup"
+	notSelectable
+	//skuContent			wastelands_only
+	descSymbol			MF_CustomTip_BerthaStory_NoPcup
+	noPickup
+	acceptsOrders         false
+	acceptsInternalOrders true
+	notSelectable
+}
+
+unitType GenPower_CampaignShort initFrom GenPower {
+	commonName GenPower_CampaignShort
+	abilityRange		5.0
+	//skuContent			wastelands_only
+	notSelectable
+	noPickup
+}
+
+
+// always the last one
+
+unitType NoUnit {
+	category			None
+	dispSymbol			DispUnitNoUnit
+	descSymbol			MF_CustomTip_NoUnit
+	tags				noWishList
+	cost 				0
+	acceptsOrders 		false
+	notBuildable
+	collectionIgnore
+	powerToBuild		0
+	buildtime			0
+	hasWeaponLvl		0
+	hasArmorLvl			0
+}
+
+
+#include unitdecls/patchContent.txt

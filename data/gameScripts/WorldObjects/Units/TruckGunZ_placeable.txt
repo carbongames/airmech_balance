@@ -1,0 +1,71 @@
+add WorldObject initFrom TemplateMedium
+	set Name TruckGunZ
+	set StateController ArmoredCar
+	set RenderScale "0.95"
+	set Model units/TruckGunZ/TruckGunZ.amf
+	set Material "mat_TruckGunZ"
+	set IdleAnimation units/TruckGunZ/Idle.aaf
+	set IdleAnimationSpeed 0.25
+	set MoveAnimation units/TruckGunZ/Drive.aaf
+	set BoneFirePoint "bone_fp"
+	set BoneFirePointAlt "bone_fp"
+	set BoneAimVertical "bone_vert"
+	set BoneAimHorizontal "bone_horz"
+	set RangeArc 360
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds "units/armoredcar/ArmoredCarFiring.wav"
+	set ShotProjEffects ArmorCarShell
+	set DestroySounds DestroyArmoredCar.wav
+	set SalvageValue 400
+	set SalvageTime 4.5
+	set WeaponType 20
+	set ArmorType 45
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+	set ShotDamage 15	// - half damage because of increased rate of fire
+	set AimTurnRate 200
+	set FireDelay 0.125
+	set ShotSpeed 25
+	set ShotLifespan 1.0
+	set ShotAimLeadingEffectiveness 0.5
+	set VisionRange 20
+	set RadarRange 22
+	set Range 15
+	set PowerGen -1
+	set HitPoints 710	// original value 160
+	set CarryWeight 710
+	set MoveSpeed 7.0
+	set TerrainNormalAdjustmentRate 0.08
+	set AtTargetDistance 1.5
+	set Mass 100.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy Infantry
+	set UnitSpawnOnDestroyChance 25
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 150.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.4
+	set Acceleration 10.0
+	set Deceleration 10.0
+	set CanHitAir 1
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set SteerWheelAngConv 0.8
+	set ZSpinDefs "mesh_wheel_l 500.0 /wheel"
+	set ZSpinDefs "mesh_wheel_r 500.0 /wheel"
+	set ZSpinDefs "mesh_wheel_back 500.0 /wheel"
+//	set ShotDamageOnAirMult 0.4
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/ArmoredCar/ArmoredCarDxBody.amf /mtl:mat_ArmoredCarDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.9 0.4] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxGun.amf /mtl:mat_ArmoredCarDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxCap.amf /mtl:mat_ArmoredCarDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxBumper.amf /mtl:mat_ArmoredCarDx /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel3 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"

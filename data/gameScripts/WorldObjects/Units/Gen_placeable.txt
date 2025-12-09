@@ -1,0 +1,87 @@
+add WorldObject initFrom TemplateTurret
+	set Name GenXP
+	set StateController XPMaker
+	set Model "units/GenXP/GenXP.amf"
+	set Material "mat_GenXP"
+	set RangeArc 360
+	set HitPoints 600
+	set CarryWeight 1500
+	set ArmorType 45
+	set RadarRange 10
+	set RenderScale "1.05 1.05 1.05"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set IdleAnimation "units/GenXP/Idle.aaf"
+	set SalvageValue 388
+	set SalvageTime 4.25
+	set PowerGen 3   // GenXP repurposed to be upkeep increasers
+	set DBlastDmg 300			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/GenXP/GenXPDxBase.amf /mtl:mat_GenXPDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.2 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside3 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside4 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "40 0.6 0.6"	//- radius, magnitude, time
+
+add WorldObject initFrom TemplateTurret
+	set Name GenPower
+	set StateController GenPower
+	set Model "units/GenPower/GenPower.amf"
+	set Material "mat_GenPower"
+	set SalvageValue 352
+	set SalvageTime 4.25
+	set RangeArc 360
+	set Range 1
+	set ArmorType 45
+	set HitPoints 600
+	set CarryWeight 1500
+	set HasRegularShot 0
+	set HasMissiles 0
+	set RadarRange 10
+	set DBlastDmg 600			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set IdleAnimation "units/GenPower/Idle.aaf"
+//	set PowerGen -1   // generators repurposed to mobile recharge stations
+	set SupplyRepairRate 2.0
+	set OrbRechargeBonus 35
+	// set ZSpinDefs "bone_blades 330"
+	set ChargeOrbModel units/GenPower/GenPowerFuel.amf
+	set ChargeOrbModelStateAnim units/GenPower/GenPowerCharge.aaf
+	set ChargeOrbMaterial mat_FuelReserve<
+	set ChargeCapacity 3.0
+	set ChargeOrbOffMult 0.00
+	set ChargeOrbOnMult 0.5
+	set ChargeOrbFullMult 2.0
+	set ChargeOrbInitialEnergy 1.0
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/GenPower/GenPowerDxBase.amf /mtl:mat_GenPowerDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.7 0.3 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/GenPower/GenPowerDxSide.amf /mtl:mat_GenPowerDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/GenPower/GenPowerDxSide.amf /mtl:mat_GenPowerDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/GenPower/GenPowerDxSide.amf /mtl:mat_GenPowerDx /bne:bone_xside3 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/GenPower/GenPowerDxSide.amf /mtl:mat_GenPowerDx /bne:bone_xside4 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20"
+	set CameraShakeOnDestroyed "40 0.6 0.6"	//- radius, magnitude, time
+
+add WorldObject initFrom GenPower
+	set Name GenPowerU
+	set StateController GenPowerU
+	set Model "units/GenPowerU/GenPowerU.amf"
+	set RenderScale "1"
+	set IdleAnimation units/GenPowerU/Idle.aaf
+	set SalvageValue 424
+	//set PowerGen -1
+	set SupplyRepairRate 4.0
+	set OrbRechargeBonus 70
+	// set ZSpinDefs "bone_blades01 330"
+	set ChargeCapacity 1.5
+
+	set ChargeOrbModel units/GenPowerU/GenPowerUFuel.amf
+	set ChargeOrbModelStateAnim units/GenPowerU/GenPowerUCharge.aaf
+	set ChargeOrbMaterial mat_FuelReserve<
+
+add WorldObject initFrom GenPower
+	set Name GenPower_CampaignShort
+	set Range 1
+	set OrbRechargeBonus 35

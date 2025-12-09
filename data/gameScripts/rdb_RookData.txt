@@ -1,0 +1,483 @@
+
+//
+// template definitions - this is the main template definition for the Rook World object.
+//
+
+//
+// KJK NOTE - you can't modify these valuemap/enum arrays without also modifying code
+//
+valuemap ProjEffect = None, Default, TankShell, TurretShell, ChainGunTurretShell, FlakTurretShell, ArmorCarShell, LightInf, Missile, Rocket, InfRocket, AirmechMissile, AirmechBomb, AirmechBombUberPowerup, AirmechUnitBomb,  AirmechUnitBombJuly4th, AirmechUnitBombHalloween, AirmechUnitBombXmas, AirmechUnitBombEgg, AirmechUnitBombUltimate, AirmechSwordProj, ShotDownMissile, AegisShotDownMissile, Artillery, Grenade, ThrownHammer, SniperShot, SniperStasisShot, TeslaTower, TeslaTowerChained, VulcanShell, AirmechUnitBombsWaveCannon, PowerupDeathRayPulse, PowerupWarthog, PowerupHammer, PowerupSniper, AirmechUnitBombsAirstrike, EMPGrenade, ExplosiveBullets, SniperOverkill, SniperStasisAOE, MantisStrike, DeathRayPulse
+valuemap ExpEffect = None, Small, Medium, Large
+valuemap RenderGroups = Top, Default, Decals, MeshTerrain, FX
+valuemap UnitSpecials = None, Artillery, Aegis, Sniper, LineTraceHit, LineTraceHitStasis, Grenades, Pyro, UNITLAST, Bombs, Booster, Guardian
+valuemap GuardianPowers = None, Radar, Repair, Blaster, Energy, Blades, VacScrapper
+valuemap CriticalHitZones = None, Back
+valuemap ProtectedHitZones = None, Front
+
+template WorldObject
+	property Name flag keyfield
+	property VariantOf
+	property TypeNameOverride			// used by units to override unit type info; so they can share them
+	property Level type int, default 1
+	property StateController
+	property IsDetail type bool, default 0
+	property IsCombinedGeo type bool, default 0  // set to 1 to make this object participate in geometry combining
+	property DetailQuality type int, default 4  // required detail level to draw.  3 is always, 2 is only low, medium or high, 1 is only medium or high, 0 is high only
+	property EditorIcon type string, default "Unknown"
+	property MeshGridTerrainObj type bool, default 0
+	property MeshGridTerrainDecl type string, default "...."
+	property SelectionSphere type vector3, default "1.5 0.5 0" // size, z-offset, unused
+	property Color type vector3, default "1 1 1"
+	property RenderScale type vector3, default 1   //"1 1 1"
+	property BoundingSphereMod type float, default 0.0
+	property Model
+	property Material default "defaultMaterial"
+	property ModelMat
+	property ModelMatPresent
+	property RenderGroup type enum, valuemap RenderGroups, default Default
+	property UnitSpecial type enum, valuemap UnitSpecials, default None
+	property DmgPassThroughChance type int, default 10		// guardian setting - chance dmg to airmech will also imact the guardian
+	property GuardianPower type enum, valuemap GuardianPowers, default None
+	property GuardianEnergyDrain type float, default 0.0
+	property GuardianOrbitalPeriod type float, default 0.0
+	property CriticalHitZone type enum, valuemap CriticalHitZones, default None
+	property ProtectedHitZone type enum, valueMap ProtectedHitZones, default None
+	property PresetBoneOffset type vector3
+	property PickupClawCfg type vector3, default "0.6 1.0 1" // scale, yoffset, 1/0=big/small
+	property MineWeightMask type int, default 7	//stored as a uint8_t at runtime (0->255 range)
+
+	property UseOptBSphere type bool, default 0
+	property OptBSphereMod type vector4
+	property SampleHeightOffset type float, default 0
+	property ForceTransform type bool, default 0
+
+	property SubModel
+	property SubMaterial
+	property SubRotation type vector3
+	property SubTranslation type vector3
+
+	property CollisionZRel type float, default 0
+	property Collision default "None"
+	property PhysMaterial default "default"			// - physical material to use
+	property PhysCollisionGroup default "World"
+	property EditLayer default "default"			// - the editor layer we are assigned to
+	property FullTerrainCollision type bool, default 0
+	property Center type vector3, default "0 0 0"
+	property TerminationEffect default "Explode"
+	property TerminationParticles default "Explosion"
+
+	// Destruction Effects
+	// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+	// : valid Tags: dcl:[terrainDecal], dch:[terrainDecalChance], bne:[sourceBone], emt:[emitMethod:X,Y,Z], wgl:[wigglefactor], col [[full collision def]]
+	// : mat:[PhysMaterialName-defaults to "Chunks"], grp:[PhysGroupName-defaults to "Particles"], /rdc:decalname, /skt:sinkTime, /skd:sinkDistance
+	// : mdl:[model], mtl:[material_teamremapped]
+//	property DestructionEffects_1 default "1 1.0 0.0  10.0 5.0   6.0 4.0  SmallSmoke FireBurnSmall /dcl:shotGroundImpacts /dch:01 /mdl:units/Tank/DxTankArmor.amf /mtl:mat_UnitBikeDx /bne:bone_xarmor_l /emt:H /col [Box 0.1 0.2 0.3] /mas:3.0 /skt:6.0  /lte:50"
+	property DestructionEffects_1 default "" // see abot - DxTankArmor is old? I can't find it's export, and it doesn't match skinning setup - ken
+	property DestructionEffects_2 default "" //4 0.2 0.0  5.0 1.0   0.0 0.0   BlackSmoke	/rdc:restBurnMark"
+	property DestructionEffects_3 default "" //1 0.2 0.0  0.5 0.0  0 0 	ExplosionSeq	/rdc:restBurnMark"
+	property DestructionEffects_4 default "" //14 0.1 0.0  0.1 0.1  20.0 4.0  PolyTrail /reqVis /nocol"
+	property DestructionEffects_5 default "" //1 0.2 0.0  0.4 0.0  0 0 BrightFlare"
+	property DestructionEffects_6 default "" //1 1.0 0.0  20.0 5.0   6.0 6.0  SmallSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxTurret.amf /mtl:mat_UnitBikeDx /bne:bone_turret /emt:H /col [Box 0.3 0.3 0.2] /mas:40.0 /skt:6.0"
+	property DestructionEffects_7 default "" //1 1.0 0.0  30.0 5.0   6.5 2.5  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_UnitBikeDx /bne:bone_chassis /emt:H /col [Box 0.5 0.75 0.3] /mas:100.0 /skt:6.0"
+	property DestructionEffects_8 default "" //1 1.0 0.0  10.0 5.0   8.0 3.0  SmallSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_UnitBikeDx /bne:bone_xbarrel /emt:H /col [Capsule 0.2 1.0] /skt:6.0  /lte:50"
+	property DestructionEffects_9 default "" //1 1.0 0.0  10.0 5.0   6.0 3.0  SmallSmoke FireBurnSmall /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBack.amf /mtl:mat_UnitBikeDx /bne:bone_xback /emt:H /col [Box 0.2 0.1 0.1] /skt:6.0  /lte:50"
+//	property DestructionEffects_10 default "1 1.0 0.0  10.0 5.0   7.0 3.0  SmallSmoke FireBurnSmall /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/DxTankArmor.amf /mtl:mat_UnitBikeDx /bne:bone_xarmor_r /emt:H /col [Box 0.1 0.2 0.3] /mas:3.0 /skt:6.0  /lte:50"
+	property DestructionEffects_10 default "" // see abot - DxTankArmor is old? I can't find it's export, and it doesn't match skinning setup - ken
+	property CameraShakeOnDestroyed type vector3, default "50.0 0.7 0.7"	//- radius, magnitude, time
+
+	property DestructionEffects		// can be set multiple times, pulls history.  Can replace above 1->10 settings
+	property FiringConfig, type vector4
+
+	// - destruction blast damage settings
+	property DBlastRMin type float, default 3.0
+	property DBlastRMax type float, default 8.0
+	property DBlastDmg type float, default 0.0
+
+	// - damage effects
+	property UnitDamage40 default "UnitDamage50"
+	property UnitDamage70 default "UnitDamage80"
+	property UnitDamage90 default "FireBurnDamage"
+
+	property UnitSpawnOnDestroy default ""
+	property UnitSpawnOnDestroyChance type int, default 0
+	property UnitSpawnOnDestroyChance2 type int, default 0
+
+	property PickupSpawnOnDestroy default ""  // - pickup or powerup (world object) to be spawned on destruction
+	property PickupSpawnOnDestroyChance type float, default 0.0
+	property PickupSpawnOnDestroy2 default ""  // - pickup or powerup (world object) to be spawned on destruction (2)
+	property PickupSpawnOnDestroyChance2 type float, default 0.0
+	property PickupSpawnOnDestroy3 default ""  // - pickup or powerup (world object) to be spawned on destruction (2)
+	property PickupSpawnOnDestroyChance3 type float, default 0.0
+	property PickupSpawnOnDestroy4 default ""  // - pickup or powerup (world object) to be spawned on destruction (2)
+	property PickupSpawnOnDestroyChance4 type float, default 0.0
+	property PickupSpawnOnDestroy5 default ""  // - pickup or powerup (world object) to be spawned on destruction (2)
+	property PickupSpawnOnDestroyChance5 type float, default 0.0
+	property PickupSpawnOnDestroy6 default ""  // - pickup or powerup (world object) to be spawned on destruction (2)
+	property PickupSpawnOnDestroyChance6 type float, default 0.0
+	property MagicFindBase type float, default 0.0
+
+	property CarryWeight type float, 0.0  // can specify carry weight directly - if 0, then use old system of HP
+	property PlaceMinDist type float, default 0.0  // setting to control how closely you can place something to an enemy unit
+
+	property DestroySounds default "DestroyDefault.wav"
+	property DestroyDecal default "unitDestruction"
+	property PowerUp
+	property SpecialType
+	property Mass type float, default 10.0
+	property LinearDamp type float, default 0.0
+	property AngularDamp type float, default 0.6
+	property NavmeshIndex type int, default 0
+	property NavmeshObstacle type int, default 1
+	property NavmeshAvoid type int, default 1
+
+	property AlwaysVisible type bool, default 0
+	property NeverVisible type bool, default 0					// - can be set on actors as optimization
+	property VisibleInEditorOnly type bool, default 0
+	property HighlightOnMouseOver type bool, default 1
+
+	// - tread mark support stuff
+	property TreadMarkDecalDef1 default "tankTreads -0.53 -0.3 0.35"
+	property TreadMarkDecalDef2 default "tankTreads 0.53 -0.3 0.35"
+
+	property ParticlesOnRookDrop default "UnitPlacedFromRook DirtFleck"
+	property ParticlesOnRookPickup default "UnitPickupFromRook DirtFleck"
+
+	property SustainFireTime type float, default 8000.0
+	property ReloadTime type float, default 0.0
+
+	property RangeBlast type float, default 8.0		// blast range for units that have it
+	property RangeFalloff type float, default 0.9	// range for blast damage falloff, as a ratio of 'Range'
+	property Range type float, default 12.0
+	property MinRange type float, default 0.0
+	property TargetZOffset type float, default 0.7
+	property VisionRange type float, default 14.0
+	property RadarRange type float, default 14.0
+	property RadarJamRange type float, default 0.0
+	property RangeArc type float, default 70.0
+	property RotationResetDelay type float, default 2.0			// - seconds before returning to default orientation after losing/destroying target
+	property RotationResetDelayRandom type float, default 0.5	// - random time added to RotationResetDelay time
+	property RotationWanderPeriod type float, default 5.0		// - time basis for turret rotation wandering, in seconds
+	property RotationWanderMaxArc type float, default 60.0		// - max arc/turning for turret rotation wandering
+	property AimWanderSpeed type float, default 0.4				// - delta time multiplier for aim wandering when idle
+	property PointSize type float, default 0.0					// - used as size modifier for blast damage
+	property FireArcForNoZTurret type float, default 65.0
+	property FireArcForNoZTurretWhileMoving type float, default 65.0
+	property SocketTurretSpeedBuff type float, default 1.0		// - for turrets - fire rate boost on sockets
+	property AimCycleDegree type float, default 0.0 			// - overrides AimWanderMaxArc if non zero goes
+	property PilotScanArc type float, default 30.0				// - angle at which the unit can see a pilot
+
+	property FireDelayNoPower type float, default 0.0			// - if power req, and no power, alternate fire delay to use.  0.0 means 'can't fire'
+	property FireDelay type float, default 2.9
+	property FireDelayStasisMult type float, default 0.5		// - delta time mult when stasised
+	property FireAltDelay type float, default 0.0
+	property FireAnimSpeed type float, default 1.0
+	property HasRegularShot type bool, default 1
+	property FortDamageScalar type float, default 1.0
+	property MeleeDPS type float, default 0.0
+	property KineticDamage type float, default 0.0 				// direct impact / shell damage
+	property ShotDamage type float, default 50.0
+	property OutpostMultDmg type float, default 1.0
+	property FortMultDmg type float, default 1.0
+	property ShotDamageOnAirMult type float, default 1.0
+	property ShotDamageOnGndMult type float, default 1.0
+	property ShotIsAAOnly type bool, default 0					// set to disable collision w/ ground stuff (HAAT)
+	property ShotLifespan type float, default 8.0
+	property ShotSize type vector3, default "0.05 0.6 0.0"			// radius, height, unused.  If height = 0, then it's a sphere.  Otherwise it's a capsule oriented on the Y axis of motion
+	property ShotLinearDamp type float, default 0.0					// - projectile linear damping
+	property ShotDamageVelocityInfluence type float, default 0.0	// - damage influence scalar based on projectile original velocity, versus it's velocity at impact time
+	property ShotChanceRoll type float, default 0.0
+	property ShotDodgeable type float, default 0.0					// - shot dodgability factor: 0->1
+	property ShotDodge type float, default 0.0						// - unit ability to dodge shots: 0->1
+	property ArmDelay type float, default 2.0			// arm delay timer (converted to ticks in code, here in seconds) for mines, boomers and similar arm delayed things
+
+	property ShotPowerCost type float, default 0.0		// subtract this from power for each shot
+	property ShotSpeed type float, default 10.5
+	property ShotAimWiggle type int, default 0
+	property ShotAimLeadingEffectiveness type float, default 0.0
+	property ShotAimHorizontalCylOffset type float, default 0.0
+	property ShotAimHorizontalCylOffsetBase type float, default 0.0
+	property ShotCanDmgFort type bool, default true
+	property ShotModel type string
+	property ShotMaterial type string
+	property ShotParticles
+	property ShotFFParticles
+	property ShotMuzzleFlash default MuzzleFlash			// - muzzle flash particle system, spawned at BoneFirePoint
+	property ShotFireSounds default "FiringArmoredCar.wav"
+
+	property ShotProjEffects type enum, valuemap ProjEffect, default LightInf		// kklopp - this is going to replace some of the above...
+	property MissileProjEffects type enum, valuemap ProjEffect, default Missile		// kklopp - this is going to replace some of the above...
+	property ExpEffects type enum, valuemap ExpEffect, default None
+
+	property DynamicFlyToRange type float, default 0
+
+	property TgtOPApproachDSqrMult type float, default 0.9	// if your name is Ken, you can consider changing this
+	property TargetReqFOWCheck type bool, default false
+	property TgtD_Infantry	type float, default 1.0		// target distance scalar - controls targeting desireability for target types
+	property TgtD_Turrets	type float, default 1.0
+	property TgtD_MovingUnits type float, default 1.0
+	property TgtD_AirMechs	type float, default 1.0
+	property TgtD_Outposts	type float, default 1.0
+	property TgtD_OutpostFocused type float, default 0.5 // multiplier on TgtD_Outposts when on an order that's focused on capturing outposts (capture/secure outpost)
+
+	//
+	// Missile Stuff
+	//
+	property HasMissiles type bool, default 0			// - if the unit is armed with missiles or not
+	property NeedToAimToFireMissiles type bool, default 1		// - says if the unit needs to aim/rotate to face in order to fire missiles
+	property MissileLobFire type float, default 0
+	property MissileLobHeight type float, default 6.0
+	property MissileModel type string, default effects/Rocket.amf
+	property MissileMaterial type string, default mat_Booster
+	property MissileRange type float, default 20			// - range of missiles
+	property MissileFireDelay type float, default 0.0		// - time between missile launches - if 0, use 'FireDelay' as was standard before
+	property MissileDamage type float, default 50.0			// - damage the missile does
+	property MissileLifespan type float, default 4.0			// - time before missiles self destruct
+	property MissileTurning type float, default 20.0			// - affects how tight the missiles will turn to follow their target
+	property MissileSpeed type float, default 25.0			// - speed of missiles
+	property MissileWiggle type int, default 1500
+	property MissileIsHoming type bool, default true
+	property MissileCanDmgFort type bool, default true
+	property MissilePowerCost type float, default 0.0
+	property MissileParticles
+	property MissileFireSounds default "FiringRocket.wav"
+	property MissileSpawnZOffset type float, default 0.0
+	property HitPoints type float, default 150
+	property HPOnOPL type float, default 400		// extra hitpoints to infantry when they latch onto an outpost
+	property UVPanRate type float, default 0	// if not set, will use movement speed pan rate (treads use this)
+	property AutoRepair type vector3, default "0 0 0" // unit auto repair support: delay, rate, unused
+	property HealRateMod type float, default 1.0
+	property AirmechImpactDmgScalar type float, default 1.0
+	property UnitImpactDmgScalar type float, default 1.0
+	property GeneralDmgScalar type float, default 1.0		// general damage scalar - scenery objects use this to scale damage
+	property ArmorType type float, default 50.0
+	property WeaponType type float, default 50.0
+	property AimTurnRate type float, default 60.0
+	property AimTurnRateVertical type float, default 0.0   //if 0, will use 'AimTurnRate' for vertical/up aim speed
+	property AimZSpinP
+	property AimZSpinN
+	property AimUpSpin	// vertical aiming gear bone (artillery)
+	property AimZSpinRatio type float, default 0.0
+	property AimUpDefault type float, default 0.0
+	property Acceleration type float, default 2.0			// units/second speed up rate
+	property Deceleration type float, default 5.0			// units/second slow down rate once we've reached our destination
+	property MoveSpeed type float, default 2.0
+	property MoveSpeedMultWhenFiring type float, default 1.0
+	property AtTargetDistance type float, default 0.75		// distance at which the unit considers itself at the move target
+	property UnitTurnRate type float, default 60.0
+	property MoveWhileTurningMaxAngle type float, default 360.0
+	property MustMoveInFacingDirection type bool, default 0
+	property MustStopToFire type bool, default 0
+	property ThreePointTurn type float, default 0.0
+	property SteerWheel1
+	property SteerWheel2
+	property SteerWheelAngConv type float, default 0.4
+	property TerrainNormalAdjustmentRate type float, default 0.05
+	property MoveAnimation type string
+	property MoveLeftAnimation type string, default ""
+	property MoveRightAnimation type string, default ""
+	property MoveBackAnimation type string, default ""
+	property MoveAnimationSpeed type float, default 1.0
+	property MoveAnimationSpeedRand type float, default 0.0
+	property IdleAnimation type string
+	property IdleAnimationSpeed type float, default 1.0
+	property IdleAnimationSpeedRand type float, default 0.0
+	property DeathAnimation // used in conjunction with an 'HandleDestroyed' state
+	property FireAnimation type string
+	property FireAnimationAlt type string
+	property FlyAnimation type string // for dynamic flier units (like jetpack infantry)
+	property AttackPrepareAnim
+	property AttackRelaxAnim
+	property DeployAnim
+	property DeployTime type float, default 2.0
+	property DefendAnim
+	property DefendIdleAnim
+	property PropAnim
+	property PropAnimSpeed type float, default 1.0
+	property PropScale type float, default 0.75
+	property AlignToTerrainNormal type bool, default 1
+	property AlwaysRadarShow type bool, default 0 // always show on enemy radar
+
+	property ChaseAirmech type bool, default 0 			// - if true, change order to attack airmech if it targets an airmech. Ignores other orders.
+
+	property PanicAnimation type string
+	property PanicAnimationSpeed type float, default 1.0
+	property CanBePaniced type bool, default 0
+	property MovePanicSpeed type float, default 4.0
+	property PanicedByRookRadius type float, default 10.0
+	property PanicCooldownTimer type float, default 2.0
+	property PanicDuration type float, default 3.0
+
+	property BossDownIntroFR type string, default ""
+	property BossDownIdleFR type string, default ""
+	property BossDownOutroFR type string, default ""
+	property BossDownIntroFL type string, default ""
+	property BossDownIdleFL type string, default ""
+	property BossDownOutroFL type string, default ""
+	property BossDownIntroBR type string, default ""
+	property BossDownIdleBR type string, default ""
+	property BossDownOutroBR type string, default ""
+	property BossDownIntroBL type string, default ""
+	property BossDownIdleBL type string, default ""
+	property BossDownOutroBL type string, default ""
+	property SubPartHealth type float, default 0 // health for the leg shields
+
+
+	property Cost type int, default 100		// - cost in credits to purchase unit
+	property BoneFirePoint
+	property BoneFirePointAlt
+	property BoneFirePoint2 // quad guns
+	property BoneFirePointAlt2 // quad guns (HAAT)
+	property BoneAimHorizontal			// - name of bone that can rotate like a turret to aim, if none then unit must face enemy to fire
+	property BoneAimVertical			// - name of bone that can rotate like a turret to aim vertically, can accept more than one bone name
+	property AimVerticalAnimPos type vector3	// min angle(anim time 0), neutral position angle, max (anim time 1)
+	property AimVerticalAnim
+	property ReloadAnim
+	property CanAimToward type bool, default 1			// - if true, allows units to rotate to aim toward target
+	property CanHitAir type bool, default 0			// - if true, allows units to fire at air units
+	property CanHitGround type bool, default 1			// - true for most units, allows them to fire at ground units
+	property CanHitAirMechAnyForm type bool, default 0	// - true if the unit can hit the airmech regardless of it's form/mode (flak turret!)
+	property PickupIndicatorScale type float, default 3.0		// - scale of the pickup indicator ring
+
+	//
+	// Supply Vehicle stuff
+	//
+	property SupplyRepairRate type float, default 0			// - health per second the supply vehicle can restore
+	property SupplyRepairRateAM type float, default 0			// - health per second the supply vehicle can restore
+	property SupplyServiceThreshold type float, default 0.75			// - something must be below this ratio to require attention
+	property SupplyDetectRadius type float, default 7 //10			// - radius the Supply vehicle can sense someone needing services
+	property SupplyWorkingRadius type float, default 7.5 //6			// - distance Supply vehicle can be from target unit
+	property SupplyWorkingRadiusNP type float, default 0.0			// - distance Supply vehicle can be from target unit (no power state - for honeypots)
+	property SupplyTransitionParticles default ""			// - particle effect moving from repair target to source
+	property SupplyTransitionParticlesSpawnPeriod type float, default 0.2	// - period for transition particles spawning
+	property SupplySourceParticles default "SupplyRecharge"			// - particle effect for refuel/reload start point
+	property SupplySourceParticlesSpawnPeriod type float, default 0.2	// - period for source particles spawning
+	property SupplyPowerCost type float, default 0.0
+	property MineDisarmRate type float, default 0
+	property MineDisarmResistance type float, default 1.0		// divisor to disarm delta time - set to >1 to increase disarm resistance, <1 to decrease. (eg: 2.0 doubles required disarm time)
+
+	//
+	// Outpost Stuff
+	//
+	property MarkerMesh type string, default OutpostMarker.amf
+	property MarkerMaterial type string, default mat_OutpostMarker
+	property ArmorModCollision
+	property ArmorModAmount type float, default 0.0
+
+	//
+	// V2 charge system stuff
+	//
+	property ChargeCapacity type float, default 4.5
+	property RechargeDelay type float, default 0.0
+	property RechargeRate type float, default 0.15
+	property ChargePresentReq type float, default 0 // charge needed to present units
+
+	property ChargeOrbOffMult type float, default 1.0
+	property ChargeOrbOnMult type float, default 1.5
+	property ChargeOrbFullMult type float, default 2.0
+	property ChargeOrbInitialEnergy type float, default 1.0
+
+	// Money stuff
+	property CreditsEarned type int, default 0			// - amount of credits earned each second when captured
+
+	// - PowerGen = UPKEEP - in wastelands, we just want 1 point per unit, regardless of type.
+
+	property PowerGen type float, default -2.0			// - amount of power earned each second (can be negative)
+	property PowerGenPerQ type float, default 0			// - power gen per quarter after 1 - only applied for structures ATM
+	property PowerGenPerTM type float, default 0		// - power gen per teammate - only applied for structures ATM
+	property OrbRechargeBonus type float, default 0		// - delay/speed boost (percentage) to orb rechage: for powergen units on V2 maps
+
+	property BulbHP type float, default 100.0
+	property BulbRegen type float, default 10.0
+
+	property ShieldHP type float, default 0				// shield hp (outpost - forts remain hardcoded)
+	property ShieldRegenDelay type float, default 3.0	// delay to recharge on hit
+
+	property FuelTankCapacity type int, default 0
+
+	// - general attachments - supports at the world_object level
+	//: model, material, bone, offset_x, offset_y, offset_z, scale_x, scale_y, scale_z, rot_x, rot_y, rot_x
+	property Attachments
+
+	// Engine Specific Stuff (Spawner Settings - Heat Engine Supported Object)
+	property Spawner_ClearCheckRadius type float, default 1.0		// spawn point must be clear of previously spawned stuff within this distance
+	property Spawner_SpawnList default ""
+	property Spawner_SpawnOrderRandom type bool, default 1
+	property Spawner_SpawnDelayBase type float, default 5.0
+	property Spawner_SpawnDelayRand type float, default 3.0
+	property Spawner_SpawnDelayNoSpace type float, default 0.2
+	property Spawner_MaxSimultaneousCount type int, default 5		// max 'things' that can exists spawned in the world by this spawner at one time (suspended until some destroyed)
+	property Spawner_MaxTotalCount type int, default 0				// max the spawner can spawn in it's lifetime.  0 is infinite
+	property Spawner_SpawnAnimation default ""
+	property Spawner_SpawnBaseOffset type vector3, default "-2.0 -2.0 0.0"
+	property Spawner_SpawnRandOffset type vector3, default "4.0 4.0 0.0"
+	property Spawner_SpawnBaseRotation type vector3, default "0 0 0"
+	property Spawner_SpawnRandRotation type vector3, default "0 0 0"
+	property Spawner_RenderInEditModeOnly type bool, default 1
+	property Spawner_SpawnedObjData
+
+	property UnitLatches // time for fun!
+
+	property EditorAlignToTerrainNormal type bool, default 1
+
+	property ZSpinDefs
+	property AbductRes type float, default 1.0
+
+	property SalvageValue type float, default 0.0
+	property SalvageTime type float, default 2.0
+
+	//Aura Modifier Settings
+	property AuraDefenseMod type vector4, default "0.93 0.88 0.82 0.76" // damage taken multiplier
+	property AuraOffenseMod type vector4, default "1.07 1.12 1.18 1.25" // damage done multiplier
+	property AuraSpeedMod type vector4, default "1.18 1.25 1.33 1.40" // movespeed multiplier
+	property AuraBuffHeal type vector4, default "8 10 12 15" // aura heal/s levels
+
+	//Debug Modifier settings
+	property DebufOffenseMod type vector4, default "0.93 0.86 0.79 0.72"
+
+	//Missile Silo special settings
+	property MissileSiloTiming type vector3, default "10.0 3.0 15.0" // anim end to fire seconds, seconds after fire to start close, rearm seconds wait time to start again
+
+	// Variant Modifier Settings
+	property HitPointsMod type float, default 1.0
+	property MissileDamageMod type float, default 1.0
+	property MissileSpeedMod type float, default 1.0
+	property ShotDamageMod type float, default 1.0
+	property FireDelayMod type float, default 1.0
+	property RangeMod type float, default 1.0
+	property MoveSpeedMod type float, default 1.0
+	property SupplyRepairRateMod type float, default 1.0
+	property PowerGenMod type float, default 1.0
+	property CarryWeightMod type float, default 1.0
+	property BuildTimeMod type float, default 1.0
+	property BuildCostMod type float, default 1.0
+	property SalvageValueMod type float, default 1.0
+	property SustainFireTimeMod type float, default 1.0
+	property ReloadTimeMod type float, default 1.0
+	property AimTurnRateMod type float, default 1.0
+
+	property OverrideCreditsPaidForUnit type int, default 0
+	property AllowNeutralPickup type bool, default 0
+
+	property ChargeOrbModel
+	property ChargeOrbModelStateAnim
+	property ChargeOrbOffset type vector3, default "0 0 0"
+	property ChargeOrbMaterial
+
+	property UnitLevelBase type int, default 1
+
+	property MeshAlt type string default ""
+
+	property Stub
+
+
+//
+// done with template
+//
+
+// - objects can be declared here, but typically we want one object in it's own file.  So, we need to tell
+// - the database what folder to go load
+
+exec _templatesRookData.txt
+includeFolder	data/gameScripts/WorldObjects
+includeFolder	data/gameScripts/WorldObjects/Units
+

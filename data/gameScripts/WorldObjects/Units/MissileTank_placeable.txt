@@ -1,0 +1,69 @@
+add WorldObject initFrom TemplateTank
+	set Name MissileTank
+	set StateController MissileTank
+	set Model "units/MissileTank/MissileTank.amf"
+	set Material "mat_MissileTank"
+	set RangeArc 360
+	set BoneFirePoint "mesh_rocketbay_l"
+	set BoneFirePointAlt "mesh_rocketbay_r"
+	set BoneAimHorizontal "bone_horz"
+	set BoneAimVertical "bone_vert"
+	set MissileFireSounds FiringMissile.wav
+	set ShotMuzzleFlash LaunchPuff
+	set DestroySounds DestroyMissileTank.wav
+	set MissileDamage 80
+	set ShotDamageOnAirMult 1.0
+	set ShotDamageOnGndMult 1.0
+	set MissileCanDmgFort 0
+	set MissileModel effects/RocketMini.amf
+	set PowerGen -2
+	set AimTurnRate 220
+	set FireDelay 0.2
+	set FireDelayNoPower 1
+	set ShotSpeed 15
+	set MissileSpeed 21
+	set MissileLifespan 2.5
+	set MissileWiggle 60
+	set CanHitAir 1
+	set CanHitGround 0
+	set HitPoints 1150
+	set CarryWeight 1100
+	set WeaponType 80.0
+	set ArmorType 70.0
+	set VisionRange 22
+	set RadarRange 18
+	set Range 22
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set HasRegularShot 0
+	set HasMissiles 1
+	set UnitSpawnOnDestroy InfantryRocket
+	set UnitSpawnOnDestroyChance 20
+	set UnitTurnRate 90.0
+	set MoveWhileTurningMaxAngle 30
+	set MustMoveInFacingDirection 1
+	set Mass 150.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set ZSpinDefs "mesh_antenna 100.0"
+	set AttackPrepareAnim units/MissileTank/DoorsOpen.aaf
+	set AttackRelaxAnim units/MissileTank/DoorsClose.aaf
+	set SustainFireTime 0.8
+	set ReloadTime 2.0
+	set MoveSpeed 3.0
+	set SalvageValue 856
+	set SalvageTime 5.5
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_TankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_TankDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/MissileTank/MissileTankDxAntenna.amf /mtl:mat_MissileTankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Sphere 0.4] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/MissileTank/MissileTankDxTurret.amf /mtl:mat_MissileTankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.5] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/MissileTank/MissileTankDxRocket.amf /mtl:mat_MissileTankDx /bne:bone_xtread_r /emt:H /grp:Debris /col [Group Debris Box 0.35 0.35 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/Tank/TankDxSidePanel.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/MissileTank/MissileTankDxRocket.amf /mtl:mat_MissileTankDx /bne:bone_xtread_l /emt:H /grp:Debris /col [Group Debris Box 0.35 0.35 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	
+add WorldObject initFrom MissileTank
+	set Name Seeker_01
+	set Model "units/Seeker_01/MissileTankHunter.amf"
+	set VariantOf MissileTank	// for pulling CFG data
+	

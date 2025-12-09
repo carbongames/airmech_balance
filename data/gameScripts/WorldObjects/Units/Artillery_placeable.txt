@@ -1,0 +1,182 @@
+add WorldObject initFrom TemplateArtillery
+	set Name TurretArtillery
+	set StateController TurretArtillery
+	set Model units/TurretArtillery/TurretArtillery.amf
+	set Material "mat_TurretArtillery"
+	set PowerGen -1
+	set UnitLevelBase 8
+	set RangeArc 24
+	set VisionRange 30
+	set RadarRange 30
+	set RenderScale 1.1
+	set Range 26
+	set MinRange 14
+	set CanHitAir 0
+	set CanHitGround 1
+	set CanAimToward 0
+	set CanHitAirMechAnyForm 0
+	set TargetReqFOWCheck 1
+	//set RotationWanderMaxArc 0.0
+	set BoneFirePoint bone_tip
+	set BoneFirePointAlt bone_tip
+	set BoneAimHorizontal ""
+	set BoneAimVertical bone_vert
+	set FireAnimation units/TurretArtillery/TurretFire.aaf
+	set DeployAnim units/TurretArtillery/LegsDown.aaf
+	set SalvageValue 940
+	set SalvageTime 5.5
+	set WeaponType 65.0
+	set ArmorType 45.0
+	set ShotSize 0.4
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotLinearDamp 1.5
+	set ShotFireSounds DestroyMissile.wav
+	set ShotDamageVelocityInfluence 0.0
+	set KineticDamage 80	// direct impact / shell damage
+	set ShotDamage 120 // actually blast damage
+	set ShotDamageOnAirMult 1.0
+	set ShotDamageOnGndMult 1.0
+	set FireDelay 0.2
+	set FireAltDelay 0.0
+	set FireDelayNoPower 0.2
+	set FireAnimSpeed 1
+	//set AimUpDefault -45.0
+	set SustainFireTime 0.2
+	set ReloadTime 3.2
+	set ShotFFParticles ""
+	set ShotParticles PolyTrailArtillery
+	set ShotParticles MissileTrailSmokeArtillery
+	set ShotMuzzleFlash MuzzleFlashArtillery
+	set ShotProjEffects Artillery
+	//set ShotParticles ShellVortex
+	set FiringConfig "2.5 6.0 12 0" // max dmg blast, min dmg blast, spread(at max range), unused
+	set HitPoints 720
+	set CarryWeight 920
+	set MoveSpeed 0.0
+	
+	set RotationWanderMaxArc 65.0
+	set AimWanderSpeed 2.0
+	set BoneAimHorizontal bone_rotate
+	set BoneAimVertical ""
+	set AimVerticalAnim units/TurretArtillery/TurretAim.aaf
+	set AimVerticalAnimPos "8.0 39.0 62.0"	// min angle(anim time 0), neutral position angle, max (anim time 1)
+	set AimUpDefault 39.0
+	set CanAimToward 1
+	set AimTurnRate 5.0
+	set AimZSpinP mesh_gear_side
+	//set AimZSpinN mesh_gear1_l
+	set AimZSpinRatio 18.0
+	set AimTurnRateVertical 5.0
+	set AimUpSpin mesh_gear_up
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretArtillery/TurretArtilleryDxBase.amf /mtl:mat_TurretArtilleryDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.4 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxBody.amf /mtl:mat_TurretArtilleryDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:75 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxBody2.amf /mtl:mat_TurretArtilleryDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:75 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxGun.amf /mtl:mat_TurretArtilleryDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 1.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxLeg.amf /mtl:mat_TurretArtilleryDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxGunBase.amf /mtl:mat_TurretArtilleryDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "2 1 0  5 2   5 2  /mdl:units/TurretArtillery/TurretArtilleryDxArm.amf /mtl:mat_TurretArtilleryDx /bne:bone_xleg_l /emt:Y //grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	
+add WorldObject initFrom TurretArtillery
+	set Name Arty_01
+	set VariantOf TurretArtillery	// for pulling CFG data
+
+add WorldObject initFrom TurretArtillery
+	set Name TurretArtilleryV2
+	set StateController TurretArtilleryV2
+	set Model units/TurretArtilleryV2/TurretArtilleryV2.amf
+	set UnitLevelBase 20
+	set RangeArc 22
+	set VisionRange 36
+	set RadarRange 36
+	set Range 32
+	set MinRange 16
+	set CanHitAir 0
+	set CanHitGround 1
+	set CanHitAirMechAnyForm 0
+	set ShotDamage 70 
+	set KineticDamage 150	// direct impact / shell damage
+	set WeaponType 80
+	set ArmorType 45
+	set FireDelay 0.200
+	set FireAltDelay 0.0
+	set FireAnimSpeed 1
+	//set AimUpDefault -45.0
+	set SustainFireTime 0.2
+	set ReloadTime 3.2
+	set HitPoints 750
+	set CarryWeight 950
+	set PowerGen -1
+	set FiringConfig "2.5 3.5 4 0" // max dmg blast, min dmg blast, spread(at max range), unused
+
+add WorldObject initFrom TurretArtilleryV2
+	set Name Archy_01
+	set VariantOf TurretArtilleryV2	// for pulling CFG data
+
+add WorldObject initFrom TurretArtillery
+	set Name Bertha
+	set StateController Bertha
+	set Model units/Bertha/Bertha.amf
+	set FireAnimation units/Bertha/TurretFire.aaf
+	set DeployAnim units/Bertha/LegsDown.aaf
+	set Material "mat_Bertha"
+	set RenderScale 1.05
+	set SalvageValue 2420
+	set UnitLevelBase 17
+	set SalvageTime 6
+	set RangeArc 20
+	set WeaponType 90
+	set ArmorType 80.0
+	set HitPoints 1750
+	set CarryWeight 2250
+	set ShotFireSounds DestroyRobot.wav
+	set KineticDamage 180	// direct impact / shell damage
+	set ShotDamage 202
+	set FireDelay 0.2
+	set FireDelayNoPower 0.2
+	set SustainFireTime 0.2
+	set ReloadTime 4.4
+	set Range 32
+	set MinRange 18
+	set VisionRange 40
+	set RadarRange 40
+	set PowerGen -4
+	set FireAnimSpeed 0.5
+	set CriticalHitZone Back
+	set FiringConfig "2 6 8 0" // max dmg blast, min dmg blast, spread(at max range), unused
+	set RotationWanderMaxArc 15.0
+	set AimWanderSpeed 0.2
+	set BoneAimHorizontal bone_rotate
+	set BoneAimVertical ""
+	set AimVerticalAnim units/Bertha/TurretAim.aaf
+	set AimVerticalAnimPos "8.0 39.0 62.0"	// min angle(anim time 0), neutral position angle, max (anim time 1)
+	set AimUpDefault 39.0
+	set CanAimToward 1
+	set AimTurnRate 3.0
+	set AimZSpinP mesh_gear1_r
+	set AimZSpinN mesh_gear1_l
+	set AimZSpinRatio 18.0
+	set AimTurnRateVertical 3.0
+	set AimUpSpin mesh_gear2_l
+	
+	set DestructionEffects_3  "1 1 0  10 5   0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Bertha/BerthaDxBase.amf /mtl:mat_BerthaDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.4 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxShield.amf /mtl:mat_BerthaDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:75 /pval:1"
+	set DestructionEffects_5  "1 1 0  7 5    5 2  /mdl:units/Bertha/BerthaDxGun.amf /mtl:mat_BerthaDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 1.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxLeg1.amf /mtl:mat_BerthaDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "2 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxLeg2.amf /mtl:mat_BerthaDx /bne:bone_xleg_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxLeg3.amf /mtl:mat_BerthaDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxExhaust.amf /mtl:mat_BerthaDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "2 1 0  5 2    5 2  /mdl:units/Bertha/BerthaDxSupport.amf /mtl:mat_BerthaDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	
+add WorldObject initFrom Bertha
+	set Name BerthaUSurvival
+	set RangeArc 35
+	set VisionRange 45
+	set RadarRange 50
+	set FireDelay 1.3
+	set AbductRes 0.0	// no abduct for you!
+	set HitPoints 2500
+
+add WorldObject initFrom Bertha
+	set Name BerthaStory_NoPcup

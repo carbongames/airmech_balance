@@ -1,0 +1,88 @@
+// ===========================
+// New "Striker" to setup anims
+// ===========================
+#include FighterABase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+AirMesh = rooks/FighterClassic/FighterClassicAir.amf
+GndMesh = rooks/Striker/Striker_Export.amf
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/Striker/Striker_Transform.aaf
+GroundToAirAnim = rooks/Striker/Striker_TransformOut.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.333 	// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.75 		// was 1.25 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 0.933)
+ActiveEaseOutToRobotAfter = 0.5
+GroundMoveCycleAnimSpeedMult = 0.115
+GroundMoveBackCycleAnimSpeedMult = 0.15
+HeadLookBone = bone_head_game
+UpperBodyAimBone = bone_spine_game
+
+HatBone = bone_head
+HatOffset = "0 0 -0.1"
+HatHeadBone = bone_head
+HatHeadBoneScaled = mesh_head
+HatHeadOffset = "0 0 0.05"
+
+GroundIdleAnim = rooks/Striker/Striker_Stand.aaf
+GroundIdleAnimSword = rooks/Striker/Striker_SwordStand.aaf
+GroundIdleAnimGlide = rooks/Striker/Striker_jump.aaf
+
+SwordModel = rooks/RookSwordNew.amf
+ShieldModel = rooks/RookFighterShieldNew.amf
+ShieldPowerOnAnim = "" // AirMechFighterPowerOn.aaf
+ShieldPowerOffAnim = "" // AirMechFighterPowerOff.aaf
+
+RecoveryAnim = rooks/Striker/Striker_Recover.aaf
+
+SwordAttachmentAnim_TakeOut = AirMechSwordTakeOut.aaf
+SwordAttachmentAnim_PutAway = AirMechSwordPutAway.aaf
+SwordAttackAnim_Forward = rooks/Striker/Striker_SwordChop.aaf
+SwordAttackAnim_Back = rooks/Striker/Striker_SwordChop.aaf
+SwordAttackAnim_Left = rooks/Striker/Striker_SwordChop.aaf
+SwordAttackAnim_Right = rooks/Striker/Striker_SwordChop.aaf
+SwordAttackAnim_ForwardMoving = rooks/Striker/Striker_SwordChopMoving.aaf
+SwordAttackAnim_BackMoving = rooks/Striker/Striker_SwordChopMoving.aaf
+SwordAttackAnim_LeftMoving = rooks/Striker/Striker_SwordChopMoving.aaf
+SwordAttackAnim_RightMoving = rooks/Striker/Striker_SwordChopMoving.aaf
+SwordAttackPlaybackConfig = "40.0 40.0 0.15 0.4"
+SwordAttackAnimSpeed = 1.0
+
+// ========================================================
+// Sword Mode settings.  Does he have sword?  Yes he does.
+// ========================================================
+
+SpecialModeTransitionToPlaybackConfig = "4.0 4.0 0.15 0.15"		// - start weight, end weight, ease in time, ease out on play complete time
+SpecialModeTransitionToAnim = rooks/Striker/Striker_SwordDraw.aaf
+SpecialModeTransitionFromPlaybackConfig = "4.0 4.0 0.15 0.15"		// - start weight, end weight, ease in time, ease out on play complete time
+SpecialModeTransitionFromAnim = rooks/Striker/Striker_SwordOut.aaf
+SpecialModeTransitionAnimSpeed = 1.0
+
+GroundMoveCycleAnim_Fwd = rooks/Striker/Striker_Jog.aaf
+GroundMoveCycleAnim_Back = rooks/Striker/Striker_JogBack.aaf
+GroundMoveCycleAnim_FwdSword = rooks/Striker/Striker_Jog.aaf
+GroundMoveCycleAnim_BackSword = rooks/Striker/Striker_JogBack.aaf
+
+
+GroundMoveCycleAnim_Left = rooks/Striker/Striker_TurnLeft.aaf
+GroundMoveCycleAnim_Right = rooks/Striker/Striker_TurnRight.aaf
+
+HoverAnimation = rooks/FighterClassic/FighterClassic_Hover.aaf
+HoverAnimationSpeed = 1.0
+
+FiringAnimation = rooks/Striker/Striker_StandShoot.aaf
+FiringAnimation_MoveFwd = rooks/Striker/Striker_JogShoot.aaf
+FiringAnimation_MoveBack = rooks/Striker/Striker_JogBackShoot.aaf
+
+Taunts = rooks/Striker/Striker_Taunt03.aaf, rooks/Striker/Striker_Taunt01.aaf, rooks/Striker/Striker_Taunt02.aaf
+
+AirFiringAnimations = rooks/FighterClassic/FighterClassic_Fire_L.aaf, rooks/FighterClassic/FighterClassic_Fire_R.aaf

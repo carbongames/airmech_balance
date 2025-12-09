@@ -1,0 +1,21 @@
+add WorldObject initFrom TemplateTurret
+	set Name BaseRepair
+	set Model "units/baserepair/BaseRepair.amf"
+	set Material "mat_BaseRepair"
+	set RangeArc 360
+	set PowerGen -1
+	set HitPoints 800
+	set CarryWeight 1600
+	set ArmorType 45
+	set RadarRange 30
+	set VisionRange 20
+	set StateController BaseRepair
+	set RenderScale "1"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0
+	set SalvageValue 352
+	set SalvageTime 4.25
+
+	set DestructionEffects_3 "1 1 0  10 5  0 0  MediumSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/BaseRepair/BaseRepairDxBody.amf /mtl:mat_BaseRepairDx /bne:bone_lid /emt:Z /grp:DebrisM /col [Group DebrisM Box 0.7 0.7 0.2] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4 "1 1 0  5 2   8 2  /mdl:units/BaseRepair/BaseRepairDxTop.amf /mtl:mat_BaseRepairDx /bne:bone_lid /emt:Z /grp:Debris /col [Group Debris Box 0.35 0.35 0.35] /skt:5 /lte:50 /vcb:40 /pval:1"

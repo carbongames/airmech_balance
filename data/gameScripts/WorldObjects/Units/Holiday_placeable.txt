@@ -1,0 +1,85 @@
+
+add WorldObject initFrom TemplateInfantry
+	set Name Reindeer
+	set StateController InfantryButcher
+	set Model units/Reindeer/Reindeer.amf
+	set Material ""
+	set ModelMat Reindeer<
+	set BoneFirePoint "bone_flash_L"
+	set BoneAimHorizontal "bone_aim"
+	set RenderScale "1.3"
+	set UnitLevelBase 4
+	set RangeArc 360
+	set PowerGen 0
+	set MoveSpeed 6.0
+	set MovePanicSpeed 8.3
+	set ShotDamage 5
+	set AimTurnRate 300
+	set MeleeDPS 420
+	set BoneFirePoint mesh_head
+	set BoneAimHorizontal bone_waist
+	set ShotFireSounds FiringRifle.wav
+	set OutpostMultDmg 0.67
+	set ShotDodge 0.8	// ability to 'dodge' certain shot types
+	set ShotMuzzleFlash "bone_nose"
+	set ShotFFParticles WhiteTrail
+	set ShotProjEffects Default
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set NavmeshIndex 1
+	set ShotDamageVelocityInfluence 0.75
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set CanBePaniced 1
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set ArmorType 25.0
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	set FortDamageScalar 0.3
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 3000
+	set CarryWeight 550
+	set FireDelay .3
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set WeaponType 85
+	set ArmorType 50
+	set MoveAnimationSpeed 1.0
+	set PanicAnimationSpeed 0.70
+	set MoveAnimation 	units/Reindeer/Reindeer_Run.aaf
+	set IdleAnimation 	units/Reindeer/Reindeer_Idle.aaf
+	set PanicAnimation 	units/Reindeer/Reindeer_Run.aaf
+	set FireAnimation 	units/Reindeer/Reindeer_Attack.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 17
+	set RadarRange 16
+	set Range 9
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryButcher/InfantryButcherDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/InfantryButcher/InfantryButcherDxArm.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryButcher/InfantryButcherDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	// set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/Reindeer/ReindeerHead.amf 	/mmt:Reindeer< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_3  "1 0.2 0.0  0.5 0.0    0 0 ExplosionSnowflakes  /vcb:75 /reqVis"
+
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+

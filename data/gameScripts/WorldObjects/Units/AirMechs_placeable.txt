@@ -1,0 +1,101 @@
+//
+// Unit based AirMechs, not to be confused with Rooks! (player AirMechs)
+//
+
+
+add WorldObject
+	set Name TemplateAirMech
+	set SpecialType Unit
+	set StateController AirmechUnit
+	set DynamicFlyToRange 20.0
+	set PowerGen -1
+	set NavmeshIndex 1
+	set UnitLevelBase 1
+	set OutpostMultDmg 1.0
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set CanBePaniced 1
+	set MovePanicSpeed 5.0
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set CollisionZRel 1.0 // was 0.5
+	set Collision "CapsuleZ 0.75 0.75" // was 1.5 height! (capsulez height is 2*rad + height)
+	// set DestructionEffects_1  "1 0.2 0.0  0.5 0.0    0 0 ExpBlastRing ExpDestroy BrightFlare /vcb:75 /reqVis"
+	set DestructionEffects_1  "1 0.2 0.0  0.5 0.0    0 0 ExplosionSequence6b ExplosionSequence6 ExplosionHit ExplosionGlowbits ExplosionStreaks ExplosionShockwave /vcb:75 /reqVis"
+
+// SOLDIER
+//
+
+add WorldObject initFrom TemplateAirMech
+	set Name AirMechFighterA
+	set Model rooks/Striker/Striker_Export.amf
+	set MeshAlt rooks/FighterClassic/FighterClassicAir.amf
+	set Material mat_FighterClassic
+	set BoneFirePoint bone_weapon1
+	set BoneFirePointAlt bone_weapon2
+	set ShotMuzzleFlash "MuzzleFlashTankSmall"
+	set ShotFFParticles TracerAirMechDefaultGnd
+	// set ShotFFParticles MiniTrail
+	set BoneAimHorizontal bone_spine_game
+	//set RenderScale "0.9"
+	set RangeArc 360
+	set ShotFireSounds FiringRifle.wav
+	set WeaponType 25.0
+	set ArmorType 50.0
+	set AimTurnRate 150
+	set FireDelay 0.20
+	set FireAltDelay 0.165
+	set ShotProjEffects Default
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotDamageVelocityInfluence 0.75
+	set CanHitAir 1
+	set ShotDamage 20
+	set HitPoints 1250
+	set CarryWeight 350
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 11.1
+	set MoveAnimationSpeed 1.2
+	set MoveAnimationSpeedRand 0.2
+	set PanicAnimationSpeed 1.0
+	set MoveAnimation rooks/Striker/Striker_Jog.aaf
+	set IdleAnimation rooks/Striker/Striker_Stand.aaf
+	set PanicAnimation rooks/Striker/Striker_Jog.aaf
+	//set FlyAnimation rooks/Striker/Striker_Transform.aaf
+	set FlyAnimation rooks/FighterClassic/FighterClassic_Hover.aaf
+	set FireAnimation rooks/Striker/Striker_StandShoot.aaf
+	//set FireAnimationAlt rooks/FighterClassic/FighterClassic_Fire_L.aaf, rooks/FighterClassic/FighterClassic_Fire_R.aaf
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	set DestroyDecal "OilSplat1"
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+	set DBlastDmg 250			// "Death Blast" Damage
+	set DBlastRMin 1.4			// "Death Blast" Range
+	set DBlastRMax 3.7			// "Death Blast" Range
+	set SalvageValue 500
+	set SalvageTime 2.5
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxHead.amf /mtl:mat_InfantryJetpackDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"
+
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 2
+
+
+

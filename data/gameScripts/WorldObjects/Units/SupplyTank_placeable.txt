@@ -1,0 +1,40 @@
+add WorldObject initFrom TemplateTank
+	set Name SupplyTank
+	set StateController SupplyTank
+	set Model units/SupplyTank/SupplyTank.amf
+	set Material "mat_SupplyTank"
+	set PowerGen -2
+	set MineDisarmRate 5
+	set RangeArc 360
+	set CarryWeight 850
+	set WeaponType 1
+	set DestroySounds DestroySupplyTruck.wav
+	set Mass 150.0
+	set LinearDamp 0.2
+	set AngularDamp 3.0
+	set UnitTurnRate 90.0
+	set MoveSpeed 3.0
+	set HitPoints 850
+	set ArmorType 85.0
+	set SupplyRepairRate 45
+	set MoveWhileTurningMaxAngle 25
+	set HasRegularShot 0
+	set HasMissiles 0
+	set UnitSpawnOnDestroy Engineer
+	set UnitSpawnOnDestroyChance 20
+	set SalvageValue 646
+	set SalvageTime 5.5
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/SupplyTank/SupplyTankDxBody.amf /mtl:mat_SupplyTankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.9 0.4 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/SupplyTank/SupplyTankDxSensor.amf /mtl:mat_SupplyTankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/SupplyTank/SupplyTankDxVent.amf /mtl:mat_SupplyTankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/SupplyTank/SupplyTankDxArm.amf /mtl:mat_SupplyTankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.8 0.3] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/SupplyTank/SupplyTankDxArm.amf /mtl:mat_SupplyTankDx /bne:bone_xtread_r /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.8 0.3] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/SupplyTank/SupplyTankDxClaw.amf /mtl:mat_SupplyTankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "40 0.4 0.6"	//- radius, magnitude, time
+	
+add WorldObject initFrom SupplyTank
+	set Name Ratchet_01
+	set Model units/Ratchet_01/SupplyTankHeavy.amf
+	set VariantOf SupplyTank	// for pulling CFG data	
+

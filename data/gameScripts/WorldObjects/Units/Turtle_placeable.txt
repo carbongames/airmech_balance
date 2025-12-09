@@ -1,0 +1,42 @@
+add WorldObject initFrom TemplateLarge
+	set Name Turtle
+	set StateController Turtle
+	set Model units/Turtle/Turtle.amf
+	set Material "mat_Turtle"
+	set PowerGen -2
+	set RangeArc 360
+	set RenderScale 1.2
+	set AimTurnRate 60
+	set RotationResetDelay 8
+	set HitPoints 2500
+	set CarryWeight 2400
+	//set HealRateMod 0.25
+	set CriticalHitZone Back
+	set WeaponType 1
+	set ArmorType 50.0
+	set VisionRange 22
+	set RadarRange 16
+	set Range 20
+	set DeployAnim units/Turtle/Open.aaf
+	set DefendAnim units/Turtle/Close.aaf
+	set MoveAnimation units/Turtle/Walk.aaf
+	set MoveAnimationSpeed 0.9
+	set IdleAnimation units/Turtle/Idle.aaf
+	set IdleAnimationSpeed 0.3
+	set MoveSpeed 0.8
+	set Mass 1000000000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+
+	//set FireDelay 2.9
+	set ShotDamage 0.0
+	
+	set TreadMarkDecalDef1 "" //tankTreads -0.83 -0.3 0.5"
+	set TreadMarkDecalDef2 "" //tankTreads 0.83 -0.3 0.5"
+
+	set DestructionEffects_3  "1 1.2 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Turtle/TurtleDxBody.amf /mtl:mat_TurtleDx /bne:bone_xbase /emt:Y /wgl:200 /grp:DebrisM /col [Group DebrisM Box 0.8 0.3 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.2 0  5 2   5 2  /mdl:units/Turtle/TurtleDxHead.amf /mtl:mat_TurtleDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/Turtle/TurtleDxArm.amf /mtl:mat_TurtleDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.3 ] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "2 1 0  5 2   5 2  /dch:80 /mdl:units/Turtle/TurtleDxLeg.amf /mtl:mat_TurtleDx /bne:bone_xleg_l /emt:H /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"

@@ -1,0 +1,42 @@
+add WorldObject initFrom TemplateTurret
+	set Name TechPod1
+	//set Model units/TechPod1/TechPod1.amf
+	set Material mat_BaseRepair
+	set RangeArc 360
+	set HitPoints 750
+	set CarryWeight 2750
+	set ArmorType 20
+	set PowerGen -1
+	set RadarRange 4
+	//set StateController TechPod1
+	set Model "units/TechPod2/TechPod2.amf"
+	set StateController TechPod2
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set AlwaysRadarShow 1
+	set RenderScale 1.2
+	set SalvageValue 820
+	set SalvageTime 3
+	set DBlastDmg 150			// "Death Blast" Damage
+	set DBlastRMin 1.8			// "Death Blast" Range
+	set DBlastRMax 4.3			// "Death Blast" Range
+
+	set DestructionEffects_3 "1 1 0  10 5   0 0  MediumSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/BaseRepair/BaseRepairDxBody.amf /mtl:mat_BaseRepairDx /bne:bone_lid /emt:Z /grp:DebrisM /col [Group DebrisM Box 0.35 0.35 0.35] /mas:1000 /skt:5 /canReclaim"
+	set CameraShakeOnDestroyed "40 0.6 0.6"	//- radius, magnitude, time
+
+
+
+add WorldObject initFrom TechPod1
+	set Name TechPod2
+	set Model "units/TechPod2/TechPod2.amf"
+	set StateController TechPod2
+	set HitPoints 1200
+	set CarryWeight 3200
+	set DBlastDmg 250			// "Death Blast" Damage
+
+add WorldObject initFrom TechPod1
+	set Name UpgradePod
+	set Model "units/UpgradePod/UpgradePod.amf"
+	set Material "mat_UpgradePod"
+	set PowerGen 0

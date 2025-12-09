@@ -1,0 +1,498 @@
+add WorldObject initFrom TemplateMedium
+	set Name SupplyTruck
+	set StateController SupplyTruck
+	set PowerGen -1
+	set UnitLevelBase 6
+	set SupplyRepairRate 40
+	set SupplyWorkingRadius 6.0
+	set SupplyDetectRadius 5.5
+	set MineDisarmRate 4
+	set Model units/SupplyTruck/SupplyTruck.amf
+	set Material "mat_SupplyTruck"
+	set RangeArc 360
+	set RadarRange 14
+	set RenderScale 1
+	set HitPoints 600
+	set CarryWeight 600
+	set WeaponType 1
+	set ArmorType 45
+	set DestroySounds DestroySupplyTruck.wav
+	set Mass 150.0
+	set LinearDamp 0.2
+	set AngularDamp 3.0
+	set UnitTurnRate 90.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 8.0
+	set Deceleration 10.0
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set ZSpinDefs "mesh_wheel_l 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_r 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel2 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel3 200.0 /wheel"
+	set SteerWheelAngConv 0.8
+	set MoveSpeed 6.0
+	set HasRegularShot 0
+	set HasMissiles 0
+	set UnitSpawnOnDestroy Engineer
+	set UnitSpawnOnDestroyChance 20
+	set SalvageValue 298
+	set SalvageTime 4.25
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/SupplyTruck/SupplyTruckDxBody.amf /mmt:SupplyTruckDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.5 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/SupplyTruck/SupplyTruckDxClaw.amf /mmt:SupplyTruckDx< /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/SupplyTruck/SupplyTruckDxBumper.amf /mmt:SupplyTruckDx< /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.2 0.2] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/SupplyTruck/SupplyTruckDxLid.amf /mmt:SupplyTruckDx< /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.4] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/SupplyTruck/SupplyTruckDxCanister.amf /mmt:SupplyTruckDx< /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "40 0.4 0.6"	//- radius, magnitude, time
+
+
+add WorldObject initFrom TemplateMedium
+	set Name TruckJammer
+	set Model units/TruckJammer/TruckJammer.amf
+	set Material "mat_TruckJammer"
+	set DeployAnim units/TruckJammer/Open.aaf
+	set MoveAnimation units/TruckJammer/Idle.aaf
+	set RenderScale 1
+	set SpecialType Unit
+	set RangeArc 360
+	set PowerGen -1
+	set UnitLevelBase 8
+	set WeaponType 1
+	set ArmorType 45
+	set CanHitAir 0
+	set CanHitGround 0
+	set HitPoints 475
+	set CarryWeight 625
+	set VisionRange 20
+	set RadarRange 16
+	set RadarJamRange 14.0
+	set Range 18
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 6
+	set UnitTurnRate 90.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 8.0
+	set Deceleration 10.0
+	set SalvageValue 361
+	set SalvageTime 4.25
+	set SteerWheel1 bone_wheel_l
+	set SteerWheel2 bone_wheel_r
+	set SteerWheelAngConv 1.5
+	set ZSpinDefs "bone_spin 100.0"
+	set ZSpinDefs "mesh_wheel1 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel2 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel3 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel4 200.0 /wheel"
+	set ZSpinDefs "bone_radar_armr1 160.0"
+	set ZSpinDefs "bone_radar_arml1 160.0"
+	set Mass 150.0
+	set LinearDamp 100.0
+	set AngularDamp 30.0
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/RocketTruck/RocketTruckDxBody.amf /mmt:RocketTruckDx< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.6 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxRocket.amf /mmt:RocketTruckDx< /bne:bone_xturret /emt:Y /grp:DebrisM /col [Group DebrisM Box  0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxBumper.amf /mmt:RocketTruckDx< /bne:bone_xglass /emt:H /grp:DebrisM /col [Group DebrisM Box 0.5 0.35 0.35] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxBack.amf /mmt:RocketTruckDx< /bne:bone_xbody /emt:H /grp:DebrisM /col [Group DebrisM Box 0.5 0.1 0.1] /skt:5 /lte:50 /vcb:50 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel1 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel2 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_10 "1 1 0  5.0 2.0   5.0 2.0  /mdl:units/RocketTruck/RocketTruckDxHood.amf /mmt:RocketTruckDx< /bne:bone_xglass /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5.0 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TemplateMedium
+	set Name RocketTruck
+	set StateController RocketTruck
+	set Model units/RocketTruck/RocketTruck.amf
+	// set Material "mat_RocketTruck"
+	set ModelMat "RocketTruck"
+	set RenderScale "1.05 1.05 1.05"
+	set SpecialType Unit
+	set RangeArc 360
+	set BoneFirePoint "mesh_turret"
+	set BoneFirePointAlt "mesh_turret"
+	set BoneAimHorizontal "bone_pivot"
+	set BoneAimVertical "bone_turret"
+	set MissileFireSounds FiringRocket.wav
+	set MissileProjEffects Rocket
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set DBlastDmg 300			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set PowerGen -1
+	set UnitLevelBase 4
+		//set MoveSpeedMultWhenFiring 0.35
+	set MustStopToFire 1
+	set WeaponType 50
+	set ArmorType 40
+	set FortDamageScalar 0.6
+	set MissileDamage 88 // was 170
+	set MissilePowerCost 0
+	set AimTurnRate 75
+	set FireDelay 2.0
+	set FireAltDelay 1.0
+	set ShotSpeed 15
+	set MissileSpeed 15
+	set MissileWiggle 60
+	set ShotAimHorizontalCylOffset 4
+	set ShotAimHorizontalCylOffsetBase 26
+	set MissileIsHoming 0
+	set MissileLifespan 2.9
+	set CanHitAir 0
+	set CanHitGround 1
+	set HitPoints 580
+	set CarryWeight 550
+	set VisionRange 26
+	set RadarRange 24
+	set Range 26
+	set HasRegularShot 0
+	set HasMissiles 1
+	set MissileModel effects/RocketMini.amf
+	set RotationWanderMaxArc 0.0
+	set SalvageValue 308
+	set SalvageTime 4
+
+	set UnitSpawnOnDestroy InfantryRocket
+	set UnitSpawnOnDestroyChance 20
+
+
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 5
+
+
+
+	set MoveSpeed 6.0
+	set UnitTurnRate 80.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 8.0
+	set Deceleration 10.0
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set ZSpinDefs "mesh_wheel_l 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_r 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel2 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel3 200.0 /wheel"
+	set SteerWheelAngConv 0.8
+
+	set Mass 150.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set AttackPrepareAnim units/RocketTruck/DoorsOpen.aaf
+	set AttackRelaxAnim units/RocketTruck/DoorsClose.aaf
+	set FireAnimation "units/RocketTruck/FireForward.aaf units/RocketTruck/FireLeft.aaf units/RocketTruck/FireRight.aaf units/RocketTruck/FireBack.aaf"
+	set FireAnimationAlt "units/RocketTruck/FireForward.aaf units/RocketTruck/FireLeft.aaf units/RocketTruck/FireRight.aaf units/RocketTruck/FireBack.aaf"
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 1
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/RocketTruck/RocketTruckDxBody.amf /mmt:RocketTruckDx< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.6 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxRocket.amf /mmt:RocketTruckDx< /bne:bone_xturret /emt:Y /grp:DebrisM /col [Group DebrisM Box  0.5 0.3 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel1 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx< /bne:bone_xwheel2 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxHood.amf /mmt:RocketTruckDx< /bne:bone_xglass /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxContainer.amf /mmt:RocketTruckDx< /bne:bone_xbody /emt:H /grp:DebrisM /col [Group DebrisM Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckWeaker
+	set HitPoints 40
+	set MissileDamage 30
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 1
+	set UnitSpawnOnDestroyChance 0
+	set UnitLevelBase 2
+
+add WorldObject initFrom RocketTruck
+	set Name RocketPod
+	set Model units/RocketTruck/RocketPod.amf
+
+add WorldObject initFrom RocketTruck
+	set Name RocketPod2 // buffed, on siam miniwalker
+	set Model units/RocketTruck/RocketPod.amf
+	set FireDelay 1.5
+	set FireAltDelay 0.75
+	set ShotSpeed 20
+	set MissileSpeed 20
+	set HitPoints 880
+	set VisionRange 30
+	set Range 29
+
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckIC
+	set StateController RocketTruckIC
+	set Model units/RocketTruckIC/RocketTruckIC_Ref.amf
+	// set Material "mat_RocketTruckIC"
+	set ModelMat "RocketTruckIC"
+	set BoneFirePoint "bone_flash_L"
+	set BoneFirePointAlt "bone_flash_R"
+	set BoneAimHorizontal "bone_horiz"
+	set BoneAimVertical "bone_vert"
+	set MoveSpeed 6.0
+	set MissileModel effects/RocketIC.amf
+	set MissileMaterial "mat_RocketTruckIC"
+	set ZSpinDefs "bone_wheel_F_R 200.0 /wheel"
+	set ZSpinDefs "bone_wheel_F_L 200.0 /wheel"
+	set ZSpinDefs "bone_wheel_B 200.0 /wheel"
+	set AttackPrepareAnim units/RocketTruckIC/RocketTruckIC_Open.aaf
+	set AttackRelaxAnim units/RocketTruckIC/RocketTruckIC_Close.aaf
+	set FireAnimation "units/RocketTruckIC/RocketTruckIC_Fire_Fwd.aaf units/RocketTruckIC/RocketTruckIC_Fire_Lft.aaf units/RocketTruckIC/RocketTruckIC_Fire_Rgt.aaf units/RocketTruckIC/RocketTruckIC_Fire_Bwd.aaf"
+	set FireAnimationAlt "units/RocketTruckIC/RocketTruckIC_Fire_Fwd.aaf units/RocketTruckIC/RocketTruckIC_Fire_Lft.aaf units/RocketTruckIC/RocketTruckIC_Fire_Rgt.aaf units/RocketTruckIC/RocketTruckIC_Fire_Bwd.aaf"
+	set MoveAnimation units/RocketTruckIC/RocketTruckIC_Move.aaf
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/RocketTruckIC/RocketTruckICDxBody.amf /mmt:RocketTruckICDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.6 0.4] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxIceCream.amf /mmt:RocketTruckICDx /bne:bone_xturret /emt:H /grp:DebrisM /col [Group DebrisM Box  0.5 0.5 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxBack.amf /mmt:RocketTruckICDx /bne:bone_xbody /emt:H /grp:DebrisM /col [Group DebrisM Box 0.5 0.1 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxTire.amf /mmt:RocketTruckICDx /bne:bone_xwheel1 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxTire.amf /mmt:RocketTruckICDx /bne:bone_xwheel2 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxHood.amf /mmt:RocketTruckICDx /bne:bone_xglass /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/RocketTruckIC/RocketTruckICDxRocket.amf /mmt:RocketTruckICDx /bne:bone_xturret /emt:H /grp:DebrisM /col [Group DebrisM Box  0.5 0.5 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckU
+	set Model units/RocketTruckU/RocketTruckU.amf
+	set UnitLevelBase 11
+	set HitPoints 600
+	set CarryWeight 550
+	set ArmorType 45
+	set UnitSpawnOnDestroyChance 60
+	set MissileDamage 100
+	set FireDelay 1.2
+	set FireAltDelay 0.6
+	set SalvageValue 334
+	set SalvageTime 4.25
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckVoid
+	set Material "mat_AirMechUBlack<"
+	set ArmorType 50
+	set WeaponType 80
+	set HitPoints 800
+	set CarryWeight 550
+	set MissileDamage 140
+	set MissileSpeed 19
+	set UnitLevelBase 16
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/RocketTruck/RocketTruckDxBody.amf /mtl:mat_AirMechUBlack< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.6 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxRocket.amf /mtl:mat_AirMechUBlack< /bne:bone_xturret /emt:Y /grp:DebrisM /col [Group DebrisM Box  0.5 0.3 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mtl:mat_AirMechUBlack< /bne:bone_xwheel1 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mtl:mat_AirMechUBlack< /bne:bone_xwheel2 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxHood.amf /mtl:mat_AirMechUBlack< /bne:bone_xglass /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxContainer.amf /mtl:mat_AirMechUBlack< /bne:bone_xbody /emt:H /grp:DebrisM /col [Group DebrisM Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckBroken
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HasMissiles 0
+	set HitPoints 100
+	set CarryWeight 550
+	set UnitSpawnOnDestroy ""
+	set UnitSpawnOnDestroyChance 0
+	set Range 4
+	set VisionRange 6
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckTutorial
+	set FireDelay 4.0
+	set FireAltDelay 2.0
+	set HitPoints 100
+	set CarryWeight 550
+	set MissileDamage 1
+	set CanHitAir 0
+	set UnitSpawnOnDestroyChance 0
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckWeak
+	set FireDelay 3.0
+	set FireAltDelay 1.5
+	set HitPoints 250
+	set CarryWeight 550
+	set MissileDamage 30
+	set VisionRange 20
+	set RadarRange 18
+	set Range 18
+	set UnitSpawnOnDestroyChance 0
+	set UnitLevelBase 2
+
+add WorldObject initFrom RocketTruck
+	set Name RocketTruckSurvival
+	set FireDelay 3.0		// fire more slowly
+	set FireAltDelay 1.5
+	set MissileDamage 160
+
+
+add WorldObject initFrom RocketTruck
+	set Name Bucky_01
+	set Model units/Bucky_01/RocketTruckA.amf
+	set VariantOf RocketTruck	// for pulling CFG data
+
+add WorldObject initFrom RocketTruck
+	set Name Bucky_02
+	set Model units/Bucky_02/RocketTruckC.amf
+	set VariantOf RocketTruck	// for pulling CFG data
+
+
+add WorldObject
+	set Name TruckFlak
+	set StateController RocketTruck
+	set Model units/TruckFlak/TruckFlak.amf
+	set Material "mat_RocketTruck mat_TurretFlak"
+	set CollisionZRel 0.5
+	set Collision "CapsuleZ 0.7 1.0"
+	set SpecialType Unit
+	set RangeArc 360
+	set BoneFirePoint bone_barrel_r
+	set BoneFirePointAlt bone_barrel_l
+	set BoneAimHorizontal bone_pivot
+	set BoneAimVertical bone_turret
+	set AimUpDefault -30.0
+	set ShotFireSounds FiringTurret.wav
+	set ShotProjEffects FlakTurretShell
+	set SalvageValue 415
+	set SalvageTime 4.25
+	set PowerGen -1
+	set UnitLevelBase 7
+	set WeaponType 55.0
+	set ArmorType 45.0
+	set ShotDamage 28
+	set ShotSpeed 120
+	set ShotCanDmgFort 0
+	set ShotSize "0.05 1.5 0.0"
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotLinearDamp 1.5
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set AimTurnRate 900
+	set RotationResetDelay 8
+	set FireDelay 0.3
+	set FireAltDelay 0.15
+	//set FireAnimSpeed 3.333
+	set SustainFireTime 1.0
+	set ReloadTime 0.5
+	set CanHitAir 1
+	set CanHitGround 0
+	set HitPoints 760
+	set CarryWeight 860
+	set VisionRange 21
+	set RadarRange 20
+	set Range 17
+	set HasRegularShot 1
+	set HasMissiles 0
+	set CanHitAirMechAnyForm 1
+	set MoveAnimation units/TruckFlak/Drive.aaf
+	set FireAnimation units/TruckFlak/Fire.aaf
+	set MoveAnimationSpeed 0.5
+	set MoveSpeed 6.0
+	set UnitTurnRate 80.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.7
+	set Acceleration 8.0
+	set Deceleration 10.0
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set ZSpinDefs "mesh_wheel_l 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_r 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel2 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel3 200.0 /wheel"
+	set SteerWheelAngConv 0.8
+
+	set RotationWanderMaxArc 90.0
+	set AimWanderSpeed 0.17
+	set ShotDamageOnAirMult 1.0
+	set ShotDamageOnGndMult 1.0
+
+	set Mass 150.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+
+	set PropAnim units/TruckFlak/Menu.aaf
+	set PropAnimSpeed 0.27
+
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/RocketTruck/RocketTruckDxBody.amf /mmt:RocketTruckDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.5 0.6 0.7] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TurretFlak/TurretFlakDxGun.amf /mtl:mat_TurretFlakDx /bne:bone_xturret /emt:Y /grp:DebrisM /col [Group DebrisM Box  0.5 0.3 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx /bne:bone_xwheel1 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  7 5   5 2  /mdl:units/RocketTruck/RocketTruckDxTire.amf /mmt:RocketTruckDx /bne:bone_xwheel2 /emt:Y /grp:DebrisM /col [Group DebrisM Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/RocketTruck/RocketTruckDxHood.amf /mmt:RocketTruckDx /bne:bone_xglass /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TruckFlak
+	set Name Flakker_01
+	set VariantOf TruckFlak	// for pulling CFG data
+
+add WorldObject initFrom CarStarter
+	set Name TruckChaingun
+	set StateController TankChaingun
+	set Model units/TruckChaingun/TruckChaingun.amf
+	set RenderScale 1.08
+	set Material "mat_TruckChaingun mat_TurretChaingun"
+	set RangeArc 360
+	set BoneFirePoint "bone_firepoint"
+	set BoneFirePointAlt "bone_firepoint"
+	set BoneAimVertical "bone_vert"
+	set BoneAimHorizontal "bone_turret"
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds units/turretchain/TurretChainFire.wav
+	set ShotProjEffects ChainGunTurretShell
+	set DestroySounds DestroyArmoredCar.wav
+	set PowerGen -2
+	set UnitLevelBase 4
+	set WeaponType 20
+	set ArmorType 50
+	set SustainFireTime 3
+	set ReloadTime 1
+	set ShotDamage 20
+	set ShotSpeed 100
+	set ShotSize "0.05 1.3 0.0"
+	set AimTurnRate 200
+	set FireDelay 0.1
+	set ShotLifespan 0.4
+	set ShotAimLeadingEffectiveness 0.5
+	set VisionRange 20
+	set RadarRange 22
+	set Range 15
+	set HitPoints 1100
+	set CarryWeight 1100
+	set MoveSpeed 7.0
+	set TerrainNormalAdjustmentRate 0.08
+	set IdleAnimationSpeed 0.3
+	set IdleAnimation units/TruckChaingun/TruckChaingunWait.aaf
+	set MoveAnimation units/TruckChaingun/TruckChaingunDrive.aaf
+	set FireAnimation "units/TruckChaingun/TruckChaingunFireF.aaf	units/TruckChaingun/TruckChaingunFireL.aaf units/TruckChaingun/TruckChaingunFireR.aaf units/TruckChaingun/TruckChaingunFireB.aaf"
+	set AtTargetDistance 1.5
+	set Mass 100.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy Infantry
+	set UnitSpawnOnDestroyChance 25
+	set SalvageValue 400
+	set SalvageTime 4.5
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 150.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.4
+	set Acceleration 10.0
+	set Deceleration 10.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set SteerWheelAngConv 0.8
+	set CanHitAir 1
+	set ShotDamageOnAirMult 1.0
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	set DestructionEffects_3  "1 1.08 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/ArmoredCar/ArmoredCarDxBody.amf /mtl:mat_ArmoredCarDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.6 0.4 0.9] /mas:2000 /skt:5 /canReclaim"

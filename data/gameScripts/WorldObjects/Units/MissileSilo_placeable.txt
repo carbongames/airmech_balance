@@ -1,0 +1,75 @@
+add WorldObject
+	set Name MissileSilo
+	set StateController MissileSilo
+	set Model units/MissileSilo/MissileSilo.amf
+	set Material mat_MissileSilo
+	set CollisionZRel 0.5
+	set Collision "CapsuleZ 0.85 1.0"
+	set SpecialType Unit
+	set RangeArc 360
+	set PowerGen -2
+	set HitPoints 1100
+	set CarryWeight 1100
+	set ArmorType 50
+	set WeaponType 50
+	set Mass 1000000000.0
+	set LinearDamp 100.0
+	set AngularDamp 3.0
+	set RenderScale "1 1 1"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set NavmeshObstacle 2
+	set FireAnimation ""
+	set AttackPrepareAnim ""
+	set AttackRelaxAnim ""
+	set DeployAnim ""
+	set AbductRes 0.0
+	set ShotDamage 5000
+	set RangeBlast 12.0 // blast range
+	set Range 12
+	set RangeFalloff 0.8
+
+	set DestructionEffects_1  "1 0.2 0  0.5 0  0 0 	ExpBlastRing ExplosionSeq1 BrightFlare ExplosionWaveCannon ExplosionWaveCannonEmbers /reqVis"
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/GenXP/GenXPDxBase.amf /mtl:mat_GenXPDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.7 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /mas:5 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /mas:5 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside3 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /mas:5 /vcb:40 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/GenXP/GenXPDxSide.amf /mtl:mat_GenXPDx /bne:bone_xside4 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.5] /mas:5 /vcb:40 /pval:1"
+	set CameraShakeOnDestroyed "40 0.6 0.6"	//- radius, magnitude, time
+
+
+add WorldObject
+	set Name MissileSiloMarker
+	set StateController MissileSiloMarker
+	set RadarRange 0
+	set Model units/MissileSiloMarker/MissileSiloMarker.amf
+	//set Material "mat_MissileSilo"
+	set ModelMat MissileSiloStealth
+	set Collision "Trigger Group TriggersMine CapsuleZ 1.25 1.0"
+	set SpecialType Unit
+	set PowerGen -2
+	set HitPoints 4500
+	set CarryWeight 900
+	set CanHitGround 0
+	set CanHitAir 0
+	set MoveSpeed 0.0
+	set Mass 0.0
+	set NavmeshObstacle 0
+	set AbductRes 0.0
+	set ShotDamage 5000
+	set RadarRange 0
+	set RangeBlast 12.0 // blast range
+	set RangeFalloff 0.8
+
+add WorldObject initFrom MissileSilo
+	set Name MissileSiloCampaign
+	set ShotDamage 50000
+	set RangeBlast 16.0 // blast range
+	set RangeFalloff 0.9
+
+add WorldObject initFrom MissileSiloMarker
+	set Name MissileSiloCampaignMarker
+	set ShotDamage 50000
+	set RangeBlast 16.0 // blast range
+	set RangeFalloff 0.9

@@ -1,0 +1,239 @@
+// ===========================
+// Rook "Angel" Settings
+// ===========================
+//
+// Still mostly a copy of ChopperBase ATM - KJK
+//
+#include Common.txt
+// temp hacks to nerf high level player abuse
+// =======================
+// Level Up Bonus Settings
+// =======================
+//
+LvlDamageMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+LvlDamageMultSpecial = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+LvlHullStrengthMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+LvlFuelMult = 1, 1.07, 1.14, 1.21, 1.28, 1.35, 1.42, 1.49, 1.56, 1.63, 1.7, 1.77, 1.84, 1.91, 1.98, 2.05, 2.12, 2.19, 2.26, 2.33
+LvlCarryMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+LvlHealMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+
+BaseName = Angel
+RookStateController = RookTitanAngel
+// ===============
+// General
+// ===============
+HullMaxStrength = 1500
+//RespawnCreditsCost = 4200
+
+//FuelCapacity = 10
+//Fuel_OnStart = 10
+//FuelConsumption = 0.5					// - units of fuel used per second of full thrust
+//FuelConsumptionRobotScalar = 0.15			// - scalar to fuel consumption for robot mode
+//FuelRegenOnGroundNoMoveOrFire = 1.5						// - fuel regeneration rate when on the ground - per second
+
+TransportHPCapacity = 2400
+//TransportLinearDampCalcNominalHP = 420
+
+RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by pilot bonus)
+//RespawnTimer = 1.5				// - number of second to respawn at base after we've been destroyed (was 1 second)
+
+DefaultUberPowerup = "UberSniper 50"
+
+GndProjDPS = 237				// - how much damage our weapon does per second (in robot mode)
+AirProjDPS = 360				// - how much damage our weapon does per second (in air mode)
+WeaponType = 50
+//GlideForceMult = "7.25 1.4 0.25 0.4"  // start speed, end speed, lerp time, total time
+//GlideJump = "3.8 0.1 0.34 0.7" // jump height, raise time, down time, total time
+ArmorType = 75
+
+
+// Translation
+RobotLinearDamping = 13.0
+AirThrustMultWhenFiring = 0.7
+AirMoveForceMultWhenNoFuel = 0.7
+ShipLinearDamping = 6.8
+TransportLinearDamping = 10.0 // Transport is the flying mode while carrying a unit. This makes you fly slower and use more fuel.
+TransportLinearDampBase = 7.3
+
+// ===============
+// Visual Elements
+// ===============
+//
+GroundMoveCycleAnimSpeedMult = 0.38
+GroundMoveBackCycleAnimSpeedMult = 0.38
+
+BoneRefPairs = AuraRoot, bone_root, AuraRootGnd, bone_nose_2, AuraShoulderL, bone_arm_upper_L, AuraShoulderR, bone_arm_upper_R
+
+GndProjMuzzleFlash = "MuzzleFlashTankSmall"			// - muzzle flash particles - for robot mode
+AirProjMuzzleFlash = "MuzzleFlashTankSmall"		// - muzzle flash particles - for air mode
+
+// ========================
+// Movement (Vehicle - Air)
+// ========================
+//
+// Rotation
+ShipMaxRotThrust = 220			// - max degrees per second the ship can turn (not physics based)
+ShipMaxRotTorque  = 700000		// - max rotational torque for the fine control thrusters (physics based)
+RobotMaxRotTorque = 0			// - max rotational torque when in robot mode (controls robot mode rotation speed)
+RobotMaxRotTorqueTurnOnlyMode = 366000
+ShipAngularDamping = 35.0
+
+ShipBankingAngleSlewDown = 0.22		// - banking angle slew rate to use when target angle is decreasing
+ShipBankingAngleSlewUp = 0.22		// - banking angle slew rate to use when target angle is increasing
+ShipBankingAngleClipAbsMax = 140.0	// - max banking angle (negative and positive) the engine will clip to
+
+
+// by default, pitch are roll are split based on facing.  Additional scalars here to make this work better for particular units
+AimPitchMult = 0.1
+AimRollMult = 2.0
+
+// ===========================
+// Destruction Spawners
+// ===========================
+// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+// : valid Tags: dcl, dch
+//
+DestructionEffects = "1 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxBody_r.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25]" "1 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxBody_r.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25]" "2 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxWing.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /trQ:100  /grp:DebrisM /col [Group DebrisM Box 0.1 0.1 0.8]" "1 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxCockpit.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /vcb:100" "2 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxEngine.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "2 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelDxTail.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "1 0.2 0    0.5 0  0 0 	ExplosionSeq ExplosionSeq3" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare" "12 1 0.5  2.4 2  2 10  /mdl:units/ArmoredCar/ArmoredCarDxGlass.amf /reqVis /nocol /mtl:mat_ArmoredCar /trq:-10 /wgl:1000 /col [Sphere 0.1]"
+GndDestructionEffects = "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxShoulder.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxGun.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.2 0.25] /mas:10" "1 1.2 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxHead.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Sphere 0.3] /mas:10 /vcb:100 /reqVis" "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxLeg.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxArm.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Angel/AngelRobotDxFoot.amf /mtl:mat_AngelDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "5 1 1  0.5 3   0 0  AirMechPieces  /vcb:100 /reqVis" "1 0.2 0  0.5 0    0 0 ExplosionSeq3  /vcb:100 /reqVis" "1 0.2 0    0.5 0  0 0 ExpBlastRingSmall UnitPickupFromRook /reqVis" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare"
+
+
+// ============
+// Weapon Stuff
+// ============
+//
+GndProjFireRate = 7			// - fire rate - in robot mode - rounds per second
+AirProjFireRate = 8			// - fire rate - in air mode - rounds per second
+
+GndProjParticlesFAF = "TracerAirMechChopperGnd"		// - particle system to use for the shot projectile - air mode (fire and forget style)
+AirProjParticlesFAF = "TracerAirMechChopper"		// - particle system to use for the shot projectile - air mode (fire and forget style)
+
+MissileProjFireBone1 = "bone_gun_l"
+MissileProjFireBone2 = "bone_gun_r"
+
+SniperImpactPfx = SniperImpact
+
+// =======================
+// Wingtip Particle System
+// =======================
+//
+//
+WingtipPointBone1 = "bone_r_wing_cont"
+WingtipPoint1 = "0 0 0"
+WingtipPointBone2 = "bone_l_wing_cont"
+WingtipPoint2 = "0 0 0"
+WingtipPointBone3 = "bone_r_thruster"
+WingtipPoint3 = "0 0 0"
+WingtipPointBone4 = "bone_l_thruster"
+WingtipPoint4 = "0 0 0"
+WingtipParticles1 = Contrails
+WingtipParticles2 = Contrails
+WingtipParticles3 = Contrails
+WingtipParticles4 = Contrails
+
+ContrailMultipleCfg = "0.0 0.15 0"	// multiple contrail config magic numbers:
+									// YAxis Step, Offset Mult, Unused
+
+
+// =======================
+// Wing Fold System
+// =======================
+//
+//
+WingBone1 = ""
+WingBone2 = ""
+WingBone3 = ""
+WingBoneRotationMax1 = -25.0
+WingBoneRotationMax2 = 25.0
+WingBoneRotationMax3 = 0.0
+WingFoldSpeedMin = 12
+WingFoldSpeedMax = 28
+WingFoldSlewRate = 0.2
+WingFoldSlewRateReduce = 1.1		// - the slew rate on reduce (slowing down)
+
+// =============================================
+// connection points for recharge lines of POWER
+// =============================================
+//
+//
+RechargeBones = bone_door_r, bone_door_l, bone_root, bone_tail, bone_nose
+
+// ==================
+// Particle Effects
+// ==================
+//
+//EngineThrustParticles = "ShipThrustersSaucer"
+Engine1ThrustPosByBone = "bone_root"
+Engine2ThrustPosByBone = "bone_root"
+Engine1ThrustPosOffset = "0.21 -0.95 0.05"			// - local point location of first engine - engine locations are used for particle effects
+Engine2ThrustPosOffset = "-0.21 -0.95 0.05"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustPosOffsetPhysics = "1.25 -0.67 0"			// - local point location of first engine - engine locations are used for physics effects
+Engine2ThrustPosOffsetPhysics = "-1.25 -0.67 0"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+Engine2ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+// ===================
+// Jet Audio
+// ===================
+//
+AirAudioLoop1 = AngelFly.wav
+AirAudioLoop1_MinVol = 100         // when stick is at min position (ie, not moving, at a hover)
+AirAudioLoop1_MaxVol = 0
+AirAudioLoop1_MinFreq = 1.0
+AirAudioLoop1_MaxFreq = 1.0
+AirAudioLoop1_Input = 1				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop1_SlewRate =  0.12			// - slew rate of input value
+
+AirAudioLoop2 = AngelHover.wav
+AirAudioLoop2_MinVol = -1 // cross fade hack
+AirAudioLoop2_MaxVol = -1
+AirAudioLoop2_MinFreq = 1.0
+AirAudioLoop2_MaxFreq = 1.12246			// +2 semitones
+AirAudioLoop2_Input = 20				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop2_SlewRate = 0.08			// - slew rate of input value
+
+// ==============================================
+// Rotating stuff
+// - somewhat generalized, but initially created
+// - for the chopper Rook "bone deg/sec"
+// ==============================================
+ZSpinDef_1 = ""
+ZSpinDef_2 = ""
+ZSpinDef_3 = ""
+ZFixedBone = ""
+
+
+
+// ==============================================
+// General Attachments slots for airmode
+// - "bone model material"
+// ==============================================
+
+AirSpecialMode = None
+GndSpecialMode = Sniper
+ActivatedAbility = Loop
+//ActivatedHeldAbility = Glide
+ActivatedAbilityAlt = SniperStasis
+EnterSpecialModeWaitStateTimer = 0.25					// - wait state timer when entering special mode (no fire or move)
+LeaveSpecialModeWaitStateTimer = 0.66					// - wait state timer when exiting special mode (no fire or move)
+DoSpecialActionWaitStateTimer = 0.0						// - not used for missiles
+BombSpeedMod = 0.6 // - speed mod for exiting sniper mode
+
+// ==============================
+// AirMech Abilities (Leveled Up)
+// ==============================
+//
+//Abilities=Sniper, Loop, SniperStasis, HyperRail //, Infantry, Guardian, LevelUp, Quickshot
+Abilities=Sniper, Loop, SniperStasis, HyperRail //, Infantry, Guardian, LevelUp, Quickshot, Glide
+AbilityAirSpecialSlot=1
+AbilityGndSpecialSlot=0
+AbilityActiveSecondarySlot=1
+AbilityPassiveSlot=3	//  passive slot - hyperrail
+//AbilityPassive2Slot=7	// quickshot
+AbilityHeldActiveSecondarySlot=2 // optional, held activated secondary ability slot (like Glide)
+AbilityActiveSecondarySlotAlt=2 // sniperstasis
+AbilityAIUpgradeOrder=0, 1, 2, 3, 0, 1, 2, 3  // individual points order, afterwhich, original logic takes over
+AbilityAutoUpgradeOrder=0, 1, 2, 0, 1, 2 	// order for autobuild - if not specified/empty, then it will use the AI upgrade order
+
+// ==============================
+// Attachments
+// ==============================
+// BannerFlagAttachment = "factions/Banner02.amf FactionEmblem< bone_spine /ragdoll factions/banner01.txt /offset 0 0 0.5 /rotate 10 90 0"

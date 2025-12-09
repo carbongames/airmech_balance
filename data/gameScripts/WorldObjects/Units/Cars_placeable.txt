@@ -1,0 +1,198 @@
+
+add WorldObject initFrom TemplateMedium
+	set Name CarStarter
+	set StateController ArmoredCar
+	set Model units/CarStarter/CarStarter.amf
+	set Material "mat_ArmoredCar mat_UnitBike"
+	set RangeArc 360
+	set BoneFirePoint "bone_firepoint1"
+	set BoneFirePointAlt "bone_firepoint2"
+	set BoneAimVertical "bone_vert"
+	set BoneAimHorizontal "bone_horz"
+	set AimUpDefault -10.0
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds "units/armoredcar/ArmoredCarFiring.wav"
+	set ShotProjEffects ArmorCarShell
+	set DestroySounds DestroyArmoredCar.wav
+	set PowerGen -1
+	set UnitLevelBase 3
+	set WeaponType 5
+	set ArmorType 30
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+	set ShotDamage 11.32	// - half damage because of increased rate of fire
+	set AimTurnRate 200
+	set FireDelay 0.125
+	set ShotSpeed 40
+	set ShotLifespan 1.0
+	set ShotAimLeadingEffectiveness 0.5
+	set VisionRange 20
+	set RadarRange 23
+	set Range 15
+	set HitPoints 700
+	set CarryWeight 650
+	set MoveSpeed 8.0
+	set TerrainNormalAdjustmentRate 0.08
+	set IdleAnimation units/CarStarter/CarWait.aaf
+	set MoveAnimation units/CarStarter/CarDrive.aaf
+	set AtTargetDistance 1.5
+	set Mass 100.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 50
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 150.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.4
+	set Acceleration 10.0
+	set Deceleration 10.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set SalvageValue 208
+	set SalvageTime 3.5
+	set SteerWheel1 bone_wheel_r
+	set SteerWheel2 bone_wheel_l
+	set ZSpinDefs "geo_wheel_l -500.0 /wheel"
+	set ZSpinDefs "geo_wheel_r 500.0 /wheel"
+	set ZSpinDefs "geo_wheel_lb -500.0 /wheel"
+	set ZSpinDefs "geo_wheel_rb 500.0 /wheel"
+	set SteerWheelAngConv 0.8
+	set CanHitAir 1
+	set ShotDamageOnAirMult 1.0
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/ArmoredCar/ArmoredCarDxBody.amf /mtl:mat_ArmoredCarDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.6 0.4 0.9] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxGun.amf /mtl:mat_ArmoredCarDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxCap.amf /mtl:mat_ArmoredCarDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxBumper.amf /mtl:mat_ArmoredCarDx /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_8  "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxGuard.amf /mtl:mat_ArmoredCarDx /bne:bone_xbody /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   5 2  /mdl:units/ArmoredCar/ArmoredCarDxEngine.amf /mtl:mat_ArmoredCarDx /bne:bone_xturret /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+
+add WorldObject initFrom CarStarter
+	set Name CarStarterSneak
+	set PilotScanArc 90
+	set Attachments "effects/ScanVisionGeo.amf mat_LaserGlow< bone_root /fx" // still not working?
+	set FireDelayStasisMult 0.0
+	set ChaseAirmech 1
+	set ShotDamage 25
+	set HitPoints 300
+	set UnitSpawnOnDestroyChance 0
+
+
+add WorldObject initFrom CarStarter
+	set Name ArmoredCar
+	set StateController ArmoredCar
+	set Model units/ArmoredCar/ArmoredCar.amf
+	set Material "mat_ArmoredCar"
+	set RangeArc 360
+	set BoneFirePoint "bone_firepoint_r"
+	set BoneFirePointAlt "bone_firepoint_l"
+	set BoneAimVertical "bone_vert"
+	set BoneAimHorizontal "bone_turret"
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds "units/armoredcar/ArmoredCarFiring.wav"
+	set ShotProjEffects ArmorCarShell
+	set DestroySounds DestroyArmoredCar.wav
+	set PowerGen -1
+	set UnitLevelBase 4
+	set WeaponType 20
+	set ArmorType 45
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+	set ShotDamage 15	// - half damage because of increased rate of fire
+	set AimTurnRate 200
+	set FireDelay 0.125
+	set ShotSpeed 40
+	set ShotLifespan 1.0
+	set ShotAimLeadingEffectiveness 0.5
+	set VisionRange 20
+	set RadarRange 22
+	set Range 15
+	set HitPoints 710	// original value 160
+	set CarryWeight 710
+	set MoveSpeed 7.0
+	set TerrainNormalAdjustmentRate 0.08
+	set IdleAnimation units/ArmoredCar/CarWait.aaf
+	set MoveAnimation units/ArmoredCar/CarDrive.aaf
+	set FireAnimation units/ArmoredCar/Fire.aaf
+	set AtTargetDistance 1.5
+	set Mass 100.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy Infantry
+	set UnitSpawnOnDestroyChance 25
+	set SalvageValue 400
+	set SalvageTime 4.5
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitTurnRate 150.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.4
+	set Acceleration 10.0
+	set Deceleration 10.0
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set SteerWheelAngConv 0.8
+	set CanHitAir 1
+	set ShotDamageOnAirMult 1.0
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 1.0			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	
+add WorldObject initFrom ArmoredCar
+	set Name ArmoredCarU
+	set StateController ArmoredCar
+	set Model units/ArmoredCarU/ArmoredCarU_Ref.amf
+	set Material "mat_ArmoredCar mat_Infantry"
+	set ShotFireSounds units/turretchain/TurretChainFire.wav
+	set DeployAnim units/ArmoredCarU/CarDeploy.aaf
+	set IdleAnimation units/ArmoredCarU/CarWait.aaf
+	set MoveAnimation units/ArmoredCarU/CarDrive.aaf
+	set FireAnimation units/ArmoredCarU/CarFire.aaf
+	set BoneFirePoint "geo_barrel_l"
+	set BoneFirePointAlt "geo_barrel_r"
+	set BoneAimVertical "bone_vert"
+	set BoneAimHorizontal "bone_horz"
+	set ZSpinDefs "geo_barrel_l 600.0"
+	set ZSpinDefs "geo_barrel_r -600.0"
+	set ShotProjEffects ChainGunTurretShell
+	set ShotFFParticles ChaingunTrail
+	set UnitLevelBase 7
+	set SalvageValue 430
+	set SalvageTime 4.75
+	set HitPoints 840
+	set CarryWeight 710
+	set WeaponType 20
+	set ArmorType 50
+	set ShotDamage 21
+	set ShotSpeed 100
+	set ShotAimWiggle 150
+	set ShotLifespan 0.4
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+	set FireDelay 0.125
+	set MoveSpeed 7.0
+	set Range 15
+
+add WorldObject initFrom ArmoredCar
+	set Name ArmoredCarTutorial
+	set CanHitAir 0
+	set HitPoints 100
+	set UnitSpawnOnDestroyChance 0
+	set ShotDamage 1
+	
+add WorldObject initFrom ArmoredCar
+	set Name ArmoredCarWeak
+	set HitPoints 300
+	set UnitSpawnOnDestroyChance 0
+	set ShotDamage 5	
+
+add WorldObject initFrom ArmoredCar
+	set Name ArmoredCarSurvival
+	set UnitSpawnOnDestroy ""

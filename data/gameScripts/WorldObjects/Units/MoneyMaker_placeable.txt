@@ -1,0 +1,35 @@
+add WorldObject initFrom TemplateTurret
+	set Name MoneyMaker
+	set StateController MoneyMaker
+	set Model "units/MoneyMaker/MoneyMaker.amf"
+	set ModelMat "MoneyMaker MoneyMakerTread< MoneyMakerGlow<"
+	set SpecialType Unit
+	set RangeArc 360
+	set PowerGen -1
+	set ArmorType 45
+	set HitPoints 600
+	set CarryWeight 1500
+	set RadarRange 10
+	set Mass 1000000000.0
+	set LinearDamp 100.0
+	set AngularDamp 3.0
+	set RenderScale 0.9
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set UVPanRate 1.25
+	set SalvageValue 251.2
+	set SalvageTime 4.25
+
+	set DestructionEffects_5  "1 1 0  5 2  5 2  MediumSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/MoneyMaker/MoneyMakerDxDoor.amf /mtl:mat_MoneyMaker /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.5 0.5] /canReclaim"
+	set DestructionEffects_6  "4 1 0  5 2  5 2  MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/MoneyMaker/MoneyMakerDxBar.amf /mtl:mat_MoneyMaker /bne:bone_xbase /emt:H /grp:Debris /col [Group Debris Box 0.4 0.2 0.1] /canReclaim"
+	set DestructionEffects_7  "2 1 0  5 2  5 2  MediumSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/MoneyMaker/MoneyMakerDxPiston.amf /mtl:mat_MoneyMaker /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.5 0.5] /vcb:40 /pval:1"
+	set DestructionEffects_8  "3 1 0  5 2  5 2  MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/MoneyMaker/MoneyMakerDxTread.amf /mtl:mat_MoneyMakerTread< /bne:bone_xside4 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.5 0.5] /vcb:40 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2  5 2  MediumSmoke FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/MoneyMaker/MoneyMakerDxContainer.amf /mtl:mat_MoneyMaker /bne:bone_xside3 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.5 0.5] /vcb:40 /pval:1"
+	set CameraShakeOnDestroyed "40 0.6 0.6"	//- radius, magnitude, time
+
+add WorldObject initFrom MoneyMaker
+	set Name MoneyMakerU
+	set StateController MoneyMakerU
+	set Model units/MoneyMakerU/MoneyMakerU.amf
+	set ModelMat "MoneyMaker MoneyMakerTread< MoneyMakerGlow<"

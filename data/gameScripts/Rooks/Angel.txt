@@ -1,0 +1,138 @@
+// ===========================
+// Rook "Angel" Settings
+// ===========================
+#include AngelBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+AirMesh = rooks/Angel/AngelAir.amf
+GndMesh = rooks/Angel/Angel_Ref.amf
+AirMechMaterials = "" //mat_Angel
+AirMechModelMats = Angel
+
+TransportMesh = rooks/Angel/AngelTransport.amf
+TransportMaterial = mat_AngelTransport
+TransportBoneLatch = bone_transport
+TransportThrusterBoneLeft = "" //bone_l_thruster_tip
+TransportThrusterBoneRight = "" //bone_r_thruster_tip
+TransportMaxThrusterRotation = -35.0
+
+AirMechAnimV = 2
+
+AirToGroundAnim = "rooks/Angel/Angel_ToBot.aaf"
+GroundToAirAnim = "rooks/Angel/Angel_ToAir.aaf"
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 0.8 	// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 0.8)
+AnimSpeedToAir = 0.6 	// was 0.9 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 0.533)
+
+GroundMoveCycleAnimSpeedMult = 0.1
+GroundMoveBackCycleAnimSpeedMult = 0.125
+HeadLookBone = bone_head_aim
+UpperBodyAimBone = bone_aim
+
+HatBone = bone_hat
+HatOffset = "0 0 -0.3"
+HatBoneScaled = bone_head
+HatHeadOffset = "0 -0.15 -0.15"
+
+RespawnMesh = rooks/Angel/AngelRespawn.amf
+RespawnAnimation = rooks/FighterClassic/FighterClassicRespawn.aaf
+
+HoverAnimation = rooks/Angel/Angel_Air_Hover.aaf
+HoverAnimationSpeed = 0.4
+
+FlyingAnimation = rooks/Angel/Angel_Air_Move.aaf
+FlyingAnimationSpeed = 1.5
+
+// deploy sniper rifle: "
+// idle with sniper rifle: "
+// fire sniper rifle: rooks/Angel/Angel_Special_Fire.aaf"
+// stow sniper rifle: "
+
+
+AbilityChargeUpStart = rooks/Angel/Angel_Special_Start.aaf
+AbilityChargeUpLoop = rooks/Angel/Angel_Special_Idle.aaf
+AbilityChargeUpRelease = ""
+AbilityChargeUpCancel = rooks/Angel/Angel_Special_End.aaf
+
+SpecialProjFireBone = "bone_flash_rifle"
+
+FiringAnimation = "rooks/Angel/Angel_Idle_Fire.aaf"
+FiringAnimation_MoveFwd = "rooks/Angel/Angel_Move_F_Fire.aaf"
+FiringAnimation_MoveBack = "rooks/Angel/Angel_Move_B_Fire.aaf"
+
+//GroundIdleAnim = "rooks/Angel/Angel_Idle.aaf"
+GroundIdleAnim = rooks/Angel/Angel_HandProp_Idle.aaf
+
+
+AirFiringAnimations = rooks/Angel/Angel_Air_Fire_L.aaf, rooks/Angel/Angel_Air_Fire_R.aaf
+
+GroundMoveCycleAnim_Fwd = "rooks/Angel/Angel_Move_F.aaf"
+GroundMoveCycleAnim_Back = "rooks/Angel/Angel_Move_B.aaf"
+GroundMoveCycleAnim_Left = "rooks/Angel/Angel_Turn_L.aaf"
+GroundMoveCycleAnim_Right = "rooks/Angel/Angel_Turn_R.aaf"
+
+GroundMoveCycleAnim_LeftSp = "rooks/Angel/Angel_Special_Turn_L.aaf" // special mode turns
+GroundMoveCycleAnim_RightSp = "rooks/Angel/Angel_Special_Turn_R.aaf"
+
+AirProjFireBone1 = "bone_flash_L"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_flash_R"
+AirProjFireOffset2 = "0 0 0"
+
+GndSniperFireRate = 1.0			// - sniper mode fire rate
+GndSniperDPS = 440
+SpecialWeaponType = 90.0
+GndSniperFireBone = bone_flash_rifle
+GndSniperScopeBone = bone_scope	// point for laser sight origination
+GndSniperProjSpeed = 180.0
+GndSniperZoomRange = 10.0
+GndSniperEnergyPerShot = 2.5	// - angel setting
+SniperStasisEnergy = 2.5        // energy to trigger SniperStasis ability
+GndSniperEnergyPerUberShot = 0.5 // - energy used for an angel shot in uber powerup mode (as opposed to above)
+GndSniperUberSpeedShotMult = 1.5  // faster shots in 'user powerup' mode 'UberSniper'
+FiringAnimation_Alt = rooks/Angel/Angel_Special_Fire.aaf
+
+GndProjFireBone1 = bone_flash_R
+GndProjFireOffset1 = "0 0 0"
+GndProjFireBone2 = bone_flash_L
+GndProjFireOffset2 = "0 0 0"
+
+ActivatedAbilityAnim = "rooks/Angel/Angel_Air_Special.aaf"
+ActivatedAbilityAnimMoving = ""	// I don't use this on the angel
+
+Taunts = rooks/Angel/Angel_Taunt_1.aaf
+
+RightShoulderTargetingBone = bone_shoulder_R
+LeftShoulderTargetingBone = bone_shoulder_L
+
+RecoveryAnim = rooks/Angel/Angel_Recover.aaf
+
+GroundIdleAnimGlide = rooks/Angel/Angel_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/Angel/Angel_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/Angel/Angel_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/Angel/Angel_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/Angel/Angel_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_shoulder_R"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_shoulder_L"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_ankle_R"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_ankle_L"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"

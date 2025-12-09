@@ -1,0 +1,170 @@
+
+// Guardians - things that orbit around the player and do stuff
+
+add WorldObject
+	set Name GuardTemplate
+	set Collision "Sphere 0.5"
+	set SpecialType Unit
+	set RenderScale 1.2
+	set RangeArc 360
+	set AimTurnRate 500
+	set FireDelay 0.10			// rate of fire for guardian
+	set ShotMuzzleFlash MuzzleFlash  //(currently unused by guardian)
+	set ShotLifespan 1
+	set ShotSpeed 50
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotFFParticles TracerGuardianDefault
+	set HitPoints 200
+	set VisionRange 16
+	set RadarRange 16
+	set Range 14
+	set SalvageTime 2.05
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitSpecial Guardian
+	set DmgPassThroughChance 0		// guardian setting - chance dmg to airmech will also imact the guardian
+	set MoveSpeed 50.0
+	set PresetBoneOffset "0 0 0.38"
+
+	set DestructionEffects_1  "1 0.2 0  0.5 0  0 0  ExpBlastRingSmall  /vcb:75 /reqVis"
+	set DestructionEffects_3  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_ProbeDx /bne:bone_dx1 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_ProbeDx /bne:bone_dx2 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_ProbeDx /bne:bone_dx3 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+	set CameraShakeOnDestroyed "0 0 0"	//- radius, magnitude, time
+
+add WorldObject initFrom GuardTemplate
+	set Name GuardBlaster
+	set Model units/GuardBlaster/GuardBlaster.amf
+	set ModelMat "Guardian"
+	set FireAnimation units/GuardBlaster/Fire.aaf
+	set BoneFirePoint  "bone_firepoint"
+	set ZSpinDefs "bone_spin 120.0"
+	set GuardianPower Blaster
+	set GuardianEnergyDrain 0.5	// airmech energyuse per second when 'active'
+	set ShotDamage 2			// damage per shot for guardian
+	set CanHitAir 1
+	//set ShotDamageOnAirMult 0.4
+	//set ShotDamageOnGndMult 0.5
+	set ArmorType 1.0
+	set WeaponType 1.0
+	set PowerGen 0
+	set HitPoints 1000
+
+add WorldObject initFrom GuardBlaster
+	set Name GuardBlasterGoth
+	set Model units/GuardBlasterGoth/GuardBlasterGoth.amf
+	set ModelMat "GuardianGoth<"
+	set IdleAnimation units/GuardBlasterGoth/Idle.aaf
+	set FireAnimation units/GuardBlasterGoth/Fire.aaf
+	set BoneFirePoint  "bone_firepoint"
+	set ZSpinDefs "bone_spin 160.0"
+	set ZSpinDefs "bone_spin2 -100.0"
+	set MoveSpeed 20.0
+	set GuardianOrbitalPeriod 3.0
+	set ShotFFParticles TracerGuardianPurple
+	set DestructionEffects_2  ""
+	set DestructionEffects_3  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_AngelGothDx< /bne:bone_dx1 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_AngelGothDx< /bne:bone_dx2 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2  5 2  /mdl:units/Probe/ProbeDx.amf /mtl:mat_AngelGothDx< /bne:bone_dx3 /emt:Z /grp:Debris /col [Group Debris Box 0.25]  /skt:3 /vcb:100 /reqVis /pval:1"
+
+
+
+add WorldObject initFrom GuardTemplate
+	set Name GuardRepair
+	set Model units/GuardRepair/GuardRepair.amf
+	set ModelMat "GuardianRepair"
+	set GuardianPower Repair
+	set GuardianEnergyDrain 0.5	// airmech energyuse per second when 'active'
+	set ZSpinDefs "bone_spin 120.0"
+	set SupplyRepairRate 22
+	set ShotDamage 0
+	set ArmorType 1.0
+	set WeaponType 1.0
+	set PowerGen 0
+	set HitPoints 1000
+
+add WorldObject initFrom GuardTemplate
+	set Name GuardRadar
+	set Model units/GuardRadar/GuardRadar.amf
+	set ModelMat "Guardian"
+	set GuardianPower Radar
+	set GuardianEnergyDrain 0.05	// airmech energyuse per second when 'active'
+	set ZSpinDefs "bone_spinA 120.0"
+	set ZSpinDefs "bone_spinB 90.0"
+	set ZSpinDefs "bone_root 40.0"
+	set ShotDamage 0
+	set ArmorType 1.0
+	set WeaponType 1.0
+	set PowerGen 0
+	set HitPoints 1000
+
+add WorldObject initFrom GuardTemplate
+	set Name GuardEnergy
+	set Model units/GuardEnergy/GuardEnergy.amf
+	set ModelMat "GuardianEnergy"
+	set RenderScale 1.0
+	set GuardianPower Energy
+	set GuardianEnergyDrain 0.0	// airmech energyuse per second when 'active'
+	set ZSpinDefs "bone_spinA 120.0"
+	set ZSpinDefs "bone_spinB 90.0"
+	set ZSpinDefs "bone_root 40.0"
+	set ShotDamage 0
+	set ArmorType 1.0
+	set WeaponType 1.0
+	set PowerGen 0
+	set HitPoints 1000
+
+add WorldObject initFrom GuardTemplate
+	set Name GuardBlade
+	set Model units/GuardBlade/GuardBlade.amf
+	set ModelMat "GuardianBlade"
+	set GuardianPower Blades
+	set RenderScale 1.0
+	set GuardianOrbitalPeriod 1.0
+	set ZSpinDefs "bone_spin 950.0"
+	set ArmorType 1.0
+	set PowerGen 0
+	set HitPoints 1000
+	set GuardianEnergyDrain 10
+
+	set WeaponType 10.0
+	set ShotDamage 48			// damage per hit
+	set FireDelay 1.0			// rate of 'hit' for blades guardian
+	set CanHitAir 1
+
+
+add WorldObject
+	set Name VacScrapper
+	set StateController VacScrapper
+	set Model units/VacScrapper/Scrapper.amf
+	set ModelMat "Scrapper ScrapperInternal<"
+	set Collision "Sphere 0.5"
+	set SpecialType Unit
+	set RenderScale 0.9
+	set RangeArc 360
+	set AimTurnRate 500
+	set ShotLifespan 1
+	set ShotSpeed 50
+	set HitPoints 200
+	set PowerGen 0
+	set Acceleration 12.0
+	set Deceleration 30.0
+	set MoveSpeed 20.0
+	set UnitTurnRate 300.0
+	set MoveAnimation units/VacScrapper/ScrapperMove.aaf
+	set IdleAnimation units/VacScrapper/ScrapperIdle.aaf
+	set VisionRange 20
+	set RadarRange 16
+	set Range 14
+	set SalvageTime 2.05
+	set SupplyRepairRate 30
+	set SupplyWorkingRadius 6.5
+	set UnitSpecial Guardian
+	set GuardianPower VacScrapper
+	set DmgPassThroughChance 0
+	set SupplyTransitionParticles "DissolveEmbers"
+	set SupplyTransitionParticlesSpawnPeriod 0.3
+	set ZSpinDefs "bone_mesh_propeller01 900.0"
+	set ZSpinDefs "bone_mesh_propeller 900.0"
+
+

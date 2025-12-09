@@ -1,0 +1,137 @@
+// ===========================
+// Rook "Paladin" Settings
+// ===========================
+#include PaladinBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+AirMesh = rooks/Paladin/PaladinAir.amf
+GndMesh = rooks/Paladin/Paladin_Ref.amf
+AirMechMaterials = "" //mat_Paladin
+AirMechModelMats = Paladin
+
+AirMechAnimV = 2
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/Paladin/Paladin_ToBot.aaf
+GroundToAirAnim = rooks/Paladin/Paladin_ToVehicle.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.8
+AnimSpeedToRobot = 0.8		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.0)
+AnimSpeedToAir = 0.95		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 0.666)
+GroundMoveCycleAnimSpeedMult = 0.1
+GroundMoveBackCycleAnimSpeedMult = 0.125
+HeadLookBone = bone_head_aim
+UpperBodyAimBone = bone_upper_aim
+
+HatBoneScaled = geo_head_antenna
+HatBone = bone_hat
+HatOffset = "0 0.05 -.35"
+
+HatHeadOffset = "0 0 -0.3"
+
+RespawnMesh = rooks/Paladin/PaladinRespawn.amf
+RespawnAnimation = rooks/Paladin/Respawn.aaf
+
+HoverAnimation = rooks/Paladin/Paladin_Air_Hover.aaf
+HoverAnimationSpeed = 1.2
+
+//AirSpecialOnAnim=rooks/Paladin/Idle.aaf
+//AirSpecialOffAnim=rooks/Paladin/Idle.aaf
+//GndSpecialOnAnim=rooks/Paladin/Idle.aaf
+//GndSpecialCycAnim=rooks/Paladin/Idle.aaf
+//GndSpecialOffAnim=rooks/Paladin/Idle.aaf
+
+// ========================================================
+// Hijack striker's shield settings for the Paladins shield.
+// Will work when not in a hammer throw state
+// ========================================================
+ShieldDamageSoak_FacingArcMinDot = 0.5					// - degrees of shield facing arc (bidirectional - min dot product - cosine approximation)
+ShieldDamageSoak_ConvToDamage = 0.6						// - when shield is hit, damage * convtodamage = physical damage taken
+ShieldDamageSoak_ConvToEnergy = 0.0						// - when shield is hit, damage * convtoenergy = energy/fuel consumption taken
+
+// ========================================================
+// Charge Up special settings - Hammer Throw
+// ========================================================
+ChargeUpShotLifespan = 4.5
+ChargeUpShotReturnAfter = 0.75	// setting for the hammer only
+ChargeUpShotVelInfluence = 0.15 // 'english' velocity influence
+ChargeUpShotVelocity = 24.0
+ChargeUpShotDamage = 80
+ChargeUpShotVelPass = 0.2
+ChargeUpShotModel = rooks/Paladin/PaladinHammer.amf
+ChargeUpShotMaterial = mat_Paladin
+ChargeUpShotPFX = "ElectricTrail>"
+ChargeUpShotEnergyCost = 2.0
+
+AbilityChargeUpStart = rooks/Paladin/Paladin_Throw_Start.aaf
+AbilityChargeUpLoop = rooks/Paladin/Paladin_Throw_Cycle.aaf
+AbilityChargeUpRelease = rooks/Paladin/Paladin_Throw_End.aaf
+AbilityChargeUpCancel = ""
+AbilityChargeUpReturnCatch = "rooks/Paladin/Paladin_Catch_Fwd.aaf", "rooks/Paladin/Paladin_Catch_Back.aaf", "rooks/Paladin/Paladin_Catch_Left.aaf", "rooks/Paladin/Paladin_Catch_Right.aaf"
+
+SpecialProjFireBone = "bone_hammer" // thrown hammer fire point
+
+FiringAnimation = rooks/Paladin/Paladin_Idle_Fire.aaf
+FiringAnimation_MoveFwd = rooks/Paladin/Paladin_Run_Fwd_Fire.aaf
+FiringAnimation_MoveBack = rooks/Paladin/Paladin_Run_Back_Fire.aaf
+
+GroundIdleAnim = rooks/Paladin/Paladin_Idle.aaf
+
+GroundMoveCycleAnim_Fwd = rooks/Paladin/Paladin_Run_Fwd.aaf
+GroundMoveCycleAnim_Back = rooks/Paladin/Paladin_Run_Back.aaf
+GroundMoveCycleAnim_Left = rooks/Paladin/Paladin_Turn_Left.aaf
+GroundMoveCycleAnim_Right = rooks/Paladin/Paladin_Turn_Right.aaf
+
+AirProjFireBone1 = "bone_flash_L"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_flash_R"
+AirProjFireOffset2 = "0 0 0"
+
+GndProjFireBone1 = "bone_flash_L"
+GndProjFireOffset1 = "0.15 0.0 0.0"
+GndProjFireBone2 = "bone_flash_R"
+GndProjFireOffset2 = "0.15 0.0 0.0"
+
+//MissileProjFireBone1 = "bone_missiles_l"
+//MissileProjFireBone2 = "bone_missiles_r"
+
+
+Taunts = rooks/Paladin/Paladin_ShieldClang.aaf
+
+ActivatedAbilityAnim = rooks/Paladin/Paladin_Aura_Start.aaf
+ActivatedAbilityAnimMoving = rooks/Paladin/Paladin_Aura_Start.aaf
+
+
+RightShoulderTargetingBone = geo_gun_R
+LeftShoulderTargetingBone = geo_gun_L
+
+RecoveryAnim = rooks/Paladin/Paladin_Recover.aaf
+
+GroundIdleAnimGlide =  rooks/Paladin/Paladin_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/Paladin/Paladin_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/Paladin/Paladin_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/Paladin/Paladin_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/Paladin/Paladin_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_heel_L"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_heel_L"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_shoulder_R"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_shoulder_L"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"

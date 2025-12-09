@@ -1,0 +1,893 @@
+add WorldObject initFrom TemplateTank
+	set Name Tank
+	set StateController Tank
+	set Model units/Tank/Tank.amf
+	set Material "mat_Tank mat_TreadPanX<"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel"
+	set BoneAimHorizontal "bone_turret"
+	set BoneAimVertical "bone_vert"
+	set ShotFireSounds FiringTank
+	set ShotProjEffects TankShell
+	set DestroySounds DestroyTank
+	set FireAnimation "units/Tank/Tank_FireForward.aaf	units/Tank/Tank_FireLeft.aaf units/Tank/Tank_FireRight.aaf	units/Tank/Tank_FireBack.aaf"
+	set PowerGen -2
+	set UnitLevelBase 21
+	set ShotDamage 125
+	set ShotDodgeable 0.5
+	set ShotSpeed 50
+	set ShotSize "0.05 1.2 0"
+	set DBlastDmg 300			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 2.0			// "Death Blast" Range
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlashTank
+	set ShotFFParticles WhiteTrail
+	set ShotAimLeadingEffectiveness 0.5
+	set RotationResetDelay 2
+	set RotationResetDelayRandom 5
+	set AimWanderSpeed 0.2
+	set AimTurnRate 75
+	set FireDelay 1.3
+	set HitPoints 1300
+	set CarryWeight 1150
+	set WeaponType 85
+	set ArmorType 85
+	set VisionRange 20
+	set RadarRange 16
+	set Range 18
+	set MoveSpeed 3.0
+	set AtTargetDistance 1.5
+	set TreadMarkDecalDef1 "tankTreads -0.53 -0.3 0.35"
+	set TreadMarkDecalDef2 "tankTreads 0.53 -0.3 0.35"
+	set Mass 50000
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set UnitTurnRate 60
+	set MoveWhileTurningMaxAngle 25
+	set Acceleration 1
+	set Deceleration 2
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 10
+	set AimWanderSpeed 0.2
+	set SalvageValue 1120
+	set SalvageTime 4.0
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 10
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_TankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:2"
+	set DestructionEffects_5  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mtl:mat_TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:2"
+	set DestructionEffects_6  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mtl:mat_TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:2"
+	set DestructionEffects_7  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_9  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mtl:mat_TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom Tank
+	set Name Tank_01
+	set VariantOf Tank	// for pulling CFG data
+
+add WorldObject initFrom Tank
+	set Name TankVoid
+	set Material mat_AirMechUBlack<
+	set VariantOf Tank	// for pulling CFG data
+	set UnitLevelBase 25
+	set ArmorType 100
+	set WeaponType 100
+	set ShotDamage 150
+	set HitPoints 1800
+	set CarryWeight 1150
+	set DestructionEffects_3  "1 1 0  10 5  0 0  DissolveEmbers MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_AirMechUBlack< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_AirMechUBlack< /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mtl:mat_AirMechUBlack< /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mtl:mat_AirMechUBlack< /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mtl:mat_AirMechUBlack< /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom Tank
+	set Name ScorpionTank
+	set Model units/ScorpionTank/ScorpionTank.amf
+	set Material mat_ScorpionTank
+	set FireAnimation "units/ScorpionTank/FireForward0.aaf units/ScorpionTank/FireLeft0.aaf units/ScorpionTank/FireRight0.aaf units/ScorpionTank/FireBack0.aaf"
+	set FireAnimationAlt "units/ScorpionTank/FireForward1.aaf units/ScorpionTank/FireLeft1.aaf units/ScorpionTank/FireRight1.aaf units/ScorpionTank/FireBack1.aaf"
+	set PowerGen -2
+	set UnitLevelBase 24
+	set FireDelay 1.4
+	set FireAltDelay 0.7
+	set WeaponType 50
+	set ArmorType 85
+	set ShotDodgeable 0.4
+	set BoneFirePoint "mesh_barrel_r"
+	set BoneFirePointAlt "mesh_barrel_l"
+	set ShotFireSounds FiringGeminiTank
+	set SalvageValue 1120
+	set CarryWeight 1150
+	set HitPoints 1300
+	set ShotDamage 80
+	set MoveSpeed 3.0
+	set AimTurnRate 115
+	set SalvageTime 4.0
+
+add WorldObject initFrom ScorpionTank
+	set Name Gemini_01
+	set VariantOf ScorpionTank	// for pulling CFG data
+
+
+add WorldObject initFrom Tank
+	set Name TankLight
+	set Model units/TankLight/TankLight.amf
+	set Material "mat_TankLight mat_TreadPanXLight<"
+	set ShotFireSounds units/dualturret/FiringDualturret.wav
+	set FireAnimation "units/TankLight/TankLight_FireForward.aaf units/TankLight/TankLight_FireLeft.aaf units/TankLight/TankLight_FireRight.aaf  units/TankLight/TankLight_FireBack.aaf"
+	set PowerGen -1
+	set UnitLevelBase 17
+	set ArmorType 65
+	set FireDelay 0.900
+	set HitPoints 950
+	set CarryWeight 900
+	set WeaponType 50
+	set ShotDamage 90
+	set ShotDodgeable 0.3
+	set AimTurnRate 110
+	set MoveSpeed 5.5
+	set Acceleration 0.8
+	set MoveWhileTurningMaxAngle 25 // this makes me slow down (by 'deceleration') going into steeper turns
+	set SalvageValue 672
+	set SalvageTime 3.0
+	set DBlastDmg 150			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 2.0			// "Death Blast" Range
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TankLight/TankLightDxBody.amf /mtl:mat_TankLightDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.45 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxBarrel.amf /mtl:mat_TankLightDx /bne:bone_xbarrel /trq:-20 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1000"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxCap.amf /mtl:mat_TankLightDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxTurret.amf /mtl:mat_TankLightDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxBack.amf /mtl:mat_TankLightDx /bne:bone_xcap /emt:H /grp:Debris /col [Group Debris Box 0.4 0.15 0.15] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxSpare.amf /mtl:mat_TankLightDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/TankLight/TankLightDxCanister.amf /mtl:mat_TankLightDx /bne:bone_xtread_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 ""
+
+add WorldObject initFrom TankLight
+	set Name Armadillo_01
+	set VariantOf TankLight	// for pulling CFG data
+
+add WorldObject initFrom Tank
+	set Name TankHeavy
+	set Model units/TankHeavy/TankHeavy.amf
+	set RenderScale 1.2
+	set Material "mat_TankHeavy"
+	//set ShotFireSounds units/dualturret/FiringDualturret.wav
+	set FireAnimation "units/TankHeavy/FireForward.aaf units/TankHeavy/FireLeft.aaf units/TankHeavy/FireRight.aaf  units/TankHeavy/FireBack.aaf"
+	set FireDelay 1.6
+	set FireDelayNoPower 2.4
+	set DBlastDmg 500			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+	set HitPoints 3600
+	set CarryWeight 3850
+	set ShotDamage 290
+	set ShotDodgeable 0.8
+	set MoveSpeed 2.0
+	set Acceleration 0.8
+	set WeaponType 90
+	set ArmorType 95
+	set AimTurnRate 70
+	set Range 17
+	set VisionRange 19
+	set RadarRange 19
+	set AbductRes 0.5
+	set PowerGen -4
+	set PickupIndicatorScale 4
+	set SalvageValue 2855
+	set SalvageTime 6.75
+	set CameraShakeOnDestroyed "60 1.2 1.5"	//- radius, magnitude, time
+	set UnitLevelBase 27
+	set PickupSpawnOnDestroy AnyPartGoodChance
+	set PickupSpawnOnDestroyChance 10
+
+	set DestructionEffects_3  "1 1.2 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_TankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:3"
+	set DestructionEffects_5  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mtl:mat_TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:3"
+	set DestructionEffects_6  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mtl:mat_TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_7  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_8  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_9  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mtl:mat_TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_10 "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mtl:mat_TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+
+add WorldObject initFrom TankHeavy
+	set Name Goliath_01
+	set VariantOf TankHeavy	// for pulling CFG data
+
+add WorldObject initFrom TankHeavy
+	set Name TankHeavyGoth
+	set Model units/TankHeavyGoth/TankHeavyGoth.amf
+	set Material "mat_TankHeavyGoth"
+
+add WorldObject initFrom TankHeavy
+	set Name TankHeavyVoid
+	set Model units/TankHeavyU/TankHeavyU.amf
+	set Material "mat_AirMechUBlack<"
+	set VariantOf TankHeavy	// for pulling CFG data
+
+	set DestructionEffects_3  "1 1.2 0  10 5  0 0  DissolveEmbers MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mtl:mat_AirMechUBlack< /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mtl:mat_AirMechUBlack< /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mtl:mat_AirMechUBlack< /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mtl:mat_AirMechUBlack< /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mtl:mat_AirMechUBlack< /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1.2 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mtl:mat_AirMechUBlack< /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 10
+
+add WorldObject initFrom TankHeavy
+	set Name TankHeavyU
+	set Model units/TankHeavyU/TankHeavyU.amf
+	set RenderScale 1.25
+	set UnitLevelBase 28
+	set HitPoints 4000
+	set CarryWeight 3850
+	set WeaponType 95
+	set ArmorType 100
+	set ShotDamage 425
+	set SalvageValue 3000
+	set SalvageTime 7
+
+
+add WorldObject initFrom TankHeavy
+	set Name TankHeavyWeak
+	set ShotDamage 70
+	set HitPoints 1200
+	set CarryWeight 3850
+	set FireDelay 2.5
+	set UnitSpawnOnDestroyChance 0
+	set UnitLevelBase 5
+
+add WorldObject initFrom Tank
+	set Name TankFlak
+	set Model units/TankFlak/TankFlak.amf
+	set Material "mat_MissileTank mat_TurretFlak"
+	set PowerGen -3
+	set HitPoints 3200
+	set ArmorType 60
+	set MoveSpeed 1.6
+	set CarryWeight 3500
+	set VisionRange 26
+	set RadarRange 26
+	set Range 17
+	set UnitLevelBase 22
+
+	set ShotDamage 25
+	set FireDelay 0.3
+	set FireAltDelay 0.15
+	set ShotSpeed 120
+	set WeaponType 35
+	set ShotLifespan 0.4
+	set ShotDamageOnAirMult 1.5
+	set FortMultDmg 0.33
+	set OutpostMultDmg 0.25
+
+	//set MeleeDPS 150
+
+	set CanHitAir 1
+	set CanHitGround 0
+	set CanHitAirMechAnyForm 1
+	set AimTurnRate 900
+	set RotationResetDelay 8
+
+	set DBlastDmg 400			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 4.0			// "Death Blast" Range
+
+	set BoneFirePoint mesh_barrel_r
+	set BoneFirePointAlt mesh_barrel_l
+	set BoneAimHorizontal bone_horz
+	set BoneAimVertical bone_vert
+	set ShotFireSounds FiringTurret.wav
+	set ShotProjEffects FlakTurretShell
+	set ShotDodgeable 0
+	set ShotAimLeadingEffectiveness 1
+	set ShotLinearDamp 1.5
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set FireAnimSpeed 3.333
+	set SalvageValue 910
+	set SalvageTime 6.5
+	set ZSpinDefs "mesh_radar 100"
+	set FireAnimation units/TankFlak/TurretFire.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set RotationWanderMaxArc 10
+	set AimWanderSpeed 0.1
+	set AimUpDefault -30
+	set AbductRes 0.5
+	set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	set ShotIsAAOnly 1	// will disable collision to ground stuff (like chopper air missiles)
+	set Mass 40000.0
+	//set ShotSpeed 50
+	set ShotSize "0.05 1.2	0"
+	//set ShotLifespan 0.8
+
+add WorldObject initFrom TankFlak
+	set Name TankFlakSurvival
+	set AbductRes 0.5
+
+add WorldObject initFrom Tank
+	set Name TankMonster		// DEVASTATOR
+	set Model units/TankMonster/TankMonster.amf
+	set StateController TankDevastator
+	set Material "mat_TankHeavy mat_Tank"
+	set FireAnimation "units/TankMonster/FireForward.aaf units/TankMonster/FireLeft.aaf units/TankMonster/FireRight.aaf units/TankMonster/FireBack.aaf"
+	//set FireAnimationAlt "units/TankMonster/FireForwardAlt.aaf units/TankMonster/FireLeftAlt.aaf units/TankMonster/FireRightAlt.aaf units/TankMonster/FireBackAlt.aaf"
+	set PowerGen -5
+	set UnitLevelBase 30
+	set FireDelay 1
+	set SustainFireTime 3
+	set ReloadTime 3
+	set AimTurnRate 70
+	set ShotDamage 290
+	set HitPoints 6000
+	set MoveAnimation units/TankMonster/Move.aaf
+	set IdleAnimation units/TankMonster/Move.aaf
+	set IdleAnimationSpeed 0.5
+	set MoveAnimationSpeed 0.6
+	set FortMultDmg 0.66
+	set OutpostMultDmg 0.66
+	set ShotDodgeable 0.4
+	set BoneFirePoint "bone_tip_r"
+	set BoneFirePointAlt "bone_tip_l"
+	set BoneAimHorizontal bone_turret_horz
+	set BoneAimVertical bone_aim_vert
+	set ShotFireSounds FiringGeminiTank
+	set CarryWeight 5750
+	set MoveSpeed 1.3
+	//set RenderScale "1.5 1.5 1.5"
+	set ArmorType 95
+	set Range 16
+	set RadarRange 19
+	set VisionRange 18
+	set AbductRes 0.5		// multiplier on abduction attempts (resistance/susceptibility)
+	set PickupIndicatorScale 5
+	set DBlastDmg 500			// "Death Blast" Damage
+	set DBlastRMin 2.5			// "Death Blast" Range
+	set DBlastRMax 8.0			// "Death Blast" Range
+	set SalvageValue 7320
+	set SalvageTime 6.75
+	set TreadMarkDecalDef1 "tankTreads -0.83 -0.4 0.35"
+	set TreadMarkDecalDef2 "tankTreads 0.83 -0.4 0.35"
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 10
+	set WeaponType 125
+
+	set DestructionEffects_3  "1 1.5 0  10 5  0 0  DissolveEmbers MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mmt:TankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mmt:TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:2"
+	set DestructionEffects_5  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mmt:TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:2"
+	set DestructionEffects_6  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:2"
+	set DestructionEffects_7  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	set DestructionEffects_9  "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 1.5 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TankMonster
+	set Name Devastator_01		// Hellstorm Devastator
+	set VariantOf TankMonster	// for pulling CFG data
+
+add WorldObject initFrom TankMonster
+	set Name DevastatorSurvival
+	set AbductRes 0.1
+	set HitPoints 8500
+
+add WorldObject initFrom DevastatorSurvival
+	set Name MonsterTankSurvival
+	set PowerGen -5
+	set UnitLevelBase 27
+	set FireDelay 2
+	set AimTurnRate 60
+	set ShotDamage 450
+	set HitPoints 9001
+	set CarryWeight 7750
+	set RenderScale "1.2 1.2 1.2"
+	set WeaponType 100
+	set ArmorType 90
+	set AbductRes 0.35		// multiplier on abduction attempts (resistance/susceptibility)
+	set SalvageValue 9001
+	set SalvageTime 7.5
+//	set Range 22
+
+add WorldObject initFrom TankHeavy
+	set Name TankHeavySurvival
+	set PowerGen -5
+	set WeaponType 100
+	set ArmorType 100
+	set HitPoints 6000
+	set CarryWeight 5750
+	set ShotDamage 270
+	set FireDelay 1.2
+	set AbductRes 0.35		// multiplier on abduction attempts (resistance/susceptibility)
+	set MoveSpeed 2.0
+	set SalvageValue 2500
+	set SalvageTime 7
+//	set Range 22
+
+add WorldObject initFrom Tank
+	set Name TankTutorial
+	set ShotDamage 10
+	set OutpostMultDmg 9 // so we do equivalent outpost damage as a regular longhorn does
+	set HitPoints 200
+	set CarryWeight 1150 // make weight same as longhorn: 1200
+	set FireDelay 2.5
+	set UnitSpawnOnDestroyChance 0
+
+add WorldObject initFrom Tank
+	set Name TankWeak
+	set ShotDamage 70
+	set HitPoints 600
+	set CarryWeight 1150
+	set FireDelay 2.5
+	set UnitSpawnOnDestroyChance 0
+	set UnitLevelBase 4
+
+add WorldObject initFrom TemplateTank
+	set Name TankDrill
+	set StateController TankDrill
+	set Model units/TankDrill/TankDrill.amf
+	set Material "mat_TankDrill mat_TreadPanX<"
+	set MoveAnimation units/TankDrill/Idle.aaf
+	set IdleAnimation units/TankDrill/Idle.aaf
+	set IdleAnimationSpeed 0.7
+	set UnitLevelBase 22
+	set RangeArc 360
+	set TgtD_Infantry 8
+	set TgtD_Turrets 0.8
+	set TgtD_Outposts 4
+	set SalvageValue 2530
+	set SalvageTime 6.5
+	set DBlastDmg 200			// "Death Blast" Damage
+	set DBlastRMin 0.5			// "Death Blast" Range
+	set DBlastRMax 3.0			// "Death Blast" Range
+	set BoneFirePoint ""
+//	set BoneAimHorizontal ""
+//	set BoneAimVertical ""	// this should be fixed (wrong bone orientation somewhere in heirarchy)
+	set ShotProjEffects TankShell
+	set DestroySounds DestroyTank
+	set FireAnimation ""
+	set PowerGen -4
+	set MeleeDPS 300
+	set ShotSpeed 50
+	set ShotSize "0.05 1.2	0"
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotAimLeadingEffectiveness 0.5
+	set RotationResetDelay 2
+	set RotationResetDelayRandom 5
+	set AimWanderSpeed 0.2
+	set AimTurnRate 150
+	set FireDelay 1.3
+	set HitPoints 2500
+	set CarryWeight 2900
+	set WeaponType 90
+	set ArmorType 70
+	set VisionRange 18
+	set RadarRange 12
+	set Range 12
+	set MoveSpeed 3.0
+	set AtTargetDistance 1.2
+	set TreadMarkDecalDef1 "tankTreads -0.53 -0.3 0.35"
+	set TreadMarkDecalDef2 "tankTreads 0.53 -0.3 0.35"
+	set ZSpinDefs "bone_drill -1200" // this needs to be the first zspin def, since we will control it with code in the drill tank's sim tick handler
+	set ZSpinDefs "bone_gear1 -52"
+	set ZSpinDefs "bone_gear2 87"
+	set ZSpinDefs "mesh_wheel1 200 /wheel"
+	set ZSpinDefs "mesh_wheel2 200 /wheel"
+	set ZSpinDefs "mesh_wheel3 200 /wheel"
+	set ZSpinDefs "mesh_wheel4 200 /wheel"
+	set Mass 50000
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set UnitTurnRate 60
+	set MoveWhileTurningMaxAngle 25
+	set MustMoveInFacingDirection 1
+	set Acceleration 1
+	set Deceleration 2
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 10
+	set AimWanderSpeed 0.2
+	set CriticalHitZone Back
+	set ProtectedHitZone Front
+	set CanHitAir 0
+	set CanHitGround 0
+	set NavmeshAvoid 0
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 10
+
+	set DestructionEffects_3  "1 1.2 0  10 5  0 0  DissolveEmbers MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TankDrill/TankDrillDxBody.amf /mtl:mat_TankDrillDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.45 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.2 0  5 2   5 2  /mdl:units/TankDrill/TankDrillDxDrill.amf /mtl:mat_TankDrillDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.5 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1.2 0  5 2   5 2  /mdl:units/TankDrill/TankDrillDxHead.amf /mtl:mat_TankDrillDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.3 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1.1 0  5 2   5 2  /mdl:units/TankDrill/TankDrillDxTreads.amf /mtl:mat_TankDrillDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.8 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1.1 0  5 2   5 2  /mdl:units/TankDrill/TankDrillDxTreads.amf /mtl:mat_TankDrillDx /bne:bone_xtread_r /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.8 0.3] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1.2 0  5 2   5 2  /mdl:units/TankDrill/TankDrillDxBack.amf /mtl:mat_TankDrillDx /bne:bone_xbody /emt:H /grp:Debris /col [Group Debris Box 0.4 0.15 0.15] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+
+add WorldObject initFrom TankDrill
+	set Name TankDrillCinematic
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 0
+
+add WorldObject initFrom TemplateMedium
+	set Name TankRebel
+	set StateController Tank
+	set Model units/TankRebel/TankRebel.amf
+	set RangeArc 360
+	set Material "mat_TankRebel"
+	set BoneFirePoint "bone_barrel"
+	set BoneAimHorizontal "mesh_gun"
+	set ShotFireSounds units/dualturret/FiringDualturret.wav
+	set IdleAnimation units/TankRebel/Idle.aaf
+	set MoveAnimation units/TankRebel/Drive.aaf
+	set FireAnimation ""
+	set FireDelay 0.125
+	set AimTurnRate 320
+	set ShotSpeed 40
+	set ShotDodgeable 0.1
+	set ShotLifespan 1
+	set PowerGen -1
+	set UnitLevelBase 12
+	set HitPoints 720
+	set CarryWeight 720
+	set ArmorType 55
+	set WeaponType 5
+	set ShotDamage 21
+	set MoveSpeed 5.5
+	set Acceleration 3.8
+	set MustMoveInFacingDirection 1
+	set UnitTurnRate 150
+	set ThreePointTurn 0.4
+	set Deceleration 10
+	set SteerWheel1 mesh_wheel_r
+	set SteerWheel2 mesh_wheel_l
+	set SteerWheelAngConv 0.8
+	set UnitSpawnOnDestroy Infantry
+	set UnitSpawnOnDestroyChance 33
+	set MoveAnimation units/TankRebel/Drive.aaf
+	set AtTargetDistance 1.5
+	set Mass 100
+	set LinearDamp 1.2
+	set AngularDamp 3
+	set AimWanderSpeed 0.6
+	set SustainFireTime 4
+	set ReloadTime 2
+	set Range 15
+	set VisionRange 20
+	set RadarRange 20
+	set SalvageValue 451
+	set SalvageTime 5.25
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds "units/armoredcar/ArmoredCarFiring.wav"
+	set ShotProjEffects ArmorCarShell
+	set DestroySounds DestroyArmoredCar.wav
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TankRebel/TankRebelDxBody.amf /mtl:mat_TankRebelDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.45 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxBarrel.amf /mtl:mat_TankRebelDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxCap.amf /mtl:mat_TankRebelDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxTurret.amf /mtl:mat_TankRebelDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxBack.amf /mtl:mat_TankRebelDx /bne:bone_xcap /emt:H /grp:Debris /col [Group Debris Box 0.4 0.15 0.15] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxFront.amf /mtl:mat_TankRebelDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 1 0  5 2   5 2  /mdl:units/TankRebel/TankRebelDxLight.amf /mtl:mat_TankRebelDx /bne:bone_xtread_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TankRebel
+	set Name Rebel_01
+	set Model units/Rebel_01/TankRebelCheap.amf
+	set Material "mat_TankRebelCheap"
+	set VariantOf TankRebel	// for pulling CFG data
+
+add WorldObject initFrom TankRebel
+	set Name Rebel_02
+	set Model units/Rebel_02/TankRebelSwift.amf
+	set Material "mat_TankRebelSwift"
+	set VariantOf TankRebel	// for pulling CFG data
+
+add WorldObject initFrom Tank
+	set Name TankHunter
+	set Model units/TankHunter/TankHunter.amf
+	set Material "mat_TankHunter mat_TreadPanXHunter<"
+	set ShotFireSounds units/dualturret/FiringDualturret.wav
+	set FireAnimation units/TankHunter/FireForward.aaf
+	//set IdleAnimation units/TankHunter/Idle.aaf
+	set MoveAnimation units/TankHunter/Move.aaf
+	set MoveAnimationSpeed 0.6
+	set BoneFirePoint "bone_barrel"
+	set BoneAimHorizontal ""
+	set BoneAimVertical bone_aim
+
+	set UnitLevelBase 14
+	set AimUpDefault -8
+	set SalvageValue 837
+	set SalvageTime 4.75
+	set ZSpinDefs "mesh_gear1 250 /wheel"
+	set ZSpinDefs "mesh_gear2 250 /wheel"
+	set ZSpinDefs "mesh_gear3 250 /wheel"
+	set ZSpinDefs "mesh_gear4 250 /wheel"
+	set ZSpinDefs "mesh_gear5 250 /wheel"
+	set ZSpinDefs "mesh_gear6 250 /wheel"
+	set FireDelay 2.600
+	set HitPoints 1400
+	set CarryWeight 2000
+	set WeaponType 90
+	set ArmorType 60
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotFireSounds DestroyMissile.wav
+	set ShotDamage 375
+	set FortMultDmg 0.66
+	set OutpostMultDmg 0.66
+	set ShotDodgeable 0.5
+	set ShotSpeed 50
+	set ShotSize "0.05 1.2	0"
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotAimLeadingEffectiveness 0.5
+	set CriticalHitZone Back
+	set ProtectedHitZone Front
+	set MoveSpeed 4
+	set Acceleration 0.8
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set UnitTurnRate 30
+	set Mass 100000
+	set Range 19
+	set RadarRange 16
+	set VisionRange 20
+	set MoveWhileTurningMaxAngle 25
+	set MustMoveInFacingDirection 1
+	set MustStopToFire 0 //1     // - wip - KJK
+	set FireArcForNoZTurret 8 // will need to turn to fire until in this arc
+	set FireArcForNoZTurretWhileMoving 8 // will need to turn to fire until in this arc - extra leeway while moving
+	set RotationWanderMaxArc 0
+	set AimTurnRateVertical 30
+	set TgtD_Infantry 4 // bias against shooting at infantry
+	set TgtD_AirMechs 4
+	set TgtD_MovingUnits 4
+	set RangeArc 360
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroy2 AnyPartChance
+
+add WorldObject initFrom Tank
+	set Name TankJammer
+	set Model units/TankJammer/TankJammer_Ref.amf
+	set Material "mat_TankJammer mat_TreadPanXJammer<"
+	set DeployAnim units/TankJammer/TankJammer_Deploy.aaf
+	set IdleAnimation units/TankJammer/TankJammer_Idle.aaf
+	set MoveAnimation units/TankJammer/TankJammer_Move.aaf
+	set RenderScale 1
+	set SalvageValue 1154
+	set SalvageTime 6.25
+	set PowerGen -3
+	set UnitLevelBase 12
+	set SpecialType Unit
+	set RangeArc 360
+	set CanHitAir 0
+	set CanHitGround 0
+	set WeaponType 1
+	set ArmorType 85
+	set HitPoints 1450
+	set CarryWeight 1350
+	set VisionRange 20
+	set RadarRange 12
+	set RadarJamRange 18.0
+	set Range 15
+	set HasRegularShot 0
+	set HasMissiles 0
+	//set ThreePointTurn 0.4
+	//set MoveWhileTurningMaxAngle 25
+	set MustMoveInFacingDirection 1
+	set Acceleration 1
+	set Deceleration 2
+	set MoveSpeed 3.0
+	set AtTargetDistance 1.5
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set UnitTurnRate 60
+	set SustainFireTime 4.0
+	set ReloadTime 2.0
+
+add WorldObject initFrom TemplateTankBoss
+	set Name TankBoss
+	set StateController Tank
+	set Model units/TankHeavy/TankHeavy.amf
+	set Material "mat_TankHeavy mat_TreadPanX<"
+	set RangeArc 360
+	set BoneFirePoint "mesh_barrel"
+	set BoneAimHorizontal "bone_turret"
+	set BoneAimVertical "bone_vert"
+	set ShotFireSounds FiringTank
+	set ShotProjEffects TankShell
+	set DestroySounds DestroyTank
+	set FireAnimation "units/Tank/Tank_FireForward.aaf	units/Tank/Tank_FireLeft.aaf units/Tank/Tank_FireRight.aaf	units/Tank/Tank_FireBack.aaf"
+	set ShotDamage 85
+	set ShotDodgeable 0.5
+	set UnitLevelBase 12
+	set ShotSpeed 50
+	set ShotSize "0.05 1.2 0"
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotAimLeadingEffectiveness 0.5
+	set RotationResetDelay 2
+	set RotationResetDelayRandom 5
+	set AimWanderSpeed 0.2
+	set AimTurnRate 150
+	set FireDelay 1.3
+	set HitPoints 1100
+	set CarryWeight 800
+	set WeaponType 75
+	set ArmorType 75
+	set VisionRange 20
+	set RadarRange 20
+	set Range 18
+	set MoveSpeed 2.6
+	set AtTargetDistance 1.5
+	set TreadMarkDecalDef1 "tankTreads -0.53 -0.3 0.35"
+	set TreadMarkDecalDef2 "tankTreads 0.53 -0.3 0.35"
+	set Mass 50000
+	set LinearDamp 0.2
+	set AngularDamp 30
+	set UnitTurnRate 60
+	set MoveWhileTurningMaxAngle 25
+	set Acceleration 1
+	set Deceleration 2
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 10
+	set AimWanderSpeed 0.2
+	set DestructionEffects_3  "1 3 0  10 5  0 0  DissolveEmbers MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/Tank/TankDxBody.amf /mmt:TankDx /bne:bone_xbody /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.55 1] /mas:2000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mmt:TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mmt:TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9  "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_10 "1 3 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom TankBoss
+	set Name TankHeavyColossus
+	set StateController TankHeavyColossus
+	set Model units/TankHeavyColossus/TankHeavyColossus.amf
+	set Material "mat_TankColossus mat_TreadPanX<"
+	set FireAnimation "units/TankHeavy/FireForward.aaf units/TankHeavy/FireLeft.aaf units/TankHeavy/FireRight.aaf  units/TankHeavy/FireBack.aaf"
+	set RenderScale 3.0
+	set MoveSpeed 1.7
+	set MoveSpeedMultWhenFiring 0.25
+	set ShotDamage 900
+	set HitPoints 12000
+	set FireDelay 2.3
+	set UnitLatches "TurretChaingun /bone bone_latch1 /offset 0 0 0 /rescale 1 /damagepassthrough 0.03 /damagePassThroughRange 2.0"
+	set UnitLatches "TurretChaingun /bone bone_latch2 /offset 0 0 0 /rescale 1 /damagepassthrough 0.03 /damagePassThroughRange 2.0"
+	set AlignToTerrainNormal 1
+	set VisionRange 18
+	set RadarRange 20
+	set Range 16
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash ExplosionSeq1
+	set ShotFFParticles ChaingunTrailBig
+	set TreadMarkDecalDef1 "tankTreadsBig -2.2 -0.3 0.85"
+	set TreadMarkDecalDef2 "tankTreadsBig 2.2 -0.3 0.85"
+	set UnitTurnRate 20
+	set Acceleration .5
+	set Deceleration 1
+	set AimTurnRate 100
+	set AbductRes 1
+	set DestroySounds WaveNuke.wav
+	set UnitLevelBase 26
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroy2 AnyPartGoodChance
+	set PickupSpawnOnDestroy3 AnyPartChance
+
+
+
+
+add WorldObject initFrom TankBoss
+	set Name TankHeavyColossusTesla
+	set StateController TankHeavyColossus
+	set Model units/TankHeavyColossus/TankHeavyColossus.amf
+	set FireAnimation "units/TankHeavy/FireForward.aaf units/TankHeavy/FireLeft.aaf units/TankHeavy/FireRight.aaf  units/TankHeavy/FireBack.aaf"
+	set RenderScale 3.0
+	set MoveSpeed 0
+	set MoveSpeedMultWhenFiring 0.25
+	set ShotDamage 5200
+	set HitPoints 132000
+	set FireDelay 2.1
+	set UnitLatches "TurretTesla /bone bone_latch1 /offset 0 0 0 /rescale 1.4 /damagepassthrough 0.01 /damagePassThroughRange 2.0"
+	set UnitLatches "TurretTesla /bone bone_latch2 /offset 0 0 0 /rescale 1.4 /damagepassthrough 0.01 /damagePassThroughRange 2.0"
+	set AlignToTerrainNormal 1
+	set VisionRange 22
+	set RadarRange 22
+	set Range 22
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash ExplosionSeq1
+	set ShotFFParticles BlueShot
+	set TreadMarkDecalDef1 "tankTreadsBig -2.2 -0.3 0.85"
+	set TreadMarkDecalDef2 "tankTreadsBig 2.2 -0.3 0.85"
+	set UnitTurnRate 5
+	set Acceleration .5
+	set Deceleration 1
+	set AimTurnRate 50
+	set AbductRes 1
+	set DestroySounds WaveNuke.wav
+	set CanHitAir 1
+	set CanHitAirMechAnyForm 1
+	set PickupSpawnOnDestroy AnyPartGoodChance
+	set PickupSpawnOnDestroy2 AnyPartChance
+	set UnitLevelBase 30
+
+add WorldObject initFrom TankBoss
+	set Name TankHeavyColossusMissiles
+	set StateController TankHeavyColossus
+	set Model units/TankHeavyColossus/TankHeavyColossus.amf
+	set FireAnimation "units/TankHeavy/FireForward.aaf units/TankHeavy/FireLeft.aaf units/TankHeavy/FireRight.aaf  units/TankHeavy/FireBack.aaf"
+	set RenderScale 3.1
+	set MoveSpeed 2
+	set MoveSpeedMultWhenFiring 0.25
+	set ShotDamage 1300
+	set HitPoints 25000
+	set FireDelay 2
+	set HasMissiles 1
+	set MissileDamage 150
+	set UnitLatches "MissileTank /bone bone_latch1 /offset 0 0 0 /rescale 1 /damagepassthrough 0.03 /damagePassThroughRange 2.0"
+	set UnitLatches "MissileTank /bone bone_latch2 /offset 0 0 0 /rescale 1 /damagepassthrough 0.03 /damagePassThroughRange 2.0"
+	set AlignToTerrainNormal 1
+	set VisionRange 18
+	set RadarRange 20
+	set Range 16
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash ExplosionSeq1
+	set ShotFFParticles ChaingunTrailBig
+	set TreadMarkDecalDef1 "tankTreadsBig -2.2 -0.3 0.85"
+	set TreadMarkDecalDef2 "tankTreadsBig 2.2 -0.3 0.85"
+	set UnitTurnRate 25
+	set Acceleration .5
+	set Deceleration 1
+	set AimTurnRate 120
+	set AbductRes 1
+	set DestroySounds WaveNuke.wav
+	set PickupSpawnOnDestroy AnyPartGoodChance
+	set PickupSpawnOnDestroy2 AnyPartChance
+	set UnitLevelBase 25
+
+add WorldObject initFrom TankBoss
+	set Name TankHeavyColossusBertha
+	set StateController TankHeavyColossus
+	set Model units/TankHeavyColossus/TankHeavyColossus.amf
+	set FireAnimation "units/TankHeavy/FireForward.aaf units/TankHeavy/FireLeft.aaf units/TankHeavy/FireRight.aaf  units/TankHeavy/FireBack.aaf"
+	set RenderScale 3.1
+	set MoveSpeed 1
+	set MoveSpeedMultWhenFiring 0.25
+	set ShotDamage 2300
+	set HitPoints 55000
+	set FireDelay 2
+	set UnitLatches "Bertha /bone bone_latch1 /offset 0 0 0 /rescale 1.5 /damagepassthrough 0.01 /damagePassThroughRange 1.0"
+	set UnitLatches "Bertha /bone bone_latch2 /offset 0 0 0 /rescale 1.5 /damagepassthrough 0.01 /damagePassThroughRange 1.0"
+	set AlignToTerrainNormal 1
+	set VisionRange 24
+	set RadarRange 30
+	set Range 24
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash ExplosionSeq1
+	set ShotFFParticles ChaingunTrailBig
+	set TreadMarkDecalDef1 "tankTreadsBig -2.2 -0.3 0.85"
+	set TreadMarkDecalDef2 "tankTreadsBig 2.2 -0.3 0.85"
+	set UnitTurnRate 25
+	set Acceleration .5
+	set Deceleration 1
+	set AimTurnRate 120
+	set AbductRes 1
+	set DestroySounds WaveNuke.wav
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroyChance 100
+	set UnitLevelBase 25
+
+

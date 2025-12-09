@@ -1,0 +1,40 @@
+add WorldObject
+	set Name BotSpawner
+	set StateController BotSpawner
+	set Model units/BotSpawner/BotSpawner.amf
+	set Material mat_BotSpawner
+	set CollisionZRel 0.5
+	set Collision "CapsuleZ 1.25 1.0"
+	set SpecialType Unit
+	set RangeArc 360
+	set PowerGen -2
+	set ArmorType 45
+	set HitPoints 600
+	set CarryWeight 1500
+	set RadarRange 10
+	set Mass 1000000000.0
+	set LinearDamp 100.0
+	set AngularDamp 3.0
+	set RenderScale "1.1"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set SalvageValue 415
+	set SalvageTime 4.25
+
+
+	set DestructionEffects_1  "1 0.2 0  0.5 0    0 0 ExpBlastRing ExpDestroy BrightFlare /vcb:75 /reqVis"
+	set DestructionEffects_2  "1 2 0  0.5 3    0 0  GlassSpin@TC@ /vcb:40 /reqVis"
+	set DestructionEffects_3  "1 1.1 0   10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/BotSpawner/BotSpawnerDxBase.amf /mtl:mat_BotSpawnerDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.5 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1.1 0   5 2   5 2  /mdl:units/BotSpawner/BotSpawnerDxArm.amf /mtl:mat_BotSpawnerDx /bne:bone_xarm_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1.1 0   5 2   5 2  /mdl:units/BotSpawner/BotSpawnerDxArm.amf /mtl:mat_BotSpawnerDx /bne:bone_xarm_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.8] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1.1 0   5 2   5 2  /mdl:units/BotSpawner/BotSpawnerDxClaw.amf /mtl:mat_BotSpawnerDx /bne:bone_xarm_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1.1 0   5 2   5 2  /mdl:units/BotSpawner/BotSpawnerDxClaw.amf /mtl:mat_BotSpawnerDx /bne:bone_xarm_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom BotSpawner
+	set Name BotSpawner2S
+	set TypeNameOverride BotSpawner
+	set StateController BotSpawner2S
+	set HitPoints 10000000
+	set CarryWeight 1500
+	set AbductRes 0.0 // not abductable

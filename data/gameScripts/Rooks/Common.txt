@@ -1,0 +1,1319 @@
+// ===========================
+// Rook Common Settings
+// ===========================
+//
+BaseName = NA
+IsHuman = false
+//
+// ================
+// General Settings
+// ================
+StartingCredits = 25000			// - credits you start the match with (default)
+StartingCreditsCTF = 0			// - CTF mode starting credits
+CreditsCap = 99999				// - most credits you can have/cap - can be modified by Pilot
+CommandPoints = 150				// - command points; controls maximum number of units
+InvincibleTimer = 3.0			// - respawn invincibility timer - reset by firing or picking up units
+PreRespawnTimer = 0.0			// - time to look at destroyed spot before respawn timer starts
+RespawnTimer = 1.5				// - number of second to respawn at base after we've been destroyed (was 1 second)
+RespawnAnimSpeed = 1.0			// - base speed of the respawn animation (modified by pilot bonus)
+RespawnCreditsCost = 2500		// - credits that must be paid before respawn animation will start
+RespawnCreditsCostVR = 0		// - if 0, will be generated (/4 normal) in code
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.0			// - this is now count in seconds to transform to Groundmode - animation speed is computed by the game code
+AnimSpeedToAir = 0.7			// - this is now count in seconds to transform to Airmode - animation speed is computed by the game code
+ActiveEaseOutToRobotAfter = 10.0 // high default value - ease out of 'to robot' transform animation on active input (move) after this time in the animation
+VehicleScale = 1.0				// vehicle render scale to use
+DesiredWorldScale = 1.0
+PropRenderScale = 1.4			// scale factor when showing as a prop - in the 3d main menu level
+DirectionalIndicatorModel = HelperDirection.amf
+DirectionalIndicatorMaterial = mat_HelperDirection
+AirMechAnimV = 1
+AirMechAnimV_Melee = 2
+RookStateController = RookTitan
+DestroyedPreDelay = 0.75
+DestroyedPreDelayFall = 5.5  // fall distance (slewed) to fall during the predelay, if in air mode
+TailRotorStabalized = false
+
+// DEFAULTS
+Taunts = ""
+AirSpecialOnAnim = ""
+AirSpecialOffAnim = ""
+GndSpecialOnAnim = ""
+GndSpecialCycAnim = ""
+GndSpecialFireAnim=""
+GndSpecialOffAnim = ""
+GndSpecialOnAltAnim = ""
+GndSpecialCycAltAnim = ""
+GndSpecialFireAltAnim = ""
+GndSpecialOffAltAnim = ""
+AirModeAttachment_1 = ""
+AirModeAttachment_2 = ""
+AirModeAttachment_3 = ""
+AirModeAttachment_4 = ""
+GndSpecialFireAnim_Left=""
+GndSpecialFireAnim_Right=""
+
+AnalogInputThreshholds_Turn = "1 1 32768"			// - turning, on the thumbstick, input is from 0->32768
+AnalogInputThreshholds_Thrust = "1 1 32768"			// - thrust, on the thumbstick, input is from 0->32768
+
+PfxClearOnTransform = ""
+
+PowerGen = 0.0
+
+RadarRange = 35.0			// radar uncover range
+RadarUnjamRange = 16.0		// unjam - radar uncover after jammers processing
+
+SetTeamHighlightColor = false
+
+BoneRefPairs = AuraRoot, bone_root, AuraRootGnd, bone_spine, AuraShoulderL, bone_shoulder_L, AuraShoulderR, bone_shoulder_R
+
+TeamHighlightColor_Red = "1 0 0 0.5"
+TeamHighlightColor_Green = "0 1 0 0.5"
+TeamHighlightColor_Blue = "0.05 0.05 1 0.5"
+//TeamHighlightColor_Yellow = "1 0 0 0.5"
+TeamHighlightColor_Yellow = "0.68 0 0.92 0.5" // special yellow team color for void mechs - James
+
+// ======================
+// Armor/Defense Settings
+// ======================
+//
+DmgScalarPowerSword = 0.7	// - damage scalar against power sword damage
+DmgScalarDuringUberWithSwordActive = 0.1		// - damage scalar when uber is active and using the power sword (bad-ass mode)
+
+// ===============
+// Visual Elements
+// ===============
+//
+GndMaterialAlt = ""
+GndModelMatAlt = ""
+SkinMatExt = ""			// - specialized skin material extension - for attachments
+
+// ===============
+// Transport Mode
+// ===============
+//
+TransportPickupRangeSq = 16.0 //6.25		// our pickup range squared
+TransportBoneThrusterRight = bone_r_thruster_pivot
+TransportBoneThrusterLeft = bone_l_thruster_pivot
+TransportMaxThrusterRotation = -45.0
+TransportThrusterSlewRate = 0.15
+TransportMaxUnitCount = 4
+TransportBoneLatch = bone_root
+
+//===============
+// Animations
+//===============
+AirToGroundAnim = AirMechFighterAirToGround.aaf
+GroundToAirAnim = AirMechFighterGroundToAir.aaf
+
+GroundIdleAnim = "" //AirMechFighterStandIdle.aaf  -- todo - this idle animation needs to be updated
+GroundIdleAnimSword = AirMechFighterSwordIdle.aaf
+GroundIdleAnimGlide = ""
+
+GroundMoveCycleAnim_Fwd = AirMechFighterWalkForward.aaf
+GroundMoveCycleAnim_Back = AirMechFighterWalkBack.aaf
+GroundMoveCycleAnim_Left = AirMechFighterWalkLeft.aaf
+GroundMoveCycleAnim_Right = AirMechFighterWalkRight.aaf
+
+GroundMoveCycleAnim_LeftSp = "" // special mode turns
+GroundMoveCycleAnim_RightSp = ""
+
+GroundMoveCycleAnim_FwdSword = AirMechFighterWalkForwardSword.aaf
+GroundMoveCycleAnim_BackSword = AirMechFighterWalkBackSword.aaf
+GroundMoveCycleAnim_LeftSword = AirMechFighterWalkLeftSword.aaf
+GroundMoveCycleAnim_RightSword = AirMechFighterWalkRightSword.aaf
+
+GroundMoveCycleAnim_FwdGlide = ""
+GroundMoveCycleAnim_BackGlide = ""
+GroundMoveCycleAnim_LeftGlide = ""
+GroundMoveCycleAnim_RightGlide = ""
+
+GroundMoveCycleAnimSpeedMult = 0.21
+GroundMoveBackCycleAnimSpeedMult = 0.21
+
+HoverAnimation = AirMechFighterHover.aaf
+HoverAnimationSpeed = 1.0
+FlyingAnimation = ""
+FlyingAnimationSpeed = 1.0
+
+FiringAnimation = ""
+FiringAnimation_MoveFwd = ""
+FiringAnimation_MoveBack = ""
+FiringAnimation = ""
+FiringAnimationCtrl = "20.0 0.2 0.2" // weight, in time, outtime
+FiringAnimation_Prepare = ""
+FiringAnimation_Alt = ""
+FiringAnimation_AltPrepare = ""
+
+AirFiringAnimations = ""
+
+ActivatedAbilityAnim = ""
+ActivatedAbilityAnimMoving = ""
+ActivatedAbilityAnimCfg = "0.0 80.0 0.1 0.15" // startW, targetW, time, timeOut
+
+// ===========================
+// Destruction Spawners
+// ===========================
+// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+// : valid Tags: dcl, dch
+//
+DestructionEffects = "" //"4 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/Bike/DxBikeFront.amf /mtl:mat_UnitBikeDx /bne:bone_root /emt:H /trq:-20 /col [Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "1 0.2 0    0.5 0  0 0 	ExplosionSeq ExplosionSeq3" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare" "12 1 0.5  2.4 2  2 10  /mdl:units/ArmoredCar/DxCarGlass.amf /mtl:mat_DxCarGlass< /trq:-10 /wgl:1000 /col [Sphere 0.1]"
+GndDestructionEffects = ""
+
+// =========
+// Collision
+// =========
+
+// - AirMech are now using a ZRel setting per Air/Gnd mode.  The collision shape is assumes to be a
+// - single, primitive, shape now, with no 'at' offset other than the straight z offset provided by 'zrel'
+// - since AirMechs are no longer compound bodies, a single collision def must be select, and used; not
+// - switching between them from air to ground.
+AirCollisionZRel = 0.5
+GndCollisionZRel = 1.4
+AirMechCollisionDef = "Sphere 1.4"
+
+AirMechPhysMaterial = default			// - phys material to use for the AirMech
+
+AirMechCollPush = "10.0 1.8 130.0 15.0"			// - Ignore Speed, Radius, Force, Nominal Force at Speed
+AirMechAllySep = "9.0 1.0 2.0 0.0"				// - Separate Max Speed, Radius, Force, Unused
+
+MineWeightMask = 1			// controls what mines we set off: 1=Light, 2=Heavy. Bit mask against what type of mine a mine is
+
+// ========================
+// Movement (Vehicle - Air)
+// ========================
+//
+// Rotation
+ShipMaxRotThrust = 290			// - max degrees per second the ship can turn (not physics based)
+ShipMaxRotTorque  = 666000		// - max rotational torque for the fine control thrusters (physics based)
+ShipMaxRotTorqueFiring = 1200000	// - max rotational torque for the fine control thrusters - when firing!(physics based)
+RobotMaxRotTorque = 0			// - max rotational torque when in robot mode (controls robot mode rotation speed)
+RobotMaxRotTorqueTurnOnlyMode = 400000
+ShipAngularDamping = 30.0
+
+ShipBankingAngleSlewDown = 0.18		// - banking angle slew rate to use when target angle is decreasing
+ShipBankingAngleSlewUp = 0.3		// - banking angle slew rate to use when target angle is increasing
+ShipBankingAngleClipAbsMax = 70.0	// - max banking angle (negative and positive) the engine will clip to
+
+RookPitchScalar = 40.0						// - ship pitching scalar - modified pitch target based on snap change to elevation of ship per terrain tracking
+RookPitchToTargetSlew = 0.1				// - ship pitching slew rate - current -> target
+RookPitchTargetDecaySlew = 0.8				// - ship pitching decay slew factor of target pitch
+RookPitchAngleClipAbsMax = 35.0				// - max ship pitch angle (negative and positive) the engine will clip to
+RookAirFallControl = "1.0 0.9 10.0 0.98"	// - rook air mode falling controls. MinSpd, OffsetMult, MaxSpd, OffsetMult.  Lerp between them
+RookAirRiseSlew = 0.3						// - height rise control; 0.0 is instant, closer to 1.0 is mushy
+RookGroundRiseSlew = 0.7					// - height rise control - ground mode; 0.0 is instant, closer to 1.0 is mushy
+CarryHeightOffset = -0.5	// terrain follow height offset when carrying (slewed in/out)
+
+AimMaxTilt = 20.0		// - max tilt in degrees for Rooks using this movement style
+
+// by default, pitch are roll are split based on facing.  Additional scalars here to make this work better for particular units
+AimPitchMult = 0.2
+AimRollMult = 1.0
+ImpactRollScalar = 0.95
+
+//
+// Translation
+ShipForwardThrustSettings = "60 177 4 15"	// - minSpeedThrust, maxSpeedThrust, minSpeed, maxSpeed.  Defines velocity sensitive fwd thrust
+RobotForwardThrustSettings = "70 133 3 6"	// - minSpeedThrust, maxSpeedThrust, minSpeed, maxSpeed.  Defines velocity sensitive fwd thrust
+ShipLinearDamping = 5.0
+TransportLinearDampBase = 5.5
+TransportLinearDamping = 7.0 // Transport is the flying mode while carrying a unit. This makes you fly slower and use more fuel.
+TransportLinearDampCalcNominalHP = 3000.0  // this many unit HP to slew to the specified 'TransportLinearDamping' setting.  James know's what time it is!
+TransportHPCapacity = 3000
+RobotLinearDamping = 12.0
+AirThrustMultWhenFiring = 0.8
+AirThrustMultWhenPreFiring = 1.0
+GndThrustMultWhenFiring = 1.0
+GndThrustMultWhenPreFiring = 1.0
+AirThrustMultWhenFiringAbilityBonus = 0.02	// see warthog.
+GndThrustMultWhenFiringAbilityBonus = 0.02
+LobbyMapThrustMult = 0.6
+LobbyMapTorqueMult = 0.6
+LobbyGndThrustMult = 1.0
+EndGameMapCruiseThrust = 20
+
+AirColImpactDecl1 = "/minVel 4 /maxVel 10 /impactPfx ShellImpact2 /callState CliffImpact_S /damage 0"
+AirColImpactDecl2 = "/minVel 10 /maxVel 25 /impactPfx ShellImpact /callState CliffImpact_M /damage 1"
+AirColImpactDecl3 = "/minVel 25 /impactPfx ShellImpact /callState CliffImpact_L /damage 5"
+
+//// respawn variable setting
+Fuel_OnStart = 10
+
+// =========================
+// Movement (Robot - Ground)
+// =========================
+//
+// Rotation
+
+// Fuel, Health
+FuelCapacity = 10							// - maximum fuel capacity
+FuelConsumption = 0.5							// - units of fuel used per second of full thrust
+FuelConsumptionPer1KHpCarry = 0.25
+FuelConsumptionCTFCarryScalar = 4.0				// - fuel usage multiplier when carrying a CTF core
+FuelConsumptionRobotScalar = 0.0			// - scalar to fuel consumption for robot mode
+HullMaxStrength = 450						// - maximum strength of the hull
+FuelConsumptionTurnOnlyScalar = 0.0			// - scalar for fuel usage for 'turn only' on the right stick
+
+FuelRegenOnGround = 0.6					
+FuelRegenInAir = 0.4						
+
+FuelRegenOnGroundNoMoveOrFire = 0.6
+AirMoveForceMultWhenNoFuel = 0.9
+AirMoveForceMultWhenStasis = 0.7
+GndMoveForceMultWhenStasis = 0.85
+CanTransformUnderStasis = false
+FuelUseWhenFiringGnd = 0.5
+FuelUseWhenFiringAir = 0.5
+
+GndMinTrackingDistance = 0.1				// - mouse cursor control - must be at least this far away to track/fire (was 2.0, hardcoded)
+AirMinTrackingDistance = 0.5
+
+FuelGroupSelectCost = 0.0		// cost in fuel per second to keep group select active
+
+
+RookAutoRepair = "0.0 0.0 0.0 1.0"					// - time delay, air rate, ground rate, energy ratio req
+RookAutoRepairStill = "3.0 0.0 40.0 1.0"				// - time delay, air rate, ground rate, energy ratio req: for when you aren't moving/firing/special stance
+
+// explicit action repair mode (toggle)
+RookRepairSystem_ArmorMod = -50
+RookRepairSystem_EnergyDrain = 8.0		// keep at 8 - I suspect was balanced for AMS? - KJK - 11/15/17
+RookRepairSystem_HPGain = 400		// hp gain is per second and also scaled by the current 'LvlHullStrengthMult' for our NP level
+
+
+
+RechargeRates = "0.2, 10.0, 0.0"					// - recharge rates: BaseFuelAdd, BaseHullAdd, BaseHullPct
+RechargeRatesWithCTFCore = "0.04, 0.1, 0.1"			// - recharge rates Carrying CTF Core: BaseFuelAdd, BaseHullAdd, BaseHullPct
+//RechargeRates_V2 = "0.6, 3.2, 1.6"					// - recharge rates: BaseFuelAdd, BaseHullAdd, BaseHullPct
+//RechargeRatesWithCTFCore_V2 = "0.16, 0.4, 0.2"		// - recharge rates Carrying CTF Core: BaseFuelAdd, BaseHullAdd, BaseHullPct
+RechargeHeldUnitScalar = 1.5						// - multiplied BaseHullAdd and BaseHullPct when healing held units
+//RechargeHeldUnitScalar_V2 = 1.0						// - multiplied BaseHullAdd and BaseHullPct when healing held units
+RechargeRatesScl = 1.0								// - single recharge rate scalar, useful for balance and on the live sheet
+
+// Expel from Enemy Fort
+EnemyFortPushSquareDim = 11.235
+EnemyFortPushRangeSq = 170.0
+EnemyFortCorePickupRangeSq = 60.0
+
+EnemyFortPushPfx = ShotSliceOrange, ExplosionGlowbitsSmall //, ExplosionStreaksSmall
+
+// ============
+// HAT STUFF
+// ============
+//
+//
+HatBone = bone_head_base
+HatOffset = "0 0 0"
+HatScale = 1.0
+HatZRot = 0.0		// local z rotation when sitting on the robot's head
+HatBoneScaled = ""
+
+// - second set of hat bones; set with /hatHeadMode flag on the pet. Also scaled out 'HatBoneScaled' in addition to 'HatHeadBoneScaled'
+// - and uses the following latch bone/offset instead
+HatHeadBoneScaled = "geo_head"
+HatHeadBone = "bone_hat"
+HatHeadOffset = "0 0 0"
+
+// ============
+// Weapon Stuff
+// ============
+//
+//
+WeaponType=75.0		// unit style weaponType: 0->100
+SpecialWeaponType=0.0	//for special - 0 is undefined and will default to 'WeaponType' if requested. Otherwise it can allow for different values on 'specials'
+MeleeWeaponType=0.0	//for melee special - 0 is undefined and will default to 'WeaponType' if requested. Otherwise it can allow for different values on 'specials'
+ArmorType=10.0		// unit style armorType: 0->100
+RechargeDmgMult=0.8	// multiplier to incoming damage when we are recharging (acts as armor)
+
+UnitMultDPS = 0.85				// - reduction in damage vs units (global)
+FortMultDPS = 0.3				// - multiplier to damage vs fort (global)
+OutpostMultDPS = 0.7			// - multiplier to damage vs outpost (global) - for outpost bulb destruction
+AirMechAirMultDPS = 1.0			// - multiplier to damage vs air mode airmechs (global)
+AirMechGndMultDPS = 1.15		// - multiplier to damage vs ground mode airmechs (global)
+GndProjDPS = 250				// - how much damage our weapon does per second (in robot mode)
+GndProjFireRate = 12.5			// - fire rate - in robot mode - rounds per second
+GndSniperFireRate = 2			// - sniper mode fire rate - used by angel
+GndGrenadeThrowFireRate = 1		// - for emp grenades
+GndGrenadeThrowRange = 11.0		// - for emp grenades
+GndSniperProjSpeed = 180.0		// - angel setting
+GndSniperZoomRange = 10.0		// - angel setting
+GndSniperMinRange = 8.0			// - minimum range for sniper target acquisition
+GndSniperEnergyPerShot = 0.0	// - angel setting
+GndSniperEnergyPerUberShot = 0
+GndSniperUberSpeedShotMult = 3.0  // faster shots in 'user powerup' mode 'UberSniper'
+GndSniperDPS = 400				// - used by angel's rail gun
+AirProjDPS = 200				// - how much damage our weapon does per second (in air mode)
+AirProjFireRate = 20			// - fire rate - in air mode - rounds per second
+GndProjSpeed = 70				// - speed of the ship laser projectile - in robot mode
+AirProjSpeed = 70				// - speed of the ship laser projectile - for air mode
+GndProjRange = 22.5				// - range of shots - in robot mode
+GndProjGuardianRange = 22.5
+AirProjRange = 33				// - range of shots - in air mode
+GndProjParticles = ""			// - particle system to use for the shot projectile
+GndProjParticlesFAF = TracerAirMechDefaultGnd		// - particle system to use for the shot projectile - air mode (fire and forget style)
+AirProjParticles = ""			// - particle system to use for the shot projectile - air mode
+AirProjParticlesFAF = TracerAirMechDefault		// - particle system to use for the shot projectile - air mode (fire and forget style)
+ProjParticlesFAFScalars = "1 1 1"	// sizex, sizey, unused - scalar multipliers
+
+GndProjParticlesFAF_TC = ""
+AirProjParticlesFAF_TC = ""
+
+GndProjImpactParticles = ExplosionSeq3Medium, BulletSparkLarge, WarthogExplosionPieces	// - particle system for weapon impact effect
+GndProjNoImpactParticles = ""	// - particle system for weapon no impact effect (shell end life with no impact)
+AirProjImpactParticles = ExplosionSeq3Medium, ShellImpactAirMech, WarthogExplosionPieces 	// - particle system for weapon impact effect - air mode
+AirProjNoImpactParticles = ""	// - particle system for weapon impact effect (shell end life with no impact) - air mode
+AirProjFirePoint1 = "0.7 1 -0.2"		// - weapon fire point 1 (cycles between 1 and 2)
+AirProjFirePoint2 = "-0.7 1 -0.2"		// these are only used if air proj fire bones aren't specified
+AirProjFireBone1 = ""
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = ""
+AirProjFireOffset2 = "0 0 0"
+GndSniperFireBone = ""
+GndSniperScopeBone = ""
+GndProjFireBone1 = "bone_r_elbow"
+GndProjFireOffset1 = "-0.2 0.0 1.0"
+GndProjFireBone2 = "bone_l_elbow"
+GndProjFireOffset2 = "0.2 0.0 1.0"
+MissileProjFireBone1 = ""
+MissileProjFireBone2 = ""
+HealBeamPointBone1 = ""
+HealBeamPointBone2 = ""
+SpecialProjFireBone = ""
+GndProjMuzzleFlash = "MuzzleFlashTankSmall"			// - muzzle flash particles - for robot mode
+AirProjMuzzleFlash = "MuzzleFlashTankSmall"		// - muzzle flash particles - for air mode
+GndProjShotsImpactGround = true
+AirProjShotsImpactGround = true
+GndProjShotsImpactGroundDecal = shotGroundImpacts
+AirProjShotsImpactGroundDecal = shotGroundImpacts
+GndProjWiggle = 0
+AirProjWiggle = 0
+
+SniperImpactPfx = ""
+
+AirAutoTargetRange = 19.0
+GndAutoTargetRange = 15.0
+AutoTargetDmgMult = 0.85
+
+AirMissileShootDownChance = 0.1
+GndMissileShootDownChance = 0.15
+
+AirDmgFalloffAtRange = 0.75	// at this ratio of range, linear falloff of damage for air attacks
+GndDmgFalloffAtRange = 0.80	// at this ratio of range, linear falloff of damage for ground attacks
+GndSniperDmgFalloffAtRange = 0.85 // falloff for sniper mode / angel
+
+AirDmgIncreaseAtRange = 0.0 // at this ratio of range, damage increase for Air attacks up to 'AirDmgIncreaseAtRangeMult'
+AirDmgIncreaseAtRangeMult = 1.0
+
+GndDmgIncreaseAtRange = 0.0 // at this ratio of range, damage increase for ground attacks up to 'GndDmgIncreaseAtRangeMult'
+GndDmgIncreaseAtRangeMult = 1.0
+
+WeaponAttachmentModel_1 = ""
+WeaponAttachmentModel_2 = ""
+WeaponAttachmentMaterial = ""
+WeaponAttachmentFireAnimation = ""
+WeaponAttachmentBone_1 = bone_weapon1
+WeaponAttachmentBone_2 = bone_weapon2
+AirMechGndPanRate = 0.0
+AirMechAirPanRate = 0.0
+
+Aiming360 = 0
+HeadLookBone = bone_head_base
+HeadLookBoneLobbyScalar = 0.9
+UpperBodyAimBone = bone_spine_base
+RightShoulderTargetingBone = bone_shoulder_base_r
+LeftShoulderTargetingBone = bone_shoulder_base_l
+
+// - x rotation upper body aiming control
+UpperBodyAimMaxXRot = 60.0
+UpperBodyAimMinXRot = -60.0
+UpperBodyAimXRotSlewRate = 0.15
+UpperBodyAimXRotHeightFactor = 1.0			// - how high up on we move for x rotation on upper body aiming
+ShoulderZRotXOffsetFactor = 0.8				// - how far out from center mass the shoulders are for arm/shoulder aiming orientation
+ShoulderZRotSlewRate = 0.12
+
+AirSpecialMode = Shield
+GndSpecialMode = Sword
+ActivatedAbility = None
+ActivatedAbility2 = None
+ActivatedAbilityAlt = None
+ActivatedHeldAbility = None
+ActivatedHeldAbilityCooldownTime = 0.25		// - timer control of state transitions
+
+// ========================================================
+// Special Mode transitions
+// ========================================================
+
+SpecialModeTransitionToAnim = ""
+SpecialModeTransitionToPlaybackConfig = "4.0 4.0 0.15 0.15"		// - start weight, end weight, ease in time, ease out on play complete time
+SpecialModeTransitionFromAnim = ""
+SpecialModeTransitionFromPlaybackConfig = "4.0 4.0 0.15 0.15"		// - start weight, end weight, ease in time, ease out on play complete time
+SpecialModeTransitionAnimSpeed = 3.0
+
+EnterSpecialModeWaitStateTimer = 0.45					// - wait state timer when entering special mode (no fire or move)
+LeaveSpecialModeWaitStateTimer = 0.45					// - wait state timer when exiting special mode (no fire or move)
+DoSpecialActionWaitStateTimer = 0.65					// - wait state timer when doing the special action (sword attack, etc)
+
+SwordModel = ""
+SwordMaterial = AirMechFighterShield						// - gets team remapped
+SwordMaterialSkinTC = 0
+
+SwordModelUberScale = 1.4		// slew to larger scale when in uber mode
+ShieldModelUberScale = 1.4
+
+SwordAttachBone = bone_r_hand
+SwordAttachmentAnim_TakeOut = ""
+SwordAttachmentAnim_PutAway = ""
+
+SwordAttackAnim_Forward = ""
+SwordAttackAnim_Back = ""
+SwordAttackAnim_Left = ""
+SwordAttackAnim_Right = ""
+
+SwordAttackAnim_ForwardMoving = ""
+SwordAttackAnim_BackMoving = ""
+SwordAttackAnim_LeftMoving = ""
+SwordAttackAnim_RightMoving = ""
+
+SwordAttackPlaybackConfig = "80.0 80.0 0.15 0.15"
+SwordAttackAnimSpeed = 1.5
+
+SwordBoneBase = bone_blade_base
+SwordBoneTip = bone_blade_tip
+SwordSplineWidthRange = 1.5 2.0 0.0				// - min, max, unused
+
+SwordUberImpactPfx = ExplosionGlowbits, ExplosionHitSmall, ExplosionStreaksXTiny, ElectricSparkSwordShieldUber, ExpDestroy, ExplosionDebris
+SwordImpactPfx = ExplosionGlowbitsSmall, ExplosionHitTiny, ExplosionStreaksXTiny
+
+SwordUberDamageMult = 5.0
+SwordEnergyPerStrike = 0.0 // energy taken when a swipe makes contact/ a hit
+
+// ========================================================
+// Missile special settings.
+// ========================================================
+MissileModel = effects/RocketMini.amf
+MissilesWiggle = 650
+MissilesLifespan = 0.8
+MissilesHomingLifespan = 0.8
+RocketsLifespan = 0.6
+RocketsDamage = 130, 110, 90, 80, 60
+RocketsVelocity = 50.0
+MissilesVelocity = 25.0
+MissilesHomingVelocity = 25.0
+MissilesHomingAccelTime = 0.0
+MissilesDamage = 60, 60, 65, 70, 75
+MissilesHomingDamage = 60, 60, 65, 70, 75
+MissilesVelPass = 0.35
+MissilesFuelToLoad = 1.5
+MissilesSets = 1	// used by Striker A2A - how many pairs will it fire
+MissilesBatchCount = 4
+// - flair can index alternate effects for 'missilePfx': default is 0,2 (start,count)
+MissilesGndPfx = FireTrail2, MissileTrailSmoke, FireTrail2, MissileTrailStreamer, ConfettiTrail, FireTrail2, MissileTrailStars, FireTrail2, SpiderSilkTrail, FireTrail2, MissileTrailRedGreen, FireTrail2, MissileTrailPinkPetal
+MissilesAirPfx = FireTrail2, MissileTrailSmokeAir, FireTrail2, MissileTrailStreamerAir, ConfettiTrail, FireTrail2, MissileTrailStarsAir, FireTrail2, SpiderSilkTrail, FireTrail2, MissileTrailRedGreenAir, FireTrail2, MissileTrailPinkPetalAir
+
+// - mini missiles pfx - used at higher fire rates (>=+200%)
+MissilesGndMiniPfx = FireTrail2_Mini, MissileTrailSmoke_Mini, FireTrail2_Mini, MissileTrailStreamer, ConfettiTrail, FireTrail2_Mini, MissileTrailStars, FireTrail2_Mini, SpiderSilkTrail, FireTrail2_Mini, MissileTrailRedGreen, FireTrail2_Mini, MissileTrailPinkPetal
+MissilesAirMiniPfx = FireTrail2_Mini, MissileTrailSmokeAir_Mini, FireTrail2_Mini, MissileTrailStreamerAir, ConfettiTrail, FireTrail2_Mini, MissileTrailStarsAir, FireTrail2_Mini, SpiderSilkTrail, FireTrail2_Mini, MissileTrailRedGreenAir, FireTrail2_Mini, MissileTrailPinkPetalAir
+MissilesMiniScale = 0.9
+
+// - micro missiles pfx - used at higher fire rates (>=+500%)
+MissilesGndMicroPfx = FireTrail2_Micro, MissileTrailSmoke_Micro, FireTrail2_Micro, MissileTrailStreamer, ConfettiTrail, FireTrail2_Micro, MissileTrailStars, FireTrail2_Micro, SpiderSilkTrail, FireTrail2_Micro, MissileTrailRedGreen, FireTrail2_Micro, MissileTrailPinkPetal
+MissilesAirMicroPfx = FireTrail2_Micro, MissileTrailSmokeAir_Micro, FireTrail2_Micro, MissileTrailStreamerAir, ConfettiTrail, FireTrail2_Micro, MissileTrailStarsAir, FireTrail2_Micro, SpiderSilkTrail, FireTrail2_Micro, MissileTrailRedGreenAir, FireTrail2_Micro, MissileTrailPinkPetalAir
+MissilesMicroScale = 0.8
+
+RocketsBlastDamage = "0 37.5 5.0"		// direct (unused), blast, blast radius
+RocketsFuelToLoad = 0.0
+
+GrenadeDamage = 12, 8, 6.66, 6
+GrenadeBlastDamage = 46, 30.6, 25.5, 23
+GrenadeLifetime = 2
+GrenadeSizeScalar = 1.0
+GrenadeBlastRadius = 5.0
+GrenadesFuelToLoad = 1.25
+
+// ========================================================
+// Healing ability general settings.
+// ========================================================
+HealReduceOnSelfDmgTime = 2.0
+HealReduceOnSelfDmgMult = 1.0
+HealReduceOnTgtDmgTime = 2.0
+HealReduceOnTgtDmgMult = 1.0
+
+// ========================================================
+// Heal Beam special settings.
+// ========================================================
+HealBeamRange = 15.0
+HealBeamRepairRate = 235.0
+HealBeamRepairRatePct = 0.0
+HealBeamEnergyUse = 1.9 // artificially higher because airmech regens energy on the ground
+HealBeamEnergyUseNominalHP = 250.0 // energy use scalar based on this nominal HP amount being healed
+HealBeamMineDisarmRate = 4.0
+HealBeamSalvageRate = 200.0 // was 35.0
+HealBeamMoveSpeedMult = 0.8	// move slower when healing
+HealBeamUberRateMult = 4.0 // how much faster the heal beam is under the effect of 'UberHeal' powerup
+HealBeamUberEnergyMult = 0.15	// consume less energy under uber powerup
+
+HealBeamDrainHPRate = 0.0, 140.0, 160.0, 180.0, 200.0
+HealBeamDrainMinRatio = 0.15
+HealBeamDrainHPReturn = 0.20 // 20%
+HealBeamDrainEnergyReturn = 0.015 // 1.5%
+
+// ========================================================
+// Heal Area special settings.
+// ========================================================
+HealAreaSpreadDot = 0.62
+HealAreaRepairRate = 145.0
+HealAreaRepairRatePct = 0.0
+HealAreaEnergyUse = 1.35
+HealAreaEnergyUseNominalHP = 250.0 // energy use scalar based on this nominal HP amount being healed
+HealAreaMineDisarmRate = 6.0
+HealAreaSalvageRate = 35.0
+HealAreaMoveSpeedMult = 1.0	// move slower when healing
+HealAreaMaxTargets = 1	// max simultaneous targets - used to be hardcoded.  Max is 8 (code support)
+HealAreaUberMaxTargets = 6  // when in uberpowerup mode, max simultaneous targets. (max code supporst is 8 presently)
+HealAreaUberEnergyMult = 0.15	// consume less energy under uber powerup
+
+// ========================================================
+// Blink special settings.
+// ========================================================
+BlinkFuelCost = 1.767
+BlinkTickDuration = 4
+BlinkTickCooldown = 45
+BlinkForceMult = 5.0
+
+// ========================================================
+// Afterburner special settings
+// ========================================================
+AfterburnerFuelCost = 2.4		// per second cost - reduced on level ups of ability
+
+// ========================================================
+// Bomb special settings.
+// ========================================================
+BombWiggle = 150
+BombLifespan = 2.0
+BombVelocity = 2.0
+BombDamage = "22.5 37.5 5.0"		// direct, blast, blast radius
+BombVelPass = 0.5
+BombFuelToLoad = 1.8
+BombFuelToLoadUberMult = 0.1	// reduce fuel cost when UBER is active
+BombingRunVelocityControl = "1 1 1 1"
+BombModel = "" // use default
+BombMaterial = "" // use default
+BombingCharges = 0, 1, 3, 6, 9
+BombNapalmLevel = 1
+BombNapalmStats = "5 5 37" // radius, lifetime, dps
+BombSpeedMod = 0.8
+
+
+// ========================================================
+// Deathray special settings.
+// ========================================================
+DeathrayDPS = 230.0
+DeathrayDPSInc = 10.0 // per second DPS increase per second of activation
+DeathrayDPSIncMaxTime = 10.0
+DeathrayRange = 17.5
+DeathraySrcBone = bone_inner
+DeathrayDPSScalars = "200 0.3 450 1.5" //eg: at 200dps, scale both by 0.3. At 450dps, scale by 1.5. Lerp in between
+DeathrayBeamWidth = "1.0 1.4 0.2" //min, max, period
+DeathrayPanSpeed = 1.5
+DeathrayBeamWidth2 = "0.5 1.2 0.27" //min, max, period
+DeathrayPanSpeed2 = 0.7
+DeathrayImpactPfx = DeathrayImpact DeathbeamFlare 	// 1/8th second pfx on any hit target
+DeathrayNoImpactPfx = DeathbeamFlare	// target per frame pfx when we are hitting air
+DeathraySourcePfx = DeathraySource 	// per frame pfx at the source
+DeathrayWarmupTime = 1.75
+DeathrayEnergyUse = 2.0
+DeathrayTargetSlewRate = 0.16
+DeathrayActiveMoveScalar = 0.6
+DeathrayMaterial = "Deathray"	// can be overridden by flair mods
+
+// ========================================================
+// Sniper ability settings.
+// ========================================================
+SniperScopeMaterial = "mat_LaserGlowLine"	// can be overridden by flair mods (potentially - KJK - not implemented yet)
+SniperScopeBeamWidth = "0.12 0.15 0.8" //min, max, period
+SniperScopePanSpeed = 0.3
+SniperScopeBeamWidth2 = "0.10 0.14 0.6" //min, max, period
+SniperScopePanSpeed2 = 0.55
+SniperScopeTargetPfx = DeathraySource	// target per frame pfx for sniper scope beam
+SniperScopeTargetSlewRate = 0.23
+SniperModeDotProdScan = 0.985		// for targeting - this is the cosine approximation for targeting arc/cone - 9.93 degrees
+SniperModeDotProdScanMK = 0.99756	// for targeting, when we have a last mouse intersection position - 4 degrees
+
+SniperStasisEnergy = 2.5           // energy to trigger SniperStasis ability
+
+// ========================================================
+// EMP ability settings.
+// ========================================================
+EMPDamage = "0 50 10.0"			// 'unused, damage, radius'
+EMPCooldown = 8.0				// seconds
+EMPEnergyCost = 1.0				// energy/fuel cost
+EMPDamageUber = "0 150 10.0"	// 'unused, damage, radius' - when in timed uber powerup state
+EMPCooldownUberDiv = 10   		// integer divisor for cooldown/recharge tick time - when in Uber Powerup mode
+
+
+// ========================================================
+// Debuf Offense ability settings.
+// ========================================================
+DebufOffense = "25.0 10.0 12.0" // cooldown, damage(unused), radius
+
+// ========================================================
+// Heal Nova ability settings.
+// ========================================================
+HealNova = "25.0 50.0 1.0 12.0" // cooldown, heal amount abs, heal amount pct, radius
+HealNovaPulses = 5
+HealNovaPulseDeltaTime = 1.5
+
+// ========================================================
+// Osprey restore activated ability settings
+// ========================================================
+RestoreNovaRange = 12.0
+RestoreNovaPulses = 4 // pulses increase to range linearly
+RestoreNovaPulseDeltaTime = 0.25
+
+// ========================================================
+// Loop ability settings.
+// ========================================================
+LoopCooldown = 12.0
+LoopEnergyUse = 5.0
+DodgeStateForceMult = 0.75		// movement speed slowdown when in loop/dodge state
+
+// ========================================================
+// Sprint ability settings.
+// ========================================================
+SprintCooldown = 15.0
+SprintEnergyUse = 1.0
+
+// ========================================================
+// Power Shield ability settings.
+// ========================================================
+PwrShieldCooldown = 60.0
+PwrShieldMoveSpeedMultGnd = 0.7	// move slower when powershield is on
+PwrShieldMoveSpeedMultAir = 0.8
+PwrShieldEnergyUse = 4.0
+
+// ========================================================
+// Missile Burst settings.
+// ========================================================
+
+MissileBurstCooldown = 20.0
+MissileBurstBaseSalvos = 1
+MissileBurstMissilesPerSalvo = 2	// default # of missiles in a salvo/set
+MissileBurstSalvosPerLevel = 1
+MissileBurstPerSetDelay = 0.50		// time between subsequent missile burst salvos
+MissileBurstEnergyUse = 3.0
+MissileBurstAccelTime = 0.5
+MissileBurstLobTime = 0.0 // 0.35 - lob fire doesn't work on these yet
+MissileBurstLobHeight = 1.6
+
+// ========================================================
+// Glide ability settings.
+// ========================================================
+GlideEnergyUse = "2.5 0.5 0" // inital cost, sustain sustain cost, xxx
+GlideForceMult = "4.0 1.5 0.15 0.4"  // start speed, end speed, lerp time, total time
+//GlideJump = "1.75 0.2 0.45 0.65" // jump height, raise time, down time, total time
+GlideJump = "2.1 0.1 0.1 0.3" // jump height, raise time, down time, total time
+GlideBoostCooldown = 0.6 // time from boost end to next boost
+JumpEnergyUse = 1.5
+FireWhenJumpOrGlide = 0
+
+// ========================================================
+// Whirlwind ability settings.
+// ========================================================
+WhirlwindEnergyUse = 3.6
+WhirlwindForceMult = 0.85
+WhirlwindCoreDmgMult = 0.8		// for tweaking globally
+
+// ========================================================
+// Charge Up special settings.
+// ========================================================
+ChargeUpShotLifespan = 1.14
+ChargeUpShotReturnAfter = 0.0	// setting for the hammer only
+ChargeUpShotVelInfluence = 0.0	// setting for the hammer only
+ChargeUpShotVelocity = 20.0
+ChargeUpShotDamage = 216
+ChargeUpShotVelPass = 0.3
+ChargeUpShotModel = ""
+ChargeUpShotMaterial = ""
+ChargeUpShotModelMaterial = ""
+ChargeUpShotPFX = ""
+ChargeUpShotEnergyCost = 0.0
+ChargeUpShotFuelToMaintain = 0.0
+
+AbilityChargeUpStart = ""
+AbilityChargeUpLoop = ""
+AbilityChargeUpRelease = ""
+AbilityChargeUpCancel = ""
+AbilityChargeUpReturnCatch = ""
+
+HammerPresentBone = ""
+
+// ========================================================
+// Ground melee attacks; defaults
+// ========================================================
+GndMeleeAnimation = ""
+GndMelee2Animation = ""
+GndMelee3Animation = ""
+GndMeleeNextTimes = "0 0 0"
+GndMeleeResetTimes = "0 0 0"	// window for next transition given input
+GndMeleePfx = ExplosionGlowbitsSmall
+GndMeleeDmg = "0 0 0"	// dmg, maxdmgdist, mindmgdist (blast settings)
+GndMeleeAnimSpeed = 1.0
+GndMeleeDebug = false // turn on for debug display in non-retail build
+
+// ========================================================
+// Melee source point bone names - map to anim script callback names
+// ========================================================
+Bone_lmelee = bone_blade_l_03
+Bone_rmelee = bone_blade_r_03
+Bone_smelee = bone_r_hand
+
+// ========================================================
+// Shield special settings.
+// ========================================================
+ShieldModel = ""
+ShieldMaterial = AirMechFighterShield				// - gets team remapped
+ShieldMaterialSkinTC = 0
+ShieldAttachBone = bone_l_elbow
+ShieldPowerOnAnim = ""
+ShieldPowerOffAnim = ""
+ShieldDamageSoak_FacingArcMinDot = 0.5						// - degrees of shield facing arc (bidirectional - min dot product - cosine approximation)
+ShieldDamageSoak_ConvToDamage = 0.5						// - when shield is hit, damage * convtodamage = physical damage taken
+ShieldDamageSoak_ConvToEnergy = 0.0						// - when shield is hit, damage * convtoenergy = energy/fuel consumption taken
+
+// ========================================================
+// Cloak(Stealth) special settings.
+// ========================================================
+CloakFuelToMaintain = 1.79
+CloakDecloakTime = 0			// - decloak time on damage or damage (in seconds)
+EMPDecloak = 2.0				// - time in seconds to decloak when using EMP
+DamageDecloak = 0.1				// - time in seconds to decloak when taken damage
+CloakEnergySoak = 0			// - when cloaked is on, will take this ratio of damage as energy drain
+
+// ========================================================
+// Capture special settings.
+// ========================================================
+AbductRate = 63.0				// base abduction rate! hp/second
+AbductRatePct = 11.2			// abduction rate percent: pct_max_hp/second
+AbductEnergyRate = 0.5			// energy to abduct / second
+AbductModel = "effects/AbductGeo.amf"
+AbductIntro = "effects/AbductGeoIntro.aaf"
+AbductIdle = "effects/AbductGeoIdle.aaf"
+AbductExit = "effects/AbductGeoExit.aaf"
+AbductMaterial = "AbductGeo"
+
+// ========================================================
+// Shield special settings.
+// ========================================================
+ShieldFuelToMaintain = 0.0
+ShieldSphere = "1.8 0.1 0"		// scale, zoffset, unused
+ShieldDamageSoak = 0.5			// when shield on, will take this ratio of incoming damage to HP
+ShieldEnergySoak = 0.1			// when shield is on, will take this ratio of damage as energy drain
+ShieldThrustMod = 0.7			// when the shield is on, multiplier to effective movement/thrust force
+
+// ========================================================
+// Gun Spray special settings.
+// ========================================================
+GunSprayWiggle = 180
+GunSprayPitch = -12.0
+GunSprayEnergyUse = 0.5
+GunSprayAOEDmgRatio = 0.1		// aoe dmg buff for activated mode
+GunSprayNormalDmgMult = 0.5 	// damage multiplier for normal gunspray mode
+GunsprayLvlDmg_NA=1.0, 1.0, 1.15, 1.3, 1.45		// - damage buffs for leveled up gunspray when no activated buff/triggered abilities are enabled (AMS)
+
+CanShootG2A = true
+
+// ========================================================
+// Missile EMP special settings
+// ========================================================
+MissileEMPRange = 24.0
+
+// ========================================================
+// UnitTP special settings
+// ========================================================
+UnitTPEnergy = 4.0
+
+// ========================================================
+// Boosters settings.
+// ========================================================
+BoosterThrustMod = 1.10
+BoosterHPCapacityAdd = 650
+BoosterFuelBurn = 0.275			// additional fuel burn from booster
+BoosterParticles = "BoosterTrails FireTrail2"		// SmokeTrailPoly  SmokeTrailBooster
+BoosterMaterialSkinTC = 0
+
+// ========================================================
+// Self Destruct settings.
+// ========================================================
+SelfDestructTime = 2.0
+SelfDestructBlast = "100 8 20" // damage, maxDmgRange, noDmgRange
+
+GunsRetractAnim = ""
+GunsExtendAnim = ""
+
+
+// ======
+// Sounds
+// ======
+
+AirRookDestroyedSounds = "DestroyAirMech.wav"
+GroundRookDestroyedSounds = "DestroyRobot.wav"
+CameraShakeOnDestroyed = "50.0 0.8 0.7"	// radius, magnitude, time
+ShipToRobotSounds = "mechs/MechFighter_TransformGround.wav"
+RobotToShipSounds = "mechs/MechFighter_TransformAir.wav"
+PickupUnit = MechPickupUnit.wav
+DeployUnit = MechDeployUnit.wav
+PickupUnitInfantry = MechPickupUnitInfantry.wav
+DeployUnitInfantry = MechDeployUnitInfantry.wav
+PickupUnitHeavy = MechPickupUnitHeavy.wav
+DeployUnitHeavy = MechDeployUnitHeavy.wav
+
+// - sounds for steps order: Dirt, Concrete, Grass, Ice, Tundra
+FootstepLeftSounds = StepLeftDirt, StepLeftConcrete, StepLeftGrass, StepLeftConcrete, StepLeftDirt
+FootstepRightSounds = StepRightDirt, StepRightConcrete, StepRightGrass, StepRightConcrete, StepRightDirt
+
+LaserImpactSounds = "ImpactDefault.wav"			// - impact sound for robot shots
+LaserImpactSounds_Air = "ImpactDefault.wav"			// - impact sound for air shots
+
+// ===================================================
+// Pickup scrap/attractor in game (Wastelands feature)
+// ===================================================
+PickupScrapRangeSq = 3.2					// range squared Factor
+PickupScrapAttractorRangeSq = 100.0			// range squared, at which, attractor effect starts
+PickupScrapAttractorStrengthFactor = 1.5	// force/strength multiplier
+PickupScrapAttractorUpFactor = 0.25			// additional 'up' component to add to force factor
+PickupScrapPfxSpawn = ScrapGather
+PickupScrapSounds = ScrapCollect
+
+// =======================
+// Pickup Energy
+// =======================
+EPickupFort = 0.0		// energy costs to pickup units - normalize to a 1000 HP carry weight
+EPickupOutpost = 0.0
+EPickupField = 0.0
+
+// =======================
+// Wingtip Particle System
+// =======================
+//
+// (local settings)
+RequiredSpeedForWingtipContrails = 5.0
+WingtipPointBone1 = ""
+WingtipPoint1 = "0 0 0"
+WingtipPointBone2 = ""
+WingtipPoint2 = "0 0 0"
+WingtipPointBone3 = ""
+WingtipPoint3 = "0 0 0"
+WingtipPointBone4 = ""
+WingtipPoint4 = "0 0 0"
+
+WingtipParticles1 = ""
+WingtipParticles2 = ""
+WingtipParticles3 = ""
+WingtipParticles4 = ""
+
+ContrailMultipleCfg = "0.12 -0.20 0"	// multiple contrail config magic numbers:
+										// YAxis Step, Offset Mult, Unused
+
+// somewhat mirrored settings for ground contrail PFX
+//
+RequiredSpeedForGroundContrails = 8.0
+GroundContrailsBone1 = "bone_shoulder_r"
+GroundContrailsOffset1 = "0 0 0"
+GroundContrailsBone2 = "bone_shoulder_l"
+GroundContrailsOffset2 = "0 0 0"
+GroundContrailsBone3 = ""
+GroundContrailsOffset3 = "0 0 0"
+GroundContrailsBone4 = ""
+GroundContrailsOffset4 = "0 0 0"
+GroundContrailsPfx1 = ""
+GroundContrailsPfx2 = ""
+GroundContrailsPfx3 = ""
+GroundContrailsPfx4 = ""
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_shoulder_r"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_shoulder_l"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_ankle_r"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_ankle_l"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"
+
+// =======================
+// Wing Fold System
+// =======================
+//
+// (local settings)
+WingFoldOrientationDependency = "0 0 0" // none
+
+// =============================================
+// connection points for recharge lines of POWER
+// =============================================
+//
+RespawnFXBones = bone_engine_l, bone_engine_r, bone_front_l, bone_front_r, bone_l_wing, bone_r_wing, bone_back, bone_tail_l, bone_tail_r, bone_middle, bone_cockpit
+
+// ==================
+// Particle Effects
+// ==================
+//
+EngineThrustParticles = ShipThrustersMin
+Engine1ThrustPosByBone = bone_l_thruster
+Engine2ThrustPosByBone = bone_r_thruster
+Engine1ThrustPosOffset = "0.21 -0.95 0.05"			// - local point location of first engine - engine locations are used for particle effects
+Engine2ThrustPosOffset = "-0.21 -0.95 0.05"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustPosOffsetPhysics = "1.25 -0.67 0"			// - local point location of first engine - engine locations are used for physics effects
+Engine2ThrustPosOffsetPhysics = "-1.25 -0.67 0"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+Engine2ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+
+TransportThrusterParticlesLeft = TransportSupportThrusters		// - particle systems to use on the transport left thruster
+TransportThrusterBoneLeft = bone_l_thruster_tip				// - attach bone for left transport thruster
+TransportThrusterParticlesRight = TransportSupportThrusters		// - particle systems to use on the transport left thruster
+TransportThrusterBoneRight = bone_r_thruster_tip			// - attach bone for right transport thruster
+
+HoverParticles_Dirt = "RookHoverDust"
+HoverParticles_Concrete = "RookHoverConcrete"
+HoverParticles_Grass = "RookHoverGrass, GrassFleckHover"
+HoverParticles_Ice = "RookHoverIce"
+HoverParticles_Tundra = "RookHoverTundra"
+HoverParticlesMaxSpeed = 9.0
+
+CTFCoreCarryBoneLatch = bone_root
+RequiredSpeedForCTFCoreTrail = 12.0				// - must be going at least this fast for ctf core trails to appear
+
+// ===============
+// Special PFX
+// ===============
+//
+AirPfx = ""
+GndPfx = ""
+
+
+// ===============
+// Camera Settings
+// ===============
+//
+
+//GndCameraOffset = "0 -18.5 29"
+//AirCameraOffset = "0 -19.6 30.75"
+GndCameraOffset = "0 -18.5 27"
+AirCameraOffset = "0 -19.6 28.6"
+#if steamDeck
+	// goes along with modifying the FOV to "feel" right on a smaller screen vs monitor/TV
+	// for SteamDeck initially but might be good for Switch handheld or phones
+	GndCameraOffset = "0 -18 35"
+	AirCameraOffset = "0 -20 38.8"
+#endif
+
+MenuCameraOffset = "0 -39 52" // for main, 3d menu
+CloseZoomOffset = "0 0 -15"
+CloseZoomTgtOffset = "0 0 2.5"
+
+CloseZoomOffset_Console = "0 6 -10"
+CloseZoomTgtOffset_Console = "0 0 1.2"
+
+RookCameraPosOffsetRobot = "0 0 -1.5"
+RookCameraPosOffsetAir = "0 0 -3.5"
+RookCameraPosOffsetSlew = 0.035				// - slew rate for above camera pos offsets
+
+// mouse wheel zoom offsets - for AirMech Wastelands
+//MouseWheelZoomSensitivity = 0.25
+//MouseWheelMaxZoomInOffset = "0 5 -8"
+//MouseWheelMaxZoomInTgtOffset = "0 0 1.2"
+//MouseWheelMaxZoomInFOV = 45.0
+//MouseWheelMaxZoomOutOffset = "0 3 6"
+//MouseWheelMaxZoomOutTgtOffset = "0 0 1.2"
+//MouseWheelMaxZoomOutFOV = 45.0
+//MouseWheelZoomOutMapExtMods = "11 11 11 4" // max x, max y, min x, min y - mods on zoom out. Magic numbers in sync w/ above
+//MouseWheelZoomInMapExtMods = "3 3 3 1.1" // max x, max y, min x, min y - mods on zoom out. Magic numbers in sync w/ above
+//MouseWheelZoomInitial = 1 // initial zoom pos : -1 -> 1.  Default was 0 before (old airmech). -1 all the way in, 1 all the way out
+
+MouseWheelZoomSensitivity = 0.25
+MouseWheelMaxZoomInOffset = "0 0 0"
+MouseWheelMaxZoomInTgtOffset = "0 0 0"
+MouseWheelMaxZoomInFOV = 45.0
+MouseWheelMaxZoomOutOffset = "0 0 0"
+MouseWheelMaxZoomOutTgtOffset = "0 0 0"
+MouseWheelMaxZoomOutFOV = 45.0
+MouseWheelZoomOutMapExtMods = "0 0 0 0" // max x, max y, min x, min y - mods on zoom out. Magic numbers in sync w/ above
+MouseWheelZoomInMapExtMods = "0 0 0 0" // max x, max y, min x, min y - mods on zoom out. Magic numbers in sync w/ above
+MouseWheelZoomInitial = 0 // initial zoom pos : -1 -> 1.  Default was 0 before (old airmech). -1 all the way in, 1 all the way out
+
+// - durability penalty stuff - for AirMech Wastelands
+DurPenaltyAt = 25
+DurPenaltyDmgTaken = 2.0 	// I take more damage
+DurPenaltyDmgGiven = 0.5	// I give less damage
+
+CameraFocusPushAir = 4.0	// like the sniper targeting offset, but for all airmechs, when firing
+CameraFocusPushGnd = 4.0	// as above..
+CameraFocusXMult = 1.0
+CameraFocusYMult = 1.0
+
+
+
+CameraTransitionTimeToAir = 0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+CameraTransitionTimeToGnd = 0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+RecycleTime = 1.5
+
+// ===================
+// Jet Audio
+// ===================
+//
+// (local settings)
+
+// ==========================
+// Normal ZSpin Def entries
+// ==========================
+ZSpinDef_1 = ""
+ZSpinDef_2 = ""
+ZSpinDef_3 = ""
+ZSpinDef_4 = ""
+ZSpinDef_5 = ""
+ZSpinDef_6 = ""
+ZSpinDef_7 = ""
+ZSpinDef_8 = ""
+ZSpinDef_9 = ""
+ZSpinDef_10 = ""
+ZSpinDef_11 = ""
+ZSpinDef_12 = ""
+ZSpinDef_13 = ""
+ZSpinDef_14 = ""
+ZSpinDef_15 = ""
+ZFixedBone = ""
+
+
+// ==========================
+// Fire Control on ZSpinDef_Sp
+// ==========================
+ZSpinDef_Sp = ""
+ZSpinDef_Sp_UpRate = 0.0
+ZSpinDef_Sp_DownRate = 0.0
+ZSpinDef_Sp_FireReq = 0.0
+
+// =============================================
+// common recharge lines of POWER settings
+// =============================================
+RechargeSplineColor = "1.0 1.0 1.0"
+RechargeAlphaRange = "0.8 0.2 0.5"	// base, offset, time (if time >0, it's sin period. if 0, random per frame)
+RechargeLineWidthRange = "0.24 0.09 0.3"  // base, offset, time (if time >0, it's sin period.  if 0, random per frame)
+RechargeLineMaterial = mat_RechargeLineStrip
+HealLineMaterial = HealLineStrip2
+DrainLineMaterial = DrainLineStrip
+
+// =============================================
+// guardian settings
+// =============================================
+GuardianRadarBonus = 1.224	//changed from 1.5 (sqrt for area computation)
+GuardianEnergyBonus = 0.93 // energy consumption multiplier, per energy guardian (5% boost)
+GuardianOrbitPeriod = 2.1
+GuardianOrbitRadius = 2.75
+GuardianOrbitGndHeight = 2.4
+GuardianBladeEnergyHitCost = 0.3
+
+// =============================================
+// Aura effectors on AirMechs - settings
+// =============================================
+AuraDefenseMod = 1.0, 0.92, 0.84, 0.76, 0.68  // damage taken multiplier
+AuraOffenseMod = 1.0, 1.07, 1.12, 1.18, 1.25  // damage done multiplier
+AuraBaseRange = 8.0
+AuraBaseRangeAir = 6.0	// separate value for airmode auras
+AuraDefenseActivateEnergy = 5.0		//energy 1 time for aura activation
+AuraOffenseActivateEnergy = 5.0
+AuraSpeedActivateEnergy = 5.0
+AuraDefenseEnergyGnd = 0.0		//energy use/sec for aura active - in Ground Mode
+AuraOffenseEnergyGnd = 0.0
+AuraSpeedEnergyGnd = 0.0
+AuraDefenseEnergyAir = 0.0		//energy use/sec for aura active - in AirMode Mode
+AuraOffenseEnergyAir = 0.0
+AuraSpeedEnergyAir = 0.0
+AuraAlwaysActive = true			// always active in air, state
+
+// =============================================
+// Debuf settings as applied to airmechs
+// =============================================
+DebufOffenseMod = "0.93 0.86 0.79 0.72"
+
+// =======================
+// Level Up Bonus Settings
+// =======================
+//
+
+LvlDamageMult = 0.75, 0.785, 0.82, 0.855, 0.89, 0.925, 0.96, 0.995, 1.03, 1.065, 1.1, 1.135, 1.17, 1.205, 1.24, 1.275, 1.31, 1.345, 1.38, 1.415
+LvlDamageMultSpecial = 0.75, 0.785, 0.82, 0.855, 0.89, 0.925, 0.96, 0.995, 1.03, 1.065, 1.1, 1.135, 1.17, 1.205, 1.24, 1.275, 1.31, 1.345, 1.38, 1.415
+LvlHullStrengthMult = 0.75, 0.785, 0.82, 0.855, 0.89, 0.925, 0.96, 0.995, 1.03, 1.065, 1.1, 1.135, 1.17, 1.205, 1.24, 1.275, 1.31, 1.345, 1.38, 1.415
+LvlFuelMult = 1, 1.07, 1.14, 1.21, 1.28, 1.35, 1.42, 1.49, 1.56, 1.63, 1.7, 1.77, 1.84, 1.91, 1.98, 2.05, 2.12, 2.19, 2.26, 2.33
+LvlCarryMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+LvlHealMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+
+
+
+LvlRespawnTimeMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+
+// Instant award for level up
+LvlUpHP = 0.3
+LvlUpFuel = 0.3
+
+XpPfxSpawn = DotsXp
+OrderPfxSpawn = DotsOrder
+DefaultUberPowerup = ""
+
+// ==============================
+// Attachments
+// ==============================
+
+//BannerFlagAttachment = "factions/Banner02.amf FactionEmblem< bone_root " //ragdoll factions/banner01.txt"
+BannerFlagAttachment = ""
+
+// ==============================
+// AirMech Abilities (Leveled Up)
+// ==============================
+//
+Abilities=Shield, Sword, Guns, None //, None, Infantry, Guardian, LevelUp    // Air, Ground, Passive, [P2], [UBER], Creeps, Guardians, LevelUp
+AbilitiesMaxLvl=4, 4, 4, 4 //, 3, 3, 3, 3
+AbilityPointsStart=0
+AbilityCreepUpgradeSlot=5
+AbilityGuardianUpgradeSlot=6
+AbilityLevelUpSlot=7
+AbilityAirSpecialSlot=0
+AbilityGndSpecialSlot=1
+AbilityPassiveSlot=2
+AbilityPassive2Slot=-1	// optional, second passive slot
+AbilityPassive3Slot=-1	// optional, third passive slot
+AbilityPassive4Slot=-1	// optional, forth passive slot
+AbilityActiveSecondarySlot=-1	// optional, active secondary ability slot
+AbilityActiveSecondarySlot2=-1
+AbilityActiveSecondarySlotAlt=-1	// optional, active secondary ability slot alternate (for when there's an air mode and ground mode activated ability)
+AbilityHeldActiveSecondarySlot=-1 // optional, held activated secondary ability slot (like Glide)
+AbilityAIUpgradeOrder=""
+AbilityAutoUpgradeOrder=""
+
+AbLvlUpCost0=3600, 4800, 6000, 6000
+AbLvlUpCost1=3600, 4800, 6000, 6000
+AbLvlUpCost2=3600, 4800, 6000, 6000
+AbLvlUpCost3=3600, 4800, 6000, 6000
+AbLvlUpCost4=3600, 4800, 6000, 6000
+AbLvlUpCost5=3600, 4800, 6000, 6000
+AbLvlUpCost6=0, 1200, 2400, 6000			// guardians - have cost of guardian added on
+AbLvlUpCost7=3600, 4800, 6000, 6000		// levelup
+
+AbLvlUpBldTime0=4.0, 6.0, 10.0, 10.0
+AbLvlUpBldTime1=4.0, 6.0, 10.0, 10.0
+AbLvlUpBldTime2=4.0, 6.0, 10.0, 10.0
+AbLvlUpBldTime3=4.0, 6.0, 10.0, 10.0
+AbLvlUpBldTime4=4.0, 6.0, 10.0, 10.0
+AbLvlUpBldTime5=4.0, 6.0, 10.0, 10.0		// CREEPS
+AbLvlUpBldTime6=0.0, 2.5, 5.0, 10.0		// guardians - in addition to guardian object build time
+AbLvlUpBldTime7=4.0, 6.0, 10.0, 10.0		// LEVEL UP
+
+AbLvlUpLvlReq0=1, 1, 1, 1				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq1=1, 1, 1, 1				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq2=1, 1, 1, 1				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq3=6, 6, 6, 6				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq4=7, 10, 13, 4				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq5=1, 5, 9, 4				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq6=2, 4, 6, 4				// non-persistent level requirement to upgrade ability to the next level
+AbLvlUpLvlReq7=1, 2, 3, 4				// non-persistent level requirement to upgrade ability to the next level
+
+AbLvlUpPntReq0=1, 1, 1, 2				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq1=1, 1, 1, 2				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq2=1, 1, 1, 2				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq3=1, 1, 1, 2				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq4=1, 1, 1, 1				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq5=1, 1, 1, 1				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq6=1, 1, 1, 1				// number of ability points required to level up ability to the next level
+AbLvlUpPntReq7=1, 1, 1, 1				// number of ability points required to level up ability to the next level
+
+// specials
+AbilityCloakScalars=100.0, 1.0, 0.7, 0.4, 0.25		// - energy draw multipliers for different levels of Cloak ability (lvl 0 is NA - these multiply with CloakFuelToMaintain setting)
+AbilityShieldScalars=10.0, 1.0, 0.9, 0.8, 0.6		// - effectiveness modifiers (multipliers) to 'ShieldDamageSoak' and 'ShieldEnergySoak' settings. (lvl 0 is NA)
+AbilityMissilesScalars=1.0, 1.0, 1.15, 1.3, 1.5		// - effectiveness for missiles (homing).  Scale speed and lifespan of homing missiles
+AbilityRocketsScalars=1.0, 1.0, 1.1, 1.2, 1.3		// - effectiveness for rockets.  Scale speed and lifespan and accurate (reduce wiggle)
+AbilityHelixMissilesActivatedScalars=1.0, 2.0, 2.0, 2.0, 2.0				// - activated buff for helix rockets/grenades/missiles - increase passage of charge time on activation
+AbilityHelixMissilesActivatedCooldownDuration=0.0, 30.0, 30.0, 30.0, 30.0	// - helix rockets/grenades/missiles activated ability cooldown duration
+AbilityHelixMissilesActivatedEffectDuration=0.0, 4.0, 4.0, 4.0, 4.0		// - helix rockets/grenades/missiles activated ability effect duration
+AbilityCloakActivatedCooldownDuration=0.0, 30.0, 30.0, 30.0, 30.0	// - Neo cloak activated ability cooldown duration
+AbilityCloakMeleeTime= 0.0, 1.0, 0.8, 0.65, 0.5       // - time to charge up neo's melee ability
+AbilityCloakActivatedEffectDuration=0.0, 6.0, 6.0, 6.0, 6.0		// - Neo cloak activated ability effect duration
+AbilityGunsprayActivatedScalars=1.0, 1.15, 1.3, 1.45, 1.6				// - activated buff for warthog gunspray - dps multiplier
+AbilityGunsprayActivatedCooldownDuration=0.0, 30.0, 30.0, 30.0, 30.0	// - warthog gunspray activated ability cooldown duration
+AbilityGunsprayActivatedEffectDuration=0.0, 6.0, 6.0, 6.0, 6.0		// - warthog gunspray activated ability effect duration
+AbilityAbductScalars=1.0, 1.0, 1.25, 1.5, 1.8		// - abduct ability lvl up for saucer - multipliers to abduct rate
+AbilitySwordScalars=1.0, 1.0, 1.2, 1.4, 1.75			// - damage scalar for airmech powersword when leveled up
+AbilityChargeUpShotScalars=1.0, 1.0, 1.1, 1.2, 1.4	// - effectiveness for charge up shot.  Scale damage done
+AbilityChargeUpArmorScalars=1.0, 0.9, 0.8, 0.7, 0.55	// - effectiveness for charge up shot - armor improved while charging.
+AbilityBlinkScalars=1.0, 1.0, 1.1, 1.2, 1.4			// - effectiveness - mult force, div energy cost
+AbilityHealBeamScalars=1.0, 1.0, 1.2, 1.4, 1.6		// - Heal beam ability lvl up for osprey - multipliers to heal rate
+AbilityHealAreaScalars=1.0, 1.0, 1.25, 1.5, 2.0		// - Heal area ability lvl up for osprey - multipliers to heal rate
+AbilitySpinUpScalars=1.0, 1.33, 1.66, 2.0, 2.5		// - spinup scalars for warthog main gun
+AbilitySpinUpActivatedCooldownDuration=0.0, 120.0, 100.0, 80.0, 60.0	// - warthog gunspray activated ability cooldown duration
+AbilityEMPScalars=1.0, 1.0, 0.9, 0.8, 0.6			// - cool down time modifiers for EMP ability
+AbilityDeathrayScalars=1.0, 1.0, 1.1, 1.2, 1.33		// - saucer deathray scalars
+AbilityHammerThrowScalars=1.0, 1.0, 1.25, 1.5, 1.8	// - hammer throw damage scalars
+AbilityHammerStasisDurations=0.0, 2, 2.5, 3, 4		// - hammer stasis durations per level - should be in 0.5 seconds increments for visual effects management (0.5 second durations on PFX)
+AbilityAuraPwrScalars=1.0, 1.0, 1.0, 1.0, 1.0		// - aura power ability - energy usage scalars
+AbilityAuraRadiusScalars=1.0, 1.0, 1.25, 1.5, 1.75	// - aura radius ability
+AbilitySniperRngScalars=1.0, 1.0, 1.1, 1.2, 1.3		// - range modifier to sniper ability
+AbilitySniperModeSpdScalars=1.0, 1.0, 1.15, 1.30, 1.4	// - mode switch speed modifier to sniper ability
+AbilityAfterburnerScalars=1.0, 1.3, 1.4, 1.5, 1.6	// - afterburner force/power modifier
+AbilityAfterburnerEfficiency=1.0, 1.0, 0.91, 0.88, 0.85 // - afterburner efficiency/fuel use scalars
+AbilityLoopScalars=1.0, 1.0, 0.93, 0.86, 0.75			// - reducing cooldown of the loop ability
+AbilityGlideScalars=1.0, 1.0, 1.15, 1.3, 1.5			// - increasing glide speed/force
+AbilityBuilderScalars=1.0, 0.95, 0.9, 0.85, 0.75		// - decrease build times on builder passive ability
+AbilityBuilderActivatedScalars=1.0, 2.0, 3.0, 4.0, 5.0		// - increase passage of build time on activation (timed) of 'Builder' ability
+AbilityBuilderCooldownDuration=0.0, 30.0, 30.0, 30.0, 30.0	// - builder activated ability cooldown duration
+AbilityBuilderEffectDuration=0.0, 5.0, 5.0, 5.0, 5.0		// - builder activated ability effect duration
+AbilityRestoreCooldownDuration=0.0, 40.0, 35.0, 30.0, 25.0	// - osprey restore activated ability cooldown duration
+AbilityRestoreDelayScalars=1.0, 0.9, 0.8, 0.7, 0.6	// - reduce autohealtimer setting on Restore passive ability
+AbilityRestoreRateScalars=1.0, 1.2, 1.35, 1.5, 1.7	// - increase autoheal rate setting on Restore passive ability
+AbilityPwrShieldArmor=0.0,0.0,0.0,0.0,0.0			// - extra armor values for powershield ability
+AbilityPwrShieldDmgElim=0.0,.5,.6,.7,.8				// - damage elimination for powershield ability
+AbilityPwrShieldDuration=0.0,8.0,8.0,8.0,8.0		// - duration values for powershield ability
+AbilitySprintDuration=0.0,1.0,1.5,2.0,2.5			// - duration values for sprint ability
+AbilitySprintForceMult=1.0,1.1,1.2,1.3,1.4			// - force multiplier for sprint ability
+AbilityDebufOffenseDuration=0.0,5.0,6.0,7.0,8.0		// - duration of offense debuf
+AbilityDebufOffenseEffect=1.0,0.93,0.86,0.79,0.72	// - attack mult effect of offense debuf (duplicated per unit..)
+AbilityWhirlwindDmg=1.0,1.1,1.2,1.3,1.5				// - dmg mult effect of bomber whirlwind mode hits
+AbilityHealNovaEffect=1.0,1.0,1.15,1.3,1.5			// - heal nova healing power increase
+AbilityEnergyDrain=1.0,1.02,1.04,1.06,1.1			// - melee (bomber) energy drain ability scalars
+AbilityRadarDisruptDur=0.0,5.0,6.0,7.0,8.0			// - duration of radar disruptor effect (in seconds)
+AbilityRadarDisruptCooldown=0.0,80,70,60,50		// - cooldown of radar disruptor effect (in seconds)
+AbilityMissileEMPRange=1.0, 1.0, 1.25, 1.5, 1.75		// - range modifier of missileemp - modifies 'MissileEMPRange'
+AbilityUnitTPCooldown=0.0,40,35,30,25				// - cooldown of unittp ability (in seconds)
+AbilityUnitTPEnergy=1.0,0.9,0.8,0.7,0.6				// - energy multiplier of unittp ability (efficiency) (in seconds)
+AbilityEMPGrenadeEnergy=0.5,0.5,0.5,0.5,0.5
+AbilityPlantExplosiveEnergy=2.0,2.0,2.0,2.0,2.0
+AbilityPlantExplosiveCooldown=15, 15, 12.5, 10, 7.5
+
+// - passive
+AbilityLifterScalars=1.0, 0.95, 0.9, 0.85, 0.8		// - carry penalty scalars (on HP) airmechs with passive 'lifter' ability
+AbilityLifterActivatedScalars=1.0, 0.7, 0.6, 0.5, 0.4	// - additional carry penalty scalars (on HP) airmechs with activated 'lifter' ability
+AbilityLifterCooldownDuration=0.0, 45.0, 40.0, 35.0, 30.0	// - lifter activated ability cooldown duration
+AbilityLifterEffectDuration=0.0, 8.0, 8.0, 8.0, 8.0			// - lifter activated ability effect duration
+AbilityGunsActivatedScalars=1.0, 1.25, 1.25, 1.25, 1.25		// - additional guns damage scalars for airmechs with activated 'guns' ability
+AbilityGunsCooldownDuration=0.0, 45.0, 45.0, 45.0, 45.0	// - guns activated ability cooldown duration
+AbilityGunsEffectDuration=0.0, 8.0, 10.0, 12.0, 14.0		// - guns activated ability effect duration
+AbilityPhalanxScalars=1.0, 1.5, 2.5, 4.0, 6.0		// - modifiers for missile shootdown chance
+AbilityGunsScalars=1.0, 1.05, 1.1, 1.15, 1.25			// - modifiers for guns damage
+AbilityHyperRailDmgScalars=1.0, 1.08, 1.16, 1.24, 1.3	// - modifiers for sniper rifle (angel) damage
+AbilityHyperRailEngScalars=1.0, 1.0, 1.0, 1.0. 1.0		// - modifiers for energy recharge rate (angel)
+AbilityHyperRailOverKillScalars=0.0, 0.75, 1.0, 1.5, 2.0	// - hyperrail overkill unit health as blast damage ratios (angel)
+AbilitySniperStasisCooldowns=0.0, 40.0, 35.0, 30.0, 25.0	// - cooldown for sniper stasis shot ability
+AbilityQuickshotScalars=1.0, 1.05, 1.1, 1.15, 1.25		// - modifiers to sniper firing speed - for Angel
+AbilityAmmoScalars=0.0, 4.0, 8.0, 12.0, 18.0			// - modifiers for ammo - to weapon type - absolute values
+AbilityArmorScalars=1.0, 0.95, 0.9, 0.8, 0.7			// - modifiers for damage taken
+AbilityGndSpeedScalars=1.0, 1.05, 1.1, 1.15, 1.2		// - modifiers for ground speed passive (force drivers)
+AbilityGndSpeedActivatedScalars=1.0, 1.2, 1.3, 1.4, 1.5	// - increase move speed on activated use
+AbilityGndSpeedCooldownDuration=0.0, 30.0, 30.0, 30.0, 30.0	// - ground speed activated ability cooldown duration
+AbilityGndSpeedEffectDuration=0.0, 5.0, 5.0, 5.0, 5.0		// - ground speed activated ability effect duration
+AbilityLevelUpScalars=1.0, 1.07, 1.14, 1.21, 1.3		// - modifiers to all earned XP
+AbilityAbductActivatedScalars=0.0, 2.0, 2.0, 2.0, 2.0	// - increased saucer abduct rate on activated use
+AbilityAbductCooldownDuration=0.0, 45.0, 45.0, 45.0, 45.0	// - abduct activated ability cooldown duration
+AbilityAbductEffectDuration=0.0, 5.0, 5.0, 5.0, 5.0		// - abduct activated ability effect duration

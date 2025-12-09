@@ -1,0 +1,123 @@
+add WorldObject initFrom TemplateInfantry
+	set Name Creeper
+	set StateController Creeper
+	set Model units/Creeper/Creeper.amf
+	set Material "mat_UnitInfantry"
+	set RenderScale ".915"
+	set RangeArc 360
+	set ShotDamage 400	
+	set OutpostMultDmg 0.1
+	set WeaponType 45.0
+	set ArmorType 20.0
+	set AimTurnRate 150
+	set FireDelay 1.0
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotLinearDamp 2.0
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 150
+	set CarryWeight 400
+	set PowerGen -1
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 3.5
+	set CanBePaniced 1
+	set MovePanicSpeed 6.2
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set PanicAnimation units/Creeper/Run.aaf
+	set MoveAnimation units/Creeper/Walk.aaf
+	set IdleAnimation units/Creeper/Idle.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set RangeBlast 5.5		// blast damage range
+	set RangeFalloff 0.4	// falloff blast range
+	set Range 9 // needs to be enough to attack base, otherwise they'll get stuck when the have full map control
+	set DBlastDmg 50		// "Death Blast" Damage
+	set DBlastRMin 1.8		// "Death Blast" Range
+	set DBlastRMax 4.3		// "Death Blast" Range
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set UnitTurnRate 2000.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	set SalvageValue 0
+	set SalvageTime 3
+	set DestroyDecal ""
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+	
+	set DestructionEffects_3 "1 0.915 0  5 2  5 2  /mdl:units/Infantry/InfantryDxBody2.amf /mtl:mat_UnitInfantryDx /bne:bone_xupper /trq:-10 /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.3 0.3] /skt:5 /canReclaim"
+	set DestructionEffects_4 "1 0.915 0  5 2  5 2  /mdl:units/Infantry/InfantryDxHead2.amf /mtl:mat_UnitInfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /vcb:75 /pval:1"
+	set DestructionEffects_5 "1 0.825 0  5 2  5 2  /mdl:units/Infantry/InfantryDxArm1.amf /mtl:mat_UnitInfantryDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6 "1 0.915 0  5 2  5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mtl:mat_UnitInfantryDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_7 "1 0.915 0  5 2  5 2  /mdl:units/Infantry/InfantryDxGun2.amf /mtl:mat_UnitInfantryDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /skt:5 /vcb:40 /pval:1"
+	set CameraShakeOnDestroyed "40 0.4 1.2"	//- radius, magnitude, time
+	
+add WorldObject initFrom Creeper
+	set Name CreeperMC
+	set Model units/CreeperMC/CreeperMC.amf
+	set StateController CreeperMC
+	set Material "mat_Creeper"
+	//set RenderScale ".915"
+	set MoveAnimation units/CreeperMC/Walk.aaf
+	set IdleAnimation units/CreeperMC/Idle.aaf
+	set PanicAnimation units/CreeperMC/Walk.aaf
+	
+	set DestroySounds MC_explode
+	
+	set DestructionEffects_2 ""
+	set DestructionEffects_3 "3 1.0 1.0  5.0 2.0  5.0 2.0 /mdl:units/CreeperMC/CreeperChunkA.amf /mtl:mat_Creeper /bne:bone_head /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.2]  /skt:5.0 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4 "3 1.0 0.5  5.0 2.0  5.0 2.0  /mdl:units/CreeperMC/CreeperChunkB.amf /mtl:mat_Creeper /bne:bone_head /grp:Debris /col [Group Debris Box 0.2 0.2 0.1] /emt:H /skt:5.0 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5 ""
+	set DestructionEffects_6 ""
+	set DestructionEffects_7 ""
+	
+add WorldObject initFrom Creeper
+	set Name CreeperU
+	set StateController CreeperU
+	set PanicAnimation units/CreeperU/Run.aaf
+	set MoveAnimation units/CreeperU/Run.aaf
+	set IdleAnimation units/CreeperU/Idle.aaf
+	set AlignToTerrainNormal 0
+	set MoveSpeed 3.8  // 3.2
+	set MoveAnimationSpeed 1.2
+	set MovePanicSpeed 9.3  // 6.2
+	set PanicAnimationSpeed 2.5
+	set HitPoints 240
+	set CarryWeight 400
+	set VisionRange 20
+	set RadarRange 20
+	set RangeBlast 9		// blast damage range
+	set RangeFalloff 1.2	// falloff blast range
+	set DBlastDmg 55		// "Death Blast" Damage
+	set ShotDamage 550
+	set UnitSpawnOnDestroy CreeperU
+	set UnitSpawnOnDestroyChance 20
+	set Range 9 // needs to be enough to attack base, otherwise they'll get stuck when they have full map control
+	set CameraShakeOnDestroyed "50.0 1.6 1.8"	//- radius, magnitude, time
+	
+add WorldObject initFrom Creeper
+	set Name CreeperSurvival
+	set MoveSpeed 6.4  // 3.2
+	set MoveAnimationSpeed 2.0
+	set CanBePaniced 1
+	set MovePanicSpeed 9.3  // 6.2
+	set PanicAnimationSpeed 1.5
+	set HitPoints 200
+	set ShotDamage 750
+	

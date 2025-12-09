@@ -1,0 +1,97 @@
+// ===========================
+// Rook "Stealth" Settings
+// ===========================
+#include StealthBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+GndMesh = rooks/Stealth/Stealth_Ref.amf
+GndMaterialAlt = ""
+GndModelMatAlt = ""
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/Stealth/Stealth_ToBot.aaf
+GroundToAirAnim = rooks/Stealth/Stealth_ToAir.aaf
+
+CameraTransitionTimeToGnd = 0.4 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+ActiveEaseOutToRobotAfter = 0.75
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.0		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.7 		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+
+GroundMoveCycleAnimSpeedMult = 0.10
+GroundMoveBackCycleAnimSpeedMult = 0.11
+HeadLookBone = bone_head_game
+UpperBodyAimBone = bone_aim
+
+HatBoneScaled = geo_crest
+HatBone = bone_hat
+HatOffset = "0 0 -0.05"
+
+HatHeadBoneScaled = geo_head
+HatHeadBone = bone_hat
+HatHeadOffset = "0 0 0"
+
+GroundIdleAnim = rooks/Stealth/Stealth_Idle.aaf
+GroundMoveCycleAnim_Fwd = rooks/Stealth/Stealth_Jog_Fwd.aaf
+GroundMoveCycleAnim_Back = rooks/Stealth/Stealth_Jog_Bwd.aaf
+GroundMoveCycleAnim_Left = rooks/Stealth/Stealth_Turn_L.aaf
+GroundMoveCycleAnim_Right = rooks/Stealth/Stealth_Turn_R.aaf
+
+AirMechAnimV_Melee = 1	// use v1 style animations controls for melee (v2 is single looping animation)
+GndMeleeAnimation = rooks/Stealth/Stealth_Melee_1.aaf
+GndMelee2Animation = rooks/Stealth/Stealth_Melee_2.aaf
+GndMelee3Animation = rooks/Stealth/Stealth_Melee_3.aaf
+GndMeleeNextTimes = "0.5 0.6 0.6"
+GndMeleeResetTimes = "0.7 0.7 0.9"	// window for next transition given input
+GndMeleeAnimSpeed = 1.0
+
+Bone_lmelee = bone_blade_L_3
+Bone_rmelee = bone_blade_R_3
+
+AbilityChargeUpStart = rooks/Stealth/Stealth_Special_Start.aaf
+AbilityChargeUpLoop = rooks/Stealth/Stealth_Special_Cycle.aaf
+AbilityChargeUpRelease = rooks/Stealth/Stealth_Special_End.aaf
+AbilityChargeUpCancel = ""
+ChargeUpShotFuelToMaintain = 2.25
+
+SpecialProjFireBone = "bone_pelvis" // mantis strike fire point
+
+Taunts = rooks/Stealth/Stealth_Taunt_1.aaf, rooks/Stealth/Stealth_Taunt_2.aaf, rooks/Stealth/Stealth_Taunt_3.aaf
+
+RecoveryAnim = rooks/Stealth/Stealth_Recover.aaf
+
+GroundIdleAnimGlide =  rooks/Stealth/Stealth_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/Stealth/Stealth_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/Stealth/Stealth_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/Stealth/Stealth_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/Stealth/Stealth_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_blade_L_2"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_blade_R_2"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_foot_L"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_foot_L"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"
+
+// ============
+// Weapon Stuff
+// ============
+
+GndProjRange = 6.5				// - range of shots - in robot mode (melee)
+

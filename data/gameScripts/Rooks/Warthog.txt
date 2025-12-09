@@ -1,0 +1,90 @@
+// ===========================
+// New "Warthog" to setup anims
+// ===========================
+#include WarthogBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+GndMesh = rooks/WarthogV2/Warthog_Robot.amf
+AirMechModelMats = AirMechWarthog
+GndMaterialAlt = "" //mat_AirMechWarthog
+GndModelMatAlt = ""
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/WarthogV2/Warthog_TransformDown.aaf
+GroundToAirAnim = rooks/WarthogV2/Warthog_TransformUp.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.0		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.7		// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+GroundMoveCycleAnimSpeedMult = 0.23
+GroundMoveBackCycleAnimSpeedMult = 0.24
+HeadLookBone = bone_head_game
+UpperBodyAimBone = bone_spine_game
+
+HatBoneScaled = mesh_head_antenna
+HatBone = bone_head
+HatOffset = "0 0 -0.1"
+
+HatHeadBone = bone_head
+HatHeadBoneScaled = mesh_head
+HatHeadOffset = "0 0 0"
+
+
+GndProjFireBone1 = "bone_gun_fp"
+GndProjFireOffset1 = "-0.2 0 0"
+GndProjFireBone2 = "bone_gun_fp"
+GndProjFireOffset2 = "-0.2 0 0"
+
+AirProjFirePoint1 = "0 2 -0.25"
+AirProjFirePoint2 = "0 2 -0.25"
+
+
+GroundIdleAnim = rooks/WarthogV2/Warthog_Stand.aaf
+
+
+GroundMoveCycleAnim_Fwd = rooks/WarthogV2/Warthog_Walk.aaf
+GroundMoveCycleAnim_Back = rooks/WarthogV2/Warthog_WalkBack.aaf
+
+
+GroundMoveCycleAnim_Left = rooks/WarthogV2/Warthog_TurnL.aaf
+GroundMoveCycleAnim_Right = rooks/WarthogV2/Warthog_TurnR.aaf
+
+FiringAnimation = rooks/WarthogV2/Warthog_Shoot.aaf
+FiringAnimation_MoveFwd = rooks/WarthogV2/Warthog_WalkShoot.aaf
+FiringAnimation_MoveBack = rooks/WarthogV2/Warthog_WalkBackShoot.aaf
+FiringAnimation_Prepare = rooks/WarthogV2/Warthog_ShootIn.aaf
+
+// FiringAnimation_Alt = rooks/WarthogV2/Warthog_ShootAlt.aaf
+FiringAnimation_Alt = ""
+//FiringAnimation_AltPrepare = rooks/WarthogV2/Warthog_ShootAltIn.aaf
+FiringAnimation_AltPrepare=""
+
+Taunts = rooks/WarthogV2/Warthog_Taunt1.aaf, rooks/WarthogV2/Warthog_Taunt3.aaf
+
+RecoveryAnim = rooks/WarthogV2/Warthog_Recover.aaf
+
+GroundIdleAnimGlide =  rooks/WarthogV2/Warthog_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/WarthogV2/Warthog_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/WarthogV2/Warthog_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/WarthogV2/Warthog_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/WarthogV2/Warthog_Jump_R.aaf
+
+// ===============
+// Melee Elements
+// ===============
+//
+Bone_smelee = bone_gun
+GndMeleeDmg = "230.0 2.4 2.4"    // dmg, maxdmgdist, mindmgdist (blast settings)
+
+AbilityChargeUpStart = rooks/WarthogV2/Warthog_Melee_Start.aaf
+AbilityChargeUpLoop = rooks/WarthogV2/Warthog_Melee.aaf
+AbilityChargeUpRelease = rooks/WarthogV2/Warthog_Melee_End.aaf
+AbilityChargeUpCancel = rooks/WarthogV2/Warthog_Melee_End.aaf

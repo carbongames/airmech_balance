@@ -1,0 +1,183 @@
+add WorldObject
+	set Name Bombs
+	set Model units/Bombs/Bombs.amf
+	set Material "mat_Booster"
+	set Collision "CapsuleZ 0.6 0.8"
+	set SpecialType Unit
+	set TargetZOffset 0.2
+	set PowerGen -1
+	set ArmorType 1
+	set WeaponType 50
+	set ShotDamage 250 // blast damage
+	set FireDelay 1.000
+	set RangeBlast 6.0 // blast range
+	set RangeFalloff 0.9 // range for blast damage falloff, as a ratio of 'Range'
+	set Range 5.0
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 300
+	set CarryWeight 600
+	set Mass 5000.0
+	set UnitSpecial Bombs
+	set PresetBoneOffset "0 0 1"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set SalvageTime 2.05
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+	
+add WorldObject initFrom Bombs
+	set Name BombsU
+	set Model units/BombsU/BombsU.amf
+	set PresetBoneOffset "0 0 1.2"
+	set HitPoints 300
+	set CarryWeight 800
+	set Mass 5000.0
+	set ShotDamage 1500 // blast damage
+	set RangeBlast 8.6 // blast range
+	set FireDelay 5.000
+	set SalvageTime 2.05
+	set CameraShakeOnDestroyed "100.0 0.5 0.4"	//- radius, magnitude, time
+	set StateController BombUTell
+	set RenderScale 1.5
+	set ZSpinDefs "bone_spin 180.0"
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	ExplosionFireball, ExplosionBlackSmoke, ExplosionDebris, ExplosionSeqLarge, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb"
+	set DestructionEffects_2 ""
+	
+add WorldObject initFrom BombsU
+	set Name BombsWaveCannon
+	set Material "mat_Booster<"
+	set ShotDamage 4000 // blast damage
+	set RangeBlast 8.0 // blast range
+	set StateController ""
+	
+add WorldObject initFrom BombsU
+	set Name BombsAirstrike
+	set Material "mat_Booster<"
+	set ShotDamage 8000 // blast damage
+	set RangeBlast 16.0 // blast range
+	
+add WorldObject
+	set Name BombsJuly4th
+	set Model units/BombsJuly4th/BombsJuly4th.amf
+	set Material "mat_BoosterJuly4th<"
+	set Collision "CapsuleZ 0.6 0.8"
+	set SpecialType Unit
+	set TargetZOffset 0.2
+	set SalvageTime 2.05
+	set PowerGen -1
+	set ArmorType 1
+	set WeaponType 30
+	set ShotDamage 250 // blast damage
+	set RangeBlast 6.0 // blast range
+	set Range 5.0
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 300
+	set CarryWeight 800
+	set Mass 5000.0
+	set UnitSpecial Bombs
+	set PresetBoneOffset "0 0 0.65"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionJuly4th, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+	
+add WorldObject
+	set Name BombsHalloween
+	set Model units/BombsHalloween/BombsHalloween.amf
+	set Material "mat_AirMechSaucerPumpkin<"
+	set Collision "CapsuleZ 0.6 0.8"
+	set SpecialType Unit
+	set TargetZOffset 0.2
+	set SalvageTime 2.05
+	set PowerGen -1
+	set ArmorType 1
+	set WeaponType 30
+	set ShotDamage 250 // blast damage
+	set RangeBlast 6.0 // blast range
+	set Range 5.0
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ZSpinDefs "bone_spinA 100.0"
+	set ZSpinDefs "bone_spinB 165.0"
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 300
+	set CarryWeight 800
+	set Mass 5000.0
+	set UnitSpecial Bombs
+	set PresetBoneOffset "0 0 0.9"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+	
+add WorldObject
+	set Name BombsXmas
+	set Model units/BombsXmas/BombsXmas.amf
+	set Material "mat_BoosterXmas"
+	set Collision "CapsuleZ 0.6 0.8"
+	set SpecialType Unit
+	set TargetZOffset 0.2
+	set SalvageTime 2.05
+	set PowerGen -1
+	set ArmorType 1
+	set WeaponType 30
+	set ShotDamage 250 // blast damage
+	set RangeBlast 6.0 // blast range
+	set Range 5.0
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ZSpinDefs "bone_spinA 100.0"
+	set ZSpinDefs "bone_spinB 165.0"
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 300
+	set CarryWeight 800
+	set Mass 5000.0
+	set UnitSpecial Bombs
+	set PresetBoneOffset "0 0 0.9"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""
+	
+add WorldObject
+	set Name BombsEgg
+	set Model units/BombsEgg/BombsEgg.amf
+	set Material "mat_BombsEgg1<"
+	set Collision "CapsuleZ 0.6 0.8"
+	set SpecialType Unit
+	set TargetZOffset 0.2
+	set SalvageTime 2.05
+	set PowerGen -1
+	set ArmorType 1
+	set WeaponType 30
+	set ShotDamage 250 // blast damage
+	set RangeBlast 6.0 // blast range
+	set Range 5.0
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ZSpinDefs "bone_spinA 100.0"
+	set ZSpinDefs "bone_spinB 165.0"
+	set ShotMuzzleFlash MuzzleFlash
+	set HitPoints 300
+	set CarryWeight 800
+	set Mass 5000.0
+	set UnitSpecial Bombs
+	set PresetBoneOffset "0 0 0.9"
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0.0
+	set CameraShakeOnDestroyed "80.0 0.9 0.7"	//- radius, magnitude, time
+	set DestructionEffects_1 "1 0.2 0.0  0.5 0.0  0 0 	Grenade_Fireball, ExplosionRing2, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb, ExplosionSeqMedium"
+	set DestructionEffects_2 ""

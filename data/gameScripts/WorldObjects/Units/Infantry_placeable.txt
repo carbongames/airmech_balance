@@ -1,0 +1,1253 @@
+// SOLDIER
+//
+add WorldObject initFrom TemplateInfantry
+	set Name Infantry
+	set StateController Infantry
+	set Model units/Infantry/Infantry.amf
+	set ModelMat UnitInfantry
+	set RenderScale ".915"
+	set UnitLevelBase 1
+	set RangeArc 360
+	set BoneFirePoint mesh_head
+	set BoneAimHorizontal bone_waist
+	set ShotFireSounds FiringRifle.wav
+	set WeaponType 15.0
+	set ArmorType 20.0
+	set OutpostMultDmg 0.67
+	set AimTurnRate 150
+	set FireDelay 0.20
+	set ShotDodge 0.8	// ability to 'dodge' certain shot types
+	set ShotMuzzleFlash "MuzzleFlash"
+	set ShotFFParticles WhiteTrail
+	set ShotProjEffects Default
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set NavmeshIndex 1
+	set ShotDamageVelocityInfluence 0.75
+	set CanHitAir 1
+
+	//set ShotFFParticles MiniTrail
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 2
+
+	set ShotDamage 12
+	set HitPoints 250
+	set CarryWeight 350
+	set PowerGen -1
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 3.5
+	set MoveAnimationSpeed 1.2
+	set MoveAnimation units/Infantry/InfantryWalk.aaf
+	set IdleAnimation units/Infantry/InfantryIdle.aaf
+	set PanicAnimation units/Infantry/InfantryRun.aaf
+	set FireAnimation units/Infantry/InfantryShoot.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set CanBePaniced 1
+	set MovePanicSpeed 5.0
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set ArmorType 25.0
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set SalvageValue 0
+	set SalvageTime 3
+
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	set DestroyDecal "OilSplat1"
+
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+
+	set DestructionEffects_3  "1 1 0      10 5  5 2  /mdl:units/Infantry/InfantryDxHead2.amf /mmt:InfantryDx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxBody2.amf /mmt:InfantryDx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxArm1.amf /mmt:InfantryDx< /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mmt:InfantryDx< /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "0 0 0"	//- radius, magnitude, time
+
+
+add WorldObject initFrom Infantry
+	set Name InfantryWeak
+	set ShotDamage 2.5
+	set HitPoints 35
+	set RenderScale 0.85
+
+add WorldObject initFrom TemplateInfantryBoss
+	set Name InfantryBoss
+	set StateController Infantry
+	set Model units/Infantry/Infantry.amf
+	set Material mat_UnitInfantry
+	set RenderScale ".915"
+	set RangeArc 360
+	set BoneFirePoint mesh_head
+	set BoneAimHorizontal bone_waist
+	set ShotFireSounds FiringRifle.wav
+	set WeaponType 150.0
+	set ShotDamage 5	// original value 2.5
+	set OutpostMultDmg 1.5
+	set AimTurnRate 150
+	set FireDelay 0.20
+	set ShotDodge 0.8	// ability to 'dodge' certain shot types
+	set ShotMuzzleFlash "MuzzleFlash"
+	set ShotFFParticles WhiteTrail
+	set ShotProjEffects Default
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set ShotDamageVelocityInfluence 0.75
+	set CanHitAir 1
+	set HitPoints 180
+	set CarryWeight 380
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 3.5
+	set MoveAnimationSpeed 1.2
+	set MoveAnimation units/Infantry/InfantryWalk.aaf
+	set IdleAnimation units/Infantry/InfantryIdle.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 20
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set PanicAnimation units/Infantry/InfantryRun.aaf
+	set CanBePaniced 1
+	set MovePanicSpeed 5.0
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set ArmorType 25.0
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+
+	set DestroyDecal ""
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroy2 AnyPartGoodChance
+	set PickupSpawnOnDestroy3 AnyPartGoodChance
+	set MagicFindBase 500
+
+	set DestructionEffects_3  "1 1 0      10 5  5 2  /mdl:units/Infantry/InfantryDxHead2.amf /mmt:InfantryDx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxBody2.amf /mmt:InfantryDx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxArm1.amf /mmt:InfantryDx< /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mmt:InfantryDx< /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "0 0 0"	//- radius, magnitude, time
+
+
+// - Tutorial capture infantry
+add WorldObject initFrom Infantry
+	set Name InfantryT
+	set OutpostMultDmg 50.0	// kjk - compensate for armor updates
+	set CanHitAir 0 // make these guys not shoot air stuff
+	set HitPoints 220
+	set CarryWeight 220
+
+// - Tutorial capture infantry
+add WorldObject initFrom Infantry
+	set Name InfantrySlow
+	set MoveSpeed 2.0
+	set MoveAnimationSpeed 1.0
+
+add WorldObject initFrom Infantry
+	set Name InfantryVoid
+	set Material "mat_AirMechUBlack<"
+	set VariantOf Infantry	// for pulling CFG data
+	set ArmorType 30
+	set WeaponType 25
+	set ShotDamage 15
+	set HitPoints 300
+	set CarryWeight 350
+	set DestructionEffects_3  "1 1 0      10 5  5 2  /mdl:units/Infantry/InfantryDxHead2.amf /mtl:mat_AirMechUBlack< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxBody2.amf /mtl:mat_AirMechUBlack< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxArm1.amf /mtl:mat_AirMechUBlack< /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0      5 2   5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mtl:mat_AirMechUBlack< /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set UnitLevelBase 3
+
+add WorldObject initFrom Infantry
+	set Name InfantryLight
+	set Model units/InfantryLight/InfantryLight_Ref.amf
+	set UnitLevelBase 1
+	set BoneFirePoint    "bone_flash_L"
+	set BoneFirePointAlt "bone_flash_R"
+	set BoneAimHorizontal "bone_aim"
+	set MoveSpeed 7.0
+	set MovePanicSpeed 7.0
+	set ShotDamage 16
+	set HitPoints 170
+	set CarryWeight 270
+	set FireDelay 0.4
+	set FireAltDelay 0.2
+	set MoveAnimationSpeed 1.4
+	set PanicAnimationSpeed 1.0
+	set WeaponType 5.0
+	set ArmorType 10.0
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set MoveAnimation units/InfantryLight/InfantryLight_Walk.aaf
+	set IdleAnimation units/InfantryLight/InfantryLight_Idle.aaf
+	set PanicAnimation units/InfantryLight/InfantryLight_Run.aaf
+	set FireAnimation units/InfantryLight/InfantryLight_Fire.aaf
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/Infantry/InfantryDxHead1.amf /mmt:InfantryDx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/Infantry/InfantryDxBody1.amf /mmt:InfantryDx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 5   5 2  /mdl:units/Infantry/InfantryDxGun1.amf /mmt:InfantryDx< /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryLight
+	set Name InfantryCreepLight
+
+add WorldObject initFrom InfantryLight
+	set Name InfantryFLA
+	set Model units/InfantryFLA/InfantryFLA.amf
+	set ModelMat ""
+	set Material "mat_AirMechWarthogFLA< mat_InfantryJetpack"
+	set MoveAnimation units/InfantryFLA/Run.aaf // Walk.aaf
+	set MoveAnimationSpeed 1
+	set PanicAnimation units/InfantryFLA/Run.aaf
+	set IdleAnimation units/InfantryFLA/Idle.aaf
+	set IdleAnimationSpeed 1
+	set IdleAnimationSpeedRand 0.4
+	set FireAnimation units/InfantryFLA/Fire.aaf
+	set BoneFirePoint    "bone_firepoint"
+	set BoneFirePointAlt "bone_firepoint"
+	set BoneAimHorizontal "bone_spine_game" // "bone_spine_game" // - Can't get this to not do 360 degree turns, disabling.
+	set FireArcForNoZTurret 20 
+	set FireArcForNoZTurretWhileMoving 20
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryFLA/InfantryFLADxHead.amf /mtl:mat_AirMechWarthogFLADx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryFLA/InfantryFLADxBody.amf /mtl:mat_AirMechWarthogFLADx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryFLA/InfantryFLADxGun.amf /mtl:mat_AirMechWarthogFLADx< /bne:bone_xupper /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryFLA/InfantryFLADxLeg.amf /mtl:mat_InfantryJetpack /bne:bone_xupper /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryLight
+	set Name InfantryLightSkel
+	set ModelMat ""
+	set Model units/InfantryLightSkel/InfantryLightSkel_Ref.amf
+	set Material "mat_InfantryLightSkel"
+	set MoveAnimation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf
+	set MoveAnimationSpeed 1.35
+	set PanicAnimation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf
+	set PanicAnimationSpeed 1.60
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxHead.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxBody.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxGun.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxLeg.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set UnitLevelBase 1
+
+add WorldObject initFrom Infantry
+	set Name InfantryRocket
+	set Model units/InfantryRocket/InfantryRocket.amf
+	set RenderScale ".825"
+	set UnitLevelBase 3
+	set MoveSpeed 3.5
+	set MovePanicSpeed 4.0
+	set CarryWeight 300
+	set PowerGen -1
+	set BoneFirePoint    "bone_gun"
+	set BoneFirePointAlt "bone_gun2"
+	set WeaponType 50.0
+	set FireDelay 1.20
+	set FireAltDelay 0.6
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 0.8
+	set MoveAnimation units/InfantryRocket/InfantryRocketWalk.aaf
+	set IdleAnimation units/InfantryRocket/InfantryRocketIdle.aaf
+	set PanicAnimation units/InfantryRocket/InfantryRocketRun.aaf
+	set FireAnimation ""
+	set MissileFireSounds FiringInfantryRocket.wav
+	set HasRegularShot 0
+	set HasMissiles 1
+	set MissileIsHoming 1
+	set MissileWiggle 300
+	set CanHitAir 1
+	set CanHitGround 1
+	set MissileProjEffects InfRocket
+	set HitPoints 200
+	set ArmorType 15.0
+	set MissileDamage 50
+	set MissilePowerCost 0
+	set MissileSpeed 22
+	set MissileLifespan 2
+	set SalvageValue 0
+	set SalvageTime 2.75
+	set MissileModel effects/RocketMini.amf
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+
+	set DestructionEffects_3  "1 0.825 0  10 5  5 2  /mdl:units/Infantry/InfantryDxHead3.amf /mmt:InfantryDx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.4 0.4] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxBody3.amf /mmt:InfantryDx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxGun3.amf /mmt:InfantryDx< /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 0.825 0  5 2   5 2  /mdl:units/Infantry/InfantryDxLeg3.amf /mmt:InfantryDx< /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryRocket
+	set Name SAM_01
+	set VariantOf InfantryRocket	// for pulling CFG data
+
+add WorldObject initFrom Infantry
+	set Name Engineer
+	set StateController Engineer
+	set UnitLevelBase 2
+	set SupplyRepairRate 30
+	set SupplyWorkingRadius 5.5
+	set SupplyDetectRadius 5.0
+	set MineDisarmRate 3
+	set Model units/Engineer/Engineer.amf
+	set RenderScale ".85"
+	set Material "mat_Engineer"
+	set ModelMat ""
+	set PowerGen -1
+	set MoveSpeed 3.5
+	set MovePanicSpeed 5.0
+	set ShotDamage 3
+	set HitPoints 220
+	set CarryWeight 320
+	set FireDelay 0.40
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.3
+	set HasRegularShot 0
+	set HasMissiles 0
+	set WeaponType 1.0
+	set ArmorType 20.0
+	set SalvageValue 0
+	set SalvageTime 3
+	set MoveAnimation units/Engineer/EngineerWalk.aaf
+	set IdleAnimation units/Engineer/EngineerIdle.aaf
+	set PanicAnimation units/Engineer/EngineerRun.aaf
+
+	set DestructionEffects_3  "1 0.85 0  10 5  5 2  /mdl:units/Infantry/InfantryDxHead4.amf /mtl:mat_EngineerDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDxBody4.amf /mtl:mat_EngineerDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDxArm2.amf /mtl:mat_EngineerDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.5] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDxLeg4.amf /mtl:mat_EngineerDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.5] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Engineer
+	set Name Fixer_01
+	set VariantOf Engineer	// for pulling CFG data
+
+add WorldObject initFrom InfantryRocket
+	set Name SAMSurvivalL1
+	set MoveSpeed 3.3
+	set MoveAnimationSpeed 1.2
+	set MovePanicSpeed 6.0
+	set PanicAnimationSpeed 1.2
+	set HitPoints 160
+	set CarryWeight 160
+	set MissileSpawnZOffset 0.35	// hack for survival
+
+add WorldObject initFrom Engineer
+	set Name EngineerOutpost
+	set SupplyWorkingRadius 12.5
+	set SupplyDetectRadius 12.0
+
+add WorldObject initFrom SAMSurvivalL1
+	set Name SAMSurvivalL2
+	set MoveSpeed 4.4
+	set MoveAnimationSpeed 1.6
+	set MovePanicSpeed 8.0
+	set PanicAnimationSpeed 1.6
+	set HitPoints 250
+	set CarryWeight 250
+
+add WorldObject initFrom SAMSurvivalL1
+	set Name SAMSurvivalL3
+	set MoveSpeed 5.5
+	set MoveAnimationSpeed 2.0
+	set MovePanicSpeed 10.0
+	set PanicAnimationSpeed 2.0
+	set HitPoints 300
+	set CarryWeight 300
+
+add WorldObject initFrom Infantry
+	set Name InfantrySargent
+	set Model units/InfantrySargent/InfantrySargent.amf
+	set UnitLevelBase 5
+	set PowerGen -1
+	set CarryWeight 400
+	set WeaponType 30
+	set ArmorType 30
+	set MoveSpeed 3.0
+	set MovePanicSpeed 5.0
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 1
+	set PickupSpawnOnDestroy2 AnyPartChance
+	set PickupSpawnOnDestroyChance2 1
+	set HitPoints 360
+	set ShotDamage 18.5
+	set FireDelay 0.30
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.0
+	set MoveAnimation units/InfantrySargent/Walk.aaf
+	set IdleAnimation units/InfantrySargent/Idle.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set SalvageValue 0
+	set SalvageTime 4
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set PanicAnimation units/InfantrySargent/Run.aaf
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantrySargent/InfantrySargentDxHead.amf /mmt:InfantryDx< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantrySargent/InfantrySargentDxBody.amf /mmt:InfantryDx< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantrySargent/InfantrySargentDxGun.amf /mmt:InfantryDx< /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantrySargent/InfantrySargentDxLeg.amf /mmt:InfantryDx< /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryRocket
+	set Name InfantrySoldier
+	set StateController InfantrySoldier
+	set Model units/InfantrySoldier/InfantrySoldier_Ref.amf
+	set RenderScale "1.05"
+	set ModelMat InfantrySoldier
+	set BoneFirePoint "bone_flash_R"
+	set BoneFirePointAlt ""
+	set BoneAimHorizontal "bone_aim"
+	set PowerGen -1
+	set UnitLevelBase 3
+	set MoveSpeed 3.5
+	set MovePanicSpeed 5.0
+	set HitPoints 225
+	set CarryWeight 335
+	set FireDelay 0.25
+	set SustainFireTime 1.0
+	set ReloadTime 2.5
+	set MoveAnimationSpeed 1.15
+	set PanicAnimationSpeed 1.0
+	set MoveAnimation units/InfantrySoldier/InfantrySoldier_Walk.aaf
+	set IdleAnimation units/InfantrySoldier/InfantrySoldier_Idle.aaf
+	//set PanicAnimation units/InfantrySoldier/InfantrySoldier_Run.aaf
+	set CanBePaniced 0
+	set FireAnimation units/InfantrySoldier/InfantrySoldier_Fire.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set MissileFireSounds FiringInfantryRocket.wav
+	set WeaponType 85.0
+	set ArmorType 25
+	set HasRegularShot 0
+	set HasMissiles 1
+	set MissileIsHoming 0
+	set CanHitAir 0
+	set CanHitGround 1
+	set MissileProjEffects InfRocket
+	set MissileDamage 35
+	set MissileSpeed 24
+	set MissileLifespan 1.0
+	set MissilePowerCost 0
+	set SalvageValue 0
+	set SalvageTime 3.75
+	set MissileModel effects/RocketMini.amf
+	set MissileParticles FireTrail
+	set MissileParticles MissileTrailSmoke
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantrySoldier/InfantrySoldierDxHead.amf /mmt:InfantrySoldierDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantrySoldier/InfantrySoldierDxBody.amf /mmt:InfantrySoldierDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantrySoldier/InfantrySoldierDxGun.amf /mmt:InfantrySoldierDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantrySoldier/InfantrySoldierDxLeg.amf /mmt:InfantrySoldierDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Infantry
+	set Name InfantrySniper
+	set StateController InfantrySniper
+	set Model units/InfantrySniper/InfantrySniper_Ref.amf
+	set Material mat_Infantry
+	set ModelMat ""
+	set BoneFirePoint bone_flash
+	set BoneAimVertical bone_vert
+	set BoneAimHorizontal bone_horiz
+	set UnitLevelBase 1
+	set PowerGen -1
+	set MoveSpeed 3.5
+	set RenderScale 1
+	set MovePanicSpeed 5.0
+	set WeaponType 10
+	set ArmorType 5
+	set ShotDamage 130
+	set HitPoints 150
+	set CarryWeight 250
+	set FireDelay 2.0
+	set AimTurnRate 100
+	set MoveAnimationSpeed 1.0
+	set PanicAnimationSpeed 1.0
+	set MoveAnimation units/InfantrySniper/InfantrySniper_Walk.aaf
+	set IdleAnimation units/InfantrySniper/InfantrySniper_Idle.aaf
+	set PanicAnimation units/InfantrySniper/InfantrySniper_Run.aaf
+	set FireAnimation "units/InfantrySniper/InfantrySniper_Fire_Fwd.aaf"
+	set AttackPrepareAnim units/InfantrySniper/InfantrySniper_ToGun.aaf
+	set AttackRelaxAnim units/InfantrySniper/InfantrySniper_ToBot.aaf
+	set MustStopToFire 1
+	set AlignToTerrainNormal 0
+	set VisionRange 23
+	set RadarRange 22
+	set Range 24
+	set MinRange 8
+	set CanHitAir 0
+	set SalvageValue 0
+	set SalvageTime 2.25
+	set ShotFireSounds FiringSniperInf
+	set UnitSpecial Sniper	// drives instant hit scan and sniper effect
+	set ShotProjEffects SniperShot
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles "" // no fire and forget PFX since we are instant hit scan w/ the tracer effect
+	set TgtOPApproachDSqrMult 0.5 // closer approach to occupied outposts (quick/hack LOS fix) - note that this is a squared range multiplier
+
+	//set AimUpDefault -30.0
+	set RotationWanderMaxArc 15.0
+	set AimWanderSpeed 0.1
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantrySniper/InfantrySniperDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.3 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantrySniper/InfantrySniperDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantrySniper/InfantrySniperDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "2 1 0  5 2   5 2  /mdl:units/InfantrySniper/InfantrySniperDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantrySniper
+	set Name Shooter_01				// Fine Shooter
+	set VariantOf InfantrySniper	// for pulling CFG data
+
+add WorldObject initFrom InfantrySniper
+	set Name InfantrySniperU
+	set StateController InfantrySniperU
+	set RenderScale 1.05
+	set WeaponType 20
+	set ArmorType 15
+	set ShotDamage 160
+	set HitPoints 190
+	set CarryWeight 250
+	set FireDelay 1.0
+	set SalvageTime 2.75
+	set Model units/InfantrySniperU/InfantrySniperU_Ref.amf
+	set ShotMuzzleFlash MuzzleFlashU
+	set ZSpinDefs "geo_gun_mid 200"
+	set ZSpinDefs "geo_gun_barrel_1 200"
+	set UnitLevelBase 3
+
+add WorldObject initFrom Infantry
+	set Name InfantryDemo
+	set StateController InfantryDemo
+	set Model units/InfantryDemo/InfantryDemo_Ref.amf
+	set ModelMat ""
+	set Material "mat_Infantry"
+	set BoneFirePoint    "bone_flash_R"
+	set BoneAimHorizontal "bone_horiz"
+	set BoneAimVertical "bone_vert"
+	set RenderScale 1.15
+	set PowerGen -1
+	set UnitLevelBase 2
+	set MoveSpeed 3.0
+	set MovePanicSpeed 4.0
+	set KineticDamage 30	// direct impact / shell damage
+	set ShotDamage 40 // actually blast damage
+	set OutpostMultDmg 1
+	set AimUpDefault -45.0
+	set ShotFFParticles ""
+	set ShotParticles "PolyTrailArtillery" //FireStreak
+	set FiringConfig "0.5 3.0 0 0" // max dmg blast, min dmg blast, spread(at max range), unused
+	set ShotProjEffects Grenade
+	set ShotLifespan 3.0
+	set HitPoints 270
+	set CarryWeight 370
+	set WeaponType 50
+	set ArmorType 50
+	set FireDelay 0.45
+	set FireAltDelay 0
+	set SustainFireTime 1.5
+	set ReloadTime 2.0
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.0
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 18
+	// set MinRange 6
+	set DBlastDmg 50			// "Death Blast" Damage
+	set DBlastRMin 2.5			// "Death Blast" Range
+	set DBlastRMax 4.3			// "Death Blast" Range
+	set SalvageValue 0
+	set SalvageTime 3
+	set MoveAnimation units/InfantryDemo/InfantryDemo_Walk.aaf
+	set IdleAnimation units/InfantryDemo/InfantryDemo_Idle.aaf
+	set PanicAnimation units/InfantryDemo/InfantryDemo_Run.aaf
+	set FireAnimation units/InfantryDemo/InfantryDemo_Fire.aaf
+	set ReloadAnim units/InfantryDemo/InfantryDemo_Reload.aaf
+	set ShotMuzzleFlash MuzzleFlash
+	set UnitSpecial Grenades
+	set ShotFFParticles ""
+	set ShotParticles "PolyTrailArtillery" //FireStreak
+	set CanHitAir 0
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryDemo/InfantryDemoDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryDemo/InfantryDemoDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryDemo/InfantryDemoDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.8 0.3] /trq:-50 /skt:5 /vcb:20"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryDemo/InfantryDemoDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20"
+
+add WorldObject initFrom Infantry
+	set Name InfantryHeavy
+	set StateController InfantryHeavy
+	set Model units/InfantryHeavy/InfantryHeavy_Ref.amf
+	set ShotDodge 0.0	// ability to 'dodge' certain shot types
+	set Material mat_Infantry
+	set ModelMat ""
+	set BoneFirePoint bone_flash_L
+	set BoneFirePointAlt bone_flash_R
+	set BoneAimHorizontal bone_horiz
+	set BoneAimVertical bone_vert
+	set RenderScale 1
+	set PowerGen -2
+	set UnitLevelBase 5
+	set WeaponType 1.0
+	set ArmorType 60.0
+	set MoveSpeed 2.5
+	set MovePanicSpeed 2.5
+	//set MoveSpeedMultWhenFiring 0.25
+	set ShotDamage 20
+	set HitPoints 700
+	set CarryWeight 1050
+	set FireDelay 0.10
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 0.6
+	set MoveAnimation units/InfantryHeavy/InfantryHeavy_Walk.aaf
+	set IdleAnimation units/InfantryHeavy/InfantryHeavy_Idle.aaf
+	set PanicAnimation units/InfantryHeavy/InfantryHeavy_Run.aaf
+	set FireAnimation units/InfantryHeavy/InfantryHeavy_Fire.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 12
+	set Range 14
+	set MoveAnimationSpeed 1.4
+	set SalvageValue 90
+	set SalvageTime 5
+	set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	set ShotProjEffects LightInf
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set ShotFireSounds FiringAPC // for now, better than the default sound
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryBoss
+	set Name InfantryHeavyColossus
+	set StateController InfantryHeavyColossus
+	set Model units/InfantryHeavyColossus/InfantryHeavyColossus.amf
+	set Material mat_Infantry
+	set BoneFirePoint bone_flash_L1
+	set BoneFirePointAlt bone_flash_R1
+	set BoneFirePoint2 bone_flash_L2
+	set BoneFirePointAlt2 bone_flash_R2
+	set ZSpinDefs "geo_barrel_R01 -1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_R -1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L01 1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L 1200.0 /whenFiring"
+	set ShotSpeed 50
+	set UnitLevelBase 30
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.5
+	set ShotDamageVelocityInfluence 0.5
+	set BoneAimHorizontal bone_horiz
+	set BoneAimVertical bone_vert
+	set RenderScale 3
+	set MoveSpeed 1.75
+	set MovePanicSpeed 1.75
+	set MoveSpeedMultWhenFiring 0.5
+	set ShotDamage 60
+	set HitPoints 16000
+	set FireDelay 0.12
+	set MoveAnimationSpeed 0.9
+	set PanicAnimationSpeed 0.9
+	set MoveAnimation units/InfantryHeavyColossus/InfantryHeavyColossus_Walk.aaf
+	set IdleAnimation units/InfantryHeavy/InfantryHeavy_Idle.aaf
+	set PanicAnimation units/InfantryHeavy/InfantryHeavy_Run.aaf
+	set FireAnimation units/InfantryHeavy/InfantryHeavy_Fire.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 24
+	set RadarRange 25
+	set Range 18
+	set MoveAnimationSpeed 0.9
+	set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash MuzzleFlashTankLarge
+	set ShotFFParticles ChaingunTrailBig
+	set ShotFireSounds FiringGeminiTank  // for now, better than the default sound
+	set DestructionEffects_3  "1 3 0  10 5  5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.9 0.9 0.9] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.9 1.8 0.9] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "2 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.9 0.9 1.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_7 "1 2 0.0  2 0.0  1 1 ExplosionSeq1Big /reqVis /vcb:100"
+	set DestructionEffects_8 "4 1 0.0  2.0 1.0   0.0 0.0	BlackSmoke	/rdc:restBurnMark"
+	set DestructionEffects_9 "1 20 0.0  0.5 0.0  0 0		ExplosionFireball, ExplosionBlackSmoke, ExplosionDebris, ExplosionSeqLarge, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_10 ""
+	set UnitLatches "TurretStarter /bone bone_latch1 /offset 0 0 -.5 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "TurretAegis /bone bone_latch2 /offset 0 0 -.5 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "RocketTruck /bone bone_latch3 /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+	set MineWeightMask 7
+	set DestroySounds WaveNuke.wav
+
+add WorldObject initFrom InfantryBoss
+	set Name InfantryHeavyColossusMissiles
+	set StateController InfantryHeavyColossus
+	set Model units/InfantryHeavyColossus/InfantryHeavyColossus.amf
+	set Material mat_Infantry
+	set BoneFirePoint bone_flash_L1
+	set BoneFirePointAlt bone_flash_R1
+	set BoneFirePoint2 bone_flash_L2
+	set BoneFirePointAlt2 bone_flash_R2
+	set ZSpinDefs "geo_barrel_R01 -1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_R -1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L01 1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L 1200.0 /whenFiring"
+	set UnitLevelBase 30
+	set ShotSpeed 50
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.5
+	set ShotDamageVelocityInfluence 0.5
+	set BoneAimHorizontal bone_horiz
+	set BoneAimVertical bone_vert
+	set RenderScale 3.5
+	set MoveSpeed 1.85
+	set MovePanicSpeed 1.75
+	set MoveSpeedMultWhenFiring 0.5
+	set ShotDamage 80
+	set HitPoints 20000
+	set FireDelay 0.12
+	set MoveAnimationSpeed 0.9
+	set PanicAnimationSpeed 0.9
+	set MoveAnimation units/InfantryHeavyColossus/InfantryHeavyColossus_Walk.aaf
+	set IdleAnimation units/InfantryHeavy/InfantryHeavy_Idle.aaf
+	set PanicAnimation units/InfantryHeavy/InfantryHeavy_Run.aaf
+	set FireAnimation units/InfantryHeavy/InfantryHeavy_Fire.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 24
+	set RadarRange 25
+	set Range 18
+	set HasMissiles 1
+	set MissileDamage 200
+	set HasRegularShot 0
+	set MoveAnimationSpeed 0.9
+	set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash ExplosionSeq1
+	set ShotFFParticles ChaingunTrailBig
+	set ShotFireSounds FiringGeminiTank  // for now, better than the default sound
+	set DestructionEffects_3  "1 3 0  10 5  5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:100 /reqVis"
+	set DestructionEffects_4  "1 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.9 0.9 0.9] /trq:-50 /skt:5 /vcb:20"
+	set DestructionEffects_5  "2 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.9 1.8 0.9] /trq:-50 /skt:5 /vcb:20"
+	set DestructionEffects_6  "2 3 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.9 0.9 1.2] /trq:-50 /skt:5 /vcb:20"
+	set DestructionEffects_7 "1 2 0.0  2 0.0  1 1 ExplosionSeq1Big /reqVis /vcb:100"
+	set DestructionEffects_8 "4 1 0.0  2.0 1.0   0.0 0.0	BlackSmoke	/rdc:restBurnMark"
+	set DestructionEffects_9 "1 20 0.0  0.5 0.0  0 0		ExplosionFireball, ExplosionBlackSmoke, ExplosionDebris, ExplosionSeqLarge, ExplosionDust, Grenade_Flash, ArtilleryDust, ArtilleryPieces, FireBurnBomb /vcb:100 /reqVis"
+	set DestructionEffects_10 ""
+	set UnitLatches "TurretStarter /bone bone_latch1 /offset 0 0 -.5 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "TurretAegis /bone bone_latch2 /offset 0 0 -.5 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "RocketTruck /bone bone_latch3 /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+	set MineWeightMask 7
+	set DestroySounds WaveNuke.wav
+
+add WorldObject initFrom InfantryHeavy
+	set Name Brute_01
+	set VariantOf InfantryHeavy	// for pulling CFG data
+
+add WorldObject initFrom InfantryHeavy
+	set Name InfantryHeavyU
+	set Model units/InfantryHeavyU/InfantryHeavyU_Ref.amf
+	set ShotDamage 30
+	set HitPoints 840
+	set CarryWeight 950
+	set ArmorType 65
+	set ZSpinDefs "geo_barrel_R01 1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_R 1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L01 -1200.0 /whenFiring"
+	set ZSpinDefs "geo_barrel_L -1200.0 /whenFiring"
+	set BoneFirePoint bone_flash_L1
+	set BoneFirePointAlt bone_flash_R1
+	set BoneFirePoint2 bone_flash_L2
+	set BoneFirePointAlt2 bone_flash_R2
+	set UnitLevelBase 15
+
+add WorldObject initFrom InfantryHeavy
+	set Name InfantryHeavyVoid
+	set Material "mat_AirMechUBlack<"
+	set VariantOf InfantryHeavy	// for pulling CFG data
+	set ArmorType 70
+	set WeaponType 10
+	set ShotDamage 29
+	set HitPoints 1000
+	set CarryWeight 950
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxHead.amf /mtl:mat_AirMechUBlack< /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mtl:mat_AirMechUBlack< /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxGun.amf /mtl:mat_AirMechUBlack< /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxLeg.amf /mtl:mat_AirMechUBlack< /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set UnitLevelBase 18
+
+add WorldObject initFrom InfantryHeavy
+	set Name HeavySurvivalL1
+	set HitPoints 600
+	set CarryWeight 950
+	set RenderScale "1.1"
+	set ShotDamage 7
+
+add WorldObject initFrom InfantryHeavy
+	set Name HeavySurvivalL2
+	set HitPoints 900
+	set CarryWeight 950
+	set RenderScale "1.2"
+	set ShotDamage 9
+
+add WorldObject initFrom InfantryHeavy
+	set Name HeavySurvivalL3
+	set HitPoints 1300
+	set CarryWeight 950
+	set RenderScale "1.3"
+	set ShotDamage 13
+
+add WorldObject initFrom Infantry
+	set Name InfantryPyro
+	set StateController InfantryPyro
+	set Model units/InfantryPyro/InfantryPyro_Ref.amf
+	set Material "mat_Infantry"
+	set ModelMat ""
+	set BoneFirePoint "bone_flash"
+	set BoneAimHorizontal "bone_aim_torso"
+	set RenderScale 1
+	set UnitLevelBase 2
+	set MoveSpeed 3.5
+	set MovePanicSpeed 5.0
+	set HitPoints 250
+	set CarryWeight 350
+	set PowerGen -1
+	set ShotDodge 0	// ability to 'dodge' certain shot types
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.5
+	set MoveAnimation units/InfantryPyro/InfantryPyro_Walk.aaf
+	set IdleAnimation units/InfantryPyro/InfantryPyro_Idle.aaf
+	set PanicAnimation units/InfantryPyro/InfantryPyro_Run.aaf
+	set FireAnimation units/InfantryPyro/InfantryPyro_Fire.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 10
+	set RadarRange 12
+	set Range 9
+	set UnitSpecial Pyro
+	set ShotSize "1.0 0.0 0.0"			// radius, height, unused.  If height = 0, then it's a sphere.  Otherwise it's a capsule oriented on the Y axis of motion
+	set ShotLifespan 1.0
+	set ShotSpeed 15.0
+	set ShotMuzzleFlash ""
+	set ShotFFParticles ""
+	set ShotDamage 20
+	set FireDelay 0.075
+	set FireAltDelay 0
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set WeaponType 20
+	set ArmorType 20
+	set FortDamageScalar 1.0
+	set OutpostMultDmg 0.67
+	set DBlastDmg 65			// "Death Blast" Damage
+	set DBlastRMin 1.8			// "Death Blast" Range
+	set DBlastRMax 4.3			// "Death Blast" Range
+	set SalvageValue 0
+	set SalvageTime 3
+	set ShotFireSounds units/infantry/InfantryFlamerFire.wav
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryPyro/InfantryPyroDxBody.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.6] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryPyro/InfantryPyroDxTank.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryPyro/InfantryPyroDxGun.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.2 0.7 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryPyro/InfantryPyroDxArm.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Infantry
+	set Name InfantrySpy
+	set StateController InfantrySpy
+	set Model units/InfantrySpy/InfantrySpy_Ref.amf
+	set ModelMat "InfantryStealth"
+	set ModelMatPresent "InfantrySoldier" // use a material that doesn't stealth for present material
+	set BoneFirePoint "bone_flash_L"
+	set BoneAimHorizontal "bone_aim"
+	set RenderScale 1
+	set PowerGen -1
+	set UnitLevelBase 2
+	set WeaponType 45
+	set ArmorType 10
+	set MoveSpeed 6.0
+	set MovePanicSpeed 6.5
+	set ShotDamage 5
+	set AimTurnRate 300
+	set MeleeDPS 60
+	set FortDamageScalar 0.5
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 200
+	set CarryWeight 300
+	set FireDelay 0.30
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set MoveAnimationSpeed 1.0
+	set PanicAnimationSpeed 0.60
+	set MoveAnimation units/InfantrySpy/InfantrySpy_Walk.aaf
+	set IdleAnimation units/InfantrySpy/InfantrySpy_Idle.aaf
+	set PanicAnimation units/InfantrySpy/InfantrySpy_Run.aaf
+	set FireAnimation "units/InfantrySpy/InfantrySpy_Melee_1.aaf units/InfantrySpy/InfantrySpy_Melee_2.aaf units/InfantrySpy/InfantrySpy_Melee_3.aaf"
+	set AlignToTerrainNormal 0
+	set VisionRange 15
+	set RadarRange 12
+	set Range 9
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantrySpy/InfantrySpyDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantrySpy/InfantrySpyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/InfantrySpy/InfantrySpyDxArm.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantrySpy/InfantrySpyDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Infantry
+	set Name TownSkeleton
+	set StateController InfantryButcher
+	set ModelMat ""
+	set Model units/InfantryLightSkel/InfantryLightSkel_Ref.amf
+	set Material "mat_InfantryLightSkel"
+	//set ModelMatPresent "InfantrySoldier" // use a material that doesn't stealth for present material
+	set BoneFirePoint "bone_flash_L"
+	set BoneAimHorizontal "bone_aim"
+	set RenderScale 1
+	set PowerGen -1
+	set UnitLevelBase 2
+	set WeaponType 45
+	set ArmorType 10
+	set MoveSpeed 1.0
+	set MovePanicSpeed 1.5
+	set ShotDamage 5
+	set AimTurnRate 30
+	set MeleeDPS 5
+	set FortDamageScalar 0.5
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 50
+	set CarryWeight 300
+	set FireDelay 0.30
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set MoveAnimationSpeed 0.2
+	set PanicAnimationSpeed 0.3
+	set MoveAnimation units/InfantrySpy/InfantrySpy_Walk.aaf
+	set IdleAnimation units/InfantrySpy/InfantrySpy_Idle.aaf
+	set PanicAnimation units/InfantrySpy/InfantrySpy_Run.aaf
+	set FireAnimation "units/InfantrySpy/InfantrySpy_Melee_1.aaf units/InfantrySpy/InfantrySpy_Melee_2.aaf units/InfantrySpy/InfantrySpy_Melee_3.aaf"
+	set AlignToTerrainNormal 0
+	set VisionRange 15
+	set RadarRange 12
+	set Range 9
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+
+	
+	set MoveAnimation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf
+	set MoveAnimationSpeed 0.2
+	set PanicAnimation units/InfantryLightSkel/InfantryLightSkel_Walk.aaf
+	set PanicAnimationSpeed 0.3
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxHead.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxBody.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxGun.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryLightSkel/InfantryLightSkelDxLeg.amf /mtl:mat_InfantryLightSkelDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Infantry
+	set Name InfantryButcher
+	set StateController InfantryButcher
+	set Model units/InfantryButcher/InfantryButcher.amf
+	set Material "mat_Infantry"
+	set ModelMat ""
+	set BoneFirePoint "bone_flash_L"
+	set BoneAimHorizontal "bone_aim"
+	set RenderScale "1.25"
+	set PowerGen -2
+	set UnitLevelBase 4
+	set MoveSpeed 4.0
+	set MovePanicSpeed 5.3
+	set ShotDamage 5
+	set AimTurnRate 300
+	set MeleeDPS 120
+	set FortDamageScalar 0.3
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 540
+	set CarryWeight 900
+	set FireDelay 0.30
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set WeaponType 55
+	set ArmorType 10
+	set ShotDodge 0.2	// ability to 'dodge' certain shot types
+	set MoveAnimationSpeed 0.8
+	set PanicAnimationSpeed 0.70
+	set MoveAnimation units/InfantrySpy/InfantrySpy_Walk.aaf
+	set IdleAnimation units/InfantrySpy/InfantrySpy_Idle.aaf
+	set PanicAnimation units/InfantrySpy/InfantrySpy_Run.aaf
+	set FireAnimation "units/InfantrySpy/InfantrySpy_Melee_1.aaf units/InfantrySpy/InfantrySpy_Melee_2.aaf units/InfantrySpy/InfantrySpy_Melee_3.aaf"
+	set AlignToTerrainNormal 0
+	set VisionRange 13
+	set RadarRange 12
+	set Range 9
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryButcher/InfantryButcherDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.1 0.1 0.1] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryHeavy/InfantryHeavyDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "2 1 0  5 2   5 2  /mdl:units/InfantryButcher/InfantryButcherDxArm.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.3 0.6 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryButcher/InfantryButcherDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryButcher
+	set Name Butcher_01
+	set VariantOf InfantryButcher	// for pulling CFG data
+
+add WorldObject initFrom InfantryButcher
+	set Name FF2000
+	set StateController FF2000
+	set Model units/FF2000/FF2000.amf
+	set Material "mat_FF2000"
+	//set ModelMat ""
+	//set ModelMatPresent ""
+	set BoneFirePoint "bone_chute"
+	//set BoneAimHorizontal "bone_root"
+	set ShotDodge 0.5
+	//set RenderScale "1.0"
+	//set RangeArc 360
+	//set ShotDamage 500
+	set FortDamageScalar 0.5
+	set MeleeDPS 100
+	set ArmorType 45.0
+	set WeaponType 45.0
+	//set AimTurnRate 150
+	set FireDelay 0.20
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	//set ShotLifespan 1
+	//set ShotSpeed 40
+	//set ShotAimLeadingEffectiveness 1.0
+	//set NavmeshIndex 1
+	//set ShotLinearDamp 2.0
+	//set CanHitAir 0
+	//set CanHitGround 0
+	//set HasRegularShot 0
+	set SustainFireTime 1.0
+	set ReloadTime 0.5
+	set HitPoints 215
+	set CarryWeight 415
+	set PowerGen -1
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 6.0
+	set CanBePaniced 1
+	set MovePanicSpeed 8.0
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set PanicAnimation units/FF2000/FF2000Run.aaf
+	set MoveAnimation units/FF2000/FF2000Walk.aaf
+	set IdleAnimation units/FF2000/FF2000Idle.aaf
+	set IdleAnimationSpeed 0.25
+	set FireAnimation units/FF2000/FF2000Attack.aaf
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.8
+	set AlignToTerrainNormal 0
+	//set VisionRange 20	// try to use Assassin values
+	//set RadarRange 12
+	//set Range 9 
+	//set TreadMarkDecalDef1 ""
+	//set TreadMarkDecalDef2 ""
+	//set Mass 12.0
+	//set LinearDamp 0.2
+	//set AngularDamp 30.0
+	//set UnitTurnRate 350.0
+	//set MoveWhileTurningMaxAngle 90
+ 	//set MustMoveInFacingDirection 0
+	//set SalvageValue 0
+	//set SalvageTime 4.25
+
+	
+	set DestructionEffects_2  ""
+	set DestructionEffects_3  "1 0.915 0  5 2  5 2  /mdl:units/FF2000/FF2000DxBody.amf /mtl:mat_FF2000Dx /bne:bone_xhead /emt:Y /grp:DebrisM /col [Group DebrisM CapsuleZ 0.4 0.5] /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 0.915 0  5 2  5 2  /mdl:units/FF2000/FF2000Dxhead.amf /mtl:mat_FF2000Dx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /vcb:75 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  5 2  5 2  /mdl:units/FF2000/FF2000DxArm.amf /mtl:mat_FF2000Dx /bne:bone_xshoulder_l /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 0.915 0  5 2  5 2  /mdl:units/FF2000/FF2000DxLeg.amf /mtl:mat_FF2000Dx /bne:bone_xshoulder_r /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "40 0.4 1.2"	//- radius, magnitude, time	
+
+add WorldObject initFrom Infantry
+	set Name InfantryEngineer
+	set StateController InfantryEngineer
+	set BoneFirePoint    "bone_flash_L"
+	set BoneFirePointAlt "bone_flash_R"
+	set BoneAimHorizontal "bone_horiz"
+	set Model units/InfantryEngineer/InfantryEngineer_Ref.amf
+	set ModelMat ""
+	set Material "mat_Infantry mat_TreadPanXHunter<"
+	set RenderScale 1
+	set PowerGen -1
+	set UnitLevelBase 2
+	set MoveSpeed 4.0
+	set MovePanicSpeed 5.0
+	set ShotDamage 30
+	set HasRegularShot 0
+	set HasMissiles 0
+	set HitPoints 350
+	set CarryWeight 450
+	set FireDelay 0.45
+	set FireAltDelay 0
+	set SustainFireTime 0.6
+	set ReloadTime 2.0
+	set WeaponType 20
+	set ArmorType 20
+	set MoveAnimationSpeed 1.2
+	set PanicAnimationSpeed 1.2
+	set MoveAnimation units/InfantryEngineer/InfantryEngineer_Walk.aaf
+	set IdleAnimation units/InfantryEngineer/InfantryEngineer_Idle.aaf
+	set PanicAnimation units/InfantryEngineer/InfantryEngineer_Run.aaf
+	set AlignToTerrainNormal 0
+	set VisionRange 12
+	set RadarRange 12
+	set Range 6
+	set SalvageValue 0
+	set SalvageTime 3
+	set SupplyRepairRate 10 // this drives the unit rez ability, in the same way as the salvage timing mechanic works
+	set SupplyPowerCost 25.0
+	set SupplySourceParticles "" // "NecroRezBath"
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryEngineer/InfantryEngineerDxHead.amf /mmt:InfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/InfantryEngineer/InfantryEngineerDxBody.amf /mmt:InfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryEngineer/InfantryEngineerDxArm.amf /mmt:InfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryEngineer/InfantryEngineerDxLeg.amf /mmt:InfantryDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.3 0.3 0.4] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom Infantry
+	set Name InfantryJetpack
+	set StateController InfantryJetpack
+	set Model units/InfantryJetpack/InfantryJetpack_Ref.amf
+	set ModelMat ""
+	set Material mat_InfantryJetpack
+	set BoneFirePoint    geo_gun
+	set BoneAimHorizontal bone_body
+	set PowerGen -1
+	set UnitLevelBase 3
+	set RenderScale 1
+	set MoveSpeed 4.0
+	set MovePanicSpeed 6.5
+	set WeaponType 10
+	set ArmorType 20
+	set ShotDamage 30
+	set OutpostMultDmg 0.5
+	set HitPoints 275
+	set CarryWeight 500
+	set FireDelay 0.8
+	set FireAltDelay 0.165
+	set DBlastDmg 100			// "Death Blast" Damage
+	set DBlastRMin 0.4			// "Death Blast" Range
+	set DBlastRMax 1.7			// "Death Blast" Range
+	set MoveAnimationSpeed 1.4
+	set PanicAnimationSpeed 1.0
+	set DynamicFlyToRange 20.0
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set MoveAnimation units/InfantryJetpack/Walk.aaf
+	set IdleAnimation units/InfantryJetpack/Idle.aaf
+	set PanicAnimation units/InfantryJetpack/Run.aaf
+	set FlyAnimation units/InfantryJetpack/Fly.aaf
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxHead.amf /mtl:mat_InfantryJetpackDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"
+
+
+add WorldObject initFrom Infantry
+	set Name InfantrySneak
+	//set StateController InfantrySneak
+	set PilotScanArc 45 //Detects pilot in this range doubled (frome center +-)
+	//set Attachments "effects/ScanVisionGeo.amf UnitScanVision< bone_root /fx"
+	//set Attachments "effects/AegisLaser.amf mat_LaserGlow< bone_root /fx" //exact aegis setup
+	set Attachments "effects/ScanVisionGeoSmall.amf mat_LaserGlow< bone_abduct /fx" // still not working?
+	set FireDelayStasisMult 0.1
+	set ChaseAirmech 1
+	set HitPoints 100
+	set ShotDamage 14
+
+add WorldObject initFrom Infantry
+	set Name InfantryBroken
+	set HitPoints 10
+	set StateController InfantryBroken
+	set PilotScanArc 45 //Detects pilot in this range doubled (frome center +-)
+	//set Attachments "effects/ScanVisionGeoSmall.amf mat_LaserGlow< bone_abduct /fx" // still not working?
+	set ShotDamage 0
+	set MoveAnimation units/Infantry/InfantryWalkBroken.aaf
+	set IdleAnimation units/Infantry/InfantryIdleBroken.aaf
+	set BoneAimHorizontal ""
+	set MoveSpeed .5
+	set MoveAnimationSpeed 1
+	set CanBePaniced 0
+	set PickupSpawnOnDestroy AnyPartChance
+
+
+add WorldObject initFrom Infantry
+	set Name InfantryJetpackX
+	set StateController InfantryJetpack
+	set Model rooks/Striker/Striker_Export.amf
+	set Material mat_FighterClassic
+	set BoneFirePoint    geo_gun
+	set BoneAimHorizontal bone_ribs
+	set PowerGen -1
+	set RenderScale 1
+	set MoveSpeed 3.5
+	set MovePanicSpeed 6.5
+	set WeaponType 10
+	set ArmorType 10
+	set ShotDamage 35
+	set OutpostMultDmg 0.5
+	set HitPoints 325
+	set CarryWeight 500
+	set FireDelay 0.8
+	set FireAltDelay 0.165
+	set DBlastDmg 50			// "Death Blast" Damage
+	set DBlastRMin 1.4			// "Death Blast" Range
+	set DBlastRMax 3.7			// "Death Blast" Range
+	set MoveAnimationSpeed 1.4
+	set PanicAnimationSpeed 1.0
+	set DynamicFlyToRange 20.0
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set MoveAnimation rooks/Striker/Striker_Jog.aaf
+	set IdleAnimation rooks/Striker/Striker_Stand.aaf
+	set PanicAnimation rooks/Striker/Striker_Jog.aaf
+	set FlyAnimation rooks/Striker/Striker_Transform.aaf
+
+	set DestructionEffects_3  "1 1 0  10 5  5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxHead.amf /mtl:mat_InfantryJetpackDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/InfantryJetpack/InfantryJetpackDxRocket.amf /mtl:mat_InfantryJetpackDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:20 /reqVis /pval:1"

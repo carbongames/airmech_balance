@@ -1,0 +1,86 @@
+// ===========================
+// New "Osprey" to setup anims
+// ===========================
+#include OspreyBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+GndMesh = rooks/OspreyV2/Osprey_Robot.amf
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/OspreyV2/Osprey_TransformDown.aaf
+GroundToAirAnim = rooks/OspreyV2/Osprey_TransformUp.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.333	// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.7 		// was 1.9 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+GroundMoveCycleAnimSpeedMult = 0.15  //.11
+GroundMoveBackCycleAnimSpeedMult = 0.17  //.15
+HeadLookBone = bone_head_game
+UpperBodyAimBone = bone_spine_game
+
+HatBoneScaled = ""
+HatBone = bone_skull
+HatOffset = "0 0.03 -0.12"
+
+HatHeadBone = bone_skull
+HatHeadBoneScaled = mesh_head1
+HatHeadOffset = "0 0.03 -0.05"
+
+
+AirProjFireBone1 = "bone_gun_r"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_gun_l"
+AirProjFireOffset2 = "0 0 0"
+
+GndProjFireBone1 = "bone_barrel_r"
+GndProjFireOffset1 = "0.0 0.0 0.0"
+GndProjFireBone2 = "bone_barrel_l"
+GndProjFireOffset2 = "0.0 0.0 0.0"
+
+HealBeamPointBone1 = "bone_hand_r"
+HealBeamPointBone2 = "bone_hand_l"
+
+GroundIdleAnim = rooks/OspreyV2/Osprey_Stand.aaf
+GroundMoveCycleAnim_Fwd = rooks/OspreyV2/Osprey_JogForward.aaf
+GroundMoveCycleAnim_Back = rooks/OspreyV2/Osprey_JogBack.aaf
+GroundMoveCycleAnim_Left = rooks/OspreyV2/Osprey_TurnL.aaf
+GroundMoveCycleAnim_Right = rooks/OspreyV2/Osprey_TurnR.aaf
+
+FiringAnimation = rooks/OspreyV2/Osprey_StandShoot.aaf
+FiringAnimation_MoveFwd = rooks/OspreyV2/Osprey_JogForwardShoot.aaf
+FiringAnimation_MoveBack = rooks/OspreyV2/Osprey_JogBackShoot.aaf
+
+Taunts = rooks/OspreyV2/Osprey_Taunt1.aaf, rooks/OspreyV2/Osprey_Taunt2.aaf, rooks/OspreyV2/Osprey_Taunt3.aaf, rooks/OspreyV2/Osprey_Taunt4.aaf
+
+AbilityChargeUpLoop = rooks/OspreyV2/Osprey_Heal.aaf
+RecoveryAnim = rooks/OspreyV2/Osprey_Recover.aaf
+
+GroundIdleAnimGlide =  rooks/OspreyV2/Osprey_Jump.aaf
+GroundMoveCycleAnim_FwdGlide =  rooks/OspreyV2/Osprey_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide = rooks/OspreyV2/Osprey_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide = rooks/OspreyV2/Osprey_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/OspreyV2/Osprey_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_exhaust_r"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_exhaust_l"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_tailtip_r"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_tailtip_l"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"

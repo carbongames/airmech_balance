@@ -1,0 +1,63 @@
+add WorldObject initFrom TemplateTurret
+	set Name BankSmall
+	set StateController BankVault
+	set Model "units/BankSmall/BankSmall.amf"
+	set Material "mat_Bank"
+	set RangeArc 360
+	set PowerGen -1
+	set ArmorType 65
+	set WeaponType 1
+	set HitPoints 1500
+	set CarryWeight 1500
+	set HasRegularShot 0
+	set HasMissiles 0
+	set MoveSpeed 0
+	set SalvageValue 750
+	set SalvageTime 5.25
+
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/BankSmall/BankDxTop1.amf /mtl:mat_BankDx /bne:bone_xbase /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.8 0.4 0.8] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxCorner1.amf /mtl:mat_BankDx /bne:bone_xside1 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.2 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxCorner1.amf /mtl:mat_BankDx /bne:bone_xside2 /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.2 0.6] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxPanel1.amf /mtl:mat_BankDx /bne:bone_xside3 /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxPanel1.amf /mtl:mat_BankDx /bne:bone_xside4 /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.2 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom BankSmall
+	set Name BankSmallSp1
+	set HitPoints 4000
+	set CarryWeight 4000
+	set OverrideCreditsPaidForUnit 6000
+	set AllowNeutralPickup 1
+	set SalvageValue 750
+	set SalvageTime 5.25
+
+add WorldObject initFrom BankSmall
+	set Name BankMedium
+	set Model "units/BankMedium/BankMedium.amf"
+	set PowerGen -2
+	set ArmorType 80
+	set WeaponType 1
+	set HitPoints 1750
+	set CarryWeight 1750
+	set OverrideCreditsPaidForUnit 6000
+	set HealRateMod 0.25
+	set SalvageValue 1700
+	set SalvageTime 6
+
+	set DestructionEffects_8   "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxWheel.amf /mtl:mat_BankDx /bne:bone_xtop /emt:Y /grp:Debris /col [Group Debris  Sphere 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9   "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxArm.amf /mtl:mat_BankDx /bne:bone_xside4 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom BankSmall
+	set Name BankLarge
+	set Model "units/BankLarge/BankLarge.amf"
+	set PowerGen -3
+	set ArmorType 95
+	set WeaponType 1
+	set HitPoints 3000
+	set CarryWeight 3000
+	set OverrideCreditsPaidForUnit 6000
+	set HealRateMod 0.1
+	set SalvageValue 3900
+	set SalvageTime 6.75
+
+	set DestructionEffects_8   "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxWheel.amf /mtl:mat_BankDx /bne:bone_xtop /emt:Y /grp:Debris /col [Group Debris Sphere 0.5] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_9   "1 1 0  5 2   5 2  /mdl:units/BankSmall/BankDxArm.amf /mtl:mat_BankDx /bne:bone_xside4 /emt:H /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"

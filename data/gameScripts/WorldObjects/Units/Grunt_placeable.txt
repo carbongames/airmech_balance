@@ -1,0 +1,108 @@
+// Grunts
+//
+add WorldObject initFrom TemplateInfantry
+	set Name GruntUzi
+	set StateController Infantry
+	set Model units/GruntUzi/GruntUzi_Ref.amf
+	set Material "mat_Grunt"
+	set RenderScale "1.1"
+	set RangeArc 360
+	set BoneFirePoint    "bone_flash_L"
+	set BoneFirePointAlt "bone_flash_R"
+	set BoneAimHorizontal "bone_aim"
+	set ShotFireSounds FiringRifle.wav
+	set WeaponType 25.0
+	set ShotDamage 3
+	set OutpostMultDmg 1.5
+	set AimTurnRate 150
+	set FireDelay 0.330
+	set FireAltDelay 0.165
+	set ShotDodge 0.8	// ability to 'dodge' certain shot types
+	set ShotMuzzleFlash "MuzzleFlash"
+	set ShotFFParticles WhiteTrail
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set NavmeshIndex 1
+	set ShotDamageVelocityInfluence 0.75
+	set CanHitAir 1
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set MoveSpeed 6.0
+	set MovePanicSpeed 8.0
+	set HitPoints 120
+	set CarryWeight 320
+	set MoveAnimationSpeed 1.4
+	set PanicAnimationSpeed 1.0
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 20
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set CanBePaniced 1
+	set PanicedByRookRadius 10.0
+	set PanicCooldownTimer 2.0
+	set PanicDuration 3.0
+	set ArmorType 25.0
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	
+	set DestroyDecal ""
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+	
+	set MoveAnimation units/InfantryLight/InfantryLight_Walk.aaf
+	set IdleAnimation units/InfantryLight/InfantryLight_Idle.aaf
+	set PanicAnimation units/InfantryLight/InfantryLight_Run.aaf
+	set FireAnimation units/InfantryLight/InfantryLight_Fire.aaf
+	
+	set DestructionEffects_3  "1 0.915 0  10 5  5 2  /mdl:units/Infantry/InfantryDxHead2.amf /mtl:mat_UnitInfantryDx /bne:bone_xhead /emt:Y /grp:Debris /col [Group Debris Sphere 0.2] /skt:5 /vcb:100 /reqVis"
+	set DestructionEffects_4  "1 0.915 0  4 0   5 2  /mdl:units/Infantry/InfantryDxBody2.amf /mtl:mat_UnitInfantryDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 0.825 0  4 0   5 2  /mdl:units/Infantry/InfantryDxArm1.amf /mtl:mat_UnitInfantryDx /bne:bone_xshoulder2 /emt:Y /grp:Debris /col [Group Debris Sphere 0.2]  /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 0.915 0  4 0   5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mtl:mat_UnitInfantryDx /bne:bone_xshoulder1 /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 0.915 0  4 0   5 2  /mdl:units/Infantry/InfantryDxGun2.amf /mtl:mat_UnitInfantryDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2]  /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "0 0 0"	//- radius, magnitude, time
+	
+add WorldObject initFrom GruntUzi
+	set Name GruntShield
+	set Model units/GruntShield/GruntShield_Ref.amf
+	set BoneFirePoint    "bone_flash_R"
+	
+add WorldObject initFrom GruntUzi
+	set Name GruntSwords
+	set StateController InfantrySpy
+	set Model units/GruntSwords/GruntSwords_Ref.amf
+	set Material "mat_GruntStealth"
+	set BoneFirePoint "bone_flash_L"
+	set BoneAimHorizontal "bone_aim"
+	set RenderScale "1.1"
+	set MoveSpeed 4.5
+	set MovePanicSpeed 6.5
+	set ShotDamage 5
+	set AimTurnRate 300
+	set MeleeDPS 50
+	set CanHitAir 0
+	set CanHitGround 0
+	set HasRegularShot 0
+	set HitPoints 350
+	set CarryWeight 350
+	set FireDelay 0.10
+	set MoveAnimationSpeed 1.0
+	set PanicAnimationSpeed 0.60
+	set MoveAnimation units/InfantrySpy/InfantrySpy_Walk.aaf
+	set IdleAnimation units/InfantrySpy/InfantrySpy_Idle.aaf
+	set PanicAnimation units/InfantrySpy/InfantrySpy_Run.aaf
+	set FireAnimation "units/InfantrySpy/InfantrySpy_Melee_1.aaf units/InfantrySpy/InfantrySpy_Melee_2.aaf units/InfantrySpy/InfantrySpy_Melee_3.aaf"
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 20
+	set Range 9

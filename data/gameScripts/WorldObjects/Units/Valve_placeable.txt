@@ -1,0 +1,64 @@
+
+
+add WorldObject initFrom TemplateMedium
+	set Name TurretPortal
+	set StateController TurretPortal
+	set Model units/TurretPortal/TurretPortal.amf
+	set Material "mat_TurretPortal"	
+	set RangeArc 45
+	set BoneFirePoint "mesh_barrel_l"
+	set BoneFirePointAlt "mesh_barrel_r"
+	set BoneAimHorizontal "bone_body"
+	set BoneAimVertical ""
+	set ShotFireSounds units/turretchain/TurretChainFire.wav
+	set ShotProjEffects ChainGunTurretShell
+	set SalvageValue 137.5
+	set SalvageTime 3.25
+	set PowerGen -1
+	set WeaponType 1.0
+	set ArmorType 25.0
+	//set CanAimToward 0
+	set ShotDamage 15
+	set SustainFireTime 3.0
+	set ReloadTime 1.0
+	set ShotSpeed 100
+	set ShotLifespan 0.4
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set ShotAimWiggle 150
+	set AimTurnRate 500
+	set ShotAimLeadingEffectiveness 0.9
+	set RotationResetDelay 2.0
+	set RotationResetDelayRandom 5.0
+	set AimWanderSpeed 0.5
+	set RotationWanderPeriod 2.0
+	set RotationWanderMaxArc 40.0
+	set FireDelay 0.075
+	set FireAnimSpeed 2.0
+	set HitPoints 400
+	set CarryWeight 400
+	set VisionRange 22
+	set RadarRange 16
+	set Range 18
+	set FireAnimation units/TurretPortal/TurretFire.aaf
+	set DeployAnim units/TurretPortal/LegsDown.aaf
+	set AttackPrepareAnim units/TurretPortal/DoorsOpen.aaf
+	set AttackRelaxAnim units/TurretPortal/DoorsClose.aaf
+	set HasRegularShot 1
+ 	set HasMissiles 0
+	set NeedToAimToFireMissiles 0
+	set CanHitAir 0
+	set CanHitGround 1
+	set MoveSpeed 0.0
+	set NavmeshObstacle 2
+	set Mass 1000000000.0
+	set LinearDamp 100.0
+	set AngularDamp 3.0
+	set Attachments "units/TurretPortal/PortalLaser.amf mat_LaserGlow< bone_body /fx"
+	
+	set DestructionEffects_3  "1 1 0  10 5  0 0  MediumSmoke ExplosionFire FireBurnBig /dcl:shotGroundImpacts /dch:80 /mdl:units/TurretPortal/TurretPortalDxBody.amf /mtl:mat_TurretPortalDx /bne:bone_xbase /emt:Y /wgl:200 /grp:DebrisM /col [Group DebrisM Box 0.3 0.8 0.3] /mas:1000 /skt:5 /canReclaim"
+	set DestructionEffects_4  "1 1 0  5 2   5 2  /mdl:units/TurretPortal/TurretPortalDxGun.amf /mtl:mat_TurretPortalDx /bne:bone_xgun_l /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_5  "1 1 0  5 2   5 2  /mdl:units/TurretPortal/TurretPortalDxGun.amf /mtl:mat_TurretPortalDx /bne:bone_xgun_r /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 1 0  5 2   5 2  /mdl:units/TurretPortal/TurretPortalDxLegFront.amf /mtl:mat_TurretPortalDx /bne:bone_xleg_l /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.4 0.4] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7  "1 1 0  5 2   5 2  /mdl:units/TurretPortal/TurretPortalDxLegFront.amf /mtl:mat_TurretPortalDx /bne:bone_xleg_r /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.4 0.4] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_8  "1 1 0  5 2   5 2  /mdl:units/TurretPortal/TurretPortalDxLegBack.amf /mtl:mat_TurretPortalDx /bne:bone_xback /emt:H /grp:Debris /col [Group Debris Box 0.4 0.4 0.4] /skt:5 /lte:50 /vcb:20 /pval:1"

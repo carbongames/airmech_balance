@@ -1,0 +1,92 @@
+// ===========================
+// New "Neo" to setup anims
+// ===========================
+#include FighterNeoBase.txt
+
+// ===============
+// Visual Elements
+// ===============
+//
+
+GndMesh = rooks/FighterNeo/FighterNeo_Ref.amf
+GndMaterialAlt = mat_AirMechFighterNeo
+GndModelMatAlt = AirMechFighterNeo
+
+AirMechAnimV = 2
+
+AirToGroundAnim = rooks/FighterNeo/FighterNeo_ToBot.aaf
+GroundToAirAnim = rooks/FighterNeo/FighterNeo_ToVehicle.aaf
+
+CameraTransitionTimeToGnd = 0.16 //0.35				// - time to make camera transition - in seconds - for air<->group offsets transition
+
+TransformTime_ToRobot = 0.3
+TransformTime_ToAir = 0.7
+AnimSpeedToRobot = 1.333	// was 1.0 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 1.333)
+AnimSpeedToAir = 0.7		// was 0.715 - this is now set in seconds, and the code will compute the speed based on animation length (anim len 0.5)
+GroundMoveCycleAnimSpeedMult = 0.11
+GroundMoveBackCycleAnimSpeedMult = 0.15
+HeadLookBone = bone_head_aim
+UpperBodyAimBone = bone_spine_aim
+
+HatBoneScaled = geo_ears
+HatBone = bone_hat
+HatOffset = "0 0 -0.3"
+
+HatHeadOffset = "0 -.06 -0.3"
+
+AirProjFireBone1 = "bone_weapon1"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_weapon2"
+AirProjFireOffset2 = "0 0 0"
+
+GndProjFireBone1 = "bone_flash_R"
+GndProjFireOffset1 = "0.0 0.0 0.0"
+GndProjFireBone2 = "bone_flash_L"
+GndProjFireOffset2 = "0.0 0.0 0.0"
+
+
+GroundIdleAnim = rooks/FighterNeo/FighterNeo_Idle.aaf
+
+
+GroundMoveCycleAnim_Fwd = rooks/FighterNeo/FighterNeo_Run_Fwd.aaf
+GroundMoveCycleAnim_Back = rooks/FighterNeo/FighterNeo_Run_Bwd.aaf
+
+
+GroundMoveCycleAnim_Left = rooks/FighterNeo/FighterNeo_Turn_L.aaf
+GroundMoveCycleAnim_Right = rooks/FighterNeo/FighterNeo_Turn_R.aaf
+
+FiringAnimation = rooks/FighterNeo/FighterNeo_Shoot.aaf
+FiringAnimation_MoveFwd = rooks/FighterNeo/FighterNeo_Shoot_Run_Fwd.aaf
+FiringAnimation_MoveBack = rooks/FighterNeo/FighterNeo_Shoot_Run_Bwd.aaf
+
+Taunts = rooks/FighterNeo/FighterNeo_Taunt_1.aaf, rooks/FighterNeo/FighterNeo_Taunt_2.aaf
+
+ActivatedAbilityAnim = rooks/FighterNeo/FighterNeo_Emp.aaf
+ActivatedAbilityAnimMoving = rooks/FighterNeo/FighterNeo_Emp_Moving.aaf
+
+GndSpecialOnAnim = rooks/FighterNeo/FighterNeo_Invis_In.aaf
+GndSpecialOffAnim = rooks/FighterNeo/FighterNeo_Invis_Out.aaf
+
+RecoveryAnim = rooks/FighterNeo/FighterNeo_Recover.aaf
+
+GroundIdleAnimGlide = rooks/FighterNeo/FighterNeo_Jump.aaf
+GroundMoveCycleAnim_FwdGlide   = rooks/FighterNeo/FighterNeo_Jump_F.aaf
+GroundMoveCycleAnim_BackGlide  = rooks/FighterNeo/FighterNeo_Jump_B.aaf
+GroundMoveCycleAnim_LeftGlide  = rooks/FighterNeo/FighterNeo_Jump_L.aaf
+GroundMoveCycleAnim_RightGlide = rooks/FighterNeo/FighterNeo_Jump_R.aaf
+
+// JumpBoostContrails for jump/glide anims
+//
+RequiredSpeedForJumpBoostContrails = 1.0
+JumpBoostContrailsBone1 = "bone_fin_U_R"
+JumpBoostContrailsOffset1 = "0 0 0"
+JumpBoostContrailsBone2 = "bone_fin_U_L"
+JumpBoostContrailsOffset2 = "0 0 0"
+JumpBoostContrailsBone3 = "bone_cuisse_R"
+JumpBoostContrailsOffset3 = "0 0 0"
+JumpBoostContrailsBone4 = "bone_cuisse_L"
+JumpBoostContrailsOffset4 = "0 0 0"
+JumpBoostContrailsPfx1 = "ContrailsJump"
+JumpBoostContrailsPfx2 = "ContrailsJump"
+JumpBoostContrailsPfx3 = "ContrailsJump"
+JumpBoostContrailsPfx4 = "ContrailsJump"

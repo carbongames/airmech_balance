@@ -1,0 +1,128 @@
+add WorldObject initFrom TemplateSmall
+	set Name Bike
+	set StateController Bike
+	set Model "units/bike/UnitBike.amf"
+	set Material "mat_UnitBike"
+	set RangeArc 180
+	set BoneFirePoint "bone_gun_r"
+	set BoneFirePointAlt "bone_gun_l"
+	set ShotFireSounds FiringRifle.wav
+	set DestroySounds DestroyBike.wav
+	set PowerGen -1
+	set UnitLevelBase 2
+	set ShotDamage 24
+	set AimTurnRate 120
+	set ShotAimLeadingEffectiveness 0.5
+	set FireDelay 0.60	// original value 1.0
+	set FireAltDelay 0.30
+	set ShotSpeed 100
+	set ShotLifespan 0.3
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles ChaingunTrail
+	set HitPoints 375
+	set CarryWeight 375
+	set ArmorType 20.0
+	set WeaponType 10
+	set AtTargetDistance 1.0
+	set MoveSpeed 12.0
+	set TerrainNormalAdjustmentRate 0.1
+	set IdleAnimation units/Bike/Idle.aaf
+	set MoveAnimation units/Bike/Drive.aaf
+	set MoveAnimationSpeed 0.3
+	set VisionRange 20
+	set RadarRange 24
+	set Range 15
+	set AtTargetDistance 1.25
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set Mass 1.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 50
+	set UnitTurnRate 200.0
+	set MustMoveInFacingDirection 1
+	set MoveWhileTurningMaxAngle 18.0 // this makes me slow down (by 'deceleration') going into steeper turns
+	set FireArcForNoZTurret 10.0
+	set FireArcForNoZTurretWhileMoving 10.0
+	set ThreePointTurn 0.3
+	set Acceleration 8.5
+	set Deceleration 25.0
+	set SalvageValue 144
+	set SalvageTime 3
+	set ZSpinDefs "mesh_wheel_f 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_b 200.0 /wheel"
+	set PickupSpawnOnDestroy AnyPartChance
+	set PickupSpawnOnDestroyChance 1
+
+
+	set DestructionEffects_3 "1 1 0  10 5  0 0  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:units/Bike/BikeDxBody.amf /mtl:mat_UnitBikeDx /bne:bone_xfront /emt:Y /mas:1000 /grp:DebrisM /col [Group DebrisM Box 0.2 0.8 0.25] /skt:5 /canReclaim"
+	set DestructionEffects_4 "1 1 0  7 5   5 2  /mdl:units/ArmoredCar/ArmoredCarDxTire.amf /mtl:mat_ArmoredCarDx /bne:bone_xwheel1 /emt:Y /grp:Debris /col [Group Debris Sphere 0.3] /skt:5 /lte:50 /vcb:40 /pval:1"
+	set DestructionEffects_6 "1 1 0  5 2   5 2  /mdl:units/Bike/BikeDxGuard.amf /mtl:mat_UnitBikeDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+	set DestructionEffects_7 "1 1 0  5 2   5 2  /mdl:units/Bike/BikeDxCanopy.amf /mtl:mat_UnitBikeDx /bne:bone_xglass /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.3 0.2] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+add WorldObject initFrom Bike
+	set Name BikeSurvival
+	set UnitSpawnOnDestroy ""
+	set UnitSpawnOnDestroyChance 0
+	set Range 18 // increased attack range
+	set VisionRange 18
+	set MoveSpeed 11
+
+add WorldObject initFrom Bike
+	set Name BikeSidecar
+	set StateController BikeSidecar
+	set Model "units/BikeSidecar/UnitBikeCar.amf"
+	set Material "mat_UnitBike"
+	set RangeArc 180
+	set BoneFirePoint "bone_gun_r"
+	set BoneAimVertical "bone_gun_base"
+	set BoneAimHorizontal "bone_gun_base"
+	set ShotFireSounds FiringRifle.wav
+	set DestroySounds DestroyBike.wav
+	set PowerGen -1
+	set UnitLevelBase 2
+	set ShotDamage 24
+	set AimTurnRate 120
+	set UnitTurnRate 200
+	set ShotAimLeadingEffectiveness 0.5
+	set FireDelay 0.6	// original value 1.0
+	set FireAltDelay 0.3
+	set ShotSpeed 100
+	set ShotLifespan 0.3
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set HitPoints 475
+	set CarryWeight 575
+	set ArmorType 20.0
+	set WeaponType 10.0
+	set AtTargetDistance 1.0
+	set MoveSpeed 12.0
+	set TerrainNormalAdjustmentRate 0.1
+	set IdleAnimation units/BikeSidecar/Idle.aaf
+	set MoveAnimation units/BikeSidecar/Drive.aaf
+	set MoveAnimationSpeed 0.3
+	set VisionRange 20
+	set RadarRange 24
+	set Range 18
+	set AtTargetDistance 1.25
+	set Mass 30.0
+	set LinearDamp 1.2
+	set AngularDamp 3.0
+	set UnitSpawnOnDestroy InfantryLight
+	set UnitSpawnOnDestroyChance 50
+	set UnitSpawnOnDestroyChance2 50
+	set UnitTurnRate 180.0
+	set MustMoveInFacingDirection 1
+	set ThreePointTurn 0.35
+	set Acceleration 8.5
+	set Deceleration 25.0
+	set SalvageValue 168
+	set SalvageTime 3
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set ZSpinDefs "mesh_wheel_f 200.0 /wheel"
+	set ZSpinDefs "mesh_wheel_b 200.0 /wheel"
+	set ZSpinDefs "mesh_sidecar_wheel 200.0 /wheel"
+
+	set DestructionEffects_6 "1 1 0  10 5   5 2  /mdl:units/Bike/BikeDxSideCar.amf /mtl:mat_UnitBikeDx /bne:bone_xback /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.5 0.3] /skt:5 /lte:50 /vcb:75 /pval:1"

@@ -1,0 +1,141 @@
+add WorldObject initFrom TemplateInfantry
+	set Name InfantryCreep
+	set Model units/InfantryCreep/InfantryCreep.amf
+	set Material mat_InfantryCreep
+	set StateController Creep
+	set RenderScale 0.85
+	set RangeArc 360
+	set BoneFirePoint mesh_head   // todo - update to be: bone_fp
+	set BoneAimHorizontal bone_waist
+	//set BoneAimVertical bone_shoulders
+	set ShotFireSounds FiringRifle.wav
+	set UnitLevelBase 1
+	set ArmorType 1.0
+	set WeaponType 10.0
+	set ShotDamage 18
+	set OutpostMultDmg 0.67
+	set AimTurnRate 250
+	set FireDelay 0.40
+	set ShotMuzzleFlash MuzzleFlash
+	set ShotFFParticles WhiteTrail
+	set ShotLifespan 1
+	set ShotSpeed 40
+	set ShotAimLeadingEffectiveness 1.0
+	set CanHitAir 1
+	set PowerGen 0
+	set HitPoints 150
+	set CarryWeight 230
+	set Acceleration 20.0		// - high acceleration so it's not noticable
+	set Deceleration 30.0
+	set NavmeshIndex 1
+	set SalvageValue 0
+	set SalvageTime 2.05
+	
+	set MoveSpeed 3.5
+	set MoveAnimation units/InfantryCreep/InfantryCreepRun.aaf
+	set IdleAnimation units/InfantryCreep/InfantryCreepIdle.aaf
+	set FireAnimation units/InfantryCreep/InfantryCreepShoot.aaf
+	set MoveAnimationSpeed 0.7
+	set PanicAnimationSpeed 0.8
+	set AlignToTerrainNormal 0
+	set VisionRange 20
+	set RadarRange 0
+	set Range 14
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	
+	//set PanicAnimation units/InfantryLight/InfantryRun.aaf
+	//set CanBePaniced 1
+	//set MovePanicSpeed 4.0
+	//set PanicedByRookRadius 10.0
+	//set PanicCooldownTimer 2.0
+	//set PanicDuration 3.0
+	
+	set Mass 12.0
+	set LinearDamp 0.2
+	set AngularDamp 30.0
+	
+	set UnitTurnRate 350.0
+	set MoveWhileTurningMaxAngle 90
+ 	set MustMoveInFacingDirection 0
+	
+	set DestroyDecal ""
+	set TerminationParticles ""
+	set TerminationEffect ""
+	set DestroySounds DestroyInfantry.wav
+	set UnitDamage40 ""
+	set UnitDamage70 ""
+	set UnitDamage90 ""
+
+	set DestructionEffects_3  "1 0.85 0  10 5  5 2  /mdl:units/Infantry/InfantryDxHead5.amf /mtl:mat_InfantryCreepDx /bne:bone_xhead /emt:Y /grp:DebrisM /col [Group DebrisM Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:100 /reqVis /pval:1"
+	set DestructionEffects_4  "1 0.85 0  5 5   5 2  /mdl:units/Infantry/InfantryDxBody5.amf /mtl:mat_InfantryCreepDx /bne:bone_xupper /emt:Y /grp:Debris /col [Group Debris Box 0.3 0.3 0.3] /trq:-50 /skt:5 /vcb:40 /pval:1"
+	set DestructionEffects_5  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDxArm3.amf /mtl:mat_InfantryCreepDx /bne:bone_xshoulder2 /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-100 /skt:5 /vcb:20 /pval:1"
+	set DestructionEffects_6  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDxLeg1.amf /mtl:mat_UnitInfantryDx /bne:bone_xshoulder1 /grp:Debris /col [Group Debris Box 0.2 0.2 0.4] /trq:-100 /skt:5 /vcb:20 /pval:1"
+	set CameraShakeOnDestroyed "0 0 0"	//- radius, magnitude, time
+	
+add WorldObject initFrom InfantryCreep
+	set Name InfantryCreepL1
+	set Model units/InfantryCreepL1/InfantryCreepL1.amf
+	set RenderScale ".85"
+	set UnitLevelBase 1
+	set MoveSpeed 3.5
+	set ArmorType 10.0
+	set WeaponType 20.0
+	set ShotDamage 6
+	set FireDelay 0.10
+	set HitPoints 230
+	set CarryWeight 230
+	set SalvageValue 0
+	set SalvageTime 2.5
+
+	set DestructionEffects_7  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDXGun7.amf /mtl:mat_InfantryCreepDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryCreep
+	set Name InfantryCreepL2
+	set Model units/InfantryCreepL2/InfantryCreepL2.amf
+	set RenderScale ".875"
+	set UnitLevelBase 2
+	set MoveSpeed 3.5
+	set ArmorType 15.0
+	set WeaponType 40.0
+	set ShotDamage 54
+	set FireDelay 0.80
+	set HitPoints 270
+	set CarryWeight 300
+	set SalvageValue 0
+	set SalvageTime 2.75
+
+	set DestructionEffects_7  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDXGun6.amf /mtl:mat_InfantryCreepDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"
+
+add WorldObject initFrom InfantryCreep
+	set Name InfantryCreepL3
+	set Model units/InfantryCreepL3/InfantryCreepL3.amf
+	set RenderScale ".9"
+	set UnitLevelBase 2
+	set MoveSpeed 3.5
+	//set MovePanicSpeed 4.0
+	set ArmorType 20.0
+	set WeaponType 45.0
+	set HitPoints 300
+	set CarryWeight 300
+	set FireDelay 1.0
+	set MoveAnimationSpeed 0.8
+	set PanicAnimationSpeed 0.8
+	set MissileFireSounds FiringInfantryRocket.wav
+	set HasRegularShot 0
+	set HasMissiles 1
+	set MissileIsHoming 1
+	set MissileWiggle 300
+	set CanHitAir 1
+	set CanHitGround 1
+	set MissileProjEffects InfRocket
+	set MissileDamage 70
+	set MissileSpeed 20
+	set MissileLifespan 4
+	set SalvageValue 0
+	set SalvageTime 3
+	set MissileModel effects/RocketMini.amf
+	set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+
+	set DestructionEffects_7  "1 0.85 0  5 2   5 2  /mdl:units/Infantry/InfantryDXGun8.amf /mtl:mat_InfantryCreepDx /bne:bone_xgun /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.4 0.2] /trq:-50 /skt:5 /vcb:20 /pval:1"

@@ -1,0 +1,758 @@
+add WorldObject initFrom TemplateLarge
+	set Name Boss01_Turret
+	set StateController Boss01_Turret
+	set Model Units/Bosses/BossTopAnim.amf
+	set Material "mat_Boss01Top<"
+	//set RangeArc 360
+	set RangeArc 360  //Stops Top from rotating all cray
+	set RenderScale .5
+	set AimTurnRate 85
+	set RotationResetDelay 8
+	set HitPoints 200000 // more than base - base drives health
+	set CarryWeight 35000
+	set WeaponType 180
+	set ArmorType 95.0
+	set VisionRange 34
+	set RadarRange 22
+	set Range 30
+	set DeployAnim Units/Bosses/BossTopTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossTopIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossTopTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossTopWalkForward.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossTopIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossTopDeath.aaf
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossTopFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossTopFRLegHurtOutro.aaf
+
+
+	set MoveSpeed 0.8
+	set Mass 10000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set CanHitAir 1
+
+	set CanHitGround 1
+
+	set UnitLatches "TurretDual /bone bone_unit_attach_a /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "TurretDual /bone bone_unit_attach_b /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+
+	// unit spawning hackery
+	//set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set MissileWiggle 400
+	set MissileIsHoming 0
+	set MissileLifespan 2.0
+	set MissileSpeed 15
+
+	set HasRegularShot 1
+
+	//From Artys
+	set FireDelay 0.2
+	set FireAltDelay 0.0
+	//set FireDelayNoPower 0.2
+	set FireAnimSpeed 1
+	set SustainFireTime 0.2
+	set ReloadTime 3
+	//From Artys
+	set SustainFireTime 0.3
+
+	// Raising damage and slowing shot rate
+	//set ShotDamage 75.0
+	set ShotDamage 1200
+	//set FireDelay 0.75
+	//set FireDelay 4
+	//set FireAltDelay 0.33
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	set ShotSpeed 70
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.0
+	set ShotDamageVelocityInfluence 0.0
+	//set ShotMuzzleFlash MuzzleFlash
+	//set ShotFFParticles WhiteTrail
+
+	//set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	//set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash MuzzleFlashTankLarge
+	set ShotFFParticles ChaingunTrailBig
+
+	set BoneFirePoint "bone_gun_r_fire"
+	set BoneFirePointAlt "bone_gun_l_fire"
+	set BoneAimHorizontal "bone_game_horz"  // 0 0 0 forward - y, right - x, up - z
+	set BoneAimVertical "bone_game_vert"  // 0 0 90 forward - x, left - y, up - z
+	set FireAnimation Units/Bosses/BossTopFireLeft.aaf
+	set FireAnimationAlt Units/Bosses/BossTopFireRight.aaf
+
+	set RotationWanderPeriod 6.0		// - time basis for turret rotation wandering, in seconds
+	set RotationWanderMaxArc 12.0		// - max arc/turning for turret rotation wandering
+	set AimWanderSpeed 0.3				// - delta time multiplier for aim wandering when idle
+	set AbductRes 0.0
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+add WorldObject initFrom TemplateBossQuad
+	set Name Boss01
+	set StateController Boss01
+	set Model Units/Bosses/BossBottomAnim.amf
+	set Material "mat_Boss01Bottom<"
+	// set Material "mat_BossTop01<"
+	set RangeArc 360
+	set RenderScale .5
+	//set AimTurnRate 80
+	set AimTurnRate 0
+	//set RotationResetDelay 8
+	set RotationResetDelay 0
+	set HitPoints 20000 // Removing killable health setting
+	set CarryWeight 35000
+	//set HealRateMod 0.25
+	//set CriticalHitZone Back
+	set WeaponType 180
+	set ArmorType 285.0
+	set VisionRange 26
+	set RadarRange 22
+	set Range 24
+	set DeployAnim Units/Bosses/BossBottomTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossBottomIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossBottomTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossBottomWalkForward.aaf
+	set MoveLeftAnimation Units/Bosses/BossBottomWalkLeft.aaf
+	set MoveRightAnimation Units/Bosses/BossBottomWalkRight.aaf
+	set MoveBackAnimation Units/Bosses/BossBottomWalkBackwards.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossBottomIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossBottomDeath.aaf
+	set MoveSpeed 2.4
+	//set UnitTurnRate 12
+	set UnitTurnRate 0
+	set Mass 1000000000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set UnitLatches "Boss01_Turret /bone bone_attach /offset 0 0 0 /rescale 1 /damagepassthrough 1.0 /noHealthBar"
+	set AbductRes 0.0
+	//set FireDelay 2.9
+	set ShotDamage 0.0
+	set HasRegularShot 0
+	set SubPartHealth 8000
+
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroyChance 100
+	set PickupSpawnOnDestroy2 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance2 100
+	set PickupSpawnOnDestroy4 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance4 100
+
+	//set DestructionEffects_1  "1 0.5 0.5  2 0.4  0 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossTopDx.amf /mmt:BossTopDx /emt:Y /grp:Debris /col [Group DebrisM Box 2 2 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_2  "1 0.5 0.5  1 0.4  0 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossCenterDx.amf /mmt:BossBottomDx /emt:Y /grp:Debris /col [Group DebrisM Box 1 1 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_3  "4 0.5 0.5  1 0.4  20 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossLegDx.amf /mmt:BossBottomDx /emt:Y /grp:Debris /col [Group DebrisM Box 2 2 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_4  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mmt:TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:2"
+	//set DestructionEffects_5  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mmt:TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:2"
+	//set DestructionEffects_6  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:2"
+	//set DestructionEffects_7  "10 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_7  "10 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_8  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	//set DestructionEffects_9  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_10 "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+add WorldObject initFrom TemplateLarge
+	set Name Boss01_Turret_Intro
+	set StateController Boss01_Turret_Intro
+	set Model Units/Bosses/BossTopAnim.amf
+	set Material "mat_Boss01Top<"
+	//set RangeArc 360
+	set RangeArc 360  //Stops Top from rotating all cray
+	set RenderScale .5
+	set AimTurnRate 75
+	set RotationResetDelay 8
+	set HitPoints 1350000 // more than base - base drives health
+	set CarryWeight 35000
+	set WeaponType 180
+	set ArmorType 85.0
+	set VisionRange 34
+	set RadarRange 22
+	set Range 30
+	set DeployAnim Units/Bosses/BossTopTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossTopIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossTopTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossTopWalkForward.aaf
+	set MoveAnimationSpeed .5 //slowwing for intro
+	set IdleAnimation Units/Bosses/BossTopIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossTopDeath.aaf
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossTopFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossTopFRLegHurtOutro.aaf
+
+
+	set MoveSpeed 0.4 // Slowing for intro map
+	set Mass 10000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set CanHitAir 1
+
+	set CanHitGround 1
+
+	// unit spawning hackery
+	//set MissileParticles FireTrail2
+	set MissileParticles MissileTrailSmoke
+	set MissileWiggle 400
+	set MissileIsHoming 0
+	set MissileLifespan 2.0
+	set MissileSpeed 15
+
+	set HasRegularShot 1
+
+	//From Artys
+	set FireDelay 0.2
+	set FireAltDelay 0.0
+	//set FireDelayNoPower 0.2
+	set FireAnimSpeed 1
+	set SustainFireTime 0.2
+	set ReloadTime 3
+	//From Artys
+	set SustainFireTime 0.3
+
+	// Raising damage and slowing shot rate
+	//set ShotDamage 75.0
+	set ShotDamage 600
+	//set FireDelay 0.75
+	//set FireDelay 4
+	//set FireAltDelay 0.33
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	set ShotSpeed 60
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.0
+	set ShotDamageVelocityInfluence 0.0
+	//set UnitSpecial LineTraceHit	// drives instant hit scan and effect spawn as normal projectile
+	//set ShotProjEffects TeslaTower
+	set ShotMuzzleFlash MuzzleFlashTankLarge
+	set ShotFFParticles ChaingunTrailBig
+
+	set BoneFirePoint "bone_gun_r_fire"
+	set BoneFirePointAlt "bone_gun_l_fire"
+	set BoneAimHorizontal "bone_game_horz"  // 0 0 0 forward - y, right - x, up - z
+	set BoneAimVertical "bone_game_vert"  // 0 0 90 forward - x, left - y, up - z
+	set FireAnimation Units/Bosses/BossTopFireLeft.aaf
+	set FireAnimationAlt Units/Bosses/BossTopFireRight.aaf
+
+	set RotationWanderPeriod 6.0		// - time basis for turret rotation wandering, in seconds
+	set RotationWanderMaxArc 12.0		// - max arc/turning for turret rotation wandering
+	set AimWanderSpeed 0.3				// - delta time multiplier for aim wandering when idle
+	set AbductRes 0.0
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+
+add WorldObject initFrom TemplateBossQuad
+	set Name Boss01_Intro
+	set StateController Boss01_Intro
+	set Model Units/Bosses/BossBottomAnim.amf
+	set Material "mat_Boss01Bottom<"
+	// set Material "mat_BossTop01<"
+	set RangeArc 360
+	set RenderScale .5
+	//set AimTurnRate 80
+	set AimTurnRate 0
+	//set RotationResetDelay 8
+	set RotationResetDelay 0
+	set HitPoints 15000 // Removing killable health setting
+	set CarryWeight 35000
+	//set HealRateMod 0.25
+	//set CriticalHitZone Back
+	set WeaponType 180
+	set ArmorType 85.0
+	set VisionRange 26
+	set RadarRange 22
+	set Range 24
+	set DeployAnim Units/Bosses/BossBottomTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossBottomIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossBottomTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossBottomWalkForward.aaf
+	set MoveLeftAnimation Units/Bosses/BossBottomWalkLeft.aaf
+	set MoveRightAnimation Units/Bosses/BossBottomWalkRight.aaf
+	set MoveBackAnimation Units/Bosses/BossBottomWalkBackwards.aaf
+	set MoveAnimationSpeed .5 //slower for intro
+	set IdleAnimation Units/Bosses/BossBottomIdle.aaf
+	set IdleAnimationSpeed .5 //slower for intro
+	set DeathAnimation Units/Bosses/BossBottomDeath.aaf
+	set MoveSpeed 1.0 //Slower for intro
+	//set UnitTurnRate 12
+	set UnitTurnRate 0
+	set Mass 1000000000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set UnitLatches "Boss01_Turret_Intro /bone bone_attach /offset 0 0 0 /rescale 1 /damagepassthrough 1.0 /noHealthBar" //intro turret attached instead
+	set AbductRes 0.0
+	//set FireDelay 2.9
+	set ShotDamage 0.0
+	set HasRegularShot 0
+	set SubPartHealth 5000
+
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+
+	set PickupSpawnOnDestroy AnyPartGoodChance
+	set PickupSpawnOnDestroyChance 100
+	set PickupSpawnOnDestroy2 AnyPartChance
+	set PickupSpawnOnDestroyChance2 100
+	set PickupSpawnOnDestroy4 AnyPartChance
+	set PickupSpawnOnDestroyChance4 100
+
+	//set DestructionEffects_1  "1 0.5 0.5  2 0.4  0 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossTopDx.amf /mmt:BossTopDx /emt:Y /grp:Debris /col [Group DebrisM Box 2 2 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_2  "1 0.5 0.5  1 0.4  0 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossCenterDx.amf /mmt:BossBottomDx /emt:Y /grp:Debris /col [Group DebrisM Box 1 1 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_3  "4 0.5 0.5  1 0.4  20 0  DissolveEmbers MediumSmoke /dcl:shotGroundImpacts /dch:80 /mdl:units/Bosses/BossLegDx.amf /mmt:BossBottomDx /emt:Y /grp:Debris /col [Group DebrisM Box 2 2 1] /mas:1000 /skt:5 /canReclaim"
+	//set DestructionEffects_4  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBarrel.amf /mmt:TankDx /bne:bone_xbarrel /emt:Y /grp:Debris /col [Group Debris Box 0.2 0.6 0.2] /skt:5 /lte:50 /vcb:40 /pval:2"
+	//set DestructionEffects_5  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxTurret.amf /mmt:TankDx /bne:bone_xcap /emt:Y /grp:Debris /col [Group Debris Box 0.5 0.3 0.5] /skt:5 /lte:50 /vcb:40 /pval:2"
+	//set DestructionEffects_6  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack2.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.4 0.2 0.2] /skt:5 /lte:50 /vcb:20 /pval:2"
+	//set DestructionEffects_7  "10 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_7  "10 1 0  5 2   8 4  /mdl:units/Tank/TankDxSidePanel.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.6 0.3 0.1] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_8  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxSideVent.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:3"
+	//set DestructionEffects_9  "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxWindow.amf /mmt:TankDx /bne:bone_xtread_l /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+	//set DestructionEffects_10 "1 1 0  5 2   8 4  /mdl:units/Tank/TankDxBack.amf /mmt:TankDx /bne:bone_xback /emt:Y /grp:Debris /col [Group Debris Box 0.25 0.25 0.25] /skt:5 /lte:50 /vcb:20 /pval:1"
+
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+
+add WorldObject initFrom TemplateLarge
+	set Name BossSmall_Turret
+	set StateController Boss01_Turret
+	set Model Units/Bosses/BossSmallTopAnim.amf
+	set Material "mat_Boss01Top<"
+	set RangeArc 360  //Stops Top from rotating all cray
+	set RenderScale .4
+	set AimTurnRate 75
+	set RotationResetDelay 8
+	set HitPoints 1350000 // more than base - base drives health
+	set CarryWeight 45000
+	set WeaponType 180
+	set ArmorType 90.0
+	set VisionRange 34
+	set RadarRange 22
+	set Range 30
+	set DeployAnim Units/Bosses/BossTopTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossTopIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossTopTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossTopWalkForward.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossTopIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossTopDeath.aaf
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossTopFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossTopFRLegHurtOutro.aaf
+
+	set MoveSpeed 0.8
+	set Mass 10000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set CanHitAir 1
+
+	set CanHitGround 1
+
+	set UnitLatches "RocketPod /bone bone_unit_attach_a /offset 0 0 0 /rescale 1.5 /damagepassthrough 0.05"
+	set UnitLatches "RocketPod /bone bone_unit_attach_b /offset 0 0 0 /rescale 1.5 /damagepassthrough 0.05"
+
+	set MissileParticles MissileTrailSmoke
+	set MissileWiggle 400
+	set MissileIsHoming 0
+	set MissileLifespan 2.0
+
+	set MissileSpeed 22.5
+	set MissileDamage 100.0
+
+	set HasRegularShot 1
+
+	//From Artys
+	set FireDelay 0.2
+	set FireAltDelay 0.0
+	set FireAnimSpeed 1
+	set SustainFireTime 0.2
+	set ReloadTime 3
+	set SustainFireTime 0.3
+
+	// Raising damage and slowing shot rate
+	set ShotDamage 600
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	set ShotSpeed 60
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.0
+	set ShotDamageVelocityInfluence 0.0
+	set ShotMuzzleFlash MuzzleFlashTankLarge
+	set ShotFFParticles ChaingunTrailBig
+
+	set BoneFirePoint "bone_gun_r_fire"
+	set BoneFirePointAlt "bone_gun_l_fire"
+	set BoneAimHorizontal "bone_game_horz"  // 0 0 0 forward - y, right - x, up - z
+	set BoneAimVertical "bone_game_vert"  // 0 0 90 forward - x, left - y, up - z
+	set FireAnimation Units/Bosses/BossTopFireLeft.aaf
+	set FireAnimationAlt Units/Bosses/BossTopFireRight.aaf
+
+	set RotationWanderPeriod 6.0		// - time basis for turret rotation wandering, in seconds
+	set RotationWanderMaxArc 12.0		// - max arc/turning for turret rotation wandering
+	set AimWanderSpeed 0.3				// - delta time multiplier for aim wandering when idle
+	set AbductRes 0.0
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+add WorldObject initFrom TemplateBossQuad
+	set Name BossSmall
+	set StateController Boss01
+	set Model Units/Bosses/BossBottomAnim.amf
+	set Material "mat_Boss01Bottom<"
+	set RangeArc 360
+	set RenderScale 0.4
+	set AimTurnRate 0
+	set RotationResetDelay 0
+	set HitPoints 15000 // Removing killable health setting
+	set CarryWeight 45000
+	set WeaponType 180
+	set ArmorType 90.0
+	set VisionRange 26
+	set RadarRange 22
+	set Range 24
+	set DeployAnim Units/Bosses/BossBottomTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossBottomIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossBottomTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossBottomWalkForward.aaf
+	set MoveLeftAnimation Units/Bosses/BossBottomWalkLeft.aaf
+	set MoveRightAnimation Units/Bosses/BossBottomWalkRight.aaf
+	set MoveBackAnimation Units/Bosses/BossBottomWalkBackwards.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossBottomIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossBottomDeath.aaf
+	set MoveSpeed 2.4
+	set UnitTurnRate 0
+	set Mass 1000000000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set UnitLatches "BossSmall_Turret /bone bone_attach /offset 0 0 0 /rescale 1 /damagepassthrough 1.0 /noHealthBar"
+	set AbductRes 0.0
+	set ShotDamage 0.0
+	set HasRegularShot 0
+	set SubPartHealth 5000
+
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroyChance 100
+	set PickupSpawnOnDestroy2 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance2 100
+	set PickupSpawnOnDestroy4 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance4 100
+
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+
+///// MiniWalkers
+///
+
+add WorldObject initFrom TemplateLarge
+	set Name MiniWalker_Turret_Base
+	set StateController MiniWalker_Turret
+	set Model Units/Bosses/BossSmallTopAnim.amf
+	set Material "mat_Boss01Top<"
+	set RangeArc 360  //Stops Top from rotating all cray
+	set RenderScale 0.3
+	set AimTurnRate 75
+	set RotationResetDelay 8
+	set HitPoints 5000 // more than base - base drives health
+	set CarryWeight 45000
+	set WeaponType 180
+	set ArmorType 90.0
+	set VisionRange 34
+	set RadarRange 22
+	set Range 30
+	set DeployAnim Units/Bosses/BossTopTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossTopIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossTopTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossTopWalkForward.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossTopIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossTopDeath.aaf
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossTopFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossTopFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossTopFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossTopFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossTopFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossTopFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossTopFRLegHurtOutro.aaf
+
+	set MoveSpeed 0.8
+	set Mass 10000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set CanHitAir 1
+
+	set CanHitGround 1
+
+	set MissileParticles MissileTrailSmoke
+	set MissileWiggle 400
+	set MissileIsHoming 0
+	set MissileLifespan 2.0
+
+	set MissileSpeed 22.5
+	set MissileDamage 100.0
+
+	set HasRegularShot 1
+
+	//From Artys
+	set FireDelay 0.2
+	set FireAltDelay 0.0
+	set FireAnimSpeed 1
+	set SustainFireTime 0.2
+	set ReloadTime 3
+	set SustainFireTime 0.3
+
+	// Raising damage and slowing shot rate
+	set ShotDamage 100
+	set ShotFireSounds FiringT99
+	set ShotProjEffects TurretShell
+	set ShotSpeed 60
+	set ShotLifespan 0.8
+	set ShotAimLeadingEffectiveness 0.5
+	set ShotLinearDamp 1.0
+	set ShotDamageVelocityInfluence 0.0
+	set ShotMuzzleFlash MuzzleFlashTankLarge
+	set ShotFFParticles ChaingunTrailBig
+
+	set BoneFirePoint "bone_gun_r_fire"
+	set BoneFirePointAlt "bone_gun_l_fire"
+	set BoneAimHorizontal "bone_game_horz"  // 0 0 0 forward - y, right - x, up - z
+	set BoneAimVertical "bone_game_vert"  // 0 0 90 forward - x, left - y, up - z
+	set FireAnimation Units/Bosses/BossTopFireLeft.aaf
+	set FireAnimationAlt Units/Bosses/BossTopFireRight.aaf
+
+	set RotationWanderPeriod 6.0		// - time basis for turret rotation wandering, in seconds
+	set RotationWanderMaxArc 12.0		// - max arc/turning for turret rotation wandering
+	set AimWanderSpeed 0.3				// - delta time multiplier for aim wandering when idle
+	set AbductRes 0.0
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+add WorldObject initFrom TemplateBossQuad
+	set Name MiniWalker_Base
+	set StateController MiniWalker
+	set Model Units/Bosses/BossBottomAnim.amf
+	set Material "mat_Boss01Bottom<"
+	set RangeArc 360
+	set RenderScale 0.3
+	set AimTurnRate 0
+	set RotationResetDelay 0
+	set HitPoints 5000 // Removing killable health setting
+	set CarryWeight 45000
+	set WeaponType 180
+	set ArmorType 90.0
+	set VisionRange 26
+	set RadarRange 22
+	set Range 24
+	set DeployAnim Units/Bosses/BossBottomTurtleToIdle.aaf
+	set DefendAnim Units/Bosses/BossBottomIdleToTurtle.aaf
+	set DefendIdleAnim Units/Bosses/BossBottomTurtleIdle.aaf
+	set MoveAnimation Units/Bosses/BossBottomWalkForward.aaf
+	set MoveLeftAnimation Units/Bosses/BossBottomWalkLeft.aaf
+	set MoveRightAnimation Units/Bosses/BossBottomWalkRight.aaf
+	set MoveBackAnimation Units/Bosses/BossBottomWalkBackwards.aaf
+	set MoveAnimationSpeed 1
+	set IdleAnimation Units/Bosses/BossBottomIdle.aaf
+	set IdleAnimationSpeed 1
+	set DeathAnimation Units/Bosses/BossBottomDeath.aaf
+	set MoveSpeed 2.4
+	set UnitTurnRate 0
+	set Mass 1000000000.0
+	set LinearDamp 10.0
+	set AngularDamp 3.0
+	set SalvageValue 600
+	set SalvageTime 4.5
+	set AbductRes 0.0
+	set ShotDamage 0.0
+	set HasRegularShot 0
+	set SubPartHealth 5000
+
+	// Front Right
+	set BossDownIntroFR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleFR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroFR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Front Left
+	set BossDownIntroFL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleFL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroFL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+	// Back Right
+	set BossDownIntroBR Units/Bosses/BossBottomFRLegHurtIntro.aaf
+	set BossDownIdleBR Units/Bosses/BossBottomFRLegHurtIdle.aaf
+	set BossDownOutroBR Units/Bosses/BossBottomFRLegHurtOutro.aaf
+	// Back Left
+	set BossDownIntroBL Units/Bosses/BossBottomFLLegHurtIntro.aaf
+	set BossDownIdleBL Units/Bosses/BossBottomFLLegHurtIdle.aaf
+	set BossDownOutroBL Units/Bosses/BossBottomFLLegHurtOutro.aaf
+
+	set PickupSpawnOnDestroy AnyPart
+	set PickupSpawnOnDestroyChance 100
+	set PickupSpawnOnDestroy2 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance2 100
+	set PickupSpawnOnDestroy4 AnyPartGoodChance
+	set PickupSpawnOnDestroyChance4 100
+
+	//Killing treadmarks
+	set TreadMarkDecalDef1 ""
+	set TreadMarkDecalDef2 ""
+	set UnitLevelBase 30
+
+
+// - initial miniwalker - w/ two rocket pods
+add WorldObject initFrom MiniWalker_Turret_Base
+	set Name MiniWalker_Turret
+	set UnitLatches "RocketPod /bone bone_unit_attach_a /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+	set UnitLatches "RocketPod /bone bone_unit_attach_b /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+
+add WorldObject initFrom MiniWalker_Base
+	set Name MiniWalker
+	set UnitLatches "MiniWalker_Turret /bone bone_attach /offset 0 0 0 /rescale 1 /damagepassthrough 1.0 /noHealthBar"
+
+// - siam miniwalker - w/ one buffed rocket pod and 1 heal turret
+add WorldObject initFrom MiniWalker_Turret_Base
+	set Name MiniWalkerSiam_Turret
+	set UnitLatches "HealPod /bone bone_unit_attach_a /offset 0 0 0 /rescale 0.65 /damagepassthrough 0.03"
+	set UnitLatches "RocketPod2 /bone bone_unit_attach_b /offset 0 0 0 /rescale 1 /damagepassthrough 0.05"
+	set AimTurnRate 95
+	set RotationResetDelay 6
+	set HitPoints 6000 // more than base - base drives health
+	set VisionRange 39
+	set RadarRange 25
+	set Range 36
+
+add WorldObject initFrom MiniWalker_Base
+	set Name MiniWalkerSiam
+	set UnitLatches "MiniWalkerSiam_Turret /bone bone_attach /offset 0 0 0 /rescale 1 /damagepassthrough 1.0 /noHealthBar"
+	set HitPoints 6000 // Removing killable health setting
+	set SubPartHealth 6000
