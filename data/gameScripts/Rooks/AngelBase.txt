@@ -10,19 +10,19 @@
 // Level Up Bonus Settings
 // =======================
 //
-LvlDamageMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
-LvlDamageMultSpecial = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
-LvlHullStrengthMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
-LvlFuelMult = 1, 1.07, 1.14, 1.21, 1.28, 1.35, 1.42, 1.49, 1.56, 1.63, 1.7, 1.77, 1.84, 1.91, 1.98, 2.05, 2.12, 2.19, 2.26, 2.33
-LvlCarryMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
-LvlHealMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+//LvlDamageMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+//LvlDamageMultSpecial = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+//LvlHullStrengthMult = 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225
+//LvlFuelMult = 1, 1.07, 1.14, 1.21, 1.28, 1.35, 1.42, 1.49, 1.56, 1.63, 1.7, 1.77, 1.84, 1.91, 1.98, 2.05, 2.12, 2.19, 2.26, 2.33
+//LvlCarryMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
+//LvlHealMult = 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95
 
 BaseName = Angel
 RookStateController = RookTitanAngel
 // ===============
 // General
 // ===============
-HullMaxStrength = 1500
+HullMaxStrength = 1550
 //RespawnCreditsCost = 4200
 
 //FuelCapacity = 10
@@ -31,7 +31,7 @@ HullMaxStrength = 1500
 //FuelConsumptionRobotScalar = 0.15			// - scalar to fuel consumption for robot mode
 //FuelRegenOnGroundNoMoveOrFire = 1.5						// - fuel regeneration rate when on the ground - per second
 
-TransportHPCapacity = 2400
+TransportHPCapacity = 2300
 //TransportLinearDampCalcNominalHP = 420
 
 RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by pilot bonus)
@@ -39,9 +39,6 @@ RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by p
 
 DefaultUberPowerup = "UberSniper 50"
 
-GndProjDPS = 237				// - how much damage our weapon does per second (in robot mode)
-AirProjDPS = 360				// - how much damage our weapon does per second (in air mode)
-WeaponType = 50
 //GlideForceMult = "7.25 1.4 0.25 0.4"  // start speed, end speed, lerp time, total time
 //GlideJump = "3.8 0.1 0.34 0.7" // jump height, raise time, down time, total time
 ArmorType = 75
@@ -101,8 +98,38 @@ GndDestructionEffects = "2 1 1  10 5   6 4  SmallSmoke ExplosionFire FireBurn /d
 // Weapon Stuff
 // ============
 //
-GndProjFireRate = 7			// - fire rate - in robot mode - rounds per second
+GndProjDPS = 420				// - how much damage our weapon does per second (in robot mode)
+GndProjRange = 10				// - range of shots - in robot mode
+GndProjFireRate = 17			// - fire rate - in robot mode - rounds per second
+AirProjDPS = 360				// - how much damage our weapon does per second (in air mode)
 AirProjFireRate = 8			// - fire rate - in air mode - rounds per second
+WeaponType = 50
+GndDmgFalloffAtRange = 0.20	// at this ratio of range, linear falloff of damage for ground attacks
+GndSniperDmgFalloffAtRange = 0.85 // falloff for sniper mode / angel
+
+AirProjFireBone1 = "bone_flash_L"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_flash_R"
+AirProjFireOffset2 = "0 0 0"
+
+GndSniperFireRate = 2.0			// - sniper mode fire rate
+GndSniperDPS = 440
+SpecialWeaponType = 90.0
+GndSniperFireBone = bone_flash_rifle
+GndSniperScopeBone = bone_scope	// point for laser sight origination
+GndSniperProjSpeed = 180.0
+GndSniperZoomRange = 12.0
+GndSniperEnergyPerShot = 5.0	// - angel setting
+SniperStasisEnergy = 2.5        // energy to trigger SniperStasis ability
+GndSniperEnergyPerUberShot = 0.5 // - energy used for an angel shot in uber powerup mode (as opposed to above)
+GndSniperUberSpeedShotMult = 1.5  // faster shots in 'user powerup' mode 'UberSniper'
+FiringAnimation_Alt = rooks/Angel/Angel_Special_Fire.aaf
+
+GndProjFireBone1 = bone_flash_R
+GndProjFireOffset1 = "0 0 0"
+GndProjFireBone2 = bone_flash_L
+GndProjFireOffset2 = "0 0 0"
+
 
 GndProjParticlesFAF = "TracerAirMechChopperGnd"		// - particle system to use for the shot projectile - air mode (fire and forget style)
 AirProjParticlesFAF = "TracerAirMechChopper"		// - particle system to use for the shot projectile - air mode (fire and forget style)

@@ -1,0 +1,349 @@
+// ===========================
+// Rook "Chopper" Settings
+// ===========================
+#include Common.txt
+BaseName = Chopper
+RookStateController = RookTitanChopper
+// ===============
+// General
+// ===============
+HullMaxStrength = 1600
+//RespawnCreditsCost = 4200
+TailRotorStabalized = true					// used for yaw versus roll on coded death animation/effects
+
+//FuelCapacity = 10
+//Fuel_OnStart = 10
+//FuelConsumption = 0.5						// - units of fuel used per second of full thrust
+//FuelConsumptionRobotScalar = 0.15			// - scalar to fuel consumption for robot mode
+//FuelRegenOnGroundNoMoveOrFire = 1.5						// - fuel regeneration rate when on the ground - per second
+
+
+
+RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by pilot bonus)
+//RespawnTimer = 1.5				// - number of second to respawn at base after we've been destroyed (was 1 second)
+
+GndProjDPS = 255				// - how much damage our weapon does per second (in robot mode)
+AirProjDPS = 350				// - how much damage our weapon does per second (in air mode)
+
+// Translation
+RobotLinearDamping = 12.0
+AirThrustMultWhenFiring = 0.81
+AirMoveForceMultWhenNoFuel = 0.75
+
+ShipLinearDamping = 6.9
+TransportLinearDamping = 8.9 // Transport is the flying mode while carrying a unit. This makes you fly slower and use more fuel.
+TransportLinearDampBase = 7.4
+TransportHPCapacity = 2800
+//TransportLinearDampCalcNominalHP = 1000
+
+DefaultUberPowerup = "UberMissiles 200"
+
+// ===============
+// Visual Elements
+// ===============
+//
+AirMesh = rooks/Chopper/ChopperAir.amf
+GndMesh = rooks/Chopper/ChopperRobot.amf
+AirMechMaterials = mat_AirMechChopper
+AirMechModelMats = ""
+RespawnMesh = rooks/Chopper/ChopperRespawn.amf
+RespawnAnimation = rooks/Chopper/ChopperRespawn.aaf
+
+GroundIdleAnim = rooks/Chopper/GroundIdle.aaf
+GroundMoveCycleAnim_Fwd = rooks/Chopper/GroundMoveForward.aaf
+GroundMoveCycleAnim_Back = rooks/Chopper/GroundMoveBackward.aaf
+GroundMoveCycleAnim_Left = rooks/Chopper/GroundMoveLeft.aaf
+GroundMoveCycleAnim_Right = rooks/Chopper/GroundMoveRight.aaf
+
+GroundMoveCycleAnimSpeedMult = 0.2
+GroundMoveBackCycleAnimSpeedMult = 0.2
+
+
+TransportMesh = rooks/FighterA/AirMechFighterTransport.amf		// mesh of attachment to normal mesh for carrying units
+TransportMaterial = mat_AirMechTransport
+
+HoverAnimation = rooks/Chopper/ChopperAir_Hover.aaf
+HoverAnimationSpeed = 0.6
+FlyingAnimation = rooks/Chopper/ChopperAir_Hover.aaf
+FlyingAnimationSpeed = 0.85
+FiringAnimation = rooks/Chopper/ArmsAim.aaf
+//FiringAnimation = ""
+//GndMeleeAnimation = rooks/Chopper/ArmsAim.aaf // hack so the helix doesn't fire when firing gnd missiles
+AirFiringAnimations = rooks/Chopper/ChopperAir_Fire_L.aaf, rooks/Chopper/ChopperAir_Fire_R.aaf
+
+// ========================
+// Movement (Vehicle - Air)
+// ========================
+//
+// Rotation
+ShipMaxRotThrust = 100			// - max degrees per second the ship can turn (not physics based)
+ShipMaxRotTorque  = 600000		// - max rotational torque for the fine control thrusters (physics based)
+RobotMaxRotTorque = 0			// - max rotational torque when in robot mode (controls robot mode rotation speed)
+RobotMaxRotTorqueTurnOnlyMode = 366000
+ShipAngularDamping = 35.0
+
+ShipBankingAngleSlewDown = 0.22		// - banking angle slew rate to use when target angle is decreasing
+ShipBankingAngleSlewUp = 0.22		// - banking angle slew rate to use when target angle is increasing
+ShipBankingAngleClipAbsMax = 40.0	// - max banking angle (negative and positive) the engine will clip to
+
+AimMaxTilt = 30.0		// - max tilt in degrees for rooks using this movement style
+
+// by default, pitch are roll are split based on facing.  Additional scalars here to make this work better for particular units
+AimPitchMult = 0.6
+AimRollMult = 1.0
+
+//
+
+
+// ===========================
+// Destruction Spawners
+// ===========================
+// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+// : valid Tags: dcl, dch
+//
+DestructionEffects = "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxBody_r.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25]" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxBody_l.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25]" "5 1 1  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxWing.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /trQ:100  /grp:DebrisM /col [Group DebrisM Box 0.1 0.1 0.8]" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxCockpit.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /vcb:100" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxEngine.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperDxTail.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "1 0.2 0    0.5 0  0 0 	ExplosionSeq ExplosionSeq3" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare" "12 1 0.5  2.4 2  2 10  /mdl:units/ArmoredCar/ArmoredCarDxGlass.amf /reqVis /nocol /mtl:mat_ArmoredCar /trq:-10 /wgl:1000 /col [Sphere 0.1]"
+GndDestructionEffects = "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxShoulder.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxGun.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.2 0.25] /mas:10" "1 1.2 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxHead.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Sphere 0.3] /mas:10 /vcb:100 /reqVis" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxLeg.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxArm.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/Chopper/ChopperRobotDxFoot.amf /mtl:mat_AirMechChopperDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "5 1 1  0.5 3   0 0  AirMechPieces  /vcb:100 /reqVis" "1 0.2 0  0.5 0    0 0 ExplosionSeq3  /vcb:100 /reqVis" "1 0.2 0    0.5 0  0 0 ExpBlastRingSmall UnitPickupFromRook /reqVis" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare"
+
+BoneRefPairs = AuraRoot, bone_root, AuraRootGnd, bone_rotor, AuraShoulderL, bone_arm_upper_L, AuraShoulderR, bone_arm_upper_R
+
+// =========================
+// Movement (Robot - Ground)
+// =========================
+//
+
+// ============
+// Weapon Stuff
+// ============
+//
+
+GndProjFireRate = 20			// - fire rate - in robot mode - rounds per second - driven by sound audio structure only!
+AirProjFireRate = 10			// - fire rate - in air mode - rounds per second
+
+WeaponType = 55
+SpecialWeaponType = 85
+
+ArmorType = 80
+
+
+AirProjFirePoint1 = ".85 1.0 0.15"		// - weapon fire point 1 (cycles between 1 and 2)
+AirProjFirePoint2 = "-.85 1.0 0.15"
+
+AirProjFireBone1 = "bone_barrel_l"
+AirProjFireOffset1 = "0 0 0"
+AirProjFireBone2 = "bone_barrel_r"
+AirProjFireOffset2 = "0 0 0"
+
+GndProjFireBone1 = "bone_gun_l"
+GndProjFireOffset1 = "0.0 0.25 0.3"
+GndProjFireBone2 = "bone_gun_r"
+GndProjFireOffset2 = "0.0 0.25 0.3"
+GndProjParticlesFAF = "TracerAirMechChopperGnd"		// - particle system to use for the shot projectile - air mode (fire and forget style)
+AirProjParticlesFAF = "TracerAirMechChopper"		// - particle system to use for the shot projectile - air mode (fire and forget style)
+
+MissileProjFireBone1 = "bone_gun_l"
+MissileProjFireBone2 = "bone_gun_r"
+
+//HeadLookBone = jnt_head_aim
+//UpperBodyAimBone = jnt_spine_base
+//RightShoulderTargetingBone = jnt_shoulder_base_R
+//LeftShoulderTargetingBone = jnt_shoulder_base_L
+
+// =======================
+// Wingtip Particle System
+// =======================
+//
+//
+WingtipPointBone1 = "bone_contrail_1"
+WingtipPoint1 = "0 0 0"
+WingtipPointBone2 = "bone_contrail_2"
+WingtipPoint2 = "0 0 0"
+WingtipParticles1 =	""
+WingtipParticles2 =	""
+
+ContrailMultipleCfg = "0.0 0.15 0"	// multiple contrail config magic numbers:
+									// YAxis Step, Offset Mult, Unused
+//RequiredSpeedForGroundContrails = 2.0
+GroundContrailsBone1 = "bone_tailfin"
+GroundContrailsOffset1 = "0.68 -0.1 -0.6"
+GroundContrailsBone2 = "bone_tailfin"
+GroundContrailsOffset2 = "0.68 -0.1 0.6"
+GroundContrailsBone3 = ""
+GroundContrailsOffset3 = "0 0 0"
+GroundContrailsBone4 = ""
+GroundContrailsOffset4 = "0 0 0"
+GroundContrailsPfx1 = ""
+GroundContrailsPfx2 = ""
+GroundContrailsPfx3 = ""
+GroundContrailsPfx4 = ""
+
+// =======================
+// Wing Fold System
+// =======================
+//
+//
+WingBone1 = ""
+WingBone2 = ""
+WingBone3 = ""
+WingBoneRotationMax1 = -25.0
+WingBoneRotationMax2 = 25.0
+WingBoneRotationMax3 = 0.0
+WingFoldSpeedMin = 12
+WingFoldSpeedMax = 28
+WingFoldSlewRate = 0.2
+WingFoldSlewRateReduce = 1.1		// - the slew rate on reduce (slowing down)
+
+// =============================================
+// connection points for recharge lines of POWER
+// =============================================
+//
+//
+RechargeBones = bone_door_r, bone_door_l, bone_root, bone_tail, bone_nose
+
+// ==================
+// Particle Effects
+// ==================
+//
+EngineThrustParticles = ""
+Engine1ThrustPosByBone = bone_l_thruster
+Engine2ThrustPosByBone = bone_r_thruster
+Engine1ThrustPosOffset = "0.21 -0.95 0.05"			// - local point location of first engine - engine locations are used for particle effects
+Engine2ThrustPosOffset = "-0.21 -0.95 0.05"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustPosOffsetPhysics = "1.25 -0.67 0"			// - local point location of first engine - engine locations are used for physics effects
+Engine2ThrustPosOffsetPhysics = "-1.25 -0.67 0"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+Engine2ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+
+// ===================
+// Chopper Audio
+// ===================
+//
+AirRookDestroyedSounds = "DestroyAirMech02.wav"
+
+
+AirAudioLoop1 = MechChopperHover.wav		// - this is the middle pitch loop
+AirAudioLoop1_MinVol = 100
+AirAudioLoop1_MaxVol = 0
+AirAudioLoop1_MinFreq = 1.0
+AirAudioLoop1_MaxFreq = 1.0
+AirAudioLoop1_Input = 1				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop1_SlewRate =  0.12			// - slew rate of input value
+
+AirAudioLoop2 = MechChopperFly.wav		// - this is the low pitch loop
+AirAudioLoop2_MinVol = -1 // cross fade hack
+AirAudioLoop2_MaxVol = -1
+AirAudioLoop2_MinFreq = 1.0
+AirAudioLoop2_MaxFreq = 1.12246			// +2 semitones
+AirAudioLoop2_Input = 20				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop2_SlewRate = 0.08			// - slew rate of input value
+
+// ==============================================
+// Rotating stuff
+// - somewhat generalized, but initially created
+// - for the chopper Rook "bone deg/sec"
+// ==============================================
+ZSpinDef_1 = "bone_rotor_main  	500.0	/noAccel /zfixed"
+ZSpinDef_2 = "bone_r_tailrotor 	1000.0	/noAccel"
+ZSpinDef_3 = "bone_l_tailrotor	1000.0	/noAccel"
+ZFixedBone = "" //bone_fixed
+
+
+// ==============================================
+// Missile ability / special mode, on the Chopper
+// ==============================================
+
+AirSpecialMode = Missiles
+GndSpecialMode = Missiles
+ActivatedAbility = MissileBurst
+EnterSpecialModeWaitStateTimer = 0.25					// - wait state timer when entering special mode (no fire or move)
+LeaveSpecialModeWaitStateTimer = 0.25					// - wait state timer when exiting special mode (no fire or move)
+DoSpecialActionWaitStateTimer = 0.0						// - not used for missiles
+
+AirSpecialOnAnim = rooks/chopper/DoorOpen.aaf
+AirSpecialOffAnim = rooks/chopper/DoorClose.aaf
+GndSpecialOnAnim = "" //rooks/chopper/ArmDoorOpen.aaf
+GndSpecialOffAnim = "" //rooks/chopper/ArmDoorClose.aaf
+
+// ==============================
+// AirMech Abilities (Leveled Up)
+// ==============================
+//
+Abilities=Missiles, Lifter, Builder, MissileBurst //, Infantry, Guardian, LevelUp, Armor
+AbilityAirSpecialSlot=0
+AbilityGndSpecialSlot=0
+AbilityPassiveSlot=1
+AbilityPassive2Slot=2	// optional, second passive slot
+AbilityPassive3Slot=7 	//Builder (passive)
+AbilityActiveSecondarySlot=3	//MissileBurst
+AbilityAIUpgradeOrder=0, 1, 2, 3, 0, 1, 2, 3  // individual points order, afterwhich, original logic takes over
+
+
+// ========================================================
+// Missile special settings.
+// ========================================================
+MissileModel = effects/RocketMini.amf
+MissilesWiggle = 650
+MissilesLifespan = 0.8
+MissilesHomingLifespan = 0.8
+RocketsLifespan = 0.6
+RocketsDamage = 130, 110, 90, 80, 60
+RocketsVelocity = 50.0
+MissilesVelocity = 25.0
+MissilesHomingVelocity = 25.0
+MissilesHomingAccelTime = 0.0
+MissilesDamage = 60, 60, 65, 70, 75
+MissilesHomingDamage = 60, 60, 65, 70, 75
+MissilesVelPass = 0.35
+MissilesFuelToLoad = 1.5
+MissilesSets = 1	// used by Striker A2A - how many pairs will it fire
+MissilesBatchCount = 4
+
+// ========================================================
+// Missile Burst settings.
+// ========================================================
+#if !retail
+MissileBurstCooldown = 2.0
+#else
+MissileBurstCooldown = 20.0
+#endif
+MissileBurstBaseSalvos = 1
+MissileBurstMissilesPerSalvo = 2	// default # of missiles in a salvo/set
+MissileBurstSalvosPerLevel = 1
+MissileBurstPerSetDelay = 0.50		// time between subsequent missile burst salvos
+MissileBurstEnergyUse = 3.0
+MissileBurstAccelTime = 0.5
+MissileBurstLobTime = 0.0 // 0.35 - lob fire doesn't work on these yet
+MissileBurstLobHeight = 1.6
+
+// ========================================================
+// Missile special settings.
+// ========================================================
+//MissilesWiggle = 100
+//MissilesLifespan = 1.0
+//MissilesHomingLifespan = 0.675
+//RocketsLifespan = 0.6
+//RocketsVelocity = 38.0
+//RocketsDamage = 142.5, 71.25, 47.5, 35.625, 28.5
+//MissilesVelocity = 27.0
+//MissilesHomingVelocity = 32.0
+//MissilesDamage = 50
+//MissilesHomingDamage = 125 // fire charge count limited to 1 (1 per 0.75 s)
+//MissilesVelPass = 0.4
+//MissilesBatchCount = 4
+
+// for rocket
+//#if airmech_strike
+//	RocketsBlastDamage = "0 0 4.5"		// direct (unused), blast, blast radius
+//#else
+//	RocketsBlastDamage = "0 27.5 4.5"		// direct (unused), blast, blast radius
+//#endif 
+
+//GrenadeDamage = 12, 6, 4, 3
+//GrenadeBlastDamage = 72, 36, 24, 18
+//GrenadeLifetime = 2
+//GrenadeBlastRadius = 5.0
+
+
+// ==============================
+// Attachments
+// ==============================
+// BannerFlagAttachment = "factions/Banner02.amf FactionEmblem< bone_torso_int /ragdoll factions/banner01.txt /offset 0 0 0 /rotate -15 -90 180"

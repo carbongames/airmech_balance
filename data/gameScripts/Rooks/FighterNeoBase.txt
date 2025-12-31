@@ -1,0 +1,212 @@
+// ===========================
+// Rook "Fighter Neo" Settings
+// ===========================
+#include Common.txt
+BaseName = FighterNeo
+RookStateController = RookTitanFighterNeo
+
+// ===============
+// General
+// ===============
+HullMaxStrength = 1400
+//RespawnCreditsCost = 5000
+
+//FuelCapacity = 10
+//Fuel_OnStart = 10
+//FuelConsumption = 0.6
+//FuelConsumptionRobotScalar = 0.15			// - scalar to fuel consumption for robot mode
+//FuelRegenOnGroundNoMoveOrFire = 1.7						// - fuel regeneration rate when on the ground - per second
+
+TransportHPCapacity = 2100
+
+RespawnAnimSpeed = 0.7			// - base speed of the respawn animation (modified by pilot bonus)
+//RespawnTimer = 2.5				// - number of second to respawn at base after we've been destroyed (was 1 second)
+
+GndProjDPS = 240				// - how much damage our weapon does per second (in robot mode)
+GndProjFireRate = 16			// - fire rate - in robot mode - rounds per second
+AirProjDPS = 370				// - how much damage our weapon does per second (in air mode)
+AirProjFireRate = 16			// - fire rate - in air mode - rounds per second
+WeaponType = 50
+//GlideForceMult = "5.25 1.6 0.25 0.4"  // start speed, end speed, lerp time, total time
+ArmorType = 70
+
+
+// Translation
+ShipLinearDamping = 5.6
+AirThrustMultWhenFiring = 0.8
+TransportLinearDamping = 10.4 // Transport is the flying mode while carrying a unit. This makes you fly slower and use more fuel.
+AirMoveForceMultWhenNoFuel = 0.75
+RobotLinearDamping = 11.0
+//TransportLinearDampCalcNominalHP = 1000
+TransportLinearDampBase = 6.1
+
+
+DefaultUberPowerup = "UberStasis 60"
+
+// ===============
+// Visual Elements
+// ===============
+//
+GndMesh = rooks/FighterNeo/FighterNeo_Ref.amf
+AirMechMaterials = mat_AirMechFighterNeo
+AirMechModelMats = AirMechFighterNeo
+GndMaterialAlt = ""		// alternate material for robot mode
+GndModelMatAlt = ""
+
+RespawnMesh = rooks/FighterNeo/FighterNeoRespawn.amf
+RespawnAnimation = rooks/FighterNeo/FighterNeoRespawn.aaf
+AirMesh = rooks/FighterNeo/FighterNeoAir.amf
+
+TransportMesh = rooks/FighterA/AirMechFighterTransport.amf		// mesh of attachment to normal mesh for carrying units
+TransportMaterial = mat_AirMechTransport
+
+HoverAnimation = rooks/FighterNeo/Hover.aaf
+
+// ========================
+// Movement (Vehicle - Air)
+// ========================
+//
+// Rotation
+ShipMaxRotThrust = 290			// - max degrees per second the ship can turn (not physics based)
+ShipMaxRotTorque  = 666000		// - max rotational torque for the fine control thrusters (physics based)
+RobotMaxRotTorque = 0			// - max rotational torque when in robot mode (controls robot mode rotation speed)
+RobotMaxRotTorqueTurnOnlyMode = 400000
+ShipAngularDamping = 20.0
+
+AimRollMult = 3.0		// multiplier on AimMaxTilt - for roll factor
+//ShipBankingAngleSlewDown = 0.2		// - banking angle slew rate to use when target angle is decreasing
+//ShipBankingAngleSlewUp = 0.35		// - banking angle slew rate to use when target angle is increasing
+//ShipBankingAngleClipAbsMax = 70.0	// - max banking angle (negative and positive) the engine will clip to
+
+
+// =========================
+// Movement (Robot - Ground)
+// =========================
+
+
+// ===========================
+// Destruction Spawners
+// ===========================
+// : 'count' 'size'  'linearDamping'  'lifespanBase' 'lifespanRand'   'velocitybase' 'velocityrand'  'particle' 'particle' ... /Tag:Val
+// : valid Tags: dcl, dch
+//
+DestructionEffects = "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxBody_r.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxBody_l.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxWing.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.4 0.25] /mas:10" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxCockpit.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10 /vcb:100" "1 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxEngine.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "2 1 0  30 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoDxTail.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "4 0.2 0    1 1   0 0.2   BlackSmoke" "1 0.2 0    0.5 0  0 0 	ExplosionSeq ExplosionSeq3" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare" "12 1 0.5  2.4 2  2 10  /mdl:units/ArmoredCar/ArmoredCarDxGlass.amf /reqVis /nocol /mtl:mat_ArmoredCar /trq:-10 /wgl:1000 /col [Sphere 0.1]"
+GndDestructionEffects = "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxShoulder.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.8 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxGun.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.2 0.25] /mas:10" "1 1.2 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxHead.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Sphere 0.3] /mas:10 /vcb:100 /reqVis" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxLeg.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25] /mas:10" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxArm.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "2 1 0  10 5   6 4  SmallSmoke ExplosionFire FireBurn /dcl:shotGroundImpacts /dch:80 /mdl:rooks/FighterNeo/FighterNeoRobotDxFoot.amf /mtl:mat_AirMechFighterNeoDx /bne:bone_root /emt:H /trq:-50 /grp:DebrisM /col [Group DebrisM Box 0.4 0.8 0.25]" "4 0.2 0    1 1   0 0.2   BlackSmoke" "5 1 1  0.5 3   0 0  AirMechPieces  /vcb:100 /reqVis" "1 0.2 0  0.5 0    0 0 ExplosionSeq3  /vcb:100 /reqVis" "1 0.2 0    0.5 0  0 0 ExpBlastRingSmall UnitPickupFromRook /reqVis" "14 0.1 0   0.2 0.3  40 4  PolyTrail /reqVis /nocol" "1 0.2 0  0.4 0  0 0 BrightFlare"
+
+BoneRefPairs = AuraRoot, bone_root, AuraRootGnd, bone_thruster, AuraShoulderL, bone_pauldron_L, AuraShoulderR, bone_pauldron_R
+
+// =======================
+// Wingtip Particle System
+// =======================
+//
+//
+WingtipPoint1				"-1.45 -0.68 0.05"			// - maybe this should take a bone instead? or a bone as an optional property?
+WingtipPointBone1			"bone_r_wing_tip"
+WingtipPoint2				"1.45 -0.68 0.05"
+WingtipPointBone2			"bone_l_wing_tip"
+//WingtipPoint3				"-0.65 -0.98 0.65"
+//WingtipPoint4				"0.65 -0.98  0.65 "
+WingtipParticles1 =			Contrails
+WingtipParticles2 =			Contrails
+
+// =======================
+// Wing Fold System
+// =======================
+//
+//
+WingBone1 = "bone_r_wing"
+WingBone2 = "bone_l_wing"
+WingBone3 = ""
+WingBoneRotationMax1 = -25.0
+WingBoneRotationMax2 = 25.0
+WingBoneRotationMax3 = 0.0
+WingFoldSpeedMin = 20
+WingFoldSpeedMax = 50
+WingFoldSlewRate = 0.1
+WingFoldSlewRateReduce = 1.1		// - the slew rate on reduce (slowing down)
+
+// =============================================
+// connection points for recharge lines of POWER
+// =============================================
+//
+//
+RechargeBones = bone_r_wing_tip, bone_l_wing_tip, bone_root, bone_r_thruster, bone_nose
+
+// ==================
+// Particle Effects
+// ==================
+//
+EngineThrustParticles = ShipThrustersMin
+Engine1ThrustPosByBone = bone_thruster
+Engine2ThrustPosByBone =
+Engine1ThrustPosOffset = "0.0 -0.95 0.05"			// - local point location of first engine - engine locations are used for particle effects
+Engine2ThrustPosOffset =  "0.0 -0.95 0.05"
+Engine1ThrustPosOffsetPhysics = "0 -0.67 0"			// - local point location of first engine - engine locations are used for physics effects
+Engine2ThrustPosOffsetPhysics = "0 -0.67 0"			// - local point location of second engine (set to 0,0,0 for no second engine)
+Engine1ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+Engine2ThrustDirection = "0 -1 0"			// - direction of engine thrust, ship relative for first main engine - will be normalized
+
+
+// ===================
+// JetNeo Audio
+// ===================
+//
+
+AirAudioLoop1 = NeoHover.wav
+AirAudioLoop1_MinVol = 100
+AirAudioLoop1_MaxVol = 0
+AirAudioLoop1_MinFreq = 1.0
+AirAudioLoop1_MaxFreq = 1.1
+AirAudioLoop1_Input = 1				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop1_SlewRate =  0.12			// - slew rate of input value
+
+AirAudioLoop2 = NeoFly.wav
+AirAudioLoop2_MinVol = -1 // cross fade hack
+AirAudioLoop2_MaxVol = -1
+AirAudioLoop2_MinFreq = 1.0
+AirAudioLoop2_MaxFreq = 1.2246
+//AirAudioLoop2_MaxFreq = 1.12246			// +2 semitones
+AirAudioLoop2_Input = 25				// - code: 'I' = stick input, number = ship speed, max speed value
+AirAudioLoop2_SlewRate = 0.08			// - slew rate of input value
+
+// =====================================================
+// Cloak ability / special mode, on the Neo
+// =====================================================
+
+AirSpecialMode = Cloak
+GndSpecialMode = Cloak
+ActivatedAbility = EMP
+ActivatedAbilityAlt = RadarDisrupt
+EnterSpecialModeWaitStateTimer = 0.12					// - wait state timer when entering special mode (no fire or move)
+LeaveSpecialModeWaitStateTimer = 0.01					// - wait state timer when exiting special mode (no fire or move)
+DoSpecialActionWaitStateTimer = 2.0						// - not used for missiles
+GndMelee2Animation = Rooks/FighterNeo/FighterNeo_Melee_3.aaf
+Bone_smelee = bone_flash_R
+GndMeleeDmg = "470.0 2.4 2.4"	// dmg, maxdmgdist, mindmgdist (blast settings)
+GndMeleePfx = ExplosionGlowbitsMedium
+
+// ========================================================
+// Shield special settings.
+// ========================================================
+ShieldFuelToMaintain = 0.1
+ShieldSphere = "1.8 1.25 0"		// scale, zoffset, unused
+ShieldDamageSoak = 0.5
+ShieldEnergySoak = 0.1
+
+// ==============================
+// AirMech Abilities (Leveled Up)
+// ==============================
+//
+Abilities=Cloak, EMP, RadarDisrupt, MissileEMP //, Infantry, Guardian, LevelUp, Armor
+AbilityAirSpecialSlot=0
+AbilityGndSpecialSlot=0
+AbilityActiveSecondarySlot=1
+AbilityActiveSecondarySlotAlt=2
+AbilityPassiveSlot=7
+AbilityPassive2Slot=3	// second passive slot - MissileEMP - tags along with EMP and RadarDisrupt
+AbilityAIUpgradeOrder=0, 1, 2, 3, 0, 1, 2, 3  // individual points order, afterwhich, original logic takes over
+
+// ==============================
+// Attachments
+// ==============================
+// BannerFlagAttachment = "factions/Banner02.amf FactionEmblem< bone_torso /ragdoll factions/banner01.txt /offset 0 0 0 /rotate 50 90 0"
