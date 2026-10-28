@@ -54,6 +54,7 @@ TransportLinearDampBase = 6.8
 
 GndMeleePfx = ShotSliceOrange
 GndMeleeDmg = "112.0 2.4 2.4"	// dmg, maxdmgdist, mindmgdist (blast settings)
+SwordEnergyPerStrike = 2.6   // energy per sword hit
 
 GndSpecialMode = Sword
 AirSpecialMode = Afterburner
@@ -261,11 +262,11 @@ AbilityAIUpgradeOrder=0, 1, 2, 3, 0, 1, 2, 3  // individual points order, afterw
 MissilesWiggle = 600
 MissilesLifespan = 0.8
 MissilesHomingLifespan = 0.8
-MissilesVelocity = 25.0
-MissilesHomingVelocity = 25.0
+MissilesVelocity = 15.0
+MissilesHomingVelocity = 15.0
 MissilesHomingAccelTime = 0.4
-MissilesDamage = 100, 100, 100, 100, 100
-MissilesHomingDamage = 100, 100, 100, 100, 100
+MissilesDamage = 60, 60, 60, 60, 60
+MissilesHomingDamage = 60, 60, 60, 60, 60
 MissilesVelPass = 0.4
 
 MissileProjFireBone1 = "bone_shoulder_l"
